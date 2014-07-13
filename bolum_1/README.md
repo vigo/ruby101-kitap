@@ -1,1 +1,3 @@
-# Bölüm 1
+# Ruby 101 Kitabı
+
+Bu kısıma önsöz gelecek...
