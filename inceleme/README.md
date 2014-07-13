@@ -1,0 +1,3 @@
+# İnceleme
+
+Bu kısıma Technical Review gelecek...
