@@ -4,7 +4,7 @@
 
 Dilin en büyük esin kaynağı Perl, Smalltalk, Eiffel, Ada, ve Lisp dilleri.
 
-1995'te başlayan Ruby, tam olarak 2006 yılında kabuş gördü. Keza ilk versiyonları gerçekten çok yavaş ve sıkıntılıydı.
+1995'te başlayan Ruby, tam olarak **2006** yılında kabul gördü. Keza ilk versiyonları gerçekten çok yavaş ve sıkıntılıydı.
 
 En büyük patlamasını [Ruby on Rails](http://rubyonrails.org/) framework'ü ile yaptı. Danimarkalı yazılımcı [@dhh](http://twitter.com/dhh)'in (David Heinemeier Hansson) yayınladığı bu framework ne yazıkki Ruby dilinin önüne bile geçti.
 
