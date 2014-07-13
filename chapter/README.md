@@ -1,3 +1,1 @@
 # Bölüm 5
-
-Bölüm açıklaması...
