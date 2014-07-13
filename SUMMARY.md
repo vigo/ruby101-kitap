@@ -10,7 +10,7 @@
    * [Değişkenler](bolum_2/degiskenler.md)
    * [Ön Tanımlı ve Pseudo (Gerçek Olmayan) Değişkenler](bolum_2/on_tanimli_degiskenler.md)
    * [Operatörler](bolum_2/operatorler.md)
-   * [Global Constants (Genel Sabitler)](bolum_2/global_constants_genel_sabitler)
+   * [Global Constants (Genel Sabitler)](bolum_2/global_constants_genel_sabitler.md)
 * [Bölüm 3](bolum_3/README.md)
    * [Methods (Fonksiyonlar)](bolum_3/methods_fonksiyonlar.md)
    * [Conditional Statements (Koşullar)](bolum_3/conditional_statements_kosullar.md)
