@@ -151,4 +151,29 @@ puts u.name          # Uğur
 
 
 ## Class Variable
-**Class**'a ait değişkendir. Dikkat edin burada türeyen birşey yok. `@@` ile başlar.
+**Class**'a ait değişkendir. Dikkat edin burada türeyen birşey yok. `@@` ile başlar. Kullanmadan önce bu değişkeni mutlaka `init` etmelisiniz (_Yani ön tanımlama yapmalısınız_)
+
+```ruby
+class User
+  attr_accessor :name
+  @@instance_count = 0   # Kullanmadan önce init ettim
+  def initialize(name)
+    @name = name
+    @@instance_count += 1 # Class'dan her instance oluşmasında sayacı 1 arttırıyorum
+  end
+
+  def greet
+    "Merhaba #{@name}"
+  end
+
+  def self.instance_count # burası öneli
+    @@instance_count
+  end
+end
+
+user1 = User.new("Uğur")
+user2 = User.new("Ezel")
+user3 = User.new("Yeşim")
+
+puts "Kaç defa User instance'ı oldu? #{User.instance_count}" # Kaç defa User instance'ı oldu? 3
+```
