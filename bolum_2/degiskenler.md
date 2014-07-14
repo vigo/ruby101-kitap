@@ -23,11 +23,58 @@ Ruby **Duck Typing** şeklinde çalışır. Yani atama yapmadan önce ne tür bi
 
 Yani, bir kuş, eğer ördek gibi yürüyorsa, ördek gibi yüzüyorsa ve ördek gibi ses çıkarıyorsa ben buna Ördek derim!
 
+## Metinsel Atamalar ve Tırnak Kullanımı
+Yeri gelmişken hızlıca bir konuya değinmek istiyorum. Metinsel değişkenler tanımlarken (**String**) eşitlik esnasında tek ya da çift tırnak işareti kullanabiliriz. Fakat aradaki farkı bilerek kullanmamız gerekir.
+
+String içine değişken kullanımı yaptığımız zaman yani;
+```ruby
+a = 41
+puts "Siz tam #{a} yaşındasınız"
+```
+gibi bir durumda, gördüğünüz gibi `#{a}` şeklinde tekst içinde değişken kullandık. Format olarak Ruby'de, `#{BU KISIMDA KOD ÇALIŞIR}` şeklinde istediğimiz kodu çalıştırma yetkimiz var. Bu işlem sade **çift tırnak** kullanımında geçerlidir.
+
+Aynı kodu tek tırnak kullanarak yapmış olsaydık;
+```ruby
+a = 41
+puts 'Siz tam #{a} yaşındasınız'
+```
+çıktısı:
+
+    Siz tam #{a} yaşındasınız
+
+olacaktı. **Tek tırnak** içinde bu işlem çalışmaz!
+
 
 ## Local (Bölgesel)
+Bölgesel ya da **Yerel** değişkenler, bir **scope** içindeki değişkenlerdir. Scope ne dir? kodun çalıştığı bölge olarak tanımlayabiliriz. Bu tür değişkenler mutlaka küçük harfle ya da `_` (_underscore_) işareti ile başlamalıdır. Kesinlike `@`, `@@` ya da `$` işareti gibi ön ekler alamazlar.
+
+```ruby
+out_text = "vigo"
+def greet_user(user_name)
+  out_text = "Merhaba #{user_name}"
+  puts out_text
+end
+
+puts out_text       # vigo
+greet_user("vigo")  # Merhaba vigo
+```
+
+`greet_user` method'undaki (_fonksiyonundaki_) `out_text` aslında `local variable` yani yerel değişken şeklinde çalışmaktadır.
 
 
 ## Global (Genel)
+`$` işaretiyle başlayan tüm değişkenler **Global** değişkenlerdir. Kodun herhangi biryerinde kullanılabilir.
+```ruby
+$today = "Pazartesi"
+def greet_user(user_name)
+  out_text = "Merhaba #{user_name}, bugün #{$today}"
+  puts out_text
+end
+
+puts "Bugün günlerden ne? #{$today}"
+greet_user("vigo")  # Merhaba vigo
+```
+Bu örnekteki **Global** değişken `$today` değişkenidir.
 
 
 ## Constants (Sabitler)
