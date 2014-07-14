@@ -1,6 +1,12 @@
 {
     "pdf": {
         "toc": false,
-        "paperSize": "a4"
+        "paperSize": "a4",
+        "margin": {
+            "right": 62,
+            "left": 62,
+            "top": 36,
+            "bottom": 36
+        }
     }
 }
