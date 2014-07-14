@@ -1,10 +1,10 @@
 # Değişkenler
 
-Değişken denen şey, yani Variable, nesneye atanmış bir işaretçidir aslında. Ne demiştik? Ruby'de herşey bir nesne yani Object. Bu nesnelere erişmek için aracıdır değişkenler.
+Değişken denen şey, yani **Variable**, nesneye atanmış bir işaretçidir aslında. Ne demiştik? Ruby'de herşey bir nesne yani **Object**. Bu nesnelere erişmek için aracıdır değişkenler.
 
 ![Resim 3.2.1 Obje Hiyeraşisi](../images/ruby-object-hiyerasi.png)
 
-Farklı farklı türleri vardır. Birazdan bunlara değineceğiz. En basit anlamda değişken tanımlak;
+Farklı farklı türleri vardır. Birazdan bunlara değineceğiz. En basit anlamda değişken tanımlamak;
 
 ```ruby
 a = 5
@@ -26,12 +26,12 @@ Yani, bir kuş, eğer ördek gibi yürüyorsa, ördek gibi yüzüyorsa ve ördek
 ## Metinsel Atamalar ve Tırnak Kullanımı
 Yeri gelmişken hızlıca bir konuya değinmek istiyorum. Metinsel değişkenler tanımlarken (**String**) eşitlik esnasında tek ya da çift tırnak işareti kullanabiliriz. Fakat aradaki farkı bilerek kullanmamız gerekir.
 
-String içine değişken kullanımı yaptığımız zaman yani;
+String içinde değişken kullanımı yaptığımız zaman yani;
 ```ruby
 a = 41
 puts "Siz tam #{a} yaşındasınız"
 ```
-gibi bir durumda, gördüğünüz gibi `#{a}` şeklinde tekst içinde değişken kullandık. Format olarak Ruby'de, `#{BU KISIMDA KOD ÇALIŞIR}` şeklinde istediğimiz kodu çalıştırma yetkimiz var. Bu işlem sade **çift tırnak** kullanımında geçerlidir.
+gibi bir durumda, gördüğünüz gibi `#{a}` şeklinde tekst içinde değişken kullandık. Format olarak Ruby'de, `#{BU KISIMDA KOD ÇALIŞIR}` şeklinde istediğimiz kodu çalıştırma yetkimiz var. Bu işlem sadece **çift tırnak** kullanımında geçerlidir.
 
 Aynı kodu tek tırnak kullanarak yapmış olsaydık;
 ```ruby
