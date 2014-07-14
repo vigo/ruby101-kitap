@@ -78,12 +78,77 @@ Bu örnekteki **Global** değişken `$today` değişkenidir.
 
 
 ## Constants (Sabitler)
+Sabit ne dir? Değiştirelemeyendir. Yani bu tür değişkenler, ki bu değişken değildir :), **sabit** olarak adlandırılır. Kural olarak mutlaka **BÜYÜK HARF**'le başlar! Bazen de tamamen büyük harflerden oluşur.
+
+```ruby
+My_Age = 18
+your_age = 22
+
+puts defined?(My_Age)    # constant
+puts defined?(your_age)  # local-variable
+```
+`My_Age` sabit, `your_age` de yerel değişken...
+
+Ruby'de ilginç bir durum daha var. Constant'lar **mutable** yani değiştirilebilir. Nasıl yani?
+
+```ruby
+My_Age = 18
+
+puts defined?(My_Age)    # constant
+puts "My_Age: #{My_Age}" # My_Age: 18
+
+My_Age = 22
+
+puts defined?(My_Age)    # constant
+puts "My_Age: #{My_Age}" # My_Age: 22
+```
+ama `warning` yani **uyarı mesajı** aldık!
+
+    untitled:6: warning: already initialized constant My_Age
+    untitled:1: warning: previous definition of My_Age was here
+
+`My_Age` sabiti 6.satırda zaten tanımlıydı. Önceki değeri de 1.satırda diye bize ikaz etti Ruby yorumlayıcısı.
 
 
 ## Paralel Atama
+Hemen ne demek istediğimi bir örnekle açayım:
+```ruby
+x, y, z = 5, 11, 88
+puts x # 5
+puts y # 11
+puts z # 88
+
+a, b, c = "Uğur", 5.81, 1972
+puts a # Uğur
+puts b # 5.81
+puts c # 1972
+```
+
+`x, y, z = 5, 11, 88` derken tek harekette `x = 5`, `y = 11` ve `z = 88` yaptık. İşte bu paralel atama.
 
 
 ## Instance Variable
+**Instance** dediğimiz şey **Class**'dan türemiş olan nesnedir. Bu konuyu detaylı olarak ileride inceleyeceğiz. Sadece ön bilgi olması adına değiniyorum. `@` işareti ile başlarlar.
+
+```ruby
+class User
+  attr_accessor :name
+  def initialize(name)
+    @name = name
+  end
+
+  def greet
+    "Merhaba #{@name}"
+  end
+end
+
+u = User.new("Uğur")
+puts u.greet         # Merhaba Uğur
+puts u.name          # Uğur
+```
+
+`u.name` diye çağırdığımız şey `User` class'ından türemiş olan `u` nesnesinin **Instance Variable**'ı yani türemiş nesneye ait değişkenidir. Fazla takılmayın, `Class` konusunda bol bol değineceğiz...
 
 
 ## Class Variable
+**Class**'a ait değişkendir. Dikkat edin burada türeyen birşey yok. `@@` ile başlar.
