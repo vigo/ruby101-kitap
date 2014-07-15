@@ -8,7 +8,7 @@ puts global_variables
 
 | Değişken | Açıklama |
 | -- | -- |
-| $! | -- |
+| $! | `raise` ile atanan **exception** bilgisidir. `rescue`ile erişilir. |
 | $@ | -- |
 | $& | -- |
 | $\` | -- |
@@ -56,7 +56,6 @@ puts global_variables
 | $-W | -- |
 | $LOADED_FEATURES | -- |
 | $PROGRAM_NAME | -- |
-
 
 
 # Pseudo (Gerçek Olmayan) Değişkenler
