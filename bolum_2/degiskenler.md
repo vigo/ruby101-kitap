@@ -177,3 +177,5 @@ user3 = User.new("Yeşim")
 
 puts "Kaç defa User instance'ı oldu? #{User.instance_count}" # Kaç defa User instance'ı oldu? 3
 ```
+
+Eğer kafanız karıştıysa sorun değil, Class konusunda hepsinin üzerinden tekrar geçeceğiz.
