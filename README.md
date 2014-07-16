@@ -2,7 +2,7 @@
 
 ## Önsöz
 
-Bu kısıma önsöz gelecek...
+Bu kısıma önsöz gelecek.
 
 Özellikle pek çok şeyi olduğu gibi İngilizce olarak kullanmak istedim. Tabiki Türçe anlamını da yazdım fakat, genel olarak kullandığım terminoloji Ruby ve yazılım geliştirme terminolojisi.
 
