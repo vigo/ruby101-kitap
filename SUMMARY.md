@@ -30,7 +30,8 @@
    * [Kernel Modülü](bolum_5/kernel_modulu.md)
 * [Bölüm 6](bolum_6/README.md)
    * [Time ve Date Nesneleri](bolum_6/time_ve_date_nesneleri.md)
-   * [Ruby paketleri: RubyGems](bolum_6/ruby_paketleri_ruby_gems.md)
-   * [Paket yöneticisi: Bundler](bolum_6/paket_yoneticisi_bundler.md)
+   * [Ruby Paketleri: RubyGems](bolum_6/ruby_paketleri_ruby_gems.md)
+   * [Paket Yöneticisi: Bundler](bolum_6/paket_yoneticisi_bundler.md)
+   * [Komut Satırı (Command-Line) Kullanımı](bolum_6/komut_satiri_command-line_kullanimi.md)
 * [Yazar Hakkında](yazar_hakkinda/README.md)
 
