@@ -5,6 +5,7 @@
    * [Ruby Hakkında](bolum_1/tarihce.md)
    * [Kurulum](bolum_1/kurulum.md)
    * [İnteraktif Kullanım](bolum_1/interaktif_kullanim.md)
+   * [Ruby Komutu ve Parametreleri](bolum_1/ruby_komutu_ve_parametreleri.md)
 * [Bölüm 2](bolum_2/README.md)
    * [Syntax (Söz Dizimi) ve Rezerve Kelimeler](bolum_2/syntax_soz_dizimi_ve_degiskenler.md)
    * [Değişkenler](bolum_2/degiskenler.md)

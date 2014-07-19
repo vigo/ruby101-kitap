@@ -44,16 +44,16 @@ puts global_variables
 | $-a | Komut satırından çalıştırma yaparkan `-a` ataması yapılmışsa `$-a` **true** döner. |
 | $-d | `$DEBUG` ile aynı işi yapar. |
 | $-F | `$;` ile aynı işi yapar. |
-| $-i | **in-place-edit** modu. |
-| $-I | -- |
-| $-l | -- |
-| $-p | -- |
-| $-K | -- |
-| $-v | -- |
-| $-w | -- |
-| $-W | -- |
-| $LOADED_FEATURES | -- |
-| $PROGRAM_NAME | -- |
+| $-i | Bu değişken **in-place-edit** modda **extension**'ı saklar. |
+| $-I | `$:` ile aynı işi yapar. (_Büyük i_) |
+| $-l | Eğer `-lis` set edilmişse `true` döner. **Read Only** yani sadece okunur, değeri değiştirilemez! (_Küçük l_) |
+| $-p | Eğer `-pis` set edilmişse `true` döner. **Read Only** yani sadece okunur, değeri değiştirilemez! |
+| $-K | `$KCODE` ile aynı işi yapar. |
+| $-v | `$VERBOSE` ile aynı işi yapar. |
+| $-w | Eğer `-w` set edilmişse `true` döner. |
+| $-W | **Warning Level** yani oluşabilecek hatalar vs ile ilgili 0, 1 ya da 2.seviyede uyarı mesajları göstermek için. |
+| $LOADED_FEATURES | `$"` ile aynı işi yapar. |
+| $PROGRAM_NAME | `$0` ile aynı işi yapar. |
 
 
 # Pseudo (Gerçek Olmayan) Değişkenler
