@@ -1,5 +1,7 @@
 # Ruby 101 Kitabı
 
+[![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
+
 ## Önsöz
 
 Bu kısıma önsöz gelecek...
@@ -10,4 +12,3 @@ Bu kısıma önsöz gelecek...
 
 Yazılım dünyası ne yazıkki İngilizce ve tüm kaynaklar da İngilizce. Bu bakımdan orijinal kelimeleri ve terminolojiyi öğrenmemiz, bilmemiz şart :)
 
-[![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
