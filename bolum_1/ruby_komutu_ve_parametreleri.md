@@ -22,6 +22,7 @@ Kurulum işlemleri bittikten sonra ya da kullandığınız **OS** (_İşletim Si
 | -F**pattern** | **auto split** için ve `split()` için varsayılan regex pattern'i. `$;`değeri. |
 | -i | **in-place-edit** mod. Lütfen örneğe bakın! |
 | -I | `$LOAD_PATH`'e ilave path ekleme. |
+| -K | Japonca (_KANJI_) encoding belirtilir. `UTF-8` için `-K u` kullanılabilir. |
 | -l | Otomatik satır sonu (_Line Ending_) işlemi. `-n`ve `-p` ile çalışır. Önce `$\` değişkenine `$/` değeri atanır, `chop!`metodu her satıra uygulanır. |
 | -n | Komut satırındaki `sed -n` ya da `awk` gibi çalışır. Sanki kodun etrafında **loop** varmış gibi davranarak süzgeçten geçirir. |
 | -p | `-n` gibi çalışır, farkı `$_` den gelen değeri döngünün sonunda **print** eder. |
@@ -34,9 +35,11 @@ Kurulum işlemleri bittikten sonra ya da kullandığınız **OS** (_İşletim Si
 | -W | Uyarı seviyesini belirler (_Warning Level_). **0** Sessiz, **1** Orta şekerli, **2** Verbose! |
 | -x | **Shebang**'den önceki teksti siler atar ve alternatif olara ilgili dizine `cd` yapar.  |
 | --copyright | Ruby'e ait telif bilgisini yazar. `ruby - Copyright (C) 1993-2013 Yukihiro Matsumoto` |
-| --enable=feature[,...], --disable=feature[,...] | -- |
+| --enable=feature[,...], --disable=feature[,...] | Örneğin kodun **RubyGem**'lerini kullanmasını istemiyorsanız `--disable-gems` şeklinde, ya da `$RUBYOPT` çevre değişkenini devre dışı bırakmak için `--disable-rubyopt` gibi. `--disable-all` her ek özelliği devre dışı bırakır. `--enable-all` ya da devreye sokar. |
 | --version | Versiyon numarasını yazar. |
 | --help | Yardım sayfasını gösterir. |
+
+`ruby --help` dışında daha detaylı bilgi `man ruby` yani **man pages**'da bulmak mümkündür, ben de pek çok şeye oradan baktım.
 
 ## `-i` örneği:
 
