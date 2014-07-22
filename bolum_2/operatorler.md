@@ -52,4 +52,17 @@ Operatörler çeşitli kontrolleri yapmak için kullanılır. Hatta bazıları a
 | &&= | Mantıksal **and** ve atama |  |
 | &#124;&#124;= | Varlık ataması (_Existential Operator_) | &#20; |
 
-İlk bakışta insanın aklını durduran bir sürü garip işaretler bunlar değil mi? Hemen örneklerle pekiştirelim
+İlk bakışta insanın aklını durduran bir sürü garip işaretler bunlar değil mi? Hemen örneklerle pekiştirelim.
+
+```ruby
+a = []
+a.class  # => Array
+a.length # => 0
+```
+## `[]=` Kullanım Örneği
+
+```ruby
+a = []             # Bu bir dizi / Array
+a.[]=5,"Merhaba"   # 0 indekli, 5.eleman Merhaba olsun
+p a                # [nil, nil, nil, nil, nil, "Merhaba"]
+```
