@@ -4,7 +4,13 @@
 
 ## Önsöz
 
-Bu kısıma önsöz gelecek...
+Kitap yazman hep hayalini kurduğum birşeydi. Hem kendi işime yarayacak hem de başkalarının işini görecek bir kitap olmalıydı. Aslında 1 sene önce bu işe soyundum ama bir türlü fırsat bulamadım.
+
+Kafamda kabaca planlar yaptım hep ama son noktayı bir türlü koyamadım. [Gitbook.io](http://gitbook.io) bu konuda çok işime yaradı. Hem beni fişekledi hem de [GitHub](http://github.com) ile kolay entegre olması kendimi organize etmem açısından çok rahat oldu.
+
+***
+break
+***
 
 Özellikle pek çok şeyi olduğu gibi İngilizce olarak kullanmak istedim. Tabiki Türçe anlamını da yazdım fakat, genel olarak kullandığım terminoloji Ruby ve yazılım geliştirme terminolojisi.
 
