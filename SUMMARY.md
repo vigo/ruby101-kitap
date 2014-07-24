@@ -14,6 +14,7 @@
    * [Global Constants (Genel Sabitler)](bolum_2/global_constants_genel_sabitler.md)
 * [Bölüm 3](bolum_3/README.md)
    * [Methods (Fonksiyonlar)](bolum_3/methods_fonksiyonlar.md)
+   * [Blocks (Bloklar)](bolum_3/blocks_bloklar.md)
    * [Conditional Statements (Koşullar)](bolum_3/conditional_statements_kosullar.md)
 * [Bölüm 4](bolum_4/veri_tipleri.md)
    * [Object](bolum_4/object.md)
