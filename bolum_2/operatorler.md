@@ -66,3 +66,8 @@ a = []             # Bu bir dizi / Array
 a.[]=5,"Merhaba"   # 0 indekli, 5.eleman Merhaba olsun
 p a                # [nil, nil, nil, nil, nil, "Merhaba"]
 ```
+
+## Unary Operatörleri
+
+**Unary** demek, `+=`, `-=`, `*=` gibi işlemleri yaptığımız operatörler. Yani `x+= 5` dediğimizde (_x'in değerine 5 ekle ve sonucu tekrar x'e ata_) aslında **Unary** operatörü kullanmış oluruz.
+
