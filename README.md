@@ -24,3 +24,22 @@ Takıldığınız bir konuda, GitHub'da yorumları okumanız gerekecek. Hatta ba
 
 Yazılım dünyası ne yazıkki İngilizce ve tüm kaynaklar da İngilizce. Bu bakımdan orijinal kelimeleri ve terminolojiyi öğrenmemiz, bilmemiz şart :)
 
+## Tamamlanma Durumu
+
+### Bölüm 1
+| Bölüm | % |
+| -- | -- |
+| Ruby Hakkında | 80 |
+| Kurulum | 70 |
+| İnteraktif Kullanım | 80 |
+| Ruby Komutu ve Parametreleri | 98 |
+
+### Bölüm 2
+| Bölüm | Durum |
+| -- | -- |
+| Syntax (Söz Dizimi) ve Rezerve Kelimeler | 100 |
+| Değişlenler | 100 |
+| Ön Tanımlı ve Pseudo (Gerçek Olmayan) Değişkenler | 100 |
+| Operatörler | 100 |
+| Global Constants (Genel Sabitler) | 100 |
+
