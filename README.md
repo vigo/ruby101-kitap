@@ -27,19 +27,41 @@ Yazılım dünyası ne yazıkki İngilizce ve tüm kaynaklar da İngilizce. Bu b
 ## Tamamlanma Durumu
 
 ### Bölüm 1
-| Bölüm | % |
-| -- | -- |
-| Ruby Hakkında | 80 |
-| Kurulum | 70 |
-| İnteraktif Kullanım | 80 |
-| Ruby Komutu ve Parametreleri | 98 |
+* Ruby Hakkında (%80)
+* Kurulum (%70)
+* İnteraktif Kullanım (%80)
+* Ruby Komutu ve Parametreleri (%98)
 
 ### Bölüm 2
-| Bölüm | Durum |
-| -- | -- |
-| Syntax (Söz Dizimi) ve Rezerve Kelimeler | 100 |
-| Değişlenler | 100 |
-| Ön Tanımlı ve Pseudo (Gerçek Olmayan) Değişkenler | 100 |
-| Operatörler | 100 |
-| Global Constants (Genel Sabitler) | 100 |
+* Syntax (Söz Dizimi) ve Rezerve Kelimeler (%100)
+* Değişlenler (%100)
+* Ön Tanımlı ve Pseudo (Gerçek Olmayan) Değişkenler (%100)
+* Operatörler (%100)
+* Global Constants (Genel Sabitler) (%100)
 
+### Bölüm 3
+* Methods (Fonksiyonlar) (--)
+* Blocks (Bloklar) (--)
+* Conditional Statements (Koşullar) (--)
+
+### Bölüm 4
+* Object (--)
+* Number (--)
+* String (--)
+* Array (--)
+* Hash (--)
+* Symbol (--)
+* Class (--)
+
+### Bölüm 5
+* Enumeration ve Iteration (--)
+* Ranges (--)
+* File System ve IO (Dosya Sistemi) (--)
+* Exception Handling (--)
+* Kernel Modülü (--)
+
+### Bölüm 6
+* Time ve Date Nesneleri (--)
+* Ruby Paketleri: RubyGems (--)
+* Paket Yöneticisi: Bundler (--)
+* Komut Satırı (Command-Line) Kullanımı (--)
