@@ -24,6 +24,14 @@ Takıldığınız bir konuda, GitHub'da yorumları okumanız gerekecek. Hatta ba
 
 Yazılım dünyası ne yazıkki İngilizce ve tüm kaynaklar da İngilizce. Bu bakımdan orijinal kelimeleri ve terminolojiyi öğrenmemiz, bilmemiz şart :)
 
+## Lisans Mevzusu
+
+Prensip olarak, GitHub'a **Public** olarak koyduğum herşey, herkses tarafından her türlü şekilde kullanılabilir. Bence Public olarak sürülen bir şey (_ki ben eski Amiga'cı Public Domain'ci biriyim_) herkesin tepe tepe kullanabilmesi amaçlı olmalıdır.
+
+Her türlü lisans olayına karşıyım. Eğer bir tür lisanslama yapacaksanız kendinize saklayın :)
+
+Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
+
 ## Tamamlanma Durumu
 
 ### Bölüm 1
