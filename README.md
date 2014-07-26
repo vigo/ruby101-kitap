@@ -40,7 +40,7 @@ Yazılım dünyası ne yazıkki İngilizce ve tüm kaynaklar da İngilizce. Bu b
 * Global Constants (Genel Sabitler) (%100)
 
 ### Bölüm 3
-* Methods (Fonksiyonlar) (--)
+* Methods (Fonksiyonlar) (%100)
 * Blocks (Bloklar) (--)
 * Conditional Statements (Koşullar) (--)
 
