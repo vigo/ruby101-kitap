@@ -126,3 +126,14 @@ end
 
 Fonksiyon içine fonksiyon geçtik gibi.
 
+**Enumeration** / **Number** bölümünde de göreceğiz ama hemen hızlı bir-iki örnek vermek istiyorum blok kullanımıyla ilişkili.
+
+```ruby
+5.times { puts "Merhaba" }
+5.times { |i| puts "Sayı #{i}" }
+5.times do |i|
+  puts "Sayı #{i}"
+end
+```
+
+Not: Aslında `times` sayılara air bir metod ve blok geçebiliyoruz.
