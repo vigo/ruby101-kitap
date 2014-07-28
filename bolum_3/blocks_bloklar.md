@@ -136,4 +136,4 @@ Fonksiyon içine fonksiyon geçtik gibi.
 end
 ```
 
-Not: Aslında `times` sayılara air bir metod ve blok geçebiliyoruz.
+Not: Aslında `times` sayılara ait bir metod ve blok geçebiliyoruz kendisine.
