@@ -8,7 +8,7 @@ Kitap yazmak hep hayalini kurduğum birşeydi. Hem kendi işime yarayacak hem de
 
 Kafamda kabaca planlar yaptım hep ama son noktayı bir türlü koyamadım. [Gitbook.io](http://gitbook.io) bu konuda çok işime yaradı. Hem beni fişekledi hem de [GitHub](http://github.com) ile kolay entegre olması kendimi organize etmem açısından çok rahat oldu.
 
-Hep [O'Reilly](http://www.oreilly.com/)'nin **Pocket** yani cep kitaplarına bayışmışımdır. Hem boyut itibariyle hem de içerik anlamında. Sürekli yanınızda taşıyabileceğiniz, içinde konusuyla ilgili herşeyin kompakt bir şekilde bulunduğu kaynak.
+Hep [O'Reilly](http://www.oreilly.com/)'nin **Pocket** yani cep kitaplarına bayılmışımdır. Hem boyut itibariyle hem de içerik anlamında. Sürekli yanınızda taşıyabileceğiniz, içinde konusuyla ilgili herşeyin kompakt bir şekilde bulunduğu kaynak.
 
 Amacım, bu kitaplar tadında, herzaman yanınızda bulunabilecek, tabiri caizse **başucu** kitabı hazırlamak.
 
