@@ -2,6 +2,8 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
+![%41](http://progressed.io/bar/41 "Genel Tamamlanma %41")
+
 ## Önsöz
 
 Kitap yazmak hep hayalini kurduğum birşeydi. Hem kendi işime yarayacak hem de başkalarının işini görecek bir kitap olmalıydı. Aslında 1 sene önce bu işe soyundum ama bir türlü fırsat bulamadım.
@@ -35,12 +37,16 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 ## Tamamlanma Durumu
 
 ### Bölüm 1
+![%82](http://progressed.io/bar/82)
+
 * Ruby Hakkında (%80)
 * Kurulum (%70)
 * İnteraktif Kullanım (%80)
 * Ruby Komutu ve Parametreleri (%98)
 
 ### Bölüm 2
+![%100](http://progressed.io/bar/100)
+
 * Syntax (Söz Dizimi) ve Rezerve Kelimeler (%100)
 * Değişlenler (%100)
 * Ön Tanımlı ve Pseudo (Gerçek Olmayan) Değişkenler (%100)
@@ -48,11 +54,15 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Global Constants (Genel Sabitler) (%100)
 
 ### Bölüm 3
+![%66](http://progressed.io/bar/66)
+
 * Methods (Fonksiyonlar) (%100)
 * Blocks (Bloklar) (%98)
 * Conditional Statements (Koşullar) (%1)
 
 ### Bölüm 4
+![%0](http://progressed.io/bar/0)
+
 * Object (--)
 * Number (--)
 * String (--)
@@ -62,6 +72,8 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Class (--)
 
 ### Bölüm 5
+![%0](http://progressed.io/bar/0)
+
 * Enumeration ve Iteration (--)
 * Ranges (--)
 * File System ve IO (Dosya Sistemi) (--)
@@ -69,6 +81,8 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Kernel Modülü (--)
 
 ### Bölüm 6
+![%0](http://progressed.io/bar/0)
+
 * Time ve Date Nesneleri (--)
 * Ruby Paketleri: RubyGems (--)
 * Paket Yöneticisi: Bundler (--)
