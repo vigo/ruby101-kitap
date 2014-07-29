@@ -50,7 +50,7 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 ### Bölüm 3
 * Methods (Fonksiyonlar) (%100)
 * Blocks (Bloklar) (%98)
-* Conditional Statements (Koşullar) (--)
+* Conditional Statements (Koşullar) (%1)
 
 ### Bölüm 4
 * Object (--)
