@@ -42,7 +42,7 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 
 ### Bölüm 2
 * Syntax (Söz Dizimi) ve Rezerve Kelimeler (%100)
-* Değişlenler (%100)
+* Değişkenler (%100)
 * Ön Tanımlı ve Pseudo (Gerçek Olmayan) Değişkenler (%100)
 * Operatörler (%100)
 * Global Constants (Genel Sabitler) (%100)
