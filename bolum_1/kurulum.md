@@ -39,7 +39,7 @@ sudo make install
 ## Ruby Versiyon Yöneticileri
 Birden fazla Ruby versiyonu kullanmanız gerekebilir. Eski yaptığınız proje, örneğin `ruby 1.9.3` kullanırken, halen üzerinde çalıştığınız proje `ruby 2.1.0` olabilir.
 
-Bu tür durumlarda farklı Ruby versiyonları ve Ruby paketleri kullanmak gerekebilir. Bu anlarda kolayca versiyon değiştirmek, hatta buna aktive etmek diyelim, için 2 adet popüler versiyon yöneticisi bulunmaktadır.
+Bu tür durumlarda farklı Ruby versiyonları ve Ruby paketleri kullanmak gerekebilir. Bu anlarda kolayca versiyon değiştirmek, hatta buna "aktive etmek" diyelim, için 2 adet popüler versiyon yöneticisi bulunmaktadır.
 
 
 ### Rbenv
