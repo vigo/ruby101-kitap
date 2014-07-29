@@ -14,7 +14,7 @@ Hep [O'Reilly](http://www.oreilly.com/)'nin **Pocket** yani cep kitaplarına bay
 
 Amacım, bu kitaplar tadında, her zaman yanınızda bulunabilecek, tabiri caizse **başucu** kitabı hazırlamak.
 
-Kitabı hazırlarken en çok zorlandığım konuların başında İngilizceden anlamlı Türkçe metinler çıkarmak. Bazı şeyleri İngilizce olarak ifade etmek çok kolay. Fakat bazı durumlarda tam Türkçe anlamlı karşılık bulmak gerçekten zor.
+Kitabı hazırlarken en çok zorlandığım kısım İngilizce'den anlamlı Türkçe metinler çıkartmak oldu. Bazı şeyleri İngilizce olarak ifade etmek çok kolay, fakat bazı durumlarda tam Türkçe anlamlı karşılık bulmak gerçekten zor oluyor.
 
 Prensip olarak **Developer** (_Yazılım Geliştiren Kişi_) denen insanın **default** olarak İngilizce bilmesi gerektiğine inanıyorum. Neden? Örneğin milyonlarca açık-kaynak projenin bulunduğu GitHub'da herkes İngilizce konuşuyor.
 
