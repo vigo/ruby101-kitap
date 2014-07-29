@@ -1,9 +1,9 @@
 # Kurulum
 
 ## OSX
-Eğer Mac OSX kullanıyorsanız ilk etapta hiçbir şeye ihtiyacınız yok. An itibariyle ben 10.9.4 kullanıyorum. OSX Mavericks. Ruby bu işletim sisteminde ön tanımlı geliyor.
+Eğer Mac OSX kullanıyorsanız ilk etapta hiçbir şeye ihtiyacınız yok, çünkü Mac OSX'de Ruby hazır kurulu olarak geliyor.
 
-Gelen versiyon : `ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin13.0]`
+OSX Mavericks (10.9.4) Ruby sürümü : `ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin13.0]`
 
 ## Linux
 [Debian](http://debian.org) ve [Ubuntu](http://ubuntu.com) kullanan okuyucularımız
@@ -37,9 +37,8 @@ sudo make install
 
 
 ## Ruby Versiyon Yöneticileri
-Birden fazla Ruby versiyonu kullanmanız gerekebilir. Eski yaptığınız proje, örneğin `ruby 1.9.3` kullanırken, halen üzerinde çalıştığınız proje `ruby 2.1.0` olabilir.
 
-Bu tür durumlarda farklı Ruby versiyonları ve Ruby paketleri kullanmak gerekebilir. Bu anlarda kolayca versiyon değiştirmek, hatta buna aktive etmek diyelim, için 2 adet popüler versiyon yöneticisi bulunmaktadır.
+Bazen kullandığınız hazır kütüphaneler'in destekledikleri Ruby versiyonlarındaki kısıtlamalar, kişisel tercihiniz gibi farklı nedenlerle birden fazla Ruby sürümü ile çalışmak isteyebilirsiniz. Projelerinizden biri, örneğin `ruby 1.9.3` kullanırken, diğer bir projeniz `ruby 2.1.0` kullanıyor olabilir. Bu anlarda kullandığınız Ruby versiyonunu kolayca değiştirmek, aslında aktive etmek de diyebiliriz, için 2 adet popüler versiyon yöneticisi bulunmaktadır.
 
 
 ### Rbenv
