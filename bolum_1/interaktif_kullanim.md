@@ -4,10 +4,10 @@ Ruby'nin (*ve benzeri dillerin*) en çok hoşuma giden özelliği İnteraktif Sh
 
 Genel olarak bu interaktif kullanım **REPL** olarak geçer. REPL aslında **R**ead **E**xecute **P**rint **L**oop'un baş harfleridir. Yani, kullanıcıdan bir input (_Read_) gelir, bu girdi çalıştırılır (_Evaluate_), sonuç ekrana yazdırılır (_Print_) ve son olarak başa döner ve yine input bekler (_Loop_).
 
-REPL olayı, Python ve Php'de de var.
+REPL olayı, Python ve PHP'de de var.
 
 ## IRB
-Ruby kurulumu ile beraber gelir. Yapmanız gereken terminal'i açıp `irb` yazıp `enter`a basmak.
+Ruby kurulumu ile beraber gelir. Yapmanız gereken Terminal'i açıp `irb` yazıp `enter`a basmak.
 
 ```bash
 irb
