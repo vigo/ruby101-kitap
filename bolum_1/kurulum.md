@@ -37,10 +37,8 @@ sudo make install
 
 
 ## Ruby Versiyon Yöneticileri
-Birden fazla Ruby versiyonu kullanmanız gerekebilir. Projelerinizden biri, örneğin `ruby 1.9.3` kullanırken, 
-diğer bir projeniz `ruby 2.1.0` kullanıyor olabilir.
 
-Çok nadir de olsa kullandığınız hazır kütüphaneler'in destekledikleri Ruby versiyonlarındaki kısıtlamalar gibi farklı nedenlerle birden fazla Ruby sürümü ile çalışmanız gerekebilir. Bu anlarda kullandığınız Ruby versiyonunu kolayca değiştirmek, aslında aktive etmek de diyebiliriz, için 2 adet popüler versiyon yöneticisi bulunmaktadır.
+Bazen kullandığınız hazır kütüphaneler'in destekledikleri Ruby versiyonlarındaki kısıtlamalar, kişisel tercihiniz gibi farklı nedenlerle birden fazla Ruby sürümü ile çalışmak isteyebilirsiniz. Projelerinizden biri, örneğin `ruby 1.9.3` kullanırken, diğer bir projeniz `ruby 2.1.0` kullanıyor olabilir. Bu anlarda kullandığınız Ruby versiyonunu kolayca değiştirmek, aslında aktive etmek de diyebiliriz, için 2 adet popüler versiyon yöneticisi bulunmaktadır.
 
 
 ### Rbenv
