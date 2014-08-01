@@ -15,6 +15,7 @@
 * [Bölüm 3](bolum_3/README.md)
    * [Methods (Fonksiyonlar)](bolum_3/methods_fonksiyonlar.md)
    * [Blocks (Bloklar)](bolum_3/blocks_bloklar.md)
+   * [Proc ve Lambda](bolum_3/proc_ve_lambda.md)
    * [Conditional Statements (Koşullar)](bolum_3/conditional_statements_kosullar.md)
 * [Bölüm 4](bolum_4/veri_tipleri.md)
    * [Object](bolum_4/object.md)
