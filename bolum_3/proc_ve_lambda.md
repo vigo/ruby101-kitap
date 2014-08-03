@@ -45,4 +45,73 @@ end
 puts multiplier 5, 5 # 25
 ```
 
-şeklinde olurdu. Neden **Proc** ile yaptık?
+şeklinde olurdu. Benzer bir örnek daha yapalım:
+
+```ruby
+multiplier = Proc.new { |*number|
+  number.collect { |n| n ** 2 }
+}
+
+multiplier.call(1)       # => [1]
+multiplier.call(2,4,6)   # => [4, 16, 36]
+multiplier[2,4,6].class  # => Array
+```
+
+Az ileride `Array` konusunda göreceğimiz `collect` method'unu kullandık. Bu method ile Array'in her elemanını okuyor ve karesini `n ** 2` alıyoruz. `*` işareti yine Array'de göreceğimiz **splat** özelliği. Yani geçilen parametre grubunu **Array** olarak değerlendir diyoruz.
+
+# Lambda
+
+Python'la uğraşan okurlarımız **Lambda**'ya aşina olabilirler. **Proc** ile ilk göze çarpan fark, argüman olarak geçilen parametrelerin sayısı önemlidir Lambda'da. Aynı **Proc** gibi çalışır.
+
+```ruby
+custom_print = lambda { |txt| puts txt }
+custom_print.call("Hello") # Hello
+```
+Eğer **2** parametre geçseydik:
+
+```ruby
+custom_print = lambda { |txt| puts txt }
+custom_print.call("Hello", "World")
+
+# ArgumentError: wrong number of arguments (2 for 1)
+```
+
+Ya da;
+```ruby
+l = lambda { "Merhaba" }
+puts l.call # Merhaba
+```
+
+Başka bir kullanım;
+
+```ruby
+l = lambda do |user_name|
+  if user_name == "vigo"
+    "Selam vigo! nasılsın?"
+  else
+    "Selam sana #{user_name}"
+  end
+end
+
+puts l.call("vigo")   # Selam vigo! nasılsın?
+puts l.call("uğur")   # Selam sana uğur
+```
+
+## Proc ve Lambda Farkı
+
+```ruby
+def arguments(input)
+  one, two = 1, 2
+  input.call(one, two)
+end
+
+puts arguments(Proc.new{ |a, b, c| puts "#{a} ve #{b} ve #{c.class}" })
+
+# 1 ve 2 ve NilClass
+
+puts arguments(lambda{ |a, b, c| puts "#{a} ve #{b} ve #{c.class}" })
+
+# ArgumentError: wrong number of arguments (2 for 3)
+```
+
+Aynı kodu kullandık, **Lambda** yeterli parametre almadığı için hata verdi.

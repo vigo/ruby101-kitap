@@ -36,6 +36,10 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 
 ## Tamamlanma Durumu
 
+### Genel Durum
+
+![%42](http://progressed.io/bar/42)
+
 ### Bölüm 1
 ![%82](http://progressed.io/bar/82)
 
@@ -54,11 +58,11 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Global Constants (Genel Sabitler) (%100)
 
 ### Bölüm 3
-![%66](http://progressed.io/bar/63)
+![%66](http://progressed.io/bar/75)
 
 * Methods (Fonksiyonlar) (%100)
-* Blocks (Bloklar) (%98)
-* Proc ve Lambda (%50)
+* Blocks (Bloklar) (%100)
+* Proc ve Lambda (%100)
 * Conditional Statements (Koşullar) (%1)
 
 ### Bölüm 4
