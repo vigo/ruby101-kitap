@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%41](http://progressed.io/bar/41 "Genel Tamamlanma %41")
+![%42](http://progressed.io/bar/42 "Genel Tamamlanma %42")
 
 ## Önsöz
 
@@ -35,10 +35,6 @@ Her türlü lisans olayına karşıyım. Eğer bir tür lisanslama yapacaksanız
 Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 
 ## Tamamlanma Durumu
-
-### Genel Durum
-
-![%42](http://progressed.io/bar/42)
 
 ### Bölüm 1
 ![%82](http://progressed.io/bar/82)
