@@ -54,10 +54,11 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Global Constants (Genel Sabitler) (%100)
 
 ### Bölüm 3
-![%66](http://progressed.io/bar/66)
+![%66](http://progressed.io/bar/63)
 
 * Methods (Fonksiyonlar) (%100)
 * Blocks (Bloklar) (%98)
+* Proc ve Lambda (%50)
 * Conditional Statements (Koşullar) (%1)
 
 ### Bölüm 4
