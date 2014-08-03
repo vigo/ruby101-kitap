@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%42](http://progressed.io/bar/42 "Genel Tamamlanma %42")
+![%36](http://progressed.io/bar/36 "Genel Tamamlanma %36")
 
 ## Önsöz
 
@@ -88,3 +88,6 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Ruby Paketleri: RubyGems (--)
 * Paket Yöneticisi: Bundler (--)
 * Komut Satırı (Command-Line) Kullanımı (--)
+
+### Kod Yazma Tarzı (_Style Guide_)
+

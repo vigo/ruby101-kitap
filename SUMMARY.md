@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [İnceleme](inceleme/README.md)
 * [Bölüm 1](bolum_1/README.md)
    * [Ruby Hakkında](bolum_1/tarihce.md)
@@ -36,5 +37,6 @@
    * [Ruby Paketleri: RubyGems](bolum_6/ruby_paketleri_ruby_gems.md)
    * [Paket Yöneticisi: Bundler](bolum_6/paket_yoneticisi_bundler.md)
    * [Komut Satırı (Command-Line) Kullanımı](bolum_6/komut_satiri_command-line_kullanimi.md)
+* [Kod Yazma Tarzı (Style Guide)](kod_yazma_tarzi_style_guide.md)
 * [Yazar Hakkında](yazar_hakkinda/README.md)
 
