@@ -115,3 +115,29 @@ puts arguments(lambda{ |a, b, c| puts "#{a} ve #{b} ve #{c.class}" })
 ```
 
 Aynı kodu kullandık, **Lambda** yeterli parametre almadığı için hata verdi.
+
+## Proc'u Block'a çevirmek
+
+Elimizdeki **Array** elemanlarının her birini bir fonksiyona tabii tutsak? Dizinin her elemanını ekrana yazdıran birşey?
+
+```ruby
+items = ["Bu bir", "bu iki", "bu üç"]
+print_each_element = lambda { |item| puts item }
+items.each(&print_each_element)
+```
+
+Bu örnekte `items.each(&print_each_element)` satırı Proc'u Block'a çevirdiğimiz yer. `&` işin sırrı. `each`'den gelen eleman, sanki method çağırır gibi `print_each_element` e pas ediliyor, karşılayan da `{` `}` içinde tanımlı kod bloğunu çalıştırıyor.
+
+Keza aynı işi;
+
+```ruby
+items = ["Bu bir", "bu iki", "bu üç"]
+def print_each_element(item)
+  puts item
+end
+items.each(&method(:print_each_element))
+```
+
+şeklinde de yapabilirdik!
+
+
