@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%39](http://progressed.io/bar/39 "Genel Tamamlanma %39")
+![%43](http://progressed.io/bar/43 "Genel Tamamlanma %43")
 
 ## Önsöz
 
@@ -54,12 +54,12 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Global Constants (Genel Sabitler) (%100)
 
 ### Bölüm 3
-![%66](http://progressed.io/bar/75)
+![%100](http://progressed.io/bar/100)
 
 * Methods (Fonksiyonlar) (%100)
 * Blocks (Bloklar) (%100)
 * Proc ve Lambda (%100)
-* Conditional Statements (Koşullar) (%1)
+* Conditional Statements (Koşullar) (%100)
 
 ### Bölüm 4
 ![%0](http://progressed.io/bar/0)
