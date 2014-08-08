@@ -61,7 +61,7 @@ puts global_variables
 
 | Değişken | Açıklama |
 | -- | -- |
-| self | Alıcı nesnenin o anki aktif metodu. Yani bu bir **Class** ise kendisi...  |
+| self | Alıcı nesnenin o anki aktif method’u. Yani bu bir **Class** ise kendisi...  |
 | nil | Tanımı olmayan (_Undefined_) şeylerin değeri. |
 | true | Mantıksal (_Boolean_) işlem, anlayacağınız gibi **true** yani **1** |
 | false | **true**'nun tersi (_Boolean_) yani **0** |

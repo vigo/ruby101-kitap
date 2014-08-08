@@ -4,7 +4,7 @@ Blok olayı, bence Ruby'nin en çılgın özelliklerinden bir. Aslında bu konu,
 
 Kitabımız 101 yani giriş seviyesinde olduğu için, kafaları minimum karıştırma adına basit şekilde değineceğim.
 
-Blok'lar, genelde **closures** ya da **isimsiz/anonim** fonksiyonlar olarak tanımlanır. Sanki metod içinde başka bir metodu işaret eden ya da değişkenleri metodlar arasında paylaşan dış bir metod gibidirler.
+Blok'lar, genelde **closures** ya da **isimsiz/anonim** fonksiyonlar olarak tanımlanır. Sanki method içinde başka bir method’u işaret eden ya da değişkenleri method’lar arasında paylaşan dış bir method gibidirler.
 
 Genelde ya `{` `}` ile ya da `do/end` ile sarmalanmışlardır.
 
@@ -36,9 +36,9 @@ family_members.each { |member_name| puts member_name }
 
 şeklinde de yazılabilirdi. `do/end` ya da `{}` arasında kalan kısım **Block** kısmıdır.
 
-`family_members` bir **Array** yani dizidir. Eğer `puts family_members.class` dersek bize `Array` oldunu söyler. Array'in `each` metodu bize block işleme şansını sağlar.
+`family_members` bir **Array** yani dizidir. Eğer `puts family_members.class` dersek bize `Array` oldunu söyler. Array'in `each` method’u bize block işleme şansını sağlar.
 
-Komut satırında `ri Array#each` dersek bize Array'in **each** metoduyla ilgili tüm bilgiler gelir.
+Komut satırında `ri Array#each` dersek bize Array'in **each** method’uyla ilgili tüm bilgiler gelir.
 
 `do` komutundan hemen sonra gelen `|member_name|` bizim kafamıza göre tanımladığımız bir değişkendir ve Array'in her elemanı bu değişkene atanır.
 
@@ -72,7 +72,7 @@ end
 # Sayı 3
 # Sayı 4
 ```
-`test_function` adında bir fonksiyonum var (_yani metodum var_) Hiç parametre almıyor! ama **Block** alıyor. İlkinde **curly brace** ile (_yani_ `{` _ve_ `}`), ikincisinde `do/end` ile, son örnekte `do/end` ile ve iç kısımda başka bir iterasyonla kullandım.
+`test_function` adında bir fonksiyonum var (_yani method’um var_) Hiç parametre almıyor! ama **Block** alıyor. İlkinde **curly brace** ile (_yani_ `{` _ve_ `}`), ikincisinde `do/end` ile, son örnekte `do/end` ile ve iç kısımda başka bir iterasyonla kullandım.
 
 Kabaca, fonksiyona kod bloğu geçtim.
 
@@ -136,4 +136,4 @@ Fonksiyon içine fonksiyon geçtik gibi.
 end
 ```
 
-Not: Aslında `times` sayılara ait bir metod ve blok geçebiliyoruz kendisine.
+Not: Aslında `times` sayılara ait bir method ve blok geçebiliyoruz kendisine.

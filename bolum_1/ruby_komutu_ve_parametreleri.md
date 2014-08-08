@@ -23,7 +23,7 @@ Kurulum işlemleri bittikten sonra ya da kullandığınız **OS** (_İşletim Si
 | -i | **in-place-edit** mod. Lütfen örneğe bakın! |
 | -I | `$LOAD_PATH`'e ilave path ekleme. |
 | -K | Japonca (_KANJI_) encoding belirtilir. `UTF-8` için `-K u` kullanılabilir. |
-| -l | Otomatik satır sonu (_Line Ending_) işlemi. `-n`ve `-p` ile çalışır. Önce `$\` değişkenine `$/` değeri atanır, `chop!`metodu her satıra uygulanır. |
+| -l | Otomatik satır sonu (_Line Ending_) işlemi. `-n`ve `-p` ile çalışır. Önce `$\` değişkenine `$/` değeri atanır, `chop!` method’u her satıra uygulanır. |
 | -n | Komut satırındaki `sed -n` ya da `awk` gibi çalışır. Sanki kodun etrafında **loop** varmış gibi davranarak süzgeçten geçirir. |
 | -p | `-n` gibi çalışır, farkı `$_` den gelen değeri döngünün sonunda **print** eder. |
 | -r | `require` komutunun yaptığı gibi verilen değeri **require** eder. (**require** komutunu ileride göreceğiz) |

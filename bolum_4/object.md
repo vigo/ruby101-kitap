@@ -55,7 +55,7 @@ o.__id__       # => 70311450299700
 
 yaptığımızda, oluşan nesnenin hafızada **unique** (_yani bundan sadece bir tane_) bir **identifier**'ı (_kabaca buna kimlik diyelim__) yani **ID**'si olduğunu görürüz. `__id__` yerine `object_id` yani `o.object_id` şeklinde de kullanabiliriz.
 
-Eğer `hash` metodunu çağırırsak, Ruby bize ilgili objenin `Fixnum` türünde sayısal değerini üretir ve verir.
+Eğer `hash` method’unu çağırırsak, Ruby bize ilgili objenin `Fixnum` türünde sayısal değerini üretir ve verir.
 
 ```ruby
 o = Object.new # => #<Object:0x007f8c3b0a3420>
@@ -73,6 +73,16 @@ t.methods                # => [:<=>, :==, :===, :eql?, :hash, :casecmp, :+, :*, 
 
 t.method(:upcase).call   # => "HELLO"
 ```
-`t.methods` ise **String**'den türeyen `t` ye ait tüm metodları listeledik. Sonuç **Array** (_Dizi_) olarak geldi ve bu dizinin tüm elemanları `:` işaretiyle başlıyor. Çünki bu elemanlar birer **Symbol**.
+`t.methods` ise **String**'den türeyen `t` ye ait tüm method’ları listeledik. Sonuç **Array** (_Dizi_) olarak geldi ve bu dizinin tüm elemanları `:` işaretiyle başlıyor. Çünki bu elemanlar birer **Symbol**.
 
-`t.method(:upcase).call` da ise, `t`'nin `:upcase` metodunu `call` ile çağırdır. Aslında yaptığımız iş: `"hello".upcase` ile birebir aynı.
+`t.method(:upcase).call` da ise, `t`'nin `:upcase` method’unu `call` ile çağırdır. Aslında yaptığımız iş: `"hello".upcase` ile birebir aynı.
+
+Acaba bu nesne ne?
+
+`t.is_a?(String) # => true` `is_a?` method’u ile nesnenin türünü kontrol edebiliriz.
+
+Diğer dillerin pek çoğunda (_özellikle Python_) bir işi yapmanın bir ya da en fazla iki yolu varken, **Ruby** bu konuda çok rahattır. Bir işi yapmanın herzaman birden fazla yolu olur ve bunların neredeyse hepsi doğrudur. (_Kullanıldığı yere ve amaca bağlı olarak_)
+
+`is_a?` yerine `kind_of?` da kullanabiliriz!
+
+Bir nesneye ait hangi method'

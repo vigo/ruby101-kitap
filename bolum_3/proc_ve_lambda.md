@@ -4,7 +4,7 @@
 
 Bazen, her seferinde aynı bloğu sürekli geçmek gerektiğinde imdadımıza **Proc** yetişiyor. Nasıl mı?
 
-Düşününki bir method'unuz (_fonksiyonunuz_) olsun, ve bu metodu dinamik olarak programlayabilseniz?
+Düşününki bir method'unuz (_fonksiyonunuz_) olsun, ve bu method’u dinamik olarak programlayabilseniz?
 
 ```ruby
 def multiplier(with)
