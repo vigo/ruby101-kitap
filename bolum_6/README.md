@@ -1,3 +1,11 @@
 # Bölüm 6
 
-Bölüm açıklaması...
+Bu bölümde;
+
+* Regular Expressions
+* Time ve Date
+* Rubygems
+* Bundler
+* CommandLine Kullanımı
+
+konularını işleyeceğiz

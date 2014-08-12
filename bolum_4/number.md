@@ -31,3 +31,5 @@ Sayılar, temel öğe olmayıp, direk nesneden türemişlerdir. Türedikleri nes
 Ruby'de sayı işlerinde `_` hiçbir etki yapmaz. Bir şekilde okumayı kolaylaştırmak için kullanılır. Örnekteki **2014** ile **2_014** aynı şeydir. Büyük sayıları yazarken; `1_345_201` gibi bir ifade `1345201`'dir aslında.
 
 Ondalık sayılarda `.` kullanılır. **Octal** yani 8'lik sayı sistemi için direk `0` ile `0664` gibi kullanılır. 16'lık yani **Hexadecimal** sayı sistemi için, css dünyasından tanıdığınız **beyaz** rengini ifade etmek için `$fff` yerine `0xfff` şeklinde bir kullanım mevcut. 2'lik yani **Binary** sayı sistemi için `0b` ile başlamak yeterlidir. **Scientific Notation** ifadeleri için de `1.2e3`ya da `7e4`gibi kullanımlar mümkündür.
+
+## Number Method'ları

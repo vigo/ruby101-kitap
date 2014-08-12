@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%47](http://progressed.io/bar/47 "Genel Tamamlanma %47")
+![%48](http://progressed.io/bar/48 "Genel Tamamlanma %48")
 
 ## Önsöz
 
@@ -62,11 +62,11 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Conditional Statements (Koşullar) (%100)
 
 ### Bölüm 4
-![%28](http://progressed.io/bar/28)
+![%37](http://progressed.io/bar/37)
 
 * Object (%100)
-* Number (%100)
-* String (--)
+* Number (%80)
+* String (%80)
 * Array (--)
 * Hash (--)
 * Symbol (--)
@@ -84,6 +84,7 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 ### Bölüm 6
 ![%0](http://progressed.io/bar/0)
 
+* Regular Expressions (--)
 * Time ve Date Nesneleri (--)
 * Ruby Paketleri: RubyGems (--)
 * Paket Yöneticisi: Bundler (--)
