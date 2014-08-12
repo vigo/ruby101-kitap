@@ -62,10 +62,10 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Conditional Statements (Koşullar) (%100)
 
 ### Bölüm 4
-![%37](http://progressed.io/bar/37)
+![%40](http://progressed.io/bar/40)
 
 * Object (%100)
-* Number (%80)
+* Number (%100)
 * String (%80)
 * Array (--)
 * Hash (--)
