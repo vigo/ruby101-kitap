@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%49](http://progressed.io/bar/49 "Genel Tamamlanma %49")
+![%53](http://progressed.io/bar/53 "Genel Tamamlanma %53")
 
 ## Önsöz
 
@@ -91,4 +91,4 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 * Komut Satırı (Command-Line) Kullanımı (--)
 
 ### Kod Yazma Tarzı (_Style Guide_)
-![%20](http://progressed.io/bar/20)
+![%50](http://progressed.io/bar/50)

@@ -12,7 +12,7 @@ Bu kuralları ben [GitHub](https://github.com/styleguide/ruby)'dan aldım.
 * Hey `rb` dosyası ya da Ruby kodu içeren dosya boş bir satırla bitsin.
 * Operatörler, virgül, iki nokta, noktalı virgül, `{` ve `}` lerin etrafında mutlaka boşluk `space` karakteri olsun!
 
-### Yanlış
+**Yanlış**
 ```ruby
 a=1
 a,b=1,3
@@ -20,7 +20,7 @@ a,b=1,3
 [1,2,3].each{|n| puts n}
 ```
 
-### Doğru
+**Doğru**
 
 ```ruby
 a = 1
@@ -30,7 +30,7 @@ a ,b = 1, 3
 ```
 * Parantez ve Köşeli parantez kullanırken, ne öncesine ne de sonrasına boş karakter `space` koyma!
 
-### Doğru
+**Doğru**
 ```ruby
 my_method(arg1, arg2).other
 [1, 2, 3].length
@@ -90,3 +90,125 @@ def some_method_with_arguments(arg1, arg2)
  # argümanlı
 end
 ```
+
+* `for` kullanımına dikkat edin, kafanıza göre heryerde kullanmayın:
+
+```ruby
+arr = [1, 2, 3]
+
+# kötü örnek
+for i in arr do
+  puts i
+end
+
+# iyi örnek
+arr.each { |i| puts i }
+```
+
+* İç içe **ternary** kullanmaktan kaçının! Okunabilirliği azaltıyor!
+
+```ruby
+# kötü
+some_condition ? (nested_condition ? nested_something : nested_something_else) : something_else
+
+# iyi
+if some_condition
+  nested_condition ? nested_something : nested_something_else
+else
+  something_else
+end
+```
+* `and` ve `or` yerine `&&` ve `||` kullanın
+* Mümkün oldukça `if` leri tek satır şeklinde kullanın:
+
+```ruby
+# kötü
+if some_condition
+  do_something
+end
+
+# iyi
+do_something if some_condition
+```
+
+* `unless` içinde `else` kullanmaktan kaçının:
+
+```ruby
+# kötü
+unless success?
+  puts "hata"
+else
+  puts "ok"
+end
+
+# good
+if success?
+  puts "ok"
+else
+  puts "hata"
+end
+```
+
+* Tek satırlık blok işlerinde `{` `}`, çok satırlık blok işlerinde `do` `end` kullanın.
+* `return` kelimesini gerekmedikçe kullanmayın.
+* Method'larda parametre olarak `default` değer atarken `=` etrafında **space** kullanın.
+
+```ruby
+# kötü
+def some_method(arg1=:default, arg2=nil, arg3=[])
+  # kod...
+end
+
+# iyi
+def some_method(arg1 = :default, arg2 = nil, arg3 = [])
+  # kod...
+end
+```
+* Varlık operatörü kullanmaktan çekinmeyin!
+
+```ruby
+#  eğer isim nil ya da false ise isim değişkenine "vigo" ata
+isim ||= "vigo"
+```
+
+* **Boolean** değerler için `||=` kullanmayın!
+
+```ruby
+# kötü
+enabled ||= true
+
+# iyi
+enabled = true if enabled.nil?
+```
+
+* Parantezli kullanımda method'dan sonra **space** kullanmayın:
+
+```ruby
+# kötü
+f (3 + 2) + 1
+
+# iyi
+f(3 + 2) + 1
+```
+
+* **Block** içinde kullanmayacağınız değişken için değer ataması yapmayın:
+
+```ruby
+# kötü, k boşa gitti
+result = hash.map { |k, v| v + 1 }
+
+# iyi
+result = hash.map { |_, v| v + 1 }
+```
+
+* Veri tipi kontrolü için `===` kullanmayın! `is_a` ya da `kind_of?` kullanın.
+
+## Naming (İsimlendirmeler)
+
+* Method ve değişken isimleri için `snake_case` kullanın.
+* Class ve Modül için `CamelCase` kullanın.
+* Constant için `SCREAMING_SNAKE_CASE` kullanın.
+* Boolean sonuç dönen method'lar `?` ile bitmeli: `User.is_valid?`
+* Tehlike, nesneyi modifiye eden / değiştiren method'lar `!` ile bitmeli! `User.delete!`
+
+
