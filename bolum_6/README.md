@@ -2,6 +2,7 @@
 
 Bu bölümde;
 
+* Monkey Patching
 * Regular Expressions
 * Time ve Date
 * Rubygems
