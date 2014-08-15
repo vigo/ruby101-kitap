@@ -211,4 +211,79 @@ result = hash.map { |_, v| v + 1 }
 * Boolean sonuç dönen method'lar `?` ile bitmeli: `User.is_valid?`
 * Tehlike, nesneyi modifiye eden / değiştiren method'lar `!` ile bitmeli! `User.delete!`
 
+## Class
 
+* Singleton tanımlarken `self`kullanın:
+
+```ruby
+class TestClass
+  # kötü
+  def TestClass.some_method
+    # kod
+  end
+
+  # iyi
+  def self.some_other_method
+    # kod
+  end
+end
+```
+
+* `private`, `public`, `protected` olan method'larda girintileme method adıyla aynı hizada olsun ve ilgili method'un bir üst satırı boş kalsın:
+
+```ruby
+class SomeClass
+  def public_method
+    # ...
+  end
+
+  private
+  def private_method
+    # ...
+  end
+end
+```
+
+## Exceptions
+
+* Akış kontolü için kullanmayın!
+
+```ruby
+# kötü
+begin
+  n / d
+rescue ZeroDivisionError
+  puts "0'a bölünme hatası!"
+end
+
+# iyi
+if d.zero?
+  puts "0'a bölünme hatası!"
+else
+  n / d
+end
+```
+
+## Diğer
+
+* String'leri concat ederken interpolasyon kullanın:
+
+```ruby
+# kötü
+email_with_name = user.name + " <" + user.email + ">"
+
+# iyi
+email_with_name = "#{user.name} <#{user.email}>"
+```
+
+* Gerekmedikçe değer atamalarında tek tırnak `'` kullanmayın, çift tırnağı tercih edin `"`
+* String concat işlerinde **Array**'e ekleme tekniğini kullanabilirsiniz, hızlı da olur:
+
+```ruby
+  html = ""
+  html << "<h1>Page title</h1>"
+
+  paragraphs.each do |paragraph|
+    html << "<p>#{paragraph}</p>"
+  end
+```
