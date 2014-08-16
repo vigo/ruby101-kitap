@@ -1,10 +1,10 @@
 # Blocks (Bloklar)
 
-Blok olayı, bence Ruby'nin en çılgın özelliklerinden bir. Aslında bu konu, neredeyse başlı başına kitap konusu olabilir. Genelde **Block, Proc, Lambda** üçlemesi olarak anlatılır.
+Blok olayı, bence Ruby'nin en çılgın özelliklerinden biri. Aslında bu konu, neredeyse başlı başına bşr kitap konusu olabilir. Genelde **Block, Proc, Lambda** üçlemesi olarak anlatılır.
 
 Kitabımız 101 yani giriş seviyesinde olduğu için, kafaları minimum karıştırma adına basit şekilde değineceğim.
 
-Blok'lar, genelde **closures** ya da **isimsiz/anonim** fonksiyonlar olarak tanımlanır. Sanki method içinde başka bir method’u işaret eden ya da değişkenleri method’lar arasında paylaşan dış bir method gibidirler.
+Blok'lar, genelde [Closure](http://en.wikipedia.org/wiki/Closure_(computer_programming)) ya da [Anonim](http://en.wikipedia.org/wiki/Anonymous_function) fonksiyonlar olarak tanımlanır. Sanki method içinde başka bir method’u işaret eden ya da değişkenleri method’lar arasında paylaşan dış bir method gibidirler.
 
 Genelde ya `{` `}` ile ya da `do/end` ile sarmalanmışlardır.
 
