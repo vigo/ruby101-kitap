@@ -1,6 +1,6 @@
 # Blocks (Bloklar)
 
-Blok olayı, bence Ruby'nin en çılgın özelliklerinden biri. Aslında bu konu, neredeyse başlı başına bşr kitap konusu olabilir. Genelde **Block, Proc, Lambda** üçlemesi olarak anlatılır.
+Blok olayı, bence Ruby'nin en çılgın özelliklerinden biri. Aslında bu konu, neredeyse başlı başına bir kitap konusu olabilir. Genelde **Block, Proc, Lambda** üçlemesi olarak anlatılır.
 
 Kitabımız 101 yani giriş seviyesinde olduğu için, kafaları minimum karıştırma adına basit şekilde değineceğim.
 
