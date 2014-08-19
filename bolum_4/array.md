@@ -433,6 +433,23 @@ a.rotate(2) # => [3, 4, 5, 1, 2] # 2 kaydırdı, ilk 2 elemanı sona koydu!
 
 Varsayılan değer **1**'dir.
 
+**zip**
+
+```ruby
+a = [ 4, 5, 6 ]
+b = [ 7, 8, 9 ]
+
+[1, 2, 3].zip(a, b)   # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+[1, 2].zip(a, b)      # => [[1, 4, 7], [2, 5, 8]]
+a.zip([1, 2], [8])    # => [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
+```
+
+`[1, 2, 3].zip(a, b)` işlemini yaparken, önce 0.elemanı yani **1**'i aldı, sonra **a**'nun 0.elemanını aldı, sonra da **b**'nin 0.elemanını aldı ve paketledi : `[1, 4, 7]` aynı işi 1. ve 2. elemanlar için yaptı.
+
+`[1, 2].zip(a, b)` yaparken, Array boyları eşit olmadığı için `[1, 2]` sadece 2 elemanlı olduğu için bu işlemi 0. ve 1. elemanlar için yaptı.
+
+Son örnekte index'e karşılık gelmediği için elemanlar `nil` geldi!
+
 
 ## Tehlikeli İşlemler
 
