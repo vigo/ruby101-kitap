@@ -78,6 +78,11 @@ a.fetch(0)                 # => "Uğur"
 
 a[4]                       # => nil
 a.fetch(4, "Hatalı Index") # => "Hatalı Index"
+
+a = [1, 2, 3, 4]           # İlk N elemanı al
+a.take(2)                  # => [1, 2]
+
+a.drop(2) # => [3, 4]      # take'in tersi... İlk 2 haricini al
 ```
 
 Örnekte `a[4]` dediğimiz zaman, olmayan index'li elemanı almaya çalışıyor ve eleman olmadığı için `nil` geri alıyoruz. `fetch` kullanarak hata kontrolü de yapmış oluyoruz. `nil` yerine belirlediğimiz hata mesajını dönmüş oluyoruz.
@@ -118,6 +123,35 @@ Array'in bir üst objesi ne? **Module** Yine **Class** konusunda göreceğiz diy
 Ruby, bu sorunu **Module** yapısıyla çözüyor. Bu mantıkla aslında ortaklaşa kullanılan Kernel modülleri yardımıyla, ortak kullanılacak method'lar bu modüllerin **Include** edilmesiyle ilgili yerlere dağıtılıyor.
 
 Bu bakımdan Array, Hash gibi nesnelerde benzer ortak method'lar görmek mümkün.
+
+**length** ve ya **count**
+
+Array'in boyu / içinde kaç eleman olduğu ile ilgili bilgiyi almak için kullanılır.
+
+```ruby
+[1, 2, 3, 4].length # => 4
+[1, 2, 3, 4].count  # => 4
+```
+
+**empty?**
+
+Array acaba boşmu? İçinde hiç eleman var mı?
+
+```ruby
+[1, 2, 3, 4].empty? # => false
+[].empty?           # => true
+```
+
+**include?**
+
+Acaba verdiğim eleman Array'in içinde mi?
+
+```ruby
+[1, 2, 3, 4].include?(3)                   # => true
+["Uğur", "Ezel", "Yeşim"].include?("Uğur") # => true
+["Uğur", "Ezel", "Yeşim"].include?("Ömer") # => false
+```
+
 
 **array & başka_bir_array**
 
@@ -169,14 +203,82 @@ b = ["Uğur", "Ömer"]
 a | b # => ["Uğur", "Yeşim", "Ezel", "Ömer"]
 ```
 
-**array << nesne**
+**array << nesne** ya da **push**
 
-Array'e eleman eklemek için kullanılır.
+Array'in sonuna eleman eklemek için kullanılır.
 
 ```ruby
 a = ["Uğur", "Yeşim", "Ezel"]
-a << "Ömer" # => ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a << "Ömer"     # => ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a.push("Eren")  # => ["Uğur", "Yeşim", "Ezel", "Ömer", "Eren"]
 ```
+
+**unshift**
+
+Array'in başına eleman eklemek için kullanılır.
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel"]
+a.unshift("Ömer") # => ["Ömer", "Uğur", "Yeşim", "Ezel"]
+```
+
+**insert**
+
+Array'de istediğiniz bir noktaya eleman eklemek için kullanılır. İlk parametre **index** diğer parametre/ler de eklenecek eleman/lar.
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel"]
+a.insert(1, "Ömer") # => ["Uğur", "Ömer", "Yeşim", "Ezel"]
+a.insert(1, "Ahmet", "Ece", "Eren") # => ["Uğur", "Ahmet", "Ece", "Eren", "Ömer", "Yeşim", "Ezel"]
+```
+
+
+**array <=> başka_array**
+
+**Spaceship** operatöründen bahsetmiştik. Array'ler arasında karşılaştırma yapmayı sağlar.
+
+```ruby
+[1, 2, 3, 4] <=> [1, 2, 3, 4] # => 0 # Eşit
+[1, 2, 3, 4] <=> [1, 2, 3]    # => 1 # İlk değer büyük
+[1, 2, 3] <=> [1, 2, 3, 4]    # => -1 # İlk değer küçük
+```
+
+**pop**, **shift**, **delete** ve **delete_at**
+
+Son elemanı çıkartmank için **pop** ilk elemanı çıkartmak için **shift** kullanılır. Herhangibir elemanı çıkartmak için **delete**, belirli bir index'deki elemanı çıkartmak için **delete_at** kullanılır.
+
+```ruby
+a = ["Uğur", "Ömer", "Yeşim", "Ezel", "Eren"]
+a.pop              # => "Eren"
+a                  # => ["Uğur", "Ömer", "Yeşim", "Ezel"]
+a.shift            # => "Uğur"
+a                  # => ["Ömer", "Yeşim", "Ezel"]
+a.delete("Ömer")   # => "Ömer"
+a                  # => ["Yeşim", "Ezel"]
+a.delete_at(1)     # => "Ezel"
+a                  # => ["Yeşim"]
+```
+
+
+**array == başka_array**
+
+İki Array nitelik ve nicelik olarak birbirine eşit mi?
+
+```ruby
+[1, 2, 3, 4] == [1, 2, 3, 4]   # => true
+[1, 2, 3, 4] == ["1", 2, 3, 4] # => false
+[1, 2, 3, 4] == [1, 2, 3]      # => false
+```
+
+**array.slice(başlangıç, boy) ya da array.slice(aralık)**
+
+Array içinden kesip başka bir Array oluşturmak için kullanılır. **başlangiç** indeks'indeki eleman dahil olmak üzere, boy ya da aralık kadarını kes.
+
+```ruby
+[1, 2, 3, 4].slice(0, 2) # => [1, 2] # 0.dan itibaren 2 tane
+[1, 2, 3, 4].slice(2..4) # => [3, 4] # 2.den itibaren 2 tane
+```
+
 
 **first** ve **last**
 
