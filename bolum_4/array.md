@@ -87,6 +87,23 @@ a.drop(2) # => [3, 4]      # take'in tersi... İlk 2 haricini al
 
 Örnekte `a[4]` dediğimiz zaman, olmayan index'li elemanı almaya çalışıyor ve eleman olmadığı için `nil` geri alıyoruz. `fetch` kullanarak hata kontrolü de yapmış oluyoruz. `nil` yerine belirlediğimiz hata mesajını dönmüş oluyoruz.
 
+`values_at` method'u ile ilgili index ya da index'lerdeki elemanları alabiliriz:
+
+```ruby
+isimler = ["Uğur", "Ömer", "Yeşim", "Ezel", "Eren"]
+isimler.values_at(0)         # => ["Uğur"]
+isimler.values_at(1, 2)      # => ["Ömer", "Yeşim"]
+```
+
+`rindex` ile sağdan hizalı index'e göre elemana ulaşıyoruz:
+
+```ruby
+a = [ "a", "b", "b", "b", "c" ]
+
+a.rindex("b") # => 3 # 3 tane b var, en sağdaki son b'yi verdi!
+a.rindex("z") # => nil
+```
+
 Keza "acaba Array'in ne gibi method'ları var?" dersek; hemen `methods` özelliği ile bakabiliriz. Karıştırmamamız gereken önemli bir konu var. Detayını **Class** konusunda göreceğiz ama yeri gelmişken, Array'in **Class Method**'ları ve **Instance Method**'ları var.
 
 `Array.methods` dediğimizde Kernel'dan gelen Array objesinin yani **Class**'ının method'larını görürüz. Eğer `Array.new.methods` dersek, Array'den türettiğimiz **instance**'a ait method'ları görürüz.
@@ -269,6 +286,15 @@ a.delete_at(1)     # => "Ezel"
 a                  # => ["Yeşim"]
 ```
 
+**pop**'a parametre geçersek **son n** taneyi uçurmuş oluruz:
+
+```ruby
+a = ["Uğur", "Ömer", "Yeşim", "Ezel", "Eren"]
+a.pop(2) # => ["Ezel", "Eren"]
+a        # => ["Uğur", "Ömer", "Yeşim"]
+```
+
+
 **compact** ve **uniq**
 
 `nil` elemanları uçurmak için **compact**, duplike elemanları tekil hale getirmek için **uniq** kullanılır.
@@ -289,7 +315,7 @@ a                  # => ["Yeşim"]
 [1, 2, 3, 4] == [1, 2, 3]      # => false
 ```
 
-**assoc**
+**assoc** ve **rassoc**
 
 Elemanları Array olan bir Array içinde, ilk değere göre yakalama yapmaya yarar.
 
@@ -302,7 +328,11 @@ t  = [a, b, c]
 t                 # => [["renkler", "kırmızı", "sarı", "mavi"], ["harfler", "a", "b", "c"], "foo"]
 t.assoc("renkler") # => ["renkler", "kırmızı", "sarı", "mavi"]
 t.assoc("foo")     # => nil
+
+t.rassoc("kırmızı")   # => ["renkler", "kırmızı", "sarı", "mavi"]
 ```
+
+`rassoc` ise ikinci elemanına bakar, yani "renkler" yerine "kırımızı" kullanabiliriz:
 
 **slice(başlangıç, boy) ya da slice(aralık)**
 
@@ -341,4 +371,77 @@ a.clear # => []
 a       # => []
 ```
 
+**reverse**
+
+Array'i terse çevir.
+
+```ruby
+a = [1, 2, 3, 4, 5]
+a.reverse # => [5, 4, 3, 2, 1]
+```
+
+**sample**
+
+Array'den **random** olarak eleman almaya yarar. Parameter geçilirse geçilen adet kadar random eleman döner.
+
+```ruby
+a = [1, 2, 3, 4, 5]
+a.sample    # => 3
+a.sample(3) # => [5, 1, 3]
+```
+
+**shuffle**
+
+Array'in içindeki elemanların index'lerini karıştırı :)
+
+```ruby
+a = [1, 2, 3, 4, 5]
+a.shuffle # => [5, 4, 1, 3, 2]
+a.shuffle # => [1, 2, 3, 5, 4]
+```
+
+**sort**
+
+Array içindeki elemanları `<=>` mantığıyla sıralar.
+
+```ruby
+a = [1, 4, 2, 3, 11, 5]
+a.sort # => [1, 2, 3, 4, 5, 11]
+
+b = ["a", "c", "b", "z", "d"]
+b.sort # => ["a", "b", "c", "d", "z"]
+```
+
+**flatten**
+
+Array içinde Array elemanları varsa, tek harekette bunları düz tek bir Array haline getirebiliriz.
+
+```ruby
+[1, 2, ["a", "b", :c], [66, [5.5, 3.1]]].flatten # => [1, 2, "a", "b", :c, 66, 5.5, 3.1]
+```
+
+**rotate**
+
+Array elemanları kendi içinde kaydırır.
+
+```ruby
+a = [1, 2, 3, 4, 5]
+
+a.rotate    # => [2, 3, 4, 5, 1] # 1 kaydırdı
+a.rotate(2) # => [3, 4, 5, 1, 2] # 2 kaydırdı, ilk 2 elemanı sona koydu!
+```
+
+Varsayılan değer **1**'dir.
+
+
+## Tehlikeli İşlemler
+
+Başlarda da bahsettiğimiz gibi method ismi `!` ile bitiyorsa bu ilgili nesnede değişiklik yapıyor olduğumuz anlamına gelir. Array'lerde de bu tür method'lar var:
+
+    [:reverse!, :rotate!, :sort!, :sort_by!, :collect!, :map!, :select!, :reject!, :slice!, :uniq!, :compact!, :flatten!, :shuffle!, :!]
+
+
+## Tip Çeviricileri
+
+## Iterasyon ve Block Kullanımı
 
