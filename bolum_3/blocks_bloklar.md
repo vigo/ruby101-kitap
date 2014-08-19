@@ -4,7 +4,7 @@ Blok olayı, bence Ruby'nin en çılgın özelliklerinden bir. Aslında bu konu,
 
 Kitabımız 101 yani giriş seviyesinde olduğu için, kafaları minimum karıştırma adına basit şekilde değineceğim.
 
-Blok'lar, genelde **closures** ya da **isimsiz/anonim** fonksiyonlar olarak tanımlanır. Sanki method içinde başka bir method’u işaret eden ya da değişkenleri method’lar arasında paylaşan dış bir method gibidirler.
+Blok'lar, genelde **closures** ya da **isimsiz/anonim** fonksiyonlar olarak tanımlanır. Sanki method içinde başka bir method’u işaret eden ya da değişkenleri method’lar arasında paylaşan kapalı bir ortam gibidirler.
 
 Genelde ya `{` `}` ile ya da `do/end` ile sarmalanmışlardır.
 
