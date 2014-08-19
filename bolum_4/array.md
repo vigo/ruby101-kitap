@@ -467,6 +467,58 @@ a.transpose   # => [[1, 3, 5], [2, 4, 6]]
 #
 ```
 
+## Tip Çeviricileri
+
+`to_a` ve `to_ary` kendisini döner, asıl görevi eğer alt sınıftan çağrılmışsa, yani Array'den türeyen başka bir Class'da kullanıldığında direk Array'e dönüştürür.
+
+```ruby
+["a", 1, "b", 2].to_a       # => ["a", 1, "b", 2]
+["a", 1, "b", 2].to_ary     # => ["a", 1, "b", 2]
+[["a", 1], ["b", 2]].to_h   # => {"a"=>1, "b"=>2}
+["a", 1, "b", 2].to_s       # => "[\"a\", 1, \"b\", 2]"
+["a", 1, "b", 2].inspect    # => "[\"a\", 1, \"b\", 2]"
+```
+
+## Iterasyon ve Block Kullanımı
+
+**collect { |eleman| blok } → yeni_array**
+
+Blok içinde gelen kodu her elemana uygular:
+
+```ruby
+a = [1, 2, 3, 4, 5]
+a.collect { |i| i * 2 }       # => [2, 4, 6, 8, 10]
+a.collect { |i| "sayı #{i}" } # => ["sayı 1", "sayı 2", "sayı 3", "sayı 4", "sayı 5"]
+```
+
+**combination(n) { |c| blok } → array**
+
+Matematikteki kombinasyon işlemidir. 1, 2 ve 3 sayılarının 2'li kombinasyonu:
+
+```ruby
+a = [1, 2, 3]
+a.combination(1).to_a # => [[1], [2], [3]]
+a.combination(2).to_a # => [[1, 2], [1, 3], [2, 3]]
+
+a.combination(2) { |c| puts "Olasıklar: #{c.join(" ve ")}" }
+
+# Olasıklar: 1 ve 2
+# Olasıklar: 1 ve 3
+# Olasıklar: 2 ve 3
+```
+
+**count**
+
+Az önce method olarak işlediğimiz `count` ile başka ilginç işler de yapabiliyoruz:
+
+```ruby
+a = [1, 2, 3, 4, 2]
+
+a.count                    # => 5 # eleman sayısı
+a.count(2)                 # => 2 # kaç tane 2 var?
+a.count { |n| n % 2 == 0 } # => 3 # kaç tane 2'ye tam bölünen var?
+```
+
 
 ## Tehlikeli İşlemler
 
@@ -475,7 +527,4 @@ Başlarda da bahsettiğimiz gibi method ismi `!` ile bitiyorsa bu ilgili nesnede
     [:reverse!, :rotate!, :sort!, :sort_by!, :collect!, :map!, :select!, :reject!, :slice!, :uniq!, :compact!, :flatten!, :shuffle!, :!]
 
 
-## Tip Çeviricileri
-
-## Iterasyon ve Block Kullanımı
 
