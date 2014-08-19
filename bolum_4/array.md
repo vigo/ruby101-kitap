@@ -450,6 +450,23 @@ a.zip([1, 2], [8])    # => [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
 
 Son örnekte index'e karşılık gelmediği için elemanlar `nil` geldi!
 
+**transpose**
+
+Array içindeki Array'leri satır gibi düşünüp bunları sütuna çeviriyor gibi algılayabilirsiniz.
+
+```ruby
+a = [[1, 2], [3, 4], [5, 6]]
+a.transpose   # => [[1, 3, 5], [2, 4, 6]]
+
+# [
+#   [1, 2],
+#   [3, 4],
+#   [5, 6]
+# ]
+# -> [1, 3, 5], [2, 4, 5]
+#
+```
+
 
 ## Tehlikeli İşlemler
 
