@@ -213,6 +213,16 @@ a << "Ömer"     # => ["Uğur", "Yeşim", "Ezel", "Ömer"]
 a.push("Eren")  # => ["Uğur", "Yeşim", "Ezel", "Ömer", "Eren"]
 ```
 
+**concat**
+
+Array sonuna Array eklemek için kullanılır.
+
+```ruby
+a = [1, 2, 3]
+a.concat([4, 5, 6])
+a # => [1, 2, 3, 4, 5, 6]
+```
+
 **unshift**
 
 Array'in başına eleman eklemek için kullanılır.
@@ -259,6 +269,15 @@ a.delete_at(1)     # => "Ezel"
 a                  # => ["Yeşim"]
 ```
 
+**compact** ve **uniq**
+
+`nil` elemanları uçurmak için **compact**, duplike elemanları tekil hale getirmek için **uniq** kullanılır.
+
+```ruby
+["a", 1, nil, 2, nil, "b", 1, "a"].compact         # => ["a", 1, 2, "b", 1, "a"]
+["a", 1, nil, 2, nil, "b", 1, "a"].uniq            # => ["a", 1, nil, 2, "b"]
+["a", 1, nil, 2, nil, "b", 1, "a"].compact.uniq    # => ["a", 1, 2, "b"]
+```
 
 **array == başka_array**
 
@@ -270,7 +289,22 @@ a                  # => ["Yeşim"]
 [1, 2, 3, 4] == [1, 2, 3]      # => false
 ```
 
-**array.slice(başlangıç, boy) ya da array.slice(aralık)**
+**assoc**
+
+Elemanları Array olan bir Array içinde, ilk değere göre yakalama yapmaya yarar.
+
+```ruby
+a = ["renkler", "kırmızı", "sarı", "mavi"]
+b = ["harfler", "a", "b", "c"]
+c = "foo"
+
+t  = [a, b, c]
+t                 # => [["renkler", "kırmızı", "sarı", "mavi"], ["harfler", "a", "b", "c"], "foo"]
+t.assoc("renkler") # => ["renkler", "kırmızı", "sarı", "mavi"]
+t.assoc("foo")     # => nil
+```
+
+**slice(başlangıç, boy) ya da slice(aralık)**
 
 Array içinden kesip başka bir Array oluşturmak için kullanılır. **başlangiç** indeks'indeki eleman dahil olmak üzere, boy ya da aralık kadarını kes.
 
@@ -278,7 +312,6 @@ Array içinden kesip başka bir Array oluşturmak için kullanılır. **başlang
 [1, 2, 3, 4].slice(0, 2) # => [1, 2] # 0.dan itibaren 2 tane
 [1, 2, 3, 4].slice(2..4) # => [3, 4] # 2.den itibaren 2 tane
 ```
-
 
 **first** ve **last**
 
@@ -290,5 +323,22 @@ a.first # => 1
 a.last # => 5
 ```
 
+Eğer parametre geçersek, **ilk n** ya da **son n** elemanları alabiliriz:
+
+```ruby
+a = [1, 2, 3, 4, 5]
+a.first(2) # => [1, 2]
+a.last(2)  # => [4, 5]
+```
+
+**clear**
+
+Array'i temizlemek için kullanılır :)
+
+```ruby
+a = [1, 2, 3]
+a.clear # => []
+a       # => []
+```
 
 
