@@ -256,6 +256,16 @@ a.concat([4, 5, 6])
 a # => [1, 2, 3, 4, 5, 6]
 ```
 
+**join**
+
+Array elemanlarını birleştirip **String**'e çevirmeye yarar. Eğer parametre verirses aradaki birleştiriciyi de belirlemiş oluruz.
+
+```ruby
+["Commodore 64", "Amiga", "Sinclair", "Amstrad"].join        # => "Commodore 64AmigaSinclairAmstrad"
+["Commodore 64", "Amiga", "Sinclair", "Amstrad"].join(" , ") # => "Commodore 64 , Amiga , Sinclair , Amstrad"
+```
+
+
 **unshift**
 
 Array'in başına eleman eklemek için kullanılır.
@@ -381,9 +391,17 @@ a.first(2) # => [1, 2]
 a.last(2)  # => [4, 5]
 ```
 
-**index**, **find_index**
+**find** (**detect**), **find_all**, **index**, **find_index**
 
-Her ikisiylede elemanın index'ini buluruz:
+`find` ile blok içinde koşula uyan ilk Array elemanını, `find_all` ile tümünü alırız:
+
+```ruby
+["Uğur", "Yeşim", "Ezel", "Ömer"].find { |n| n.length > 3 } # => "Uğur"
+["Uğur", "Yeşim", "Ezel", "Ömer"].find_all { |n| n.length > 3 } # => ["Uğur", "Yeşim", "Ezel", "Ömer"]
+```
+`detect` ile `find` aynı işi yapar.
+
+`index`, `find_index` ile elemanın index'ini buluruz:
 
 ```ruby
 ["a", "b", "c", "d", "e"].index("e")                 # => 4
@@ -605,6 +623,20 @@ Eğer `[1, 2, 3].cycle { |i| puts i }` gibi bir işlem yaparsanız, default olar
 notlar = [40, 45, 53, 70, 99, 65]
 notlar.drop_while {|notu| notu < 50 }   # => [53, 70, 99, 65]
 ```
+Koşula göre Array'den atar gibi düşünebilirsiniz. Not 50'den küçükse bırak.
+
+**take_while**
+
+Aynı `drop_while` gibi çalışır ama tersini yapar:
+
+```ruby
+notlar = [40, 45, 53, 70, 99, 65]
+notlar.take_while { |notu| notu < 50 } # => [40, 45]
+```
+
+Koşula göre Array'e ekler gibi düşünebilirsiniz. Not 50'den küçükse sepete ekle! :)
+
+
 
 **each**, **each_index**, **each_with_index**, **each_slice**, **each_with_object**, **reverse_each**
 
@@ -694,6 +726,9 @@ computers.reverse_each { |c| puts "Bilgisayar: #{c}" }
 computers = ["Commodore 64", "Amiga", "Sinclair", "Amstrad"]
 computers.find_index { |c| c == "Amstrad" } # => 3
 ```
+
+
+
 
 
 ## Tehlikeli İşlemler
