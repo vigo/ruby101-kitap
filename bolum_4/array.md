@@ -159,6 +159,18 @@ Array acaba boşmu? İçinde hiç eleman var mı?
 [].empty?           # => true
 ```
 
+**eql?**
+
+Eşitlik kontrolü içindir. Eğer karşılığı aynı cinsse ve birebir aynı elemanlara sahipse `true` döner.
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+
+a.eql?(["Yeşim", "Ezel", "Ömer", "Uğur"]) # => false
+a.eql?([])                                # => false
+a.eql?(["Uğur", "Yeşim", "Ezel", "Ömer"]) # => true
+```
+
 **include?**
 
 Acaba verdiğim eleman Array'in içinde mi?
@@ -270,7 +282,7 @@ a.insert(1, "Ahmet", "Ece", "Eren") # => ["Uğur", "Ahmet", "Ece", "Eren", "Öme
 [1, 2, 3] <=> [1, 2, 3, 4]    # => -1 # İlk değer küçük
 ```
 
-**pop**, **shift**, **delete** ve **delete_at**
+**pop**, **shift**, **delete**, **delete_at**, **delete_if**
 
 Son elemanı çıkartmank için **pop** ilk elemanı çıkartmak için **shift** kullanılır. Herhangibir elemanı çıkartmak için **delete**, belirli bir index'deki elemanı çıkartmak için **delete_at** kullanılır.
 
@@ -284,6 +296,10 @@ a.delete("Ömer")   # => "Ömer"
 a                  # => ["Yeşim", "Ezel"]
 a.delete_at(1)     # => "Ezel"
 a                  # => ["Yeşim"]
+
+# not 50'den küçükse sil :)
+notlar = [40, 45, 53, 70, 99, 65]
+notlar.delete_if { |notu| notu < 50 } # => [53, 70, 99, 65]
 ```
 
 **pop**'a parametre geçersek **son n** taneyi uçurmuş oluruz:
@@ -361,6 +377,8 @@ a.first(2) # => [1, 2]
 a.last(2)  # => [4, 5]
 ```
 
+**find**, **find_index**
+
 **clear**
 
 Array'i temizlemek için kullanılır :)
@@ -411,6 +429,33 @@ a.sort # => [1, 2, 3, 4, 5, 11]
 b = ["a", "c", "b", "z", "d"]
 b.sort # => ["a", "b", "c", "d", "z"]
 ```
+
+**fill**
+
+Array'in içini ilgili değerle doldurmak için kullanılır. İşlem sonucunda orijinal Array'in değeri değişir. Yani ne ile **fill** ettiyseniz Array artık o değerlerdedir.
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a.fill("x")       # => ["x", "x", "x", "x"] # tüm elemanları x yaptı
+a                 # => ["x", "x", "x", "x"] # artık a'nın yeni değeri bu
+
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a.fill("y", 2)    # => ["Uğur", "Yeşim", "y", "y"] # 2.den itibaren y ile doldur
+
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"] # 2.den itibaren 1 tane doldur
+a.fill("z", 2, 1) # => ["Uğur", "Yeşim", "z", "Ömer"]
+```
+
+Keza;
+
+```ruby
+a = [1, 2, 3, 4, 5]
+a.fill { |i| i * 5 }     # => [0, 5, 10, 15, 20]
+a                        # => [0, 5, 10, 15, 20]
+```
+
+şeklinde de kullanılır.
+
 
 **flatten**
 
@@ -518,6 +563,92 @@ a.count                    # => 5 # eleman sayısı
 a.count(2)                 # => 2 # kaç tane 2 var?
 a.count { |n| n % 2 == 0 } # => 3 # kaç tane 2'ye tam bölünen var?
 ```
+
+**cycle(n=nil) { |obje| blok } → nil**
+
+Pas edilen blok'u **n** defa tekrar eder.
+
+```ruby
+a = [1, 2, 3]
+
+a.cycle(2).to_a # => [1, 2, 3, 1, 2, 3] # 2 defa
+a.cycle(4).to_a # => [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3] # 3defa
+a.cycle(2) { |o| puts "Sayı #{o}" }
+
+# Sayı 1
+# Sayı 2
+# Sayı 3
+# Sayı 1
+# Sayı 2
+# Sayı 3
+```
+
+Eğer `[1, 2, 3].cycle { |i| puts i }` gibi bir işlem yaparsanız, default olarak `nil` geçmiş olursun ve bu sonsuz döngüle girer, sonsuza kadar 1, 2, 3, 1, 2, 3 .... şeklinde devam eder!
+
+**drop_while { |array| blok } → yeni array**
+
+`delete_if` ile aynı işi yapar.
+
+```ruby
+notlar = [40, 45, 53, 70, 99, 65]
+notlar.drop_while {|notu| notu < 50 }   # => [53, 70, 99, 65]
+```
+
+**each**, **each_index**, **each_with_index**, **each_slice**
+
+Array ve hatta Enumator'lerin can damarıdır. Ruby yazarken siz de göreceksiniz `each` en sık kullandığınız iterasyon (_yineleme / tekrarlama_) yöntemi olacak.
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+
+a.each # => #<Enumerator: ["Uğur", "Yeşim", "Ezel", "Ömer"]:each>
+a.each { |isim| puts "İsim: #{isim}" }
+
+# İsim: Uğur
+# İsim: Yeşim
+# İsim: Ezel
+# İsim: Ömer
+```
+
+Array ve içinde dolaşılabilir her nesnede işe yarar. Birde bunun **index**'li hali var;
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+
+a.each_index # => #<Enumerator: ["Uğur", "Yeşim", "Ezel", "Ömer"]:each_index>
+a.each_index.to_a # => [0, 1, 2, 3]
+a.each_index { |i| puts "Index: #{i}, Değeri: #{a[i]}" }
+
+# Index: 0, Değeri: Uğur
+# Index: 1, Değeri: Yeşim
+# Index: 2, Değeri: Ezel
+# Index: 3, Değeri: Ömer
+```
+
+ya da bu işi;
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a.each_with_index { |eleman, index| puts "index: #{index}, eleman: #{eleman}" }
+
+# index: 0, eleman: Uğur
+# index: 1, eleman: Yeşim
+# index: 2, eleman: Ezel
+# index: 3, eleman: Ömer
+```
+
+`each_slice` da Array'i gruplamak, parçalara ayırmak içindir. Geçilen parametre bu işe yarar:
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a.each_slice(2) # => #<Enumerator: ["Uğur", "Yeşim", "Ezel", "Ömer"]:each_slice(2)>
+a.each_slice(2).to_a # => [["Uğur", "Yeşim"], ["Ezel", "Ömer"]]
+a.each_slice(2) { |ikili_grup| puts "#{ikili_grup}" }
+
+# ["Uğur", "Yeşim"]
+# ["Ezel", "Ömer"]
+```
+
 
 
 ## Tehlikeli İşlemler
