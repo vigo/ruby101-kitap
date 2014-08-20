@@ -103,3 +103,7 @@ o.public_methods(false) # => []
 `public_methods` default olarak `public_methods(all=true)` şeklinde çalışır. Eğer parametre olarak `false` geçersek ve bu bizim oluşturduğumuz bir nesne ise, sadece ilgili nesnenin **public_method**'ları geri döner.
 
 Başta belirttiğimiz gibi, basit bir nesne bile **Object**'den türediği için ve default olarak bu türeme esnasında tüm özellikler diğerine geçtiği için, sadece sizin method'larınızı görüntülemek açısından `false` olayı çok işe yarar.
+
+## Method Missing
+
+Bu kısmı unutmuşum!

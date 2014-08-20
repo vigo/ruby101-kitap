@@ -87,12 +87,16 @@ a.drop(2) # => [3, 4]      # take'in tersi... İlk 2 haricini al
 
 Örnekte `a[4]` dediğimiz zaman, olmayan index'li elemanı almaya çalışıyor ve eleman olmadığı için `nil` geri alıyoruz. `fetch` kullanarak hata kontrolü de yapmış oluyoruz. `nil` yerine belirlediğimiz hata mesajını dönmüş oluyoruz.
 
-`values_at` method'u ile ilgili index ya da index'lerdeki elemanları alabiliriz:
+`values_at` method'u ile ilgili index ya da index'lerdeki elemanları alabiliriz, keza `at` de benzer işe yarar.
 
 ```ruby
 isimler = ["Uğur", "Ömer", "Yeşim", "Ezel", "Eren"]
 isimler.values_at(0)         # => ["Uğur"]
 isimler.values_at(1, 2)      # => ["Ömer", "Yeşim"]
+
+["a", "b", "c", "d", "e"].at(1)  # => "b"
+["a", "b", "c", "d", "e"].at(-1) # => "e"
+
 ```
 
 `rindex` ile sağdan hizalı index'e göre elemana ulaşıyoruz:
@@ -377,7 +381,15 @@ a.first(2) # => [1, 2]
 a.last(2)  # => [4, 5]
 ```
 
-**find**, **find_index**
+**index**, **find_index**
+
+Her ikisiylede elemanın index'ini buluruz:
+
+```ruby
+["a", "b", "c", "d", "e"].index("e")                 # => 4
+["Uğur", "Yeşim", "Ezel", "Ömer"].index("Ezel")      # => 2
+["Uğur", "Yeşim", "Ezel", "Ömer"].find_index("Ezel") # => 2
+```
 
 **clear**
 
@@ -594,7 +606,7 @@ notlar = [40, 45, 53, 70, 99, 65]
 notlar.drop_while {|notu| notu < 50 }   # => [53, 70, 99, 65]
 ```
 
-**each**, **each_index**, **each_with_index**, **each_slice**
+**each**, **each_index**, **each_with_index**, **each_slice**, **each_with_object**, **reverse_each**
 
 Array ve hatta Enumator'lerin can damarıdır. Ruby yazarken siz de göreceksiniz `each` en sık kullandığınız iterasyon (_yineleme / tekrarlama_) yöntemi olacak.
 
@@ -649,6 +661,39 @@ a.each_slice(2) { |ikili_grup| puts "#{ikili_grup}" }
 # ["Ezel", "Ömer"]
 ```
 
+`each_with_object` de ise, iterasyona girerken bir nesne pas edip, o nesneyi doldurabilirsiniz.
+
+```ruby
+[1, 2, 3, 4].each_with_object([]) { |number, given_object|
+  given_object << number * 2
+} # => [2, 4, 6, 8]
+```
+
+`number` Array'den gelen eleman (_1, 2, 3, 4 gibi_), `given_object` ise `each_with_object([])` method'da geçtiğimiz boş Array `[]`.
+
+`reverse_each` aslında Array'i otomatik olarak ters çevirir yani **reverse** eder ve içinde dolaşmanızı sağlar:
+
+```ruby
+computers = ["Commodore 64", "Amiga", "Sinclair", "Amstrad"]
+computers.reverse_each # => #<Enumerator: ["Commodore 64", "Amiga", "Sinclair", "Amstrad"]:reverse_each>
+computers.reverse_each.to_a # => ["Amstrad", "Sinclair", "Amiga", "Commodore 64"]
+
+computers.reverse_each { |c| puts "Bilgisayar: #{c}" }
+
+# Bilgisayar: Amstrad
+# Bilgisayar: Sinclair
+# Bilgisayar: Amiga
+# Bilgisayar: Commodore 64
+```
+
+**find_index**
+
+İndeks'i ararken blok işleyebiliriz:
+
+```ruby
+computers = ["Commodore 64", "Amiga", "Sinclair", "Amstrad"]
+computers.find_index { |c| c == "Amstrad" } # => 3
+```
 
 
 ## Tehlikeli İşlemler
