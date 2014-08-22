@@ -32,6 +32,13 @@ aylar = Array.new(12, "ay") # 12 eleman olsun ve hepsi "ay" olsun
 aylar # => ["ay", "ay", "ay", "ay", "ay", "ay", "ay", "ay", "ay", "ay", "ay", "ay"]
 ```
 
+Ruby'de her nesnenin bir **ID**'si ve **HASH** değeri vardır.
+
+```ruby
+[1, 2, 3].hash   # => 3384159031637530117
+[1, 2, 3].__id__ # => 70147646473880
+```
+
 **Block** kabul ettiği için;
 
 ```ruby
@@ -207,6 +214,7 @@ a * "-vigo-" # => "a-vigo-b-vigo-c"
 **\*** çaparak **3** elemanlı `a` Array'inden sanki birleştirilmiş **15** elemanlı yeni bir Array oluşturduk. **String** ile çarpınca da aslında `join` methodu ile Array'den String yaptık ve birleştirici olarak **-vigo-** metni kullandık!
 
 **array + başka_array**
+
 İki Array'i toplar ve yeni Array döner:
 ```ruby
 a = ["Uğur", "Yeşim", "Ezel"]
@@ -285,6 +293,15 @@ a.insert(1, "Ömer") # => ["Uğur", "Ömer", "Yeşim", "Ezel"]
 a.insert(1, "Ahmet", "Ece", "Eren") # => ["Uğur", "Ahmet", "Ece", "Eren", "Ömer", "Yeşim", "Ezel"]
 ```
 
+**replace**
+
+Array'in içini, diğer Array'le değiştirir. Aslında Array'i başka bir Array'e eşitlemek gibidir. Eleman sayısının eşit olup olmaması hiç önemli değildir.
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a.replace(["Foo", "Bar"]) # => ["Foo", "Bar"]
+a                         # => ["Foo", "Bar"]
+```
 
 **array <=> başka_array**
 
@@ -556,14 +573,49 @@ a.transpose   # => [[1, 3, 5], [2, 4, 6]]
 
 ## Iterasyon ve Block Kullanımı
 
-**collect { |eleman| blok } → yeni_array**
+**collect / map { |eleman| blok } → yeni_array**
 
-Blok içinde gelen kodu her elemana uygular:
+Blok içinde gelen kodu her elemana uygular, yeni Array döner:
 
 ```ruby
 a = [1, 2, 3, 4, 5]
 a.collect { |i| i * 2 }       # => [2, 4, 6, 8, 10]
 a.collect { |i| "sayı #{i}" } # => ["sayı 1", "sayı 2", "sayı 3", "sayı 4", "sayı 5"]
+```
+
+`map` de aynı işi yapar:
+
+```ruby
+["Uğur", "Yeşim", "Ezel", "Ömer"].map { |isim| "İsim: #{isim}" } # => ["İsim: Uğur", "İsim: Yeşim", "İsim: Ezel", "İsim: Ömer"]
+["Uğur", "Yeşim", "Ezel", "Ömer"].collect { |isim| "İsim: #{isim}" } # => ["İsim: Uğur", "İsim: Yeşim", "İsim: Ezel", "İsim: Ömer"]
+```
+
+**select**
+
+Blok içinden gelen ifadenin **true** / **false** olmasına göre filtre yapar ve yeni Array döner:
+
+```ruby
+[1, 2, 3, 10, 15, 20].select { |n| n % 2 == 0 } # => [2, 10, 20] # 2'ye tam bölünenler
+[1, 2, "3", "ali", 15, 20].select { |n| n.is_a?(Fixnum) } # => [1, 2, 15, 20] # sadece sayılar
+```
+
+**reject**
+
+`select`in tersidir.
+
+```ruby
+[1, 2, 3, 10, 15, 20].reject { |n| n % 2 == 0 } # => [1, 3, 15] # 2'ye tam bölülenleri at
+[1, 2, "3", "ali", 15, 20].reject { |n| n.is_a?(Fixnum) } # => ["3", "ali"] # Sayı olanları at
+```
+
+**keep_if**
+
+Blok içindeki ifade'den sadece `false` dönenleri atar ve Array'in orjinal değerini bozar, değiştirir.
+
+```ruby
+a = [1, 2, 3, 10, 15, 20]
+a.keep_if { |n| n % 2 == 0 } # => [2, 10, 20] # 2'ye bölünemeyenler false geldiği için düştüler.
+a # => [2, 10, 20] # a artık bu!
 ```
 
 **combination(n) { |c| blok } → array**
@@ -726,10 +778,6 @@ computers.reverse_each { |c| puts "Bilgisayar: #{c}" }
 computers = ["Commodore 64", "Amiga", "Sinclair", "Amstrad"]
 computers.find_index { |c| c == "Amstrad" } # => 3
 ```
-
-
-
-
 
 ## Tehlikeli İşlemler
 
