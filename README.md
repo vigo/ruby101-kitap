@@ -34,6 +34,11 @@ Her türlü lisans olayına karşıyım. Eğer bir tür lisanslama yapacaksanız
 
 Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 
+Kitabı online olarak okumak için:
+
+https://www.gitbook.io/book/vigo/ruby-101
+
+
 ## Tamamlanma Durumu
 
 ### Bölüm 1
