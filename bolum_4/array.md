@@ -182,12 +182,16 @@ a.eql?([])                                # => false
 a.eql?(["Uğur", "Yeşim", "Ezel", "Ömer"]) # => true
 ```
 
-**include?**
+**include?** ve **member?**
 
-Acaba verdiğim eleman Array'in içinde mi?
+Acaba verdiğim eleman Array'in içinde mi? Verdiğim eleman bu dizinin üyesi mi?
 
 ```ruby
 [1, 2, 3, 4].include?(3)                   # => true
+
+[1, 2, 3, 4].member?(1) # => true
+[1, 2, 3, 4].member?(5) # => false
+
 ["Uğur", "Ezel", "Yeşim"].include?("Uğur") # => true
 ["Uğur", "Ezel", "Yeşim"].include?("Ömer") # => false
 ```
@@ -272,7 +276,6 @@ Array elemanlarını birleştirip **String**'e çevirmeye yarar. Eğer parametre
 ["Commodore 64", "Amiga", "Sinclair", "Amstrad"].join        # => "Commodore 64AmigaSinclairAmstrad"
 ["Commodore 64", "Amiga", "Sinclair", "Amstrad"].join(" , ") # => "Commodore 64 , Amiga , Sinclair , Amstrad"
 ```
-
 
 **unshift**
 
@@ -503,7 +506,6 @@ a                        # => [0, 5, 10, 15, 20]
 
 şeklinde de kullanılır.
 
-
 **flatten**
 
 Array içinde Array elemanları varsa, tek harekette bunları düz tek bir Array haline getirebiliriz.
@@ -688,8 +690,6 @@ notlar.take_while { |notu| notu < 50 } # => [40, 45]
 
 Koşula göre Array'e ekler gibi düşünebilirsiniz. Not 50'den küçükse sepete ekle! :)
 
-
-
 **each**, **each_index**, **each_with_index**, **each_slice**, **each_with_object**, **reverse_each**
 
 Array ve hatta Enumator'lerin can damarıdır. Ruby yazarken siz de göreceksiniz `each` en sık kullandığınız iterasyon (_yineleme / tekrarlama_) yöntemi olacak.
@@ -778,6 +778,87 @@ computers.reverse_each { |c| puts "Bilgisayar: #{c}" }
 computers = ["Commodore 64", "Amiga", "Sinclair", "Amstrad"]
 computers.find_index { |c| c == "Amstrad" } # => 3
 ```
+
+**freeze** ve **frozen?**
+
+Array'i kitlemek için kullanılır. Yani **freeze** (_dondurulmuş_) bir Array'e yeni eleman eklenemez. Keza `Array#sort` esnasında da otomatik olarak **freeze** olur sort bitince buz çözülür!
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a.freeze
+a << "Fazilet"  # Yeni isim eklemek mümkün değildir!
+```
+
+    RuntimeError: can't modify frozen Array
+
+Array'de buzlanma var mı yok mu anlamak için **frozen?** kullanırız:
+
+```ruby
+a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a.freeze  # => ["Uğur", "Yeşim", "Ezel", "Ömer"]
+a.frozen? # => true
+```
+
+**min**, **max**, **minmax**, **min_by**, **max_by** ve **minmax_by**
+
+`min` ve `max` ile Array elemanlarından en küçük/büyük değeri alırız:
+
+```ruby
+a = [6, 1, 8, 4, 11]
+a.min # => 1
+a.max # => 11
+```
+
+Peki sayı yerine metinler olsa ne olacaktı?
+
+```ruby
+m = ["a", "ab", "abc", "abcd"]
+m.min # => "a"
+m.max # => "abcd"
+```
+
+peki, `m` Array'i şöyle olsaydı : `m = ["a", "ab", "abc", "abcd", "111111111"]` sonuç ne olurdu?
+
+```ruby
+m = ["a", "ab", "abc", "abcd", "111111111"]
+
+m.min # => "111111111" # ?
+m.max # => "abcd"
+```
+
+Önce **Comparable** mı diyer bakılır, sayılar için çalışan bu yöntem, **String** de `a <=> b` karşılaştırmasına girer ve **Lexicological** karşılaştırma yapar. `"111111111"` karakter sayısı olarak diğerlerine göre çok olmasına rağmen, `min` değer olarak gelir. Eğer karakter sayına göre karşılaştırma yapmak gerekiyorsa;
+
+```ruby
+m = ["a", "ab", "abc", "abcd", "111111111"]
+m.min { |a, b| a.length <=> b.length }  # => "a"
+m.max                                   # => "abcd"
+```
+
+Şeklinde yapmak gerekir. Blok kullanabildiğimiz için aynı iş `max` için de geçerlidir. Ya da bu işleri yapabilmek için `min_by` ve `max_by` kullanabiliriz:
+
+```ruby
+m = ["a", "ab", "abc", "abcd", "111111111"]
+m.min_by { |x| x.length }   # => "a"
+m.max_by { |x| x.length }   # => "111111111"
+```
+
+`minmax` da Array'in minimum ve maximum'unu döner:
+
+```ruby
+m = ["a", "ab", "abc", "abcd"]
+m.min    # => "a"
+m.max    # => "abcd"
+m.minmax # => ["a", "abcd"]
+```
+
+Aynı mantıkta `minmax_by` da gerekli şarta göre min, max döner:
+
+```ruby
+m = ["a", "ab", "abc", "abcd"]
+m.minmax_by { |x| x.length } # => ["a", "abcd"]
+```
+
+
 
 ## Tehlikeli İşlemler
 
