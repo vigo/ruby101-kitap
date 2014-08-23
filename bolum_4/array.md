@@ -858,6 +858,9 @@ m = ["a", "ab", "abc", "abcd"]
 m.minmax_by { |x| x.length } # => ["a", "abcd"]
 ```
 
+**all?**, **any?**, **one?**, **none?**
+
+
 
 
 ## Tehlikeli İşlemler
