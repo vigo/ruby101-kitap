@@ -692,7 +692,7 @@ notlar.take_while { |notu| notu < 50 } # => [40, 45]
 
 Koşula göre Array'e ekler gibi düşünebilirsiniz. Not 50'den küçükse sepete ekle! :)
 
-**each**, **each_index**, **each_with_index**, **each_slice**, **each_with_object**, **reverse_each**
+**each**, **each_index**, **each_with_index**, **each_slice**, **each_cons**, **each_with_object**, **reverse_each**
 
 Array ve hatta Enumator'lerin can damarıdır. Ruby yazarken siz de göreceksiniz `each` en sık kullandığınız iterasyon (_yineleme / tekrarlama_) yöntemi olacak.
 
@@ -745,6 +745,17 @@ a.each_slice(2) { |ikili_grup| puts "#{ikili_grup}" }
 
 # ["Uğur", "Yeşim"]
 # ["Ezel", "Ömer"]
+```
+
+`each_cons` ise slice gibi ama mutlaka belirtilen miktarda parça üretir.
+
+```ruby
+
+# 3'lü üret
+[1, 2, 3, 4, 5,6].each_cons(3).to_a # => [[1, 2, 3], [2, 3, 4], [3, 4, 5], [4, 5, 6]]
+
+# 4'lü üret
+[1, 2, 3, 4, 5,6].each_cons(4).to_a # => [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6]]
 ```
 
 `each_with_object` de ise, iterasyona girerken bir nesne pas edip, o nesneyi doldurabilirsiniz.
@@ -911,7 +922,119 @@ hayvanlar.none?{ |hayvan_ismi| hayvan_ismi.length == 2 } # => false
 hayvanlar.none?{ |hayvan_ismi| hayvan_ismi.start_with?("C") } # => true
 ```
 
+**inject**, **reduce***
 
+`inject` ve `reduce` aynı işi yaparlar ve bir tür akümülator işlemi yapmaya yararlar. Blok içinde 2 paramtre kullanılır. Başlama parametresi de alabilir. Örneğin Array `[1, 2, 3, 4, 5]` ve tüm elemanları birbiriyle toplamak isitiyoruz.
+
+```ruby
+[1, 2, 3, 4, 5].inject{ |toplam, eleman| toplam + eleman } # => 15
+
+# işlem şu şekilde ilerliyor
+# toplam: 0, eleman: 1
+# toplam: 1, eleman: 2
+# toplam: 3, eleman: 3
+# toplam: 6, eleman: 4
+# toplam: 10, eleman: 5
+# sona geldiğinde toplam 10, eleman 5 -> 10 + 5 = 15
+```
+
+Eğer başlangıç değeri için parametre geçseydik, örneğin **10**:
+
+```ruby
+[1, 2, 3, 4, 5].inject(10){ |toplam, eleman| toplam + eleman } # => 25
+
+# toplam: 10, eleman: 1
+# toplam: 11, eleman: 2
+# toplam: 13, eleman: 3
+# toplam: 16, eleman: 4
+# toplam: 20, eleman: 5
+# sona geldiğinde toplam 20, eleman 5 -> 20 + 5 = 25
+```
+
+Aynı işi `reduce` ile de yapabilirdik.
+
+```ruby
+[1, 2, 3, 4, 5].reduce(:+) # => 15
+```
+
+Örnekte her elemanın `+` methodu'nu çağırıyoruz ve sanki `x = x + 1` mantığında, kendisini ekleye ekleye sonuca varıyoruz.
+
+```ruby
+en_uzun_hayvan_ismi = ["kedi", "köpek", "kamplumbağa"].inject do |buffer, hayvan|
+   buffer.length > hayvan.length ? buffer : hayvan
+end
+
+en_uzun_hayvan_ismi # => "kamplumbağa"
+```
+
+**partition** ve **group_by**
+
+`partition` Array'i 2 parçaya ayırmaya yarar. Sonuç, blok'ta işlenen ifadeye bağlı olarak `[true_array, false_array]` olarak döner. Yani koşula `true` cevap verenlerle `false` cevap verenler ayrı parçalar halinde döner :)
+
+```ruby
+[1, 2, 3, 4, 5, 6].partition{ |n| n.even? } # => [[2, 4, 6], [1, 3, 5]]
+
+# Çift sayılar, true_array yani ilk parça:    [2, 4, 6]
+# Tek sayılar, false_array yani ikinci parça: [1, 3, 5]
+
+# Sadece çift sayılar gelsin:
+[1, 2, 3, 4, 5, 6].partition{ |n| n.even? }[0] # => [2, 4, 6]
+```
+
+`group_by` gruplama yapmak için kullanılır. Sonuç **Hash** döner, ilk değer (_key_) blok içindeki ifadenin sonucu, ikinci değer (_value_) ise sonucu verenlerin oluşturdu gruptur. 1'den 6'ya kadar sayıları 3'e bölünce kaç kaldığını gruplayarak bulalım:
+
+```ruby
+[1, 2, 3, 4, 5, 6].group_by{ |n| n % 3 } # => {1=>[1, 4], 2=>[2, 5], 0=>[3, 6]}
+
+# 3'e bölünce kalanı;
+# 1 olanlar: [1, 4]
+# 2 olanlar: [2, 5]
+# 0 olanlar (tam bölünenler) : [3, 6]
+```
+Notu 50'den büyük olanlar:
+
+```ruby
+notlar = [50, 20, 44, 60, 80, 100, 99, 81, 5]
+notlar.group_by{ |notu| notu > 40 }[true] # => [50, 44, 60, 80, 100, 99, 81]
+```
+
+**chunk**
+
+Array elemanları koşula göre gruplar.
+
+```ruby
+[3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5].chunk { |n| n.even? }.to_a
+
+# => [
+#  [false, [3, 1]],
+#  [true, [4]],
+#  [false, [1, 5, 9]],
+#  [true, [2, 6]],
+#  [false, [5, 3, 5]]
+# ]
+```
+
+**slice_before**
+
+Array içinde belli bir elemana ya da kurala göre parçalara ayırmak için kullanılır.
+
+```ruby
+[1, 2, 3, 'a' , 4, 5, 6, 'a' , 7 , 8 , 9 , 'a' , 1 , 3 , 5].slice_before {|i| i == 'a'}.to_a
+# => [[1, 2, 3], ["a", 4, 5, 6], ["a", 7, 8, 9], ["a", 1, 3, 5]]
+```
+
+**flat_map**
+
+Önce `map` eder sonra `flatten` yapar.
+
+```ruby
+pos_neg = [1, 2, 3, 4, 5, 6].map { |n| [n, -n] }
+pos_neg         # => [[1, -1], [2, -2], [3, -3], [4, -4], [5, -5], [6, -6]]
+pos_neg.flatten # => [1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6]
+
+# yerine:
+[1, 2, 3, 4, 5, 6].flat_map { |n| [n, -n] } # => [1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6]
+```
 
 ## Tehlikeli İşlemler
 
