@@ -127,6 +127,8 @@ Yani `a = []` dediğimizde, aslında **Array**'den bir **instance** çıkartmı�
 Array.methods # => [:[], :try_convert, :allocate, :new, :superclass, :freeze, :===, :==, :<=>, :<, :<=, :>, :>=, :to_s, :inspect, :included_modules, :include?, :name, :ancestors, :instance_methods, :public_instance_methods, :protected_instance_methods, :private_instance_methods, :constants, :const_get, :const_set, :const_defined?, :const_missing, :class_variables, :remove_class_variable, :class_variable_get, :class_variable_set, :class_variable_defined?, :public_constant, :private_constant, :singleton_class?, :include, :prepend, :module_exec, :class_exec, :module_eval, :class_eval, :method_defined?, :public_method_defined?, :private_method_defined?, :protected_method_defined?, :public_class_method, :private_class_method, :autoload, :autoload?, :instance_method, :public_instance_method, :nil?, :=~, :!~, :eql?, :hash, :class, :singleton_class, :clone, :dup, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :frozen?, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :extend, :display, :method, :public_method, :singleton_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
 ```
 
+Bu method'ların bir kısmı **Enumerable** sınıfından gelen method'lardır. Ruby, **Module** yapısı kullandığı için ortak kullanılan method'lar modül eklemelerinden gelmektedir. **Class** konusunda detayları göreceğiz.
+
 Bu kısımdan en fazla kullanacağımız `[]` ve `new` method'ları olacaktır.
 
 ## Instance Method'ları
@@ -860,6 +862,54 @@ m.minmax_by { |x| x.length } # => ["a", "abcd"]
 
 **all?**, **any?**, **one?**, **none?**
 
+Array içindeki elemanları belli bir koşula göre kontrol etmek için kullanılır. Sonuç **Boolean** yani `true` ya da `false` döner. Tüm elemanların kontrolü koşula uyuyorsa `true` uymuyorsa `false` döner.
+
+```ruby
+# acaba hayvanlar dizisindeki isimlerin hepsinin uzunluğu
+# en az 2 karakter mi?
+
+hayvanlar = ["Kedi", "Köpek", "Kuş", "Kurbağa", "Kaplumbağa"]
+hayvanlar.all? { |hayvan_ismi| hayvan_ismi.length >= 2 } # => true
+
+# Acaba ilk karfleri K harfimi?
+
+hayvanlar.all? { |hayvan_ismi| hayvan_ismi.start_with?("K") } # => true
+
+# Elemanların her biri true mu?
+[true, false, nil].all? # => false
+```
+`any?` de yanlızca bir tanesi `true` olsa yeterlidir:
+
+```ruby
+# En azından bir hayvan ismi A ile başlıyor mu?
+
+hayvanlar = ["Kedi", "Köpek", "At", "Yılan", "Balık"]
+hayvanlar.any?{ |hayvan_ismi| hayvan_ismi.start_with?("A") } # => true
+```
+
+`one?` da ise sadece bir eleman koşula uymalıdır. Yani bir tanesi `true`dönmelidir. Eğer birden fazla eleman koşula `true` dönerse sonuç `false` olur:
+
+```ruby
+hayvanlar = ["Kedi", "Köpek", "At", "Yılan", "Balık", "Kaplumbağa"]
+
+# Sadece bir ismin uzunluğu 6 karaterten büyük olmalı!
+hayvanlar.one?{ |hayvan_ismi| hayvan_ismi.length > 6 } # => true
+
+# Uzunluğu 3'ten büyük 5 isim olduğu için false döndü!
+hayvanlar.one?{ |hayvan_ismi| hayvan_ismi.length > 3 } # => false
+```
+
+`none?` da ise hepsi `false` olmalıdır ki sonuç `true` dönsün:
+
+```ruby
+hayvanlar = ["Kedi", "Köpek", "At", "Yılan", "Balık", "Kaplumbağa"]
+
+# Hiçbir ismin uzunluğu 2 karakter olmamalı ? false. At'ın uzunluğu 2
+hayvanlar.none?{ |hayvan_ismi| hayvan_ismi.length == 2 } # => false
+
+# C ile başlayan hayvan ismi olmasın! true. Hiçbir isim C ile başlamıyor
+hayvanlar.none?{ |hayvan_ismi| hayvan_ismi.start_with?("C") } # => true
+```
 
 
 
