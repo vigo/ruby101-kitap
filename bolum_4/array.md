@@ -575,6 +575,14 @@ a.transpose   # => [[1, 3, 5], [2, 4, 6]]
 ["a", 1, "b", 2].inspect    # => "[\"a\", 1, \"b\", 2]"
 ```
 
+`entries` de aynen `to_a` gibi çalışır:
+
+```ruby
+(1..3)         # => 1..3
+(1..3).entries # => [1, 2, 3]
+(1..3).to_a    # => [1, 2, 3]
+```
+
 ## Iterasyon ve Block Kullanımı
 
 **collect / map { |eleman| blok } → yeni_array**
@@ -651,6 +659,28 @@ Eğer parametre geçersek kaçlı permutasyon olduğunu belirtiriz:
 ```ruby
 [1, 2, 3].permutation(1).to_a # => [[1], [2], [3]]
 [1, 2, 3].permutation(2).to_a # => [[1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2]]
+```
+
+**repeated_combination**, **repeated_permutation**
+
+`combination` ile `repeated_combination` arasındaki farkı örnekle görelim:
+
+```ruby
+[1, 2, 3].combination(1).to_a # => [[1], [2], [3]]
+[1, 2, 3].repeated_combination(1).to_a # => [[1], [2], [3]]
+
+[1, 2, 3].combination(2).to_a # => [[1, 2], [1, 3], [2, 3]]
+[1, 2, 3].repeated_combination(2).to_a # => [[1, 1], [1, 2], [1, 3], [2, 2], [2, 3], [3, 3]]
+```
+
+`combination` olası tekil sonucu, `repeated_combination` pas edilen sayıya göre tekrar da edebilen sonucu döner. Aynısı `repeated_permutation` için de geçerlidir:
+
+```ruby
+[1, 2, 3].permutation(1).to_a # => [[1], [2], [3]]
+[1, 2, 3].repeated_permutation(1).to_a # => [[1], [2], [3]]
+
+[1, 2, 3].permutation(2).to_a # => [[1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2]]
+[1, 2, 3].repeated_permutation(2).to_a # => [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]]
 ```
 
 **count**
@@ -1038,7 +1068,9 @@ Array içinde belli bir elemana ya da kurala göre parçalara ayırmak için kul
 # => [[1, 2, 3], ["a", 4, 5, 6], ["a", 7, 8, 9], ["a", 1, 3, 5]]
 ```
 
-**flat_map**
+**flat_map**, **collect_concat**
+
+İkisi de aynı işi yapar.
 
 Önce `map` eder sonra `flatten` yapar.
 
@@ -1050,6 +1082,36 @@ pos_neg.flatten # => [1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6]
 # yerine:
 [1, 2, 3, 4, 5, 6].flat_map { |n| [n, -n] } # => [1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6]
 ```
+
+**sort_by**
+
+Aynı `sort` gibi çalışır, Blok kullanır. İfadenin `true` olmasına göre çalışır:
+
+```ruby
+hayvanlar = ["kamplumbağa", "at", "eşşek", "kurbağa", "ayı"]
+
+# isimleri uzunluklarına göre küçükten büyüğe doğru sıralayalım
+hayvanlar.sort_by{ |isim| isim.length } # => ["at", "ayı", "eşşek", "kurbağa", "kamplumbağa"]
+
+# isimleri uzunluklarına göre büyükten küçüğe doğru sıralayalım
+hayvanlar.sort_by{ |isim| -isim.length } # => ["at", "ayı", "eşşek", "kurbağa", "kamplumbağa"]
+```
+
+**grep**
+
+Aslında bu konuları **Regular Expressions**'da göreceğiz ama yeri gelmişken hızla değinelim. Array içinde elemanları **Regex** koşullarına göre filtreleyebiliyoruz:
+
+```ruby
+(1..10).to_a        # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# 2'den 5'e kadar (5 dahil)
+(1..10).grep 2..5   # => [2, 3, 4, 5]
+
+# sadece .com olan elemanları al
+["a", "http://example.com", "b", "foo", "http://webbox.io"].grep(/^http.+\.com/) # => ["http://example.com"]
+```
+
+
 
 ## Tehlikeli İşlemler
 
