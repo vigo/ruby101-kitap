@@ -638,6 +638,21 @@ a.combination(2) { |c| puts "Olasıklar: #{c.join(" ve ")}" }
 # Olasıklar: 2 ve 3
 ```
 
+**permutaition**
+
+Aynı kombinasyon gibi, matematikteki permutasyon işlemidir.
+
+```ruby
+[1, 2, 3].permutation.to_a # => [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+```
+
+Eğer parametre geçersek kaçlı permutasyon olduğunu belirtiriz:
+
+```ruby
+[1, 2, 3].permutation(1).to_a # => [[1], [2], [3]]
+[1, 2, 3].permutation(2).to_a # => [[1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2]]
+```
+
 **count**
 
 Az önce method olarak işlediğimiz `count` ile başka ilginç işler de yapabiliyoruz:
