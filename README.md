@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%61](http://progressed.io/bar/61 "Genel Tamamlanma %61")
+![%62](http://progressed.io/bar/62 "Genel Tamamlanma %62")
 
 ## Önsöz
 
@@ -67,12 +67,12 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Conditional Statements (Koşullar) (%100)
 
 ### Bölüm 4
-![%47](http://progressed.io/bar/47)
+![%57](http://progressed.io/bar/57)
 
 * Object (%100)
 * Number (%100)
 * String (%100)
-* Array (%30)
+* Array (%100)
 * Hash (--)
 * Symbol (--)
 * Class (--)

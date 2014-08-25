@@ -172,7 +172,7 @@ Array acaba boşmu? İçinde hiç eleman var mı?
 [].empty?           # => true
 ```
 
-**eql?**
+**eql?**, **==**, **===**
 
 Eşitlik kontrolü içindir. Eğer karşılığı aynı cinsse ve birebir aynı elemanlara sahipse `true` döner.
 
@@ -182,6 +182,23 @@ a = ["Uğur", "Yeşim", "Ezel", "Ömer"]
 a.eql?(["Yeşim", "Ezel", "Ömer", "Uğur"]) # => false
 a.eql?([])                                # => false
 a.eql?(["Uğur", "Yeşim", "Ezel", "Ömer"]) # => true
+```
+
+`==` **Generic Equality** yani genel eşitlik kontrolü yani hepimizin bildiği kontrol, `===` ise **Case Equality** yani `a === b` ifadesinde **a**, **b**'nin **subseti** mi? demek olur. Örnek verelim:
+
+```ruby
+5.class.superclass # => Integer
+Integer === 5      # => true
+# 5, Integer subsetinde...
+
+Integer.class # => Class
+Integer.class.superclass # => Module
+Integer.class.superclass.superclass # => Object
+Integer.class.superclass.superclass.superclass # => BasicObject
+Integer.class.superclass.superclass.superclass.superclass # => nil
+
+# Integer, 5'in subsetinde değil.
+5 === Integer      # => false
 ```
 
 **include?** ve **member?**
@@ -258,6 +275,12 @@ Array'in sonuna eleman eklemek için kullanılır.
 a = ["Uğur", "Yeşim", "Ezel"]
 a << "Ömer"     # => ["Uğur", "Yeşim", "Ezel", "Ömer"]
 a.push("Eren")  # => ["Uğur", "Yeşim", "Ezel", "Ömer", "Eren"]
+```
+
+Keza zincirleme çağrı da yapabilirsiniz:
+
+```ruby
+a.push("Tunç").push("Suat")  # => ["Uğur", "Yeşim", "Ezel", "Ömer", "Eren", "Tunç", "Suat"]
 ```
 
 **concat**
@@ -583,6 +606,37 @@ a.transpose   # => [[1, 3, 5], [2, 4, 6]]
 (1..3).to_a    # => [1, 2, 3]
 ```
 
+**grep**
+
+Aslında bu konuları **Regular Expressions**'da göreceğiz ama yeri gelmişken hızla değinelim. Array içinde elemanları **Regex** koşullarına göre filtreleyebiliyoruz:
+
+```ruby
+(1..10).to_a        # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# 2'den 5'e kadar (5 dahil)
+(1..10).grep 2..5   # => [2, 3, 4, 5]
+
+# sadece .com olan elemanları al
+["a", "http://example.com", "b", "foo", "http://webbox.io"].grep(/^http.+\.com/) # => ["http://example.com"]
+```
+
+**pack**
+
+Array'in içeriğini verilen direktife göre **Binary String** haline getirir. Uzunca bir [direktif listesi](http://www.ruby-doc.org/core-2.1.2/Array.html#method-i-pack) var.
+
+```ruby
+# A: String olarak işle, space karakteri kullan
+# 5: Uzunluğu 5 karakter olsun
+["a", "b", "c"].pack("A5A5A5")            # => "a    b    c    "
+
+# Uzunluğu 5'ten büyük olan kesintiye uğradı
+["ali", "burak", "cengiz"].pack("A5A5A5") # => "ali  burakcengi"
+
+# a: String olarak işle, null yani \x00 karakteri kullan
+["a", "b", "c"].pack("a3a3a3")            # => "a\x00\x00b\x00\x00c\x00\x00"
+```
+
+
 ## Iterasyon ve Block Kullanımı
 
 **collect / map { |eleman| blok } → yeni_array**
@@ -646,7 +700,7 @@ a.combination(2) { |c| puts "Olasıklar: #{c.join(" ve ")}" }
 # Olasıklar: 2 ve 3
 ```
 
-**permutaition**
+**permutation**
 
 Aynı kombinasyon gibi, matematikteki permutasyon işlemidir.
 
@@ -681,6 +735,17 @@ Eğer parametre geçersek kaçlı permutasyon olduğunu belirtiriz:
 
 [1, 2, 3].permutation(2).to_a # => [[1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2]]
 [1, 2, 3].repeated_permutation(2).to_a # => [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]]
+```
+
+**product**
+
+Array ve argüman olarak geçilecek diğer Array/lerin elemanlarıyla oluşabilecek tüm alternatifleri üretmenizi sağlar.
+
+```ruby
+[1, 2, 3].product            # => [[1], [2], [3]]
+[1, 2, 3].product([4, 5])    # => [[1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]]
+[1, 2, 3].product([7, 8, 9]) # => [[1, 7], [1, 8], [1, 9], [2, 7], [2, 8], [2, 9], [3, 7], [3, 8], [3, 9]]
+[1, 2, 3].product(["a", "b"], ["x", "y"]) # => [[1, "a", "x"], [1, "a", "y"], [1, "b", "x"], [1, "b", "y"], [2, "a", "x"], [2, "a", "y"], [2, "b", "x"], [2, "b", "y"], [3, "a", "x"], [3, "a", "y"], [3, "b", "x"], [3, "b", "y"]]
 ```
 
 **count**
@@ -1097,27 +1162,31 @@ hayvanlar.sort_by{ |isim| isim.length } # => ["at", "ayı", "eşşek", "kurbağa
 hayvanlar.sort_by{ |isim| -isim.length } # => ["at", "ayı", "eşşek", "kurbağa", "kamplumbağa"]
 ```
 
-**grep**
+**bsearch**
 
-Aslında bu konuları **Regular Expressions**'da göreceğiz ama yeri gelmişken hızla değinelim. Array içinde elemanları **Regex** koşullarına göre filtreleyebiliyoruz:
+**Binary** arama yapar, `O(log n)` formülünü uygular, buradaki `n` Array'in boyudur. **Find minimum** gibidir, yani koşula ilk uyanı bul gibi...
 
 ```ruby
-(1..10).to_a        # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# 2'den büyük 3, 4 ve 5 olmasına rağmen tek sonuç
+[1, 2, 3, 4, 5].bsearch{ |n| n > 2 }  # => 3
 
-# 2'den 5'e kadar (5 dahil)
-(1..10).grep 2..5   # => [2, 3, 4, 5]
-
-# sadece .com olan elemanları al
-["a", "http://example.com", "b", "foo", "http://webbox.io"].grep(/^http.+\.com/) # => ["http://example.com"]
+[1, 2, 3, 4, 5].bsearch{ |n| n >= 4 } # => 4
 ```
-
-
 
 ## Tehlikeli İşlemler
 
 Başlarda da bahsettiğimiz gibi method ismi `!` ile bitiyorsa bu ilgili nesnede değişiklik yapıyor olduğumuz anlamına gelir. Array'lerde de bu tür method'lar var:
 
-    [:reverse!, :rotate!, :sort!, :sort_by!, :collect!, :map!, :select!, :reject!, :slice!, :uniq!, :compact!, :flatten!, :shuffle!, :!]
+    [:reverse!, :rotate!, :sort!, :sort_by!, :collect!, :map!, :select!, :reject!, :slice!, :uniq!, :compact!, :flatten!, :shuffle!]
 
+Bu method'lar orijinal Array'i bozar. Yani;
+
+```ruby
+a = [1, 2, 3, 4, 5]
+a.reverse! # => [5, 4, 3, 2, 1]
+
+# a artık reverse edilmiş halde!
+a          # => [5, 4, 3, 2, 1]
+```
 
 
