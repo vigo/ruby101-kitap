@@ -152,6 +152,12 @@ Array'in bir üst objesi ne? **Module** Yine **Class** konusunda göreceğiz diy
 
 Ruby, bu sorunu **Module** yapısıyla çözüyor. Bu mantıkla aslında ortaklaşa kullanılan Kernel modülleri yardımıyla, ortak kullanılacak method'lar bu modüllerin **Include** edilmesiyle ilgili yerlere dağıtılıyor.
 
+Acaba Array'de hangi modüller var?
+
+```ruby
+Array.included_modules # => [Enumerable, Kernel]
+```
+
 Bu bakımdan Array, Hash gibi nesnelerde benzer ortak method'lar görmek mümkün.
 
 **length** ve ya **count**
