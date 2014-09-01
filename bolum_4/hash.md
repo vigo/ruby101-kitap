@@ -56,6 +56,17 @@ h[:soyad]                  # => nil
 
 `nil` gelecekti. Biraz sonra göreceğimiz `fetch` method'unu lütfen aklınızda tutun!
 
+**Default** değer tanımlama mantığında;
+
+```ruby
+h = Hash.new { |hash, key| hash[key] = "User: #{key}" }
+h["vigo"]             # => "User: vigo"
+h["foobar"]           # => "User: foobar"
+h["animal"] = "horse" # => "horse"
+h                     # => {"vigo"=>"User: vigo", "foobar"=>"User: foobar", "animal"=>"horse"}
+```
+bu tarz ilginç bir yöntem de kullanılabilir. Normalde `vigo` key'ine karşılık **value** yok ama `Hash`in `new` method'unda yaptığımız bir blok işlemi ile olmayan `key` için değer ataması yaptığımız gibi key-value ataması da yapabiliyoruz.
+
 ## Hash Class Method'ları
 
 ## Hash Instance Method'ları
