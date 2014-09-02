@@ -69,6 +69,8 @@ bu tarz ilginç bir yöntem de kullanılabilir. Normalde `vigo` key'ine karşıl
 
 ## Hash Class Method'ları
 
+Hash'den bir instance oluşturmadan kullandığımız methodlardır.
+
 **Hash[ key, value, ... ] -> yeni_hash**
 **Hash[ [ [key, value], ... ] ] -> yeni_hash**
 **Hash[ object ] -> yeni_hash**
@@ -105,6 +107,90 @@ Hash.try_convert("user_count=>5")     # => nil
 ```
 
 ## Hash Instance Method'ları
+
+Hash instance'ı oluşturduktan sonra kullanacağımız method'lardır.
+
+Önce klasik değer okuma ve değer atama işlerine bakalım. Zaten bu noktaya kadar kabaca biliyoruz nasıl değer atarız geri okuruz. Ama biraz kafaları karıştırmak istiyorum:
+
+```ruby
+h = {username: "vigo", password: "1234"} # => {:username=>"vigo", :password=>"1234"}
+```
+
+Yukarıdaki gibi bir **Hash**'imiz var. Dikkat ettiyseniz, key,value olarak baktığımızda `:username` ve `:password` diye başlayan `key`ler var... Hatta:
+
+```ruby
+h.keys # => [:username, :password]
+```
+
+diye de sağlamasını yaparız. Peki, yeni bir `key` tanımlasak? `h["useremail"] = "vigo@example.com"`. Tekrar bakalım `key`lere:
+
+```ruby
+h.keys # => [:username, :password, "useremail"]
+```
+
+Bir sonraki bölümde karşımıza çıkacak olan **Symbol** tipi ile karşı karşıyayız. Sadece **symbol** mu? hayır, karışık keyler var elimizde. Hemen sağlamasını yapalım:
+
+```ruby
+h.keys.map(&:class) # => [Symbol, Symbol, String]
+```
+
+İlk iki key **Symbol** iken son key **String** oldu. Demekki Hash içine key cinsi olarak karşık atama yapabiliniyor. Biraz sıkıntılı bir durum ama genel kültür mahiyetinde aklınızda tutun bunu!
+
+Şimdi genel olarak Hash hangi method'lara sahip hemen bakalım:
+
+```ruby
+h = Hash.new
+h.methods # => [:rehash, :to_hash, :to_h, :to_a, :inspect, :to_s, :==, :[], :hash, :eql?, :fetch, :[]=, :store, :default, :default=, :default_proc, :default_proc=, :key, :index, :size, :length, :empty?, :each_value, :each_key, :each_pair, :each, :keys, :values, :values_at, :shift, :delete, :delete_if, :keep_if, :select, :select!, :reject, :reject!, :clear, :invert, :update, :replace, :merge!, :merge, :assoc, :rassoc, :flatten, :include?, :member?, :has_key?, :has_value?, :key?, :value?, :compare_by_identity, :compare_by_identity?, :entries, :sort, :sort_by, :grep, :count, :find, :detect, :find_index, :find_all, :collect, :map, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :first, :all?, :any?, :one?, :none?, :min, :max, :minmax, :min_by, :max_by, :minmax_by, :each_with_index, :reverse_each, :each_entry, :each_slice, :each_cons, :each_with_object, :zip, :take, :take_while, :drop, :drop_while, :cycle, :chunk, :slice_before, :lazy, :nil?, :===, :=~, :!~, :<=>, :class, :singleton_class, :clone, :dup, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :extend, :display, :method, :public_method, :singleton_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
+```
+
+Dikkat ettiyseniz method'ların bir kısmı **Array** ile aynı çünki ikisi de **Enumerable** modülünü kullanıyor.
+
+Şimdi sıradan başlayalım!
+
+**rehash**
+
+Hash'e key olarak Array verebiliriz. Yani `h[key] = value` mantığında `key` olarak bildiğiniz Array geçebiliriz.
+
+```ruby
+a = [ "a", "b" ]
+c = [ "c", "d" ]
+h = { a => 100, c => 300 } # => {["a", "b"]=>100, ["c", "d"]=>300}
+```
+`h` Hash'inin keyleri nedir?
+
+```ruby
+h.keys                     # => [["a", "b"], ["c", "d"]]
+```
+
+2 key'i var biri `["a", "b"]` ve diğeri `["c", "d"]` nasıl yani?
+
+```ruby
+h[a]                       # => 100
+h[["a", "b"]]              # => 100
+h[c]                       # => 300
+h[["c", "d"]]              # => 300
+```
+
+Şimdi işeri karıştıralım. `a` Array'inin ilk değerini değiştirelim. Bakalım `h` ne olacak?
+
+```ruby
+a[0] = "v"                 # => "v"
+a                          # => ["v", "b"]
+h[a]                       # => nil ????????
+```
+
+`h[a]` patladı? `nil` döndü. İşte şimdi imdadımıza ne yetişecek?
+
+```ruby
+h.rehash                   # => {["v", "b"]=>100, ["c", "d"]=>300}
+h[a]                       # => 100
+```
+
+
+
+
+
+
 
 
 
