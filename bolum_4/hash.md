@@ -69,6 +69,41 @@ bu tarz ilginç bir yöntem de kullanılabilir. Normalde `vigo` key'ine karşıl
 
 ## Hash Class Method'ları
 
+**Hash[ key, value, ... ] -> yeni_hash**
+**Hash[ [ [key, value], ... ] ] -> yeni_hash**
+**Hash[ object ] -> yeni_hash**
+
+```ruby
+Hash["user_count", 5]                            # => {"user_count"=>5}
+Hash[ [["user_count", 5], ["active_users", 2]] ] # => {"user_count"=>5, "active_users"=>2}
+Hash["user_count" => 5, "active_users" => 2]     # => {"user_count"=>5, "active_users"=>2}
+```
+
+**Hash.new**
+
+Zaten ilgili örnekleri başta vermiştik, tekrar edelim:
+
+```ruby
+h = Hash.new
+h # => {}
+h["user_count"] = 5
+h # => {"user_count"=>5}
+
+h = Hash.new { |hash, key| hash[key] = "User ID: #{key}" }
+h["1"] # => "User ID: 1"
+h["2"] # => "User ID: 2"
+h # => {"1"=>"User ID: 1", "2"=>"User ID: 2"}
+```
+
+**try_convert(obj) → hash ya da nil**
+
+Hash'e dönüşebilme ihtimali olan nesneyi Hash haline çevirir.
+
+```ruby
+Hash.try_convert({"user_count"=>5})   # => {"user_count"=>5}
+Hash.try_convert("user_count=>5")     # => nil
+```
+
 ## Hash Instance Method'ları
 
 
