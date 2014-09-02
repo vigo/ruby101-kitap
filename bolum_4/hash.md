@@ -286,6 +286,15 @@ h[:user_weight]           # => 100
 h[:foo]                   # => 100
 ```
 
+**key**
+
+Value'den key'i bulmak için kullanılır. Eğer key'i olmayan bir value kullanırsanız sonuç `nil` döner!
+
+```ruby
+h = {:user => "vigo", :password => "secret"}
+h.key("vigo")   # => :user
+h.key("foobar") # => nil
+```
 
 
 
