@@ -249,5 +249,21 @@ h = {:user => "vigo", :password => "secret"}
 h.fetch(:email) { |element| "key: #{element} is not defined!" } # => "key: email is not defined!"
 ```
 
+**store**
+
+Atama yapmanın farklı bir yöntemidir.
+
+```ruby
+h = {:user => "vigo", :password => "secret"}
+h.store(:email, "vigo@example.com") # => "vigo@example.com"
+h                                   # => {:user=>"vigo", :password=>"secret", :email=>"vigo@example.com"}
+
+# ya da
+
+h[:url] = "http://webbox.io"        # => "http://webbox.io"
+h                                   # => {:user=>"vigo", :password=>"secret", :email=>"vigo@example.com", :url=>"http://webbox.io"}
+```
+
+
 
 
