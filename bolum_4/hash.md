@@ -264,6 +264,20 @@ h[:url] = "http://webbox.io"        # => "http://webbox.io"
 h                                   # => {:user=>"vigo", :password=>"secret", :email=>"vigo@example.com", :url=>"http://webbox.io"}
 ```
 
+**default**
+
+Karşılığı olmayan `key`ler için varsayılan değer ataması yapılmışsa bunu bulmak için kullanılır. En başta benzer işler yaptık:
+
+```ruby
+h = Hash.new(10)
+h[:user_age]            # => 10
+h                       # => {}
+h.default               # => 10
+h.default(:user_weight) # => 10
+```
+
+
+
 
 
 
