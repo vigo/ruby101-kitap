@@ -204,6 +204,24 @@ h.to_a                            # => [[:foo, "bar"]]
 h.to_s                            # => "{:foo=>\"bar\"}"
 ```
 
+**==** ve **eql?** Eşitlik
+
+Hash içinde key'lerin sırası eşitlik kontrolünde önemli değildir. İçerik önemlidir. Eşitlik kontrolü için kullanılırlar.
+
+```ruby
+h1 = { "a" => 100, "c" => 200 }
+h2 = { 70 => 350, "x" => 22, "y" => 11 }
+h3 = { "y" => 11, "x" => 22, 70 => 350 }
+
+h1 == h2 # => false
+h2 == h3 # => true
+
+h1.eql?(h2)  # => false
+h2.eql?(h3)  # => true
+```
+
+`h2` ile `h3` key sıraları farklı olmasına rağmen içerik bazında eşittirler.
+
 
 
 
