@@ -73,7 +73,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Number (%100)
 * String (%100)
 * Array (%100)
-* Hash (--)
+* Hash (%5)
 * Symbol (--)
 * Class (--)
 
