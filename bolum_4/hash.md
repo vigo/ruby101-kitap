@@ -145,7 +145,7 @@ h.methods # => [:rehash, :to_hash, :to_h, :to_a, :inspect, :to_s, :==, :[], :has
 
 Dikkat ettiyseniz method'ların bir kısmı **Array** ile aynı çünki ikisi de **Enumerable** modülünü kullanıyor.
 
-Şimdi sıradan başlayalım!
+Şimdi sıradan başlayalım! Önceki **Array** bölümünde anlattığım ortak method'ları pas geçeceğim!
 
 **rehash**
 
@@ -222,8 +222,32 @@ h2.eql?(h3)  # => true
 
 `h2` ile `h3` key sıraları farklı olmasına rağmen içerik bazında eşittirler.
 
+**fetch**
 
+Hash içinden sorgu yaparken kullanılır. Eğer olmayan key çağırırsanız **exception** oluşur. Bu method güvenli bir yöntemdir. Aksi takdirde `nil` döner ve kompleks işlerde **Silent Fail** yani dipsiz kuyuya düşer bir türlü hatanın yerini bulamazsınız!
 
+```ruby
+h = {:user => "vigo", :password => "secret"}
+puts h.fetch(:user) # "vigo"
+puts h.fetch(:email)
+
+KeyError: key not found: :email
+```
+
+Keza eğer key'e karşılık yoksa **default** değer ataması yapabilirsiniz:
+
+```ruby
+h = {:user => "vigo", :password => "secret"}
+h.fetch(:user)               # => "vigo"
+h.fetch(:email, "Not found") # => "Not found"
+```
+
+**Block** kabul ettiği için artistlik hareketler yapmak da mümkün :)
+
+```ruby
+h = {:user => "vigo", :password => "secret"}
+h.fetch(:email) { |element| "key: #{element} is not defined!" } # => "key: email is not defined!"
+```
 
 
 
