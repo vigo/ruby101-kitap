@@ -296,6 +296,15 @@ h.key("vigo")   # => :user
 h.key("foobar") # => nil
 ```
 
+**size**, **length**
+
+Aynı işi yaparlar, Arrar gibi Hash'in boyunu / uzunluğunu verir.
+
+```ruby
+h = {:user => "vigo", :password => "secret"}
+h.length # => 2
+h.size   # => 2
+```
 
 
 
