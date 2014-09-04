@@ -296,7 +296,7 @@ h.key("vigo")   # => :user
 h.key("foobar") # => nil
 ```
 
-**size**, **length**
+**size**, **length**, **count**
 
 Aynı işi yaparlar, Arrar gibi Hash'in boyunu / uzunluğunu verir.
 
@@ -304,6 +304,7 @@ Aynı işi yaparlar, Arrar gibi Hash'in boyunu / uzunluğunu verir.
 h = {:user => "vigo", :password => "secret"}
 h.length # => 2
 h.size   # => 2
+h.count  # => 2
 ```
 
 
