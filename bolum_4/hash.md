@@ -314,11 +314,43 @@ h.count  # => 2
 Tahmin edeceğiniz gibi `keys` ile Hash'e ait key'leri, `values` ile sadece key'lere karşılık gelen değerleri, `values_at` ile verdiğimiz key'lere ait değerleri alırız.
 
 ```ruby
-h = {:user => "vigo", :password => "secret", :emai => "vigo@foo.com"}
-h.keys                        # => [:user, :password, :emai]
+h = {:user => "vigo", :password => "secret", :email => "vigo@foo.com"}
+h.keys                        # => [:user, :password, :email]
 h.values                      # => ["vigo", "secret", "vigo@foo.com"]
 h.values_at(:user, :password) # => ["vigo", "secret"]
 ```
+
+**key?**, **value?**, **has_key?**, **has_value?**
+
+Soru işareti ile biten method'lar bize herzaman **Boolean** yani `true` ya da `false` döner demiştik. Acaba Hash'in içinde ilgili key var mı? ya da value var mı?
+
+```ruby
+h = {:user => "vigo", :password => "secret", :email => "vigo@foo.com"}
+h.key?(:user)          # => true
+h.has_key?(:user)      # => true
+
+h.key?(:full_name)     # => false
+h.has_key?(:full_name) # => false
+
+h.value?("vigo")       # => true
+h.has_value?("vigo")   # => true
+
+h.value?("lego")       # => false
+h.has_value?("lego")   # => false
+```
+
+**include?**, **member?**
+
+`key?` ya da `has_key?` ile aynı işi yapar.
+
+```ruby
+h = {:user => "vigo", :password => "secret", :email => "vigo@foo.com"}
+h.include?(:user)        # => true
+h.member?(:user)         # => true
+```
+
+
+
 
 
 
