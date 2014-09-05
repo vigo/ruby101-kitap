@@ -349,6 +349,37 @@ h.include?(:user)        # => true
 h.member?(:user)         # => true
 ```
 
+**empty?**
+
+Hash'in içinde eleman var mı yok mu?
+
+```ruby
+{:user => "vigo", :password => "secret", :email => "vigo@foo.com"}.empty? # => false
+{}.empty? # => true
+```
+
+**all?**, **any?**, **one?**, **none?**
+
+**Array** bölümünde görmüştük, **Enumerable** modülünden gelen bu özellik aynen Hash'de de kullanılıyor. `all?` da tüm elemanlar, verilen koşuldan `nil` ya da `false` dışında birşey dönmek zorunda, aksi halde sonuç `false` oluyor:
+
+```ruby
+# value'su boş olan var mı?
+{:user => "vigo", :password => "secret", :email => "vigo@foo.com"}.all?{ |k,v| v.empty? } # => false
+{:user => "", :password => "", :email => ""}.all?{ |k,v| v.empty? }                       # => true
+{:user => "vigo", :password => "", :email => ""}.all?{ |k,v| v.empty? }                   # => false
+```
+
+`any?` de içlerinden biri `false` ya da `nil` dönmezse sonuç `true`olur. `one?` da sadece bir tanesi `true` dönmelidir. `none` da ise block'daki işlem sonucu her eleman için `false` olmalıdır.
+
+```ruby
+{:is_admin => true, :notifications_enabled => true}.all?{ |option, value| value } # => true
+{:is_admin => true, :notifications_enabled => false}.any?{ |option, value| value } # => true
+{:is_admin => true, :notifications_enabled => false}.one?{ |option, value| value } # => true
+{:is_admin => false, :notifications_enabled => false}.one?{ |option, value| value } # => false
+{:is_admin => false, :notifications_enabled => false}.all?{ |option, value| value } # => false
+{:is_admin => false, :notifications_enabled => false}.none?{ |option, value| value } # => true
+{:is_admin => false, :notifications_enabled => false}.any?{ |option, value| value } # => false
+```
 
 
 
