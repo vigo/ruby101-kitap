@@ -307,5 +307,18 @@ h.size   # => 2
 h.count  # => 2
 ```
 
+## Key, Value Kontrolleri
+
+**keys**, **values**, **values_at**
+
+Tahmin edeceğiniz gibi `keys` ile Hash'e ait key'leri, `values` ile sadece key'lere karşılık gelen değerleri, `values_at` ile verdiğimiz key'lere ait değerleri alırız.
+
+```ruby
+h = {:user => "vigo", :password => "secret", :emai => "vigo@foo.com"}
+h.keys                        # => [:user, :password, :emai]
+h.values                      # => ["vigo", "secret", "vigo@foo.com"]
+h.values_at(:user, :password) # => ["vigo", "secret"]
+```
+
 
 
