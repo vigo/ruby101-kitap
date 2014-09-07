@@ -381,6 +381,45 @@ Hash'in içinde eleman var mı yok mu?
 {:is_admin => false, :notifications_enabled => false}.any?{ |option, value| value } # => false
 ```
 
+**shift**
+
+Hash'den key-value çiftini silmek için kullanılır. Her seferinde ilk key-value çiftini siler.
+
+```ruby
+h = {:user => "vigo", :password => "secret", :email => "vigo@foo.com"}
+h.shift # => [:user, "vigo"]
+h       # => {:password=>"secret", :email=>"vigo@foo.com"}
+h.shift # => [:password, "secret"]
+h       # => {:email=>"vigo@foo.com"}
+h.shift # => [:email, "vigo@foo.com"]
+h       # => {}
+```
+
+**delete**, **delete_if**
+
+Hash'den key kullanarak eleman silmek için `delete` method'u kullanılır.
+
+```ruby
+h = {:user => "vigo", :password => "secret", :email => "vigo@foo.com"}
+h.delete(:user) # => "vigo"
+h               # => {:password=>"secret", :email=>"vigo@foo.com"}
+```
+
+Block kullanıldığında, eğer olmayan bir key kullanılmışsa, bununla ilgili işlem yapmamızı sağlar:
+
+```ruby
+h.delete(:phone){ |key| "-#{key}- bulunamadı?" } # => "-phone- bulunamadı?"
+```
+
+`delete_if` de ise direk block kullanarak koşullu silme işlemi yapabiliyoruz.
+
+```ruby
+# 40'dan büyükleri silelim
+h = { point_a: 10, point_b: 20, point_c: 50 } # => {:point_a=>10, :point_b=>20, :point_c=>50}
+h.delete_if{ |k,v| v > 40 }                   # => {:point_a=>10, :point_b=>20}
+h                                             # => {:point_a=>10, :point_b=>20}
+```
+
 
 
 
