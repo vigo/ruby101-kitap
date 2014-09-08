@@ -395,7 +395,7 @@ h.shift # => [:email, "vigo@foo.com"]
 h       # => {}
 ```
 
-**delete**, **delete_if**
+**delete**, **delete_if**, **keep_if**
 
 Hash'den key kullanarak eleman silmek için `delete` method'u kullanılır.
 
@@ -420,6 +420,15 @@ h.delete_if{ |k,v| v > 40 }                   # => {:point_a=>10, :point_b=>20}
 h                                             # => {:point_a=>10, :point_b=>20}
 ```
 
+`keep_if` ise `delete_if` in tam tersi gibidir. Eğer block'daki koşul `true` ise key-value çiftini tutar, aksi halde siler:
+
+```ruby
+# 20'dan küçükleri tutalım sadece
+h = { point_a: 10, point_b: 20, point_c: 50 }
+                         # => {:point_a=>10, :point_b=>20, :point_c=>50}
+h.keep_if{ |k,v| v < 20} # => {:point_a=>10}
+h                        # => {:point_a=>10}
+```
 
 
 
