@@ -465,7 +465,29 @@ h1.merge!(h2) # => {"a"=>100, "b"=>200, "x"=>1, "y"=>2, "z"=>3}
 h1            # => {"a"=>100, "b"=>200, "x"=>1, "y"=>2, "z"=>3}
 ```
 
+**replace**
 
+Hash'in içeriğini başka bir Hash ile değiştirmek için kullanılır. Aslında varolan Hash'i başka bir Hash'e çevirmek gibidir. Neden `replace` kullanılıyor? Tamamen hafızadaki adresleme ile ilgili. `replace` kullanıldığı zaman, aynı Hash kullanılıyor, yeni bir Hash instance'ı yaratılmıyor.
+
+```ruby
+h1 = { "a" => 100, "b" => 200, "c" => 0 }
+h1.__id__ # => 70320602334320
+```
+
+Hafızadaki `h1` Hash'nin nesne referansı : 70320602334320. Şimdir `replace` ile değerlerini değiştirelim:
+
+```ruby
+h1.replace({ "foo" => 1, "bar" => 2 })
+h1        # => {"foo"=>1, "bar"=>2}
+h1.__id__ # => 70320602334320
+```
+
+Referansları aynı : **70320602334320**. Eğer direkt olarak atama yapsakdık `h1` gibi görünen ama bambaşka yepyeni bir Hash'imiz olacaktı.
+
+```ruby
+h1 = { "foo" => 1, "bar" => 2 }
+h1.__id__ # => 70216424232360
+```
 
 
 
