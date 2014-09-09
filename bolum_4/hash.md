@@ -440,4 +440,34 @@ h.keys                         # => ["a", "b"]
 h.invert                       # => {100=>"a", 200=>"b"}
 ```
 
+**merge**, **update**, **merge!**
+
+İki Hash'i birbiryle birleştirmek için `merge` kullanılır.
+
+```ruby
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "x" => 1, "y" => 2, "z" => 3 }
+h1.merge(h2) # => {"a"=>100, "b"=>200, "x"=>1, "y"=>2, "z"=>3}
+h1           # => {"a"=>100, "b"=>200}
+```
+
+Dikkat ettiyseniz `h1` ile `h2` yi birleştirdik ama `h1`in orijinal değerini bozmadık. Eğer bu birleşmenin kalıcı olmasını isteseydik ya `update` ya da `merge!` kullanmamız gerekecekti!
+
+```ruby
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "x" => 1, "y" => 2, "z" => 3 }
+h1.update(h2) # => {"a"=>100, "b"=>200, "x"=>1, "y"=>2, "z"=>3}
+h1            # => {"a"=>100, "b"=>200, "x"=>1, "y"=>2, "z"=>3}
+
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "x" => 1, "y" => 2, "z" => 3 }
+h1.merge!(h2) # => {"a"=>100, "b"=>200, "x"=>1, "y"=>2, "z"=>3}
+h1            # => {"a"=>100, "b"=>200, "x"=>1, "y"=>2, "z"=>3}
+```
+
+
+
+
+
+
 
