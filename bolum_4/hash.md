@@ -430,6 +430,14 @@ h.keep_if{ |k,v| v < 20} # => {:point_a=>10}
 h                        # => {:point_a=>10}
 ```
 
+**invert**
 
+Hash'in key'leri ile value'lerini yer değiştirmek için kullanılır.
+
+```ruby
+h = { "a" => 100, "b" => 200 } # => {"a"=>100, "b"=>200}
+h.keys                         # => ["a", "b"]
+h.invert                       # => {100=>"a", 200=>"b"}
+```
 
 
