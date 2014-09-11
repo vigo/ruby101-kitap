@@ -643,7 +643,7 @@ Array'in içeriğini verilen direktife göre **Binary String** haline getirir. U
 ```
 
 
-## Iterasyon ve Block Kullanımı
+## İterasyon ve Block Kullanımı
 
 **collect / map { |eleman| blok } → yeni_array**
 

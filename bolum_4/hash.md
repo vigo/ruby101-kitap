@@ -489,6 +489,25 @@ h1 = { "foo" => 1, "bar" => 2 }
 h1.__id__ # => 70216424232360
 ```
 
+## İterasyon ve Block Kullanımı
+
+Aynı Array'lerdeki gibi Hash'lerde de iterasyon ve block kullanmak mümkün.
+
+**each**, **each_pair**, **each_value**, **each_key**
+
+`each` ve `each_pair` kardeş gibidirler:
+
+```ruby
+h = { "a" => 100, "b" => 200, "c" => 0 }
+h.each { |key, value| puts "key: #{key}, value: #{value}" }
+h.each_pair { |key, value| puts "key: #{key}, value: #{value}" }
+
+# key: a, value: 100
+# key: b, value: 200
+# key: c, value: 0
+```
+
+
 
 
 
