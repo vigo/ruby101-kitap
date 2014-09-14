@@ -507,6 +507,23 @@ h.each_pair { |key, value| puts "key: #{key}, value: #{value}" }
 # key: c, value: 0
 ```
 
+`each_value` sadece **value**, `each_key` de sadece **key** döner.
+
+```ruby
+h = { "a" => 100, "b" => 200, "c" => 0 }
+
+h.each_value { |value| puts "value: #{value}" }
+
+# value: 100
+# value: 200
+# value: 0
+
+h.each_key { |key| puts "key: #{key}" }
+
+# key: a
+# key: b
+# key: c
+```
 
 
 
