@@ -525,7 +525,7 @@ h.each_key { |key| puts "key: #{key}" }
 # key: c
 ```
 
-**each_entry**, **each_slice**
+**each_entry**, **each_slice**, **each_cons**
 
 Hash'deki key-value çifti Array şeklinde bir **entry** olur:
 
@@ -550,6 +550,16 @@ h.each_slice(2){ |s| puts "slice: #{s}" }
 # slice: [["c", 0]]
 ```
 
+`each_cons` ise `each_slice` gibi çalışır ama farkı örnekteki gibidir:
 
+```ruby
+h = { "a" => 100, "b" => 200, "c" => 0 }
+h.each_cons(2){ |s| puts "grup: #{s}" }
+
+# grup: [["a", 100], ["b", 200]]
+# grup: [["b", 200], ["c", 0]]
+```
+
+Neticede, 3 key-value çifti vardı. **2**'li grupladık ama sonuç `each_slice` daki gibi dönmedi. `["b", 200]` tekrar etti, çıktı gruplaması mutlaka 2 eleman içerdi.
 
 
