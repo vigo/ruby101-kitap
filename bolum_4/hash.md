@@ -525,6 +525,30 @@ h.each_key { |key| puts "key: #{key}" }
 # key: c
 ```
 
+**each_entry**, **each_slice**
+
+Hash'deki key-value çifti Array şeklinde bir **entry** olur:
+
+```ruby
+h = { "a" => 100, "b" => 200, "c" => 0 }
+h.each_entry{ |o| puts "o: #{o}" }
+
+# o: ["a", 100]
+# o: ["b", 200]
+# o: ["c", 0]
+```
+
+`each_slice` ile **entry**'leri parçacıklara ayırırız:
+
+```ruby
+h = { "a" => 100, "b" => 200, "c" => 0 }
+
+# 2'li dilimlere ayırdık
+h.each_slice(2){ |s| puts "slice: #{s}" }
+
+# slice: [["a", 100], ["b", 200]]
+# slice: [["c", 0]]
+```
 
 
 
