@@ -610,6 +610,23 @@ h[2] # => "hello 2"
 h # => {1=>"User: 1", 2=>"hello 2"}
 ```
 
+**compare_by_identity**, **compare_by_identity?**
+
+Hash'in key ve value'leri birbirine benziyor mu?
+
+```ruby
+h = { "a" => 1, "b" => 2, :c => "c" }
+h["a"] # => 1
+h.compare_by_identity? # => false
+h.compare_by_identity  # => {"a"=>1, "b"=>2, :c=>"c"}
+h.compare_by_identity? # => true
+
+# acaba key ile value benziyormu?
+h["a"]                 # => nil
+
+# burada benzer :)
+h[:c]                  # => "c"
+```
 
 
 
