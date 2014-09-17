@@ -67,13 +67,13 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Conditional Statements (Koşullar) (%100)
 
 ### Bölüm 4
-![%69](http://progressed.io/bar/69)
+![%71](http://progressed.io/bar/71)
 
 * Object (%100)
 * Number (%100)
 * String (%100)
 * Array (%100)
-* Hash (%85)
+* Hash (%100)
 * Symbol (--)
 * Class (--)
 
