@@ -562,4 +562,54 @@ h.each_cons(2){ |s| puts "grup: #{s}" }
 
 Neticede, 3 key-value çifti vardı. **2**'li grupladık ama sonuç `each_slice` daki gibi dönmedi. `["b", 200]` tekrar etti, çıktı gruplaması mutlaka 2 eleman içerdi.
 
+**default_proc**, **default_proc=**
+
+Konunun başında varsayılan değer ataması yaparken şöyle bir örnek vermiştik :
+
+```ruby
+h = Hash.new { |hash, key| hash[key] = "User: #{key}" }
+```
+
+eğer;
+
+```ruby
+h.default_proc # => #<Proc:0x007f85f2250fd8@-:7>
+```
+
+deseydik, bu Hash'e ait **Proc** u görmüş olurduk. Yani bu Hash için varsayılan işlem prosedürünü tanımlamış olduk aslında. Örneği biraz genişletelim:
+
+```ruby
+h = Hash.new {|obj, key| obj[key] = key * 4 } # => {}
+h[1] # => 4
+h[2] # => 8
+h    # => {1=>4, 2=>8}
+```
+
+Key olarak sayı veriyoruz, gelen sayıdan da value üretiyoruz otomatik olarak. İşlemin çalışması için bir adet obje ve sayı geçmemiz gerekiyor parametre olarak. Aslında;
+
+```ruby
+h.default_proc.call(Array.new, 9) # => 36
+h.default_proc.call([], 9) # => 36
+h.default_proc.call({}, 9) # => 36
+```
+şeklinde de, Hash'i sanki bir fonksiyon gibi kullanıp işleyebiliyoruz.
+
+Daha sonra, önceden tanımladığımız bu prosedürü değiştirmek istersek `default_proc=` methodunu kullanıyoruz:
+
+```ruby
+h = Hash.new { |hash, key| hash[key] = "User: #{key}" }
+h.default_proc # => #<Proc:0x007feea39bbd80@-:7>
+h[1] # => "User: 1"
+
+# Yeni prosedür veriyoruz
+h.default_proc = proc do |hash, key|
+  hash[key] = "hello #{key}"
+end
+h # => {1=>"User: 1"}
+h[2] # => "hello 2"
+h # => {1=>"User: 1", 2=>"hello 2"}
+```
+
+
+
 
