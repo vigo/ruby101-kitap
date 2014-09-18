@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%64](http://progressed.io/bar/64 "Genel Tamamlanma %64")
+![%64](http://progressed.io/bar/64?title=genel "Genel Tamamlanma %64")
 
 ## Önsöz
 
@@ -50,7 +50,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Ruby Komutu ve Parametreleri (%98)
 
 ### Bölüm 2
-![%100](http://progressed.io/bar/100)
+![%100](http://progressed.io/bar/100?title=bitti)
 
 * Syntax (Söz Dizimi) ve Rezerve Kelimeler (%100)
 * Değişkenler (%100)
@@ -59,7 +59,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Global Constants (Genel Sabitler) (%100)
 
 ### Bölüm 3
-![%100](http://progressed.io/bar/100)
+![%100](http://progressed.io/bar/100?title=bitti)
 
 * Methods (Fonksiyonlar) (%100)
 * Blocks (Bloklar) (%100)
