@@ -38,3 +38,11 @@ user_full_name.object_id   # => 420428
 :is_user_admin.id2name     # => "is_user_admin"
 :is_user_admin.to_s        # => "is_user_admin"
 ```
+
+Symbol'ler, değişkenler gibi direkt atama yöntemiyle yani `:a = 1` gibi bir şekilde çalışmazlar. Eğer bir String'den Symbol üretmek isterseniz `to_sym` methodunu kullanmanız gerekiyor.
+
+Hafızayı idareli kullanmak, boşu boşuna değişken kirliği yaratmamak gibi konularda tercih edilir. Keza Hash'lerde de **KEY** ataması Symbol olarak yapılıyor bu tür hız / tasarruf işleri için.
+
+```ruby
+{:user=>"vigo"}
+```
