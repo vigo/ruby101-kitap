@@ -25,7 +25,7 @@
    * [Array](bolum_4/array.md)
    * [Hash](bolum_4/hash.md)
    * [Symbol](bolum_4/symbol.md)
-   * [Class](bolum_4/class.md)
+   * [Class ve Module](bolum_4/class.md)
 * [Bölüm 5](bolum_5/README.md)
    * [Enumeration ve Iteration](bolum_5/enumeration_ve_iteration.md)
    * [Ranges](bolum_5/ranges.md)
