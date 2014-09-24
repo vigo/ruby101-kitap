@@ -23,6 +23,27 @@ Class tek başına bir nesne (*Obje*) bu bakımdan **instantiate** etmeseniz bil
 
 Class'ların diğer bir özelliği de açık olmasıdır. Ruby'nin bence en harika özelliği, **built-in** yani dilin çekirdeğinden gelen Class'lara bile method / property eklemeniz mümkündür. Bu konuları **Monkey Patching** kısmında detaylı göreceğiz.
 
+En basit tanımıyla Class aşağıdaki gibidir:
+
+```ruby
+class Merhaba
+  def initialize(isim)
+    @isim = isim
+  end
+
+  def selam_sana
+    "Selam sana, #{@isim}"
+  end
+end
+
+hey = Merhaba.new "Uğur"
+hey.selam_sana # => "Selam sana, Uğur"
+```
+
+`initialize` methodu, Class'dan ilk örnek türedildiğinde (*yani bir instance oluşturulduğunda*) tetiklenir ve bir tür Class ile ilgili ön tanımlamaların yapıldığı alan konumundadır. `@isim` ise **Instance Variable** yani Class'tan türeyen nesneye ait değişkendir.
+
+`selam_sana` ise bu Class'ın bir method'udur. `hey` değişkeni, `Merhaba` Class'ından türemiş bir **Instance**'dır. `Merhaba` sınıfındaki tüm method'lar **inherit** hani miras olarak `hey` nesnesine geçmiştir.
+
 ---
 
 # Module
