@@ -40,7 +40,9 @@ hey = Merhaba.new "Uğur"
 hey.selam_sana # => "Selam sana, Uğur"
 ```
 
-`initialize` methodu, Class'dan ilk örnek türedildiğinde (*yani bir instance oluşturulduğunda*) tetiklenir ve bir tür Class ile ilgili ön tanımlamaların yapıldığı alan konumundadır. `@isim` ise **Instance Variable** yani Class'tan türeyen nesneye ait değişkendir.
+`initialize` methodu, Class'dan ilk örnek türedildiğinde (*yani bir instance oluşturulduğunda*) tetiklenir ve bir tür Class ile ilgili ön tanımlamaların yapıldığı alan konumundadır. Benzer dillerdeki **class constructor**'ı gibi düşünülebilir.
+
+`@isim` ise **Instance Variable** yani Class'tan türeyen nesneye ait değişkendir.
 
 `selam_sana` ise bu Class'ın bir method'udur. `hey` değişkeni, `Merhaba` Class'ından türemiş bir **Instance**'dır. `Merhaba` sınıfındaki tüm method'lar **inherit** hani miras olarak `hey` nesnesine geçmiştir.
 
