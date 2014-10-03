@@ -218,6 +218,98 @@ vigo.greet # => "Hello Uğur"
 
 `@name` değişkenini sadece ilk tetiklenmede set ediceksem ve dışarıdan okuma ihtiyacım yoksa bu şekilde kullanabilirim!
 
+## Class Variables
+
+`@@` ile başlayan değişkenler Class Variable (*Sınıf Değişkeni*) olarak tanımlanır. Yani Ana Class'a ait bir değişkendir. Her yeni instance oluştuğunda bu değer ait olduğu üst sınıftan erişilebilir:
+
+```ruby
+class Person
+  attr_accessor :name
+  @@amount = 0
+  def initialize(name)
+    @@amount += 1
+    @name = name
+  end
+  def greet
+    "Hello #{name}"
+  end
+  def how_many_people_created
+    "Number of people: #{@@amount}"
+  end
+end
+
+user1 = Person.new "Uğur"
+user2 = Person.new "Yeşim"
+user3 = Person.new "Ezel"
+
+Person.class_variable_get(:@@amount) # => 3
+user3.how_many_people_created        # => "Number of people: 3"
+```
+
+## Class Methods
+
+İlgili Class'dan türetme yapmadan, direk Class'dan çağırılan özel method'dur. Bu method'u çağırmak için sınıftan herhangibir türetme yapmaya gerek olmaz, direkt olarak sınıf'tan çağırılır:
+
+```ruby
+class Person
+  attr_accessor :name
+  @@amount = 0
+  def initialize(name)
+    @@amount += 1
+    @name = name
+  end
+  def greet
+    "Hello #{name}"
+  end
+  def how_many_people_created
+    "Number of people: #{@@amount}"
+  end
+  
+  def self.how_many_people_created
+    "We have #{@@amount} copie(s)"
+  end
+end
+
+user1 = Person.new "Uğur"
+user2 = Person.new "Yeşim"
+user3 = Person.new "Ezel"
+
+Person.how_many_people_created # => "We have 3 copie(s)"
+```
+
+`Person.how_many_people_created` direkt olarak çağırılır!
+
+## Singletons
+
+Sınıf içinde `class` komutunu kullanarak method oluşturmak içindir. Buna **Singleton** denir. Sadece bir kere **instantiate** (*tetiklenme diyelim*) olur. Örneğin alan hesabı yapacak bir sınıf düşünüyoruz ve bunun `calculate` method'u olsun. En x Boy bize metrekare'yi versin:
+
+```ruby
+class Area
+ class << self
+   def calculate(width, height)
+     width * height
+   end
+ end
+end
+
+Area.calculate(5, 5) # => 25
+```
+
+Gördüğünüz gibi hiçbir şekilde `new` ya da benzer birşey türetme kulanmadık direkt olarak `Area.calculate(5, 5)` şeklinde kullandık. Keza aynı işi;
+
+```ruby
+class Area
+end
+
+x = Area.new
+def x.calculate(width, height)
+  width * height
+end
+x.calculate 5,5 # => 25
+```
+
+şeklinde de yapabilirdik.
+
 
 ---
 
