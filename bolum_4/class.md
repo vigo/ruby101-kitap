@@ -46,6 +46,179 @@ hey.selam_sana # => "Selam sana, Uğur"
 
 `selam_sana` ise bu Class'ın bir method'udur. `hey` değişkeni, `Merhaba` Class'ından türemiş bir **Instance**'dır. `Merhaba` sınıfındaki tüm method'lar **inherit** hani miras olarak `hey` nesnesine geçmiştir.
 
+Class'ı tanımlarken ister klasik ister block yöntemini kullanabilirsiniz. Klasik yöntem:
+
+```ruby
+class Person
+end
+
+jack = Person.new # => #<Person:0x007fb0521a4820>
+```
+
+Block ise;
+
+```ruby
+Person = Class.new do
+end
+
+jack = Person.new # => #<Person:0x007fc42c0c8648>
+```
+
+şeklindedir. Class isimleri **Büyük** harfle başlar.
+
+## Public Instance Method'ları
+
+Bir Class'tan türeyen şeye **Instance** diyoruz. Ruby'de Class'lar **first-class objects** olarak geçer yani birinci sınıf nesnelerdir. Bu da şu anlama gelir, aslında her Class, Kernel'dan gelen `Class` nesnesinden türemiş alt sınıftır :)
+
+**allocate**, **new** ve **superclass**
+
+`superclass` ilgili Class'ın kimden geldiğini / türediğini gösterir. Benzer örnekleri kitabın başında yapmıştık:
+
+```ruby
+String.superclass      # => Object
+Object.superclass      # => BasicObject
+BasicObject.superclass # => nil
+```
+
+`new` ise önce `allocate` method'unu çağırıp hafızada gereken yeri ayırır, yani **instantiate** edeceğimiz Class'ın sınıfını organize eder, sonra oluşacak Class'ın `initialize` method'unu çağırıp varsa ilgili argümanları pas eder. Her `.new` çağırıldığında bu iş olur.
+
+## Private Instance Method'ları
+
+**inherited(subclass)**
+
+İlgili sınıfın alt sınıfı oluşturulduğunda tetiklenir.
+
+```ruby
+class Animal
+  def self.inherited(subclass)
+    puts "Yeni subclass: #{subclass}"
+  end
+end
+
+class Cat < Animal
+end
+
+class Tiger < Cat
+end
+
+# Yeni subclass: Cat
+# Yeni subclass: Tiger
+```
+
+Animal (*hayvan*) sınıfından, Cat (*kedi*) ürettik, Tiger (*kaplan*)'ı da yine Cat (*kedi*)'den ürettik...
+
+## Accessors (getter + setter)
+
+Özel method'lar kullanarak **Meta Programming** mantığıyla Ruby, Instance Variable'ları yönetmeyi kolaylaştırır. Yukarıdaki `Merhaba` Class'ındaki `@isim` için aslında `get`ve `set` yani oku ve yaz method'ları tanımlamamız lazım ki ilgili değişken üzerinde işlem yapabilelim. Önce uzun yolu, sonra doğru ve kısa yolu görelim:
+
+```ruby
+class Person
+  def name
+    @name
+  end
+  def name=(name)
+    @name = name
+  end
+end
+
+vigo = Person.new  # => #<Person:0x007f903b8d0590>
+vigo.name          # => nil
+vigo.name = "Uğur" # => "Uğur"
+vigo.name          # => "Uğur"
+```
+
+`name` method'unu çağırınca bize instance variable olan `@name` dönüyor. İlk anda **set** etmediğimiz yani değer atamadığımız için `nil` geliyor. Daha sonra `vigo.name = "Uğur"` diyerek atama yapıyoruz ve artık değerini belirlemiş oluyoruz. Bu iş için 2 tane method yazdık. `name` ve `name=` method'ları.
+
+İşte bu noktada **accessors** imdadımıza yetişiyor:
+
+```ruby
+class Person
+  attr_accessor :name
+end
+
+vigo = Person.new  # => #<Person:0x007fb7c9a4c620>
+vigo.name          # => nil
+vigo.name = "Uğur" # => "Uğur"
+vigo.name          # => "Uğur"
+```
+
+`attr_accessor :name` dediğimizde, Ruby, bizim için `name` ve `name=` method'ları oluşturuyor. Keza sadece bununla kalmayıp, pek çok farklı kullanım imkanları sunuyor.
+
+`attr` modülüyle:
+
+* attr
+* attr_accessor
+* attr_reader
+* attr_writer
+
+gibi özel getter/setter'lar geliyor. Yukarıdaki örneği `attr` ile yapalım;
+
+```ruby
+class Person
+  attr :name, true
+end
+
+Person.instance_methods - Object.instance_methods # => [:name, :name=]
+```
+
+Otomatik olarak 2 method ekledi : `[:name, :name=]`. Aynı şeyi `attr_accessor :name` ile de yapabilirdik:
+
+```ruby
+class Person
+  attr_accessor :name
+end
+
+Person.instance_methods - Object.instance_methods # => [:name, :name=]
+```
+
+Eğer sadece `attr_reader` kullansaydık, sadece ilgili instance variable'ını okuyabilir ama değerini set edemezdik!
+
+```ruby
+class Person
+  attr_reader :name
+end
+
+Person.instance_methods - Object.instance_methods # => [:name]
+
+vigo = Person.new
+vigo.name # => nil
+vigo.name = "Uğur" # => NoMethodError: undefined method `name=' for #<Person:0x007ffe4d0e8528>
+```
+
+Gördüğünüz gibi `NoMethodError` hatası aldık çünki setter yani `name=` method'u oluşmadı! Peki sadece `attr_writer` olsaydı?
+
+```ruby
+class Person
+  attr_writer :name
+end
+
+Person.instance_methods - Object.instance_methods # => [:name=]
+
+vigo = Person.new
+vigo.name = "Uğur" # => "Uğur"
+vigo.name # => NoMethodError: undefined method ‘name’ for #<Person:0x007fb92b9d45b8 @name="Uğur">
+```
+
+Set edebiliyoruz ama get edemiyoruz! Peki `attr_writer` nerede işimize yarar? Örneğin sadece Class'ı initialize ederken değer pas edip sınıf içinde bir değişkene atama yapmak gerektiğinde kullanabilirsiniz:
+
+```ruby
+class Person
+  attr_writer :name
+  def initialize(name)
+    @name = name
+  end
+  def greet
+    "Hello #{@name}"
+  end
+end
+
+vigo = Person.new "Uğur"
+vigo.greet # => "Hello Uğur"
+```
+
+`@name` değişkenini sadece ilk tetiklenmede set ediceksem ve dışarıdan okuma ihtiyacım yoksa bu şekilde kullanabilirim!
+
+
 ---
 
 # Module
