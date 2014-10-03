@@ -310,6 +310,42 @@ x.calculate 5,5 # => 25
 
 şeklinde de yapabilirdik.
 
+## Inheritance
+
+Aslında bu da bildiğimiz bir şey. Sınıftan türeme yaparkan, türettiğimiz sınıfın özellikleri türeyene miras geçer.
+
+```ruby
+class Animal
+  attr_accessor :name, :kind
+  def initialize(name)
+    @name = name
+  end
+  def say_hi
+    "Hello! I'm a #{@kind}, my name is #{@name}"
+  end
+end
+
+class Cat < Animal
+end
+
+class Horse < Animal
+end
+
+bidik = Cat.new "Bıdık"
+bidik.kind = "cat"
+
+zuzu = Horse.new "Zuzu"
+zuzu.kind = "horse"
+
+bidik.say_hi # => "Hello! I'm a cat, my name is Bıdık"
+zuzu.say_hi  # => "Hello! I'm a horse, my name is Zuzu"
+```
+
+`Cat` ve `Horse` **Animal** sınıfından `<` yöntemiyle türedi ve `Animal` deki tüm method'lar `Cat` ve `Horse`'a geçti.
+
+## Public, Private, ve Protected Method'lar
+
+Class içindeki method'lar duruma göre erişilebilirlik açısından kısıtlanabilir. `public` olanlar her yerden erişilebilirken (*bu default bir durumdur*), 
 
 ---
 
