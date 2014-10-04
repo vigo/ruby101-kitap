@@ -426,6 +426,23 @@ v.give_random_age # => "Kendi yaşım: 43, rnd= 44"
 
 Örnekte, `SuperUser` Class'ında kafamıza göre `give_random_age` method'unu ezip kendi işlemimizi yaparken, üst sınıftan miras gelen orijinal method'u da yedekliyoruz, `yedek` adı altında.
 
+## Sınıflar Açıktır, Modifiye Edilebilir!
+
+İster Kernel'dan ister başka biryerden gelsin, her şekilde Class'lar modifiye edilebilir. Detayları **Monkey Patching**'de göreceğiz. Kısa bir örnek yapalım. `String` Class'ına neşemize göre bir method ekleyelim:
+
+```ruby
+class String
+  def hello
+    "Hello: #{self}"
+  end
+end
+
+
+"Deneme".hello # => "Hello: Deneme"
+```
+
+Tipi `String` olan herşeyin artık `hello` diye bir method'u oldu :)
+
 ---
 
 # Module
