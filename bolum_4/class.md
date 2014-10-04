@@ -343,9 +343,55 @@ zuzu.say_hi  # => "Hello! I'm a horse, my name is Zuzu"
 
 `Cat` ve `Horse` **Animal** sınıfından `<` yöntemiyle türedi ve `Animal` deki tüm method'lar `Cat` ve `Horse`'a geçti.
 
-## Public, Private, ve Protected Method'lar
+## Access Level: Public, Private, ve Protected Method'lar
 
-Class içindeki method'lar duruma göre erişilebilirlik açısından kısıtlanabilir. `public` olanlar her yerden erişilebilirken (*bu default bir durumdur*), 
+Class içindeki method'lar duruma göre erişilebilirlik açısından kısıtlanabilir. `public` olanlar her yerden erişilebilirken (*bu default bir durumdur*), `private` olana sadece içeriden erişilebilir, `protected` olana ise ancak alt sınıftan türeyenden erişilebilir.
+
+```ruby
+class User
+  def bu_sayede_private_cagirabilirim
+    bu_sadece_iceriden
+  end
+  
+  private
+  def bu_sadece_iceriden
+    puts "Bu private method. Bu method instance'dan çağırılamaz!"
+  end
+  
+  protected
+  def bu_sadece_subclass_veya_instance_dan
+    puts "Bu proteced method."
+  end
+end
+
+u = User.new
+u.bu_sadece_iceriden # => NoMethodError: private method ‘bu_sadece_iceriden’ called for #<User:0x007feb9d0d2560>
+```
+
+Gördüğünüz gibi `bu_sadece_iceriden` method'unu `User` dan instantiate ettiğimiz `u` üzeriden çağıramıyoruz. `private` olduğu için ancak içeriden çağırılabilir:
+
+```ruby
+u.bu_sayede_private_cagirabilirim # => "Bu private method. Bu method instance'dan çağırılamaz!"
+```
+
+`public` olan `bu_sayede_private_cagirabilirim` method'u içeriden `private` method olan `bu_sadece_iceriden` 'e erişebildi. Peki ya `protected` ? Eğer direkt olarak çağırmaya kalksaydık:
+
+```ruby
+u.bu_sadece_subclass_veya_instance_dan # => NoMethodError: protected method ‘bu_sadece_subclass_veya_instance_dan’ called for #<User:0x007fff131c60a0>
+```
+
+Hemen gerekeni yapalım; `User` Class'ından başka bir Class üretelim:
+
+```ruby
+class SuperUser < User
+  def initialize
+    bu_sadece_subclass_veya_instance_dan
+  end
+end
+
+y = SuperUser.new # => "Bu proteced method."
+```
+
 
 ---
 
