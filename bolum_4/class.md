@@ -392,6 +392,39 @@ end
 y = SuperUser.new # => "Bu proteced method."
 ```
 
+## Method Aliasing
+
+Bazı durumlarda, üst sınıftaki method'u ezmek gerekir. Bu işlemi yaparken aslında üst sınıftaki orijinal method'a da erişmeniz gerekebilir.
+
+```ruby
+class User
+  attr_accessor :name
+  def initialize(name)
+    @name = name
+  end
+  
+  def give_random_age
+    (20..45).to_a.sample
+  end
+end
+
+class SuperUser < User
+  alias :yedek :give_random_age # üst sınıftaki give_random_age’i sakladık, yedek adını verdik
+  def give_random_age
+    rnd = self.yedek
+    "Kendi yaşım: 43, rnd= #{rnd}"
+  end
+end
+
+u = User.new "vigo"
+u.name            # => "vigo"
+u.give_random_age # => 29
+
+v = SuperUser.new "Uğur"
+v.give_random_age # => "Kendi yaşım: 43, rnd= 44"
+```
+
+Örnekte, `SuperUser` Class'ında kafamıza göre `give_random_age` method'unu ezip kendi işlemimizi yaparken, üst sınıftan miras gelen orijinal method'u da yedekliyoruz, `yedek` adı altında.
 
 ---
 
@@ -400,3 +433,4 @@ y = SuperUser.new # => "Bu proteced method."
 Class'a benzeyen ama Class gibi **instantiate** edilemeyen şeydir modül. Modül denen şeye Class'e eklenebilir (*include edilir*) Modülden gelen methodlar artık ilgili Class'ın methodu haline gelir.
 
 Yani düşününki bir Class var, bu Class'ın farklı 2-3 Class'tan özellik almasını istiyorsunuz. Bunu başarmak için ilgili Class'a o 2-3 Class'ı Modül olarak ekliyorsunuz!
+
