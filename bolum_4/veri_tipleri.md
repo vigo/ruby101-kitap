@@ -9,6 +9,6 @@ Bu bölümde;
 * Array (Dizi)
 * Hash
 * Symbol (Sembol)
-* Class (Sınıf)
+* Class (Sınıf) ve Module (Modül)
 
 konularını işleyeceğiz.
