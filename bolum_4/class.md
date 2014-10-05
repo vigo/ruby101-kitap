@@ -478,3 +478,119 @@ x.generate # => 7
 ```
 
 `RandomNumbers` adında bir Module yaptık, iki farklı Class'ımız var, `DiceGame` ve `RaceGame` diye, `include` ile bu Module'ü 2 farklı Class'a ekledik. Şimdi heriki Class'ın da `generate` adında method'u oldu...
+
+## Namespacing
+
+Module içinde Module tanımlayabilirsiniz. Bu sayede belirlediğiniz Module tanımı altında başka alt Module'ler ve method'lar ekleyebilir, bu sayede tüm fonksiyonaliteyi ortak bir isim altından yürütebilirsiniz:
+
+```ruby
+module Framework
+  module HttpFunctions
+    def self.fetch_url
+      "This is url fetcher"
+    end
+  end
+end
+
+Framework::HttpFunctions.fetch_url # => "This is url fetcher"
+```
+
+Alt Module'e ulaşmak için `::` kullandık. Aynı kodu şu şekilde de tanımlayabilirdik:
+
+```ruby
+module Framework
+end
+
+module Framework::HttpFunctions
+  def self.fetch_url
+    "This is url fetcher"
+  end
+end
+
+Framework::HttpFunctions.fetch_url # => "This is url fetcher"
+```
+
+Bu sayede, başka bir kütüphaneden gelen Module'e ek Module'ler takma şansınız olur. Örneğin [Sinatra](http://sinatrarb.com) için ek bir özellik yapıyorsunuz. Bu durumda;
+
+```ruby
+module Sinatra::MyFeature
+end
+```
+
+Şeklinde kullanabilirsiniz.
+
+## Scope
+
+Dikkat ettiyseniz Module'ü kullanırken Class gibi instanciate etmedik. Keza örnekte `self.fetch_url` diye method tanımlaması yaptık. Aslında burada **Singleton** gibi kullandık. Örnekte `fetch_url` methodu için scope olarak `HttpFunctions` vermiş olduk. Yani `fetch_url` sadece `Framework::HttpFunctions.fetch_url` şeklinde erişilebilir oldu.
+
+## Constants
+
+Module içinde sabit değer tanımlaması da yapmak mümkündür.
+
+```ruby
+module A
+  SABIT = 5
+end
+
+A::SABIT # => 5
+```
+
+Eğer **nested** yani Module içinde Module yaparsak, sabitlere aşağıdaki gibi erişebiliriz:
+
+```ruby
+module A
+  SABIT = 5
+  module B
+    def self.sabit_degeri_ver
+      SABIT
+    end
+  end
+end
+
+A::SABIT              # => 5
+A::B.sabit_degeri_ver # => 5
+```
+
+Peki, dışarıda tanımlanmış bir sabit varsa?
+
+```ruby
+SABIT = 5 # en dıştaki global
+module A
+  SABIT = 10 # içerideki
+  module B
+    def self.sabit_degeri_ver
+      "#{::SABIT}, #{SABIT}"
+    end
+  end
+end
+
+A::B.sabit_degeri_ver # => "5, 10"
+```
+
+En dıştakini `::SABIT` ile aldık.
+
+## Visibility, Access Level
+
+Aynı Class'lardaki gibi `public`, `private` ve `protected` olayı Module'ler için de geçerlidir.
+
+```ruby
+module A
+  def sadece_iceriden
+    "Bu private method"
+  end
+  
+  def bu_sayede_private_erisim_olur
+    sadece_iceriden
+  end
+  
+  private :sadece_iceriden
+end
+
+class Deneme
+  include A
+end
+
+c = Deneme.new
+c.sadece_iceriden # => NoMethodError: private method ‘sadece_iceriden’ called for #<Deneme:0x007f8f7c9188c8>
+c.bu_sayede_private_erisim_olur # => "Bu private method"
+```

@@ -67,7 +67,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Conditional Statements (Koşullar) (%100)
 
 ### Bölüm 4
-![%97](http://progressed.io/bar/97)
+![%100](http://progressed.io/bar/100)
 
 * Object (%100)
 * Number (%100)
@@ -75,7 +75,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Array (%100)
 * Hash (%100)
 * Symbol (%100)
-* Class (%80)
+* Class ve Module (%100)
 
 ### Bölüm 5
 ![%0](http://progressed.io/bar/0)
