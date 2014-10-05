@@ -451,3 +451,30 @@ Class'a benzeyen ama Class gibi **instantiate** edilemeyen şeydir modül. Modü
 
 Yani düşününki bir Class var, bu Class'ın farklı 2-3 Class'tan özellik almasını istiyorsunuz. Bunu başarmak için ilgili Class'a o 2-3 Class'ı Modül olarak ekliyorsunuz!
 
+Module'ler sayesinde **Namespace** ve **Mix-in** fonksiyonalitesi de gelmiş olur.
+
+Tahmin edebileceğiniz gibi `module` kelimesiyle başlarlar ve aynı Class'larda olduğu gibi büyük harfle başlayan module adı ya da Namespace tanımlaması yapılır:
+
+```ruby
+module RandomNumbers
+  def generate
+    rand(10)
+  end
+end
+
+class DiceGame
+  include RandomNumbers
+end
+
+class RaceGame
+  include RandomNumbers
+end
+
+g = DiceGame.new
+g.generate # => 3
+
+x = RaceGame.new
+x.generate # => 7
+```
+
+`RandomNumbers` adında bir Module yaptık, iki farklı Class'ımız var, `DiceGame` ve `RaceGame` diye, `include` ile bu Module'ü 2 farklı Class'a ekledik. Şimdi heriki Class'ın da `generate` adında method'u oldu...
