@@ -1,4 +1,4 @@
-# Class
+# Class (Sınıf)
 
 Ruby, **Object-Oriented** (*OO*) bir dil olduğu için, methodları değişkenleri ve benzeri şeyleri içinde barından bir tür taşıyıcıya ihtiyaç duyar. İşte bu taşıyıcıya **Class** ya da sınıf diyoruz. Aslında ben **tür** demeyi tercih ediyorum sınıf yerine.
 
@@ -264,7 +264,7 @@ class Person
   def how_many_people_created
     "Number of people: #{@@amount}"
   end
-  
+
   def self.how_many_people_created
     "We have #{@@amount} copie(s)"
   end
@@ -310,7 +310,7 @@ x.calculate 5,5 # => 25
 
 şeklinde de yapabilirdik.
 
-## Inheritance
+## Inheritance (Miras)
 
 Aslında bu da bildiğimiz bir şey. Sınıftan türeme yaparkan, türettiğimiz sınıfın özellikleri türeyene miras geçer.
 
@@ -343,7 +343,7 @@ zuzu.say_hi  # => "Hello! I'm a horse, my name is Zuzu"
 
 `Cat` ve `Horse` **Animal** sınıfından `<` yöntemiyle türedi ve `Animal` deki tüm method'lar `Cat` ve `Horse`'a geçti.
 
-## Access Level: Public, Private, ve Protected Method'lar
+## Access Level (Erişim): Public, Private, ve Protected Method'lar
 
 Class içindeki method'lar duruma göre erişilebilirlik açısından kısıtlanabilir. `public` olanlar her yerden erişilebilirken (*bu default bir durumdur*), `private` olana sadece içeriden erişilebilir, `protected` olana ise ancak alt sınıftan türeyenden erişilebilir.
 
@@ -352,12 +352,12 @@ class User
   def bu_sayede_private_cagirabilirim
     bu_sadece_iceriden
   end
-  
+
   private
   def bu_sadece_iceriden
     puts "Bu private method. Bu method instance'dan çağırılamaz!"
   end
-  
+
   protected
   def bu_sadece_subclass_veya_instance_dan
     puts "Bu proteced method."
@@ -402,7 +402,7 @@ class User
   def initialize(name)
     @name = name
   end
-  
+
   def give_random_age
     (20..45).to_a.sample
   end
@@ -519,11 +519,11 @@ end
 
 Şeklinde kullanabilirsiniz.
 
-## Scope
+## Scope (Kapsama Alanı)
 
 Dikkat ettiyseniz Module'ü kullanırken Class gibi instanciate etmedik. Keza örnekte `self.fetch_url` diye method tanımlaması yaptık. Aslında burada **Singleton** gibi kullandık. Örnekte `fetch_url` methodu için scope olarak `HttpFunctions` vermiş olduk. Yani `fetch_url` sadece `Framework::HttpFunctions.fetch_url` şeklinde erişilebilir oldu.
 
-## Constants
+## Constants (Sabitler)
 
 Module içinde sabit değer tanımlaması da yapmak mümkündür.
 
@@ -535,7 +535,7 @@ end
 A::SABIT # => 5
 ```
 
-Eğer **nested** yani Module içinde Module yaparsak, sabitlere aşağıdaki gibi erişebiliriz:
+Eğer **nested** (*iç içe*) yani Module içinde Module yaparsak, sabitlere aşağıdaki gibi erişebiliriz:
 
 ```ruby
 module A
@@ -569,7 +569,7 @@ A::B.sabit_degeri_ver # => "5, 10"
 
 En dıştakini `::SABIT` ile aldık.
 
-## Visibility, Access Level
+## Visibility, Access Level (Erişim):
 
 Aynı Class'lardaki gibi `public`, `private` ve `protected` olayı Module'ler için de geçerlidir.
 
@@ -578,11 +578,11 @@ module A
   def sadece_iceriden
     "Bu private method"
   end
-  
+
   def bu_sayede_private_erisim_olur
     sadece_iceriden
   end
-  
+
   private :sadece_iceriden
 end
 
