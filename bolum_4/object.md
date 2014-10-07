@@ -106,4 +106,24 @@ Başta belirttiğimiz gibi, basit bir nesne bile **Object**'den türediği için
 
 ## Method Missing
 
-Bu kısmı unutmuşum!
+Bence Ruby'nin en süper özelliklerinden biridir. Olmayan bir method'u çağırdığınız zaman tetiklenen method `method_missing` method'udur. Ruby on Rails framework'ü neredeyse bu mekanizma üzerine kurulmuştur. 3 parametre alır; çağırılan method, eğer parametre geçilmişse parametreler, eğer block geçilmişse block.
+
+```ruby
+class User
+  def method_missing(method_name, *args, &block)
+    if method_name == :show_user_info
+      "This user has no information"
+    else
+      "You've called #{method_name}, You've passed: #{args}"
+    end
+  end
+end
+
+u = User.new
+u.show_user_info # => "This user has no information"
+u.show_user_age  # => "You've called show_user_age, You've passed: []"
+```
+
+`User` adında bir Class'ımız var. İçinde hiçbir method tanımlı değil. `u.show_user_info` satırında, olmayan bir method'u çağırıyoruz. Tanımladığımız `method_missing` method'u ile olmayan method çağırılmasını yakalıyoruz. Eğer `show_user_info` diye bir method çağrılırsa yakalıyoruz, bunun dışında birşey olursa da method adını ve geçilen parametreleri gösteriyoruz.
+
+Bu sayede `NoMethodError` hatası almadan işimize devam edebiliyoruz.
