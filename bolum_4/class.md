@@ -443,6 +443,43 @@ end
 
 Tipi `String` olan herşeyin artık `hello` diye bir method'u oldu :)
 
+## Nested Class
+
+Aynı Module'lerde olduğu gibi, içiçe Class tanımlamak da mümkündür. Kimi zaman düzenli olmak için (*Namespace*) kimi zaman da belli bir kuralı uygulamak için kullanılır;
+
+```ruby
+class Animal
+  attr_reader :name
+  def initialize(name)
+    @name = name
+  end
+  
+  class Cat < Animal
+  end
+  class Horse < Animal
+  end
+  class Uber
+  end
+end
+
+horse = Animal::Horse.new "Furry"
+horse.name             # => "Furry"
+horse.class            # => Animal::Horse
+horse.class.superclass # => Animal
+
+cat = Animal::Cat.new "Bıdık"
+cat.name               # => "Bıdık"
+cat.class              # => Animal::Cat
+cat.class.superclass   # => Animal
+
+alien = Animal::Uber.new
+alien.respond_to?(:name) # => false
+alien.class            # => Animal::Uber
+alien.class.superclass # => Object
+```
+
+`Cat` ve `Horse`, `Animal` sınıfından türemiş, `Uber` ise sadece `Animal` namespace'i içinde olup kendi başına bir Class'ı temsil etmektedir.
+
 ---
 
 # Module
