@@ -127,3 +127,31 @@ u.show_user_age  # => "You've called show_user_age, You've passed: []"
 `User` adında bir Class'ımız var. İçinde hiçbir method tanımlı değil. `u.show_user_info` satırında, olmayan bir method'u çağırıyoruz. Tanımladığımız `method_missing` method'u ile olmayan method çağırılmasını yakalıyoruz. Eğer `show_user_info` diye bir method çağrılırsa yakalıyoruz, bunun dışında birşey olursa da method adını ve geçilen parametreleri gösteriyoruz.
 
 Bu sayede `NoMethodError` hatası almadan işimize devam edebiliyoruz.
+
+Anlamak açısından, Roman rakamları için bir sınıf yaptığınızı düşünün. Sadece örnek olması için gösteriyorum, C,X ve M için;
+
+```ruby
+class Roman
+  def roman_to_str(str)
+    case str
+    when "x", "X"
+      10
+    when "c", "C"
+      100
+    when "m", "M"
+      1000
+    end
+  end
+  def method_missing(method)
+    roman_to_str method.id2name
+  end
+end
+
+r = Roman.new
+r.x # => 10
+r.X # => 10
+r.C # => 100
+r.M # => 1000
+```
+
+Bunu geliştirim "MMCX" ya da "III" gibi gerçek dönüştürme işini yapabilirsiniz.
