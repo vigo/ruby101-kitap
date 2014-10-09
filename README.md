@@ -89,11 +89,13 @@ https://www.gitbook.io/book/vigo/ruby-101
 ### Bölüm 6
 ![%0](http://progressed.io/bar/0)
 
+* Monkey Patching (--)
 * Regular Expressions (--)
 * Time ve Date Nesneleri (--)
 * Ruby Paketleri: RubyGems (--)
 * Paket Yöneticisi: Bundler (--)
 * Komut Satırı (Command-Line) Kullanımı (--)
+* Meta Programming (--)
 
 ### Kod Yazma Tarzı (_Style Guide_)
 ![%98](http://progressed.io/bar/98)

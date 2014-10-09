@@ -8,5 +8,6 @@ Bu bölümde;
 * Rubygems
 * Bundler
 * CommandLine Kullanımı
+* Meta Programming
 
 konularını işleyeceğiz

@@ -39,6 +39,7 @@
    * [Ruby Paketleri: RubyGems](bolum_6/ruby_paketleri_ruby_gems.md)
    * [Paket Yöneticisi: Bundler](bolum_6/paket_yoneticisi_bundler.md)
    * [Komut Satırı (Command-Line) Kullanımı](bolum_6/komut_satiri_command-line_kullanimi.md)
+   * [Meta Programming](bolum_6/meta_programming.md)
 * [Kod Yazma Tarzı (Style Guide)](kod_yazma_tarzi_style_guide.md)
 * [Yazar Hakkında](yazar_hakkinda/README.md)
 
