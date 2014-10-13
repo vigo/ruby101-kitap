@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%68](http://progressed.io/bar/66?title=genel "Genel Tamamlanma %68")
+![%74](http://progressed.io/bar/74?title=genel "Genel Tamamlanma %74")
 
 ## Önsöz
 
@@ -78,10 +78,10 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Class ve Module (%100)
 
 ### Bölüm 5
-![%0](http://progressed.io/bar/0)
+![%40](http://progressed.io/bar/40)
 
-* Enumeration ve Iteration (--)
-* Ranges (--)
+* Enumeration ve Iteration (100%)
+* Ranges (100%)
 * File System ve IO (Dosya Sistemi) (--)
 * Exception Handling (--)
 * Kernel Modülü (--)
