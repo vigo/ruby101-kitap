@@ -23,3 +23,11 @@ a.foo # => "foo: hello"
 ```
 
 `String` Class'ına kafamıza göre `foo` method'u ekledik.
+
+## Class'ların Birden Fazla `initialize` Yöntemi Olabilir!
+
+wip
+
+## Anonim Class
+
+wip
