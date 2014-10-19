@@ -26,7 +26,25 @@ a.foo # => "foo: hello"
 
 ## Class'ların Birden Fazla `initialize` Yöntemi Olabilir!
 
-wip
+Bu `Class Overloading` yani Class ya da method'u ezmek olarak düşünülebilir. Class'ın bir tane `initialize` method'u olduğu için, koşullu olarak Class'a başlangıç seviyesinde müdahale edebiliriz:
+
+```ruby
+# Dortgen.new([sol_ust_x, sol_ust_y], boy, en)
+# Dortgen.new([sol_ust_x, sol_ust_y], [sag_alt_x, sag_alt_y])
+class Dortgen
+  def initialize(*args)
+    if args.size < 2  || args.size > 3
+      "Bu sınıf en az 2 en fazla 3 parametre alır"
+    else
+      "Doğru parametre kullanımı"
+    end
+  end
+end
+Dortgen.new([0, 0], 10, 10)     # => #<Dortgen:0x007fe3ea1330f0>
+Dortgen.new([0, 0], [10, 10])   # => #<Dortgen:0x007fe3ea132d58>
+```
+
+İster 2, ister 3 parametre ile `initialize` ettiğimiz `Dortgen` sınıfı, parametre kullanımına göre farklı çıktılar üretebilir.
 
 ## Anonim Class
 
