@@ -95,7 +95,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Ruby Paketleri: RubyGems (--)
 * Paket Yöneticisi: Bundler (--)
 * Komut Satırı (Command-Line) Kullanımı (--)
-* Meta Programming (%5)
+* Meta Programming (%10)
 
 ### Kod Yazma Tarzı (_Style Guide_)
 ![%98](http://progressed.io/bar/98)
