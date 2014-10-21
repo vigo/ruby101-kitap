@@ -72,3 +72,192 @@ a.personality         # => undefined method `personality' for #<Developer:0x007f
 
 `Developer` sınıfının kendi `class`'ına anonim bir method taktık. Class'dan instance üretmeden `Developer.personality` şeklinde erişebilirken, `a` instance'ından gitmek istediğimizde yani `a.personality` dediğimizde hata mesajı aldık. Oysa o methods sadece `a.class` a ait :)
 
+Yaptığımız iş aslında bir **Singleton** oluşturma oldu.
+
+**define_method**
+
+Class içinde **run-time** yani dinamik olarak method oluşturabilirsiniz:
+
+```ruby
+class Developer
+  define_method :personality do |arg|
+    "You are #{arg} developer!"
+  end
+end
+
+Developer.new.personality("an awesome") # => "You are an awesome developer!"
+a = Developer.new
+a.personality("an awesome") # => "You are an awesome developer!"
+a.class.instance_methods(false) # => [:personality]
+```
+
+**send**
+
+`send` method'u `Object` sınıfından gelen bir method'dur. Sınıfıa göndereceğimiz mesaj ilk parametre olup bu da aslında çağıracağımız method adıdır.
+
+```ruby
+class Developer
+  def hello(*args)
+    "Hello #{args.join(" ")}"
+  end
+end
+d = Developer.new
+d.send(:hello, "vigo", "how are you?") # => "Hello vigo how are you?"
+```
+
+Unutmayın, sadece `public` method'lara erişebilirsiniz!
+
+**remove_method** ve **undef_method**
+
+Adından da anlaşılacağı gibi method'u yoketmek için kullanılır ama eğer `remove_method` ile iptal edilmek istenilen method, türediği üst sınıfında var ise ne yazıkki yok edilemez. Bu durumda da `undef_method` devreye girer:
+
+```ruby
+class Developer
+  def method_missing(m, *args, &block)
+    "#{m} is not available!"
+  end
+
+  def hello
+    "Hello from class Developer"
+  end
+end
+
+class TurkishDeveloper < Developer
+  def hello
+    "Hello from class TurkishDeveloper"
+  end
+end
+
+d = TurkishDeveloper.new
+d.hello # => "Hello from class TurkishDeveloper"
+
+class TurkishDeveloper
+  remove_method :hello
+end
+d.hello # => "Hello from class Developer" # üst sınıfta varolduğu için çalıştı!
+```
+
+Eğer;
+
+```ruby
+class TurkishDeveloper
+  undef_method :hello
+end
+d.hello # => "hello is not available!"
+```
+
+yaparsak, method komple uçar ve `method_missing` ile yakaladığımız kod bloğu çalışır.
+
+**eval**
+
+Pekçok programlama dilinde **evaluate** etmekten gelen, yani `String` formundaki metnin çalışabilir kod parçası haline gelmesi olayıdır `eval`:
+
+```ruby
+eval("5 + 5")            # => 10
+eval('"Hello".downcase') # => "hello"
+```
+
+Aslında çok tehlikelidir. Yani programatik hiçbir kontrol olmadan dümdüz metnin **executable** hale getirilmesidir ve hiçbir zaman önerilmez. Güvenlik zafiyeti doğrurabilir.
+
+**instance_eval**
+
+Yazılan kod bloğunu sanki Class'ın bir method'uymuş gibi çalıştırır:
+
+```ruby
+class Developer
+  def initialize
+    @star = 10
+  end
+end
+
+d = Developer.new
+d.instance_eval do
+  puts self
+  puts @star
+end
+
+# #<Developer:0x007fe549a91e70>
+# 10
+```
+ya da;
+
+```ruby
+class Developer
+end
+Developer.instance_eval do
+  def who
+    "vigo"
+  end
+end
+Developer.who # => "vigo"
+```
+
+şeklinde kullanılır. Aynı şekilde sadece `public` olan method'lar için geçerlidir.
+
+**module_eval** ve **class_eval**
+
+İkisi de aynı işi yapar. Dışarıdan Class değişkenlerine erişmek için kullanılır:
+
+```ruby
+class Developer
+  @@geek_rate = 10
+end
+Developer.class_eval("@@geek_rate") # => 10
+```
+
+Aynı şekilde method tanımlamak için;
+
+```ruby
+class Developer
+end
+
+Developer.class_eval do
+  def who
+    "vigo"
+  end
+end
+Developer.new.who # => "vigo"
+```
+
+**class_variable_get** ve **class_variable_set**
+
+Class konusunda Class ve Instance Variables arasındaki farkı görmüştük. Bu iki method yardımıyla sınıf değişkenine erişmek ve değerini değiştirmek mümkün:
+
+```ruby
+class Developer
+  @@geek_rate = 10
+end
+Developer.class_variable_set(:@@geek_rate, "100") # => "100"
+Developer.class_variable_get(:@@geek_rate)        # => "100"
+```
+
+**instance_variable_get** ve **instance_variable_set**
+
+Aynı önceki gibi, bu method'lar da sadece Instance Variable için çalışır:
+
+```ruby
+class Developer
+  def initialize(name, star)
+    @name = name
+    @star = star
+  end
+  
+  def show
+    "Name: #{@name}, Star: #{@star}"
+  end
+end
+
+d = Developer.new("vigo", 10)
+d.instance_variable_get(:@name) # => "vigo"
+d.instance_variable_get(:@star) # => 10
+d.show # => "Name: vigo, Star: 10"
+
+d.instance_variable_set(:@name, "lego") # => "lego"
+d.show # => "Name: lego, Star: 10"
+```
+
+**const_get** ve **const_set**
+
+wip
+
+
