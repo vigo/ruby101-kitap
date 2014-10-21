@@ -48,4 +48,27 @@ Dortgen.new([0, 0], [10, 10])   # => #<Dortgen:0x007fe3ea132d58>
 
 ## Anonim Class
 
-wip
+Anonim Class'lar, **Singleton**, **Ghost** ya da **Metaclass** diye de adlandırılır. Aslında her Ruby Class'ı kendine ait anonim bir sınıfa ve method'lara sahiptir. Tek farkı kendisine ait olmasıdır.
+
+```ruby
+class Developer
+  class << self
+    def personality
+      "Awesome"
+    end
+  end
+end
+
+Developer.new         # => #<Developer:0x007fc9048a2738>
+Developer.personality # => "Awesome"
+
+a = Developer.new
+a                     # => #<Developer:0x007fc9048a2120>
+a.class               # => Developer
+a.class.personality   # => "Awesome"
+
+a.personality         # => undefined method `personality' for #<Developer:0x007fd3ca0a0e10> (NoMethodError)
+```
+
+`Developer` sınıfının kendi `class`'ına anonim bir method taktık. Class'dan instance üretmeden `Developer.personality` şeklinde erişebilirken, `a` instance'ından gitmek istediğimizde yani `a.personality` dediğimizde hata mesajı aldık. Oysa o methods sadece `a.class` a ait :)
+
