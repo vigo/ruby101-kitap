@@ -155,3 +155,7 @@ r.M # => 1000
 ```
 
 Bunu geliştirim "MMCX" ya da "III" gibi gerçek dönüştürme işini yapabilirsiniz.
+
+**respond_to_missing?**
+
+ekle!
