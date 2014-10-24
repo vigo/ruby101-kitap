@@ -258,6 +258,19 @@ d.show # => "Name: lego, Star: 10"
 
 **const_get** ve **const_set**
 
-wip
+Constant yani sabitleri Class ve Module konusunda görmüştük. `const_set` ile Class'a sabit değer atıyoruz, `const_get` ile de ilgili değeri okuyoruz:
+
+```ruby
+class Box
+end
+
+Box.const_set("NAME", "web") # => "web"
+Box.const_get("NAME")        # => "web"
+Box::NAME                    # => "web"
+
+a = Box.new
+a.class.constants            # => [:NAME]
+a.class::NAME                # => "web"
+```
 
 
