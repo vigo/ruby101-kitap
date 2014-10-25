@@ -631,3 +631,82 @@ c = Deneme.new
 c.sadece_iceriden # => NoMethodError: private method ‘sadece_iceriden’ called for #<Deneme:0x007f8f7c9188c8>
 c.bu_sayede_private_erisim_olur # => "Bu private method"
 ```
+
+# Extend ve Include Durumları
+
+Ruby'de bir Class sadece tek bir Class'tan türeyebildiği için `module` ve `include` çözümlerinden bahsetmiştik:
+
+```ruby
+module Person
+  attr_accessor :name
+  def say_hi
+    "Hello #{@name}"
+  end
+end
+
+Person # => Person
+
+class User
+  include Person
+  def initialize(name)
+    @name = name
+  end
+end
+
+User # => User
+
+u = User.new("Uğur") # => #<User:0x007fcd42976de8 @name="Uğur">
+u.say_hi # => "Hello Uğur"
+
+u.name = "vigo"
+u.say_hi # => "Hello vigo"
+```
+
+`Person` modülünden gelen `say_hi` method'una;
+
+```ruby
+User.new("Ezel").say_hi # => "Hello Ezel"
+```
+
+erişebiliyorsunuz ama ;
+
+```ruby
+User.say_hi # => undefined method `say_hi' for User:Class (NoMethodError)
+```
+yaptığımızda olmayan bir method çağrımı yapmış oluruz. Eğer `include` yerine `extend` kullansaydık;
+
+```ruby
+module Person
+  attr_accessor :name
+  def say_hi
+    @name ||= "Undefined name"
+    "Hello #{@name}"
+  end
+end
+
+class User
+  extend Person
+  def initialize(name)
+    @name = name
+  end
+end
+```
+
+```ruby
+user = User.new("Yeşim") # => #<User:0x007f87c39702a0 @name="Yeşim">
+user.name # => undefined method `name' for #<User:0x007f87c39702a0 @name="Yeşim"> (NoMethodError)
+```
+
+Çünki `Person`a ait özellikleri eklemek (*include*) yerine extend (*genişletme*) ettik ve;
+
+```ruby
+User.say_hi # => "Hello Undefined name"
+User.instance_methods - Object.instance_methods # => [] # boş array
+```
+
+`say_hi` artık bir singleton haline geldi yani Instance method'u olmak yerine Class method'u oldu. Zaten ilgili sınıfın varolan method'larına baktığımızda boş Array döndüğünü görürüz.
+
+Özetle, `include` ile sanki başka bir sınıftan türer gibi tüm özellikleri **instance method** olarak alırken, `extend` kullandığımızda direk Class kopyası gibi davranıyor.
+
+
+
