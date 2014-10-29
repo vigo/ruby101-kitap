@@ -67,7 +67,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Conditional Statements (Koşullar) (%100)
 
 ### Bölüm 4
-![%100](http://progressed.io/bar/100)
+![%100](http://progressed.io/bar/100?title=bitti)
 
 * Object (%100)
 * Number (%100)
