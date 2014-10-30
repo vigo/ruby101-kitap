@@ -158,4 +158,43 @@ Bunu geliştirim "MMCX" ya da "III" gibi gerçek dönüştürme işini yapabilir
 
 **respond_to_missing?**
 
-ekle!
+Yukarıdaki örnekte, olmayan method'ları ürettik. Peki, acaba bu olmayan method'ları nasıl çağırabilir ya da kontrol edebiliriz? Normalde, bir Class'ın hangi method'u olduğunu `respond_to?` ile öğreniyorduk. Örneğe uygulayalım;
+
+`r.C` derken aslında `:C` method'unu çağırıyoruz. Peki böyle bir method var mı?
+
+```ruby
+r.method(:C)      # => `method': undefined method `C' for class `Roman' (NameError)
+```
+
+Nasıl yani? peki kontrol edelim?
+
+```ruby
+r.respond_to?(:C) # => false
+```
+
+Çünkü biz `:C` yi dinamik olarak ürettik ama öylece ortada bıraktık. Yapmamız gereken `respond_to_missing?` ile gereken cevabı vermekti:
+
+```ruby
+class Roman
+  def roman_to_str(str)
+    case str
+    when "x", "X"
+      10
+    when "c", "C"
+      100
+    when "m", "M"
+      1000
+    end
+  end
+  def method_missing(method)
+    roman_to_str method.id2name
+  end
+  def respond_to_missing?(method_name, include_private = false)
+    [:x, :X, :c, :C, :m, :M].include?(method_name) || super 
+  end
+end
+
+r.method(:C)      # => #<Method: Roman#C>
+r.respond_to?(:C) # => true
+r.respond_to?(:Q) # => false # olmayan method
+```
