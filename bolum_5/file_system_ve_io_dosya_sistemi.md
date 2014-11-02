@@ -17,6 +17,18 @@ File::Separator      # => "/"
 
 Örneğin Windows'da çalışan Ruby'de `SEPARATOR` ters slash `\` şeklinde gelecektir.
 
+## Public Class Method'ları
+
+**absolute_path**
+
+```ruby
+File.absolute_path("~")               # => "/~"
+File.absolute_path(".gitignore", "~") # => "/~/.gitignore"
+```
+
+wip
+
+
 ## IO
 
 wip...
