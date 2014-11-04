@@ -26,11 +26,19 @@ File.absolute_path("~")               # => "/~"
 File.absolute_path(".gitignore", "~") # => "/~/.gitignore"
 ```
 
-**atime**
+**atime**, **ctime**
 
 wip
 
-**basename**
+**basename**, **dirname**
+
+wip
+
+**chmod**, **chown**
+
+wip
+
+**delete**
 
 wip
 
