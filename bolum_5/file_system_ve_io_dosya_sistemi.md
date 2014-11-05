@@ -19,16 +19,44 @@ File::Separator      # => "/"
 
 ## Public Class Method'ları
 
-**absolute_path**
+**absolute_path**, **expand_path**
+
+String olarak verilen path bilgisini **absolute path**'e çevirir. Eğer ikinci parametre verilmezse **CWD** (*current working directory*) yani o an için içinde çalıştığınız directory bilgisi kullanılır.
 
 ```ruby
 File.absolute_path("~")               # => "/~"
 File.absolute_path(".gitignore", "~") # => "/~/.gitignore"
 ```
 
+`expand_path` de bir nevi absolute path'e çevirir:
+
+```ruby
+File.expand_path("~/.gitignore") # => "/Users/vigo/.gitignore"
+```
+
+Keza daha kompleks path bulma işlerinde de kullanılır. Bu durumda `__FILE__` sabiti hayatımızı kolaylaştırır. O an Ruby script'inin çalıştığı dosyanın path'i `__FILE__` sabitindedir. Örneğin aşağıdaki gibi bir directory yapısı olsa:
+
+    proje/
+    ├── lib
+    │   └── users.rb
+    └── main.rb
+
+ve `lib/users.rb` içinden, dışarıda bulunan `main.rb` dosyasının path'ine ulaşmak istesek;
+
+```ruby
+File.expand_path("../../main.rb", __FILE__)
+```
+
+şeklinde kullanırız.
+
 **atime**, **ctime**
 
-wip
+Dosyaya son erişilen tarihi `atime` ile, dosyada yapılmış olan son değişiklik tarihini de `ctime` ile alırız:
+
+```ruby
+File.atime("/Users/vigo/.gitignore") # => 2014-11-05 11:45:10 +0200
+File.ctime("/Users/vigo/.gitignore") # => 2014-08-04 11:33:14 +0300
+```
 
 **basename**, **dirname**
 
