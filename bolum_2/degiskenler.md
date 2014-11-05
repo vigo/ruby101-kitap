@@ -72,7 +72,7 @@ def greet_user(user_name)
 end
 
 puts "Bugün günlerden ne? #{$today}"
-greet_user("vigo")  # Merhaba vigo
+greet_user("vigo")  # Merhaba vigo, bugün Pazartesi
 ```
 Bu örnekteki **Global** değişken `$today` değişkenidir.
 
