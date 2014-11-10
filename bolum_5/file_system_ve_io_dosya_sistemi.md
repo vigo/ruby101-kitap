@@ -60,11 +60,56 @@ File.ctime("/Users/vigo/.gitignore") # => 2014-08-04 11:33:14 +0300
 
 **basename**, **dirname**
 
-wip
+Path içinden dosya adını almak için `basename` kullanırız. Eğer parametre olarak atacağımız şeyi (*örneğin extension olarak .gif, .rb gibi*) geçersek bize sadece dosyanın adını verir.
+
+```ruby
+File.basename("/Users/vigo/test.rb")        # => "test.rb"
+File.basename("/Users/vigo/test.rb", ".rb") # => "test"
+```
+
+Bu işin tersini de `dirname` ile yaparız, yani directory adı gerekince:
+
+```ruby
+File.dirname("/Users/vigo/test.rb") # => "/Users/vigo"
+```
+
+şekinde kullanırız.
 
 **chmod**, **chown**
 
-wip
+Her iki komut da Unix'den gelir. **Change mod** ve **Change owner** işlerini yapmamızı sağlar. `chmod` ile Unix izinlerini ayarlarız:
+
+```bash
+-rw-r--r-- 1 vigo wheel 0 Aug 30 19:19 file-01.txt
+||||||||||
+|||||||||+--- Others, Execute    (x) 1 = 2^0
+||||||||+---- Others, Write      (w) 2 = 2^1
+|||||||+----- Others, Read       (r) 4 = 2^2
+||||||+------ Group, Execute     (x) 1 = 2^0
+|||||+------- Group, Write       (w) 2 = 2^1
+||||+-------- Group, Read        (r) 4 = 2^2
+|||+--------- Owner/User Execute (e) 1 = 2^0
+||+---------- Owner/User Write   (w) 2 = 2^1
+|+----------- Owner/User Read    (r) 4 = 2^2
++------------ Is Directory?      (d)
+```
+
+`file-01.txt` dosyasında, User (yani dosyanın sahibi) **R**ead ve **W**rite hakkına sahiptir. Group ve Others ise sadece **R**ead hakkına sahiptir. Bu durumda varolan bu dosyanin **chmod** değeri:
+
+```bash
+Owner/User  : Read, Write  => 4 + 2 = 6
+Group       : Read         => 4     = 4
+Others      : Read         => 4     = 4
+----------------------------------------
+644 unix file permission
+```
+
+şeklindedir. Hatta Terminal'den; `stat -f '%A' file-01.txt` yaparsak **644** olduğunu da görebiliriz. Şimdi bu dosyayı Ruby ile sadece sahibi tarafından okunur ve yazılır yapıp, başka hiçbir kimse tarafından okunamaz ve yazılamaz hale getirelim:
+
+```ruby
+File.chmod(0600, "file-01.txt")
+```
+
 
 **delete**
 
