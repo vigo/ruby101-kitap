@@ -111,9 +111,16 @@ File.chmod(0600, "file-01.txt")
 ```
 
 
-**delete**
+**delete**, **unlink**
 
-wip
+Her ikisi de dosya silmeye yarar. Eğer dosya başarıyla silinirse `1` döner, aksi halde hata alırız!
+
+```ruby
+File.delete("/tmp/foo.txt") # => 1 yani silindi
+
+File.delete("/tmp/foo1.txt") # => No such file or directory
+```
+
 
 ## IO
 
