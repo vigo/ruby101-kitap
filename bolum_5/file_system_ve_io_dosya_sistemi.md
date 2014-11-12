@@ -19,7 +19,7 @@ File::Separator      # => "/"
 
 ## Public Class Method'ları
 
-**absolute_path**, **expand_path**
+**absolute_path**, **expand_path**, **join**
 
 String olarak verilen path bilgisini **absolute path**'e çevirir. Eğer ikinci parametre verilmezse **CWD** (*current working directory*) yani o an için içinde çalıştığınız directory bilgisi kullanılır.
 
@@ -49,16 +49,24 @@ File.expand_path("../../main.rb", __FILE__)
 
 şeklinde kullanırız.
 
-**atime**, **ctime**
+`join` kullanarak, Ruby'nin çalıştığı işletim sistemine bağlı olarak, `File::SEPARATOR` kullanarak geçilen string'leri birleştiririz:
 
-Dosyaya son erişilen tarihi `atime` ile, dosyada yapılmış olan son değişiklik tarihini de `ctime` ile alırız:
+```ruby
+File.join("usr", "local", "bin") # => "usr/local/bin"
+```
+
+
+**atime**, **ctime**, **mtime**
+
+Dosyaya son erişilen tarihi `atime` ile, dosyada yapılmış olan son değişiklik tarihini de `ctime` ile, son değişiklik zamanını da `mtime` ile alırız.
 
 ```ruby
 File.atime("/Users/vigo/.gitignore") # => 2014-11-05 11:45:10 +0200
 File.ctime("/Users/vigo/.gitignore") # => 2014-08-04 11:33:14 +0300
+File.mtime("/Users/vigo/.gitignore") # => 2014-10-29 15:05:15 +0200
 ```
 
-**basename**, **dirname**
+**basename**, **dirname**, **extname**
 
 Path içinden dosya adını almak için `basename` kullanırız. Eğer parametre olarak atacağımız şeyi (*örneğin extension olarak .gif, .rb gibi*) geçersek bize sadece dosyanın adını verir.
 
@@ -73,9 +81,15 @@ Bu işin tersini de `dirname` ile yaparız, yani directory adı gerekince:
 File.dirname("/Users/vigo/test.rb") # => "/Users/vigo"
 ```
 
-şekinde kullanırız.
+şekinde kullanırız. Dosyanın extension'ını öğrenmek için `extname` kullanırız.
 
-**chmod**, **chown**
+```ruby
+File.extname("test_file.rb")          # => ".rb"
+File.extname("/foo/bar/test_file.rb") # => ".rb"
+File.extname("test_file")             # => ""
+```
+
+**chmod**, **chown**, **lchmod**, **lchown**
 
 Her iki komut da Unix'den gelir. **Change mod** ve **Change owner** işlerini yapmamızı sağlar. `chmod` ile Unix izinlerini ayarlarız:
 
@@ -110,17 +124,75 @@ Others      : Read         => 4     = 4
 File.chmod(0600, "file-01.txt")
 ```
 
+Keza dosyanın sahibini de düzenlemek için `chown` kullanırız. Aynı terminaldeki gibi **KULLANICI:GRUP** şeklinde, toplamda üç parametre geçeriz. İlki kullanıcıyı belirler. `nil` ya da `-1` geçtiğimiz taktirde ilgili şeyi set etmemiş oluruz. Yani sadece grubu değiştireceksek kullanıcı için `nil` ya da `-1` geçebiliriz.
 
-**delete**, **unlink**
+```ruby
+File.chown(nil, 20, "/tmp/file-01.txt") # => 1
+```
+
+Grup ID olarak 20 geçtik, OSX'deki id 20 karşılık olarak **staff** grubuna denk gelir.
+
+`lchmod` ve `lchown` ile normal `chmod`,`chown` farkı, `l` ile başlayanlar sembolik linkleri takip etmezler.
+
+**ftype**, **stat**, **lstat**, **size**
+
+Dosyanın ne tür bir dosya olduğunu `ftype` ile anlarız:
+
+```ruby
+File.ftype("/tmp/file-01.txt") # => "file"
+File.ftype("/usr/")            # => "directory"
+File.ftype("/dev/null")        # => "characterSpecial"
+```
+
+`stat` ile aynen biraz önce shell'den yaptığımız (*stat -f '%A' file-01.txt*) gibi aynı işi Ruby'den de yapabiliriz:
+
+```ruby
+File.stat("/tmp/file-01.txt")       # => #<File::Stat dev=0x1000004, ino=1540444, mode=0100600, nlink=1, uid=501, gid=20, rdev=0x0, size=4, blksize=4096, blocks=8, atime=2014-11-12 14:41:49 +0200, mtime=2014-11-12 14:40:13 +0200, ctime=2014-11-12 14:45:28 +0200>
+File.stat("/tmp/file-01.txt").uid   # => 501
+File.stat("/tmp/file-01.txt").gid   # => 20
+File.stat("/tmp/file-01.txt").mtime # => 2014-11-12 14:40:13 +0200
+```
+
+`lstat` da aynı işi yapar fakat aynı `lchmod` ve `lchown` daki gibi sembolik linkleri takip etmez!
+
+Dosyanın byte cinsinden büyüklüğünü almak için `size`kullanırız:
+
+```ruby
+File.size("/Users/vigo/.gitignore") # => 323
+```
+
+**delete**, **unlink**, **link**, **rename**
 
 Her ikisi de dosya silmeye yarar. Eğer dosya başarıyla silinirse `1` döner, aksi halde hata alırız!
 
 ```ruby
 File.delete("/tmp/foo.txt") # => 1 yani silindi
-
 File.delete("/tmp/foo1.txt") # => No such file or directory
 ```
 
+`link` ile **HARD LINK** oluşturuyoruz. Bunu dosyanın bir kopyası / yansıması gibi düşünebilirsiz. Orijinal dosya değiştikçe linklenmiş dosya da güncel içeriğe sahip olur.
+
+```ruby
+File.link("orijinal_dosya", "linklenecek_dosya")
+```
+
+Dosya ismini değiştirmek için `rename` kullanırız.
+
+```ruby
+File.rename("/tmp/file-01.txt", "/tmp/file-01.txt.bak") # => 0
+```
+
+**file?**, **directory?**, **executable?**, **exist?**, **exists?**, **identical?**, **readable?**, **size?**,
+
+WIP
+
+**new**, **open**
+
+WIP
+
+**fnmatch**
+
+WIP
 
 ## IO
 
