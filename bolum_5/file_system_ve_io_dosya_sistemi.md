@@ -182,9 +182,36 @@ Dosya ismini değiştirmek için `rename` kullanırız.
 File.rename("/tmp/file-01.txt", "/tmp/file-01.txt.bak") # => 0
 ```
 
-**file?**, **directory?**, **executable?**, **exist?**, **exists?**, **identical?**, **readable?**, **size?**,
+**file?**, **directory?**, **executable?**, **exist?**, **identical?**, **readable?**, **size?**,
 
-WIP
+Dosya gerçekten fiziki bir dosyamı? ya da directory'mi? ya da bu dosya var mı?
+
+```ruby
+# file?
+File.file?("/tmp/file-01.txt")      # => true (evet)
+File.file?("/tmp/file-02.txt")      # => false
+
+# directory?
+File.directory?("/tmp/file-02.txt") # => false
+File.directory?("/tmp/test_folder") # => true (evet)
+
+# dosya var mı?
+File.exist?("/tmp/file-01.txt") # => true (var)
+File.exist?("/tmp/file-02.txt") # => false
+```
+
+Daha önce dosya izinlerinden bahsetmiş, bazı dosyaların **executable** olduğunu söylemiştik. Acaba dosya çalıştırılabilir yani executable mı?
+
+```ruby
+File.executable?("/tmp/file-01.txt")      # => false
+-rw-r--r-- 1 vigo wheel   0 Nov 15 10:39 file-01.txt
+
+
+File.executable?("/tmp/execuatable_file") # => true
+-rwxr-xr-x 1 vigo wheel   0 Nov 15 10:43 execuatable_file
+```
+
+Executable olan dosyada `x` flag aktif gördüğünüz gibi :)
 
 **new**, **open**
 
