@@ -19,7 +19,7 @@ enumerator_with_foo = enumerator.each_with_object("foo")
 enumerator_with_foo.to_a # => [["a", "foo"], ["b", "foo"], ["c", "foo"]]
 ```
 
-Keza, bu durumda `enumerator_with_foo` da `each` method'unu kullanarak, `each_with_object` ile pas edilen nesneyede iterasyon esnasına ulaşabiliyoruz;
+Keza, bu durumda `enumerator_with_foo` da `each` method'unu kullanarak, `each_with_object` ile pas edilen nesneye de iterasyon esnasına ulaşabiliyoruz;
 
 ```ruby
 enumerator = ["a", "b", "c"].each

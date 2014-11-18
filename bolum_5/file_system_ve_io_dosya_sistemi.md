@@ -2,7 +2,7 @@
 
 ## File
 
-`IO` sınıfından özelliklerler içeren `File` sınıfı, fiziki dosyalarla işlem yapmamızı sağlan özellikleri sunar bize. Ruby'nin üzerinde çalıştığı işletim sistemine göre de **file permission** yani dosya üzerindeki yetki sistemi de devrededir.
+`IO` sınıfından özellikler içeren `File` sınıfı, fiziki dosyalarla işlem yapmamızı sağlan özellikleri sunar bize. Ruby'nin üzerinde çalıştığı işletim sistemine göre de **file permission** yani dosya üzerindeki yetki sistemi de devrededir.
 
 Default olarak gelen Constant'ları:
 
@@ -215,7 +215,7 @@ Executable olan dosyada `x` flag aktif gördüğünüz gibi :)
 
 **new**, **open**
 
-`open` method'u ile `new` aynı işi yapar. Dosya açmaya yarar. Dosyayı açarken hangi duruma göre açacağımızı yani okumak için mi? yazmak için mi? yoksa varolan dosyaya ek yapmak için mi? belirmetmiz gerekir.
+`open` method'u ile `new` aynı işi yapar. Dosya açmaya yarar. Dosyayı açarken hangi duruma göre açacağımızı yani okumak için mi? yazmak için mi? yoksa varolan dosyaya ek yapmak için mi? belirtmemiz gerekir.
 
 ```ruby
 f = File.new("/tmp/test.txt", "w")
