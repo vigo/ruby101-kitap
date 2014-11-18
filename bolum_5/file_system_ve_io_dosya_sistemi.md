@@ -215,7 +215,27 @@ Executable olan dosyada `x` flag aktif gördüğünüz gibi :)
 
 **new**, **open**
 
-WIP
+`open` method'u ile `new` aynı işi yapar. Dosya açmaya yarar. Dosyayı açarken hangi duruma göre açacağımızı yani okumak için mi? yazmak için mi? yoksa varolan dosyaya ek yapmak için mi? belirmetmiz gerekir.
+
+```ruby
+f = File.new("/tmp/test.txt", "w")
+f.puts "Merhaba"
+f.close
+```
+
+`/tmp/test.txt` adlı bir dosya oluşturup içine `puts` ile **Merhaba** yazdık. Eğer `cat /tmp/test.txt` yaparsanız kontrol edebilirsiniz. Dikkat ettiyseniz mode olarak "w" kullandık. Bu mode'lar neler?
+
+| Mode | Açıklama |
+| -- | -- |
+| r | Read-only, sadece okumak için. Bu default mode'dur. |
+| r+ | Read+write, hatta read + prepend, pointer'ı başa alır, yani bu method'la bişi yazarsanız, yazdığınız şey dosyanın başına eklenir. |
+| w | Write-only, sadece yazmak içindir. Eğer dosya yoksa hata verir! |
+| w+ | Read+Write, hatta read + append, pointer'ı dosyanın sonuna alır ve yazdıklarınızı sona ekler. Eğer dosya yoksa hata verir! |
+| a | Write-only, Eğer dosya varsa pointer'ı sona alır ve sona ek yapar, dosya yoksa sıfırdan yeni dosya üretir. |
+| a+ | Read+write, Aynı a gibi çalışır, sona ek yapar, hem okumaya hem de yazmaya izin verir. |
+| b | Binary mode |
+| t | Text mode |
+
 
 **fnmatch**
 
