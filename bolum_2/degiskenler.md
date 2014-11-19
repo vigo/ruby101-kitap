@@ -46,7 +46,7 @@ olacaktı. **Tek tırnak** içinde bu işlem çalışmaz!
 
 
 ## Local (Bölgesel)
-Bölgesel ya da **Yerel** değişkenler, bir **scope** içindeki değişkenlerdir. Scope ne dir? kodun çalıştığı bölge olarak tanımlayabiliriz. Bu tür değişkenler mutlaka küçük harfle ya da `_` (_underscore_) işareti ile başlamalıdır. Kesinlike `@`, `@@` ya da `$` işareti gibi ön ekler alamazlar.
+Bölgesel ya da **Yerel** değişkenler, bir **scope** içindeki değişkenlerdir. Scope nedir? kodun çalıştığı bölge olarak tanımlayabiliriz. Bu tür değişkenler mutlaka küçük harfle ya da `_` (_underscore_) işareti ile başlamalıdır. Kesinlike `@`, `@@` ya da `$` işareti gibi ön ekler alamazlar.
 
 ```ruby
 out_text = "vigo"
@@ -78,7 +78,7 @@ Bu örnekteki **Global** değişken `$today` değişkenidir.
 
 
 ## Constants (Sabitler)
-Sabit ne dir? Değiştirelemeyendir. Yani bu tür değişkenler, ki bu değişken değildir :), **sabit** olarak adlandırılır. Kural olarak mutlaka **BÜYÜK HARF**'le başlar! Bazen de tamamen büyük harflerden oluşur.
+Sabit nedir? Değiştirelemeyendir. Yani bu tür değişkenler, ki bu değişken değildir :), **sabit** olarak adlandırılır. Kural olarak mutlaka **BÜYÜK HARF**'le başlar! Bazen de tamamen büyük harflerden oluşur.
 
 ```ruby
 My_Age = 18

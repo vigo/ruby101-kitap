@@ -7,7 +7,7 @@ Operatörler çeşitli kontrolleri yapmak için kullanılır. Hatta bazıları a
 | :: | İki tane iki nokta. **Scope resolution** anlamındadır. Class ve Modül konusunda detayları göreceğiz. | |
 | [] | Referans, set | Evet |
 | []= | Referans, set | Evet |
-| ** | Üssü, kuveti | Evet |
+| ** | Üssü, kuvveti | Evet |
 | + | Pozitif | Evet |
 | - | Negatif | Evet |
 | ! | Mantıksal uzlaşma |  |
