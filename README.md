@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%76](http://progressed.io/bar/76?title=genel "Genel Tamamlanma %76")
+![%77](http://progressed.io/bar/77?title=genel "Genel Tamamlanma %77")
 
 ## Önsöz
 
@@ -67,7 +67,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Conditional Statements (Koşullar) (%100)
 
 ### Bölüm 4
-![%100](http://progressed.io/bar/100)
+![%100](http://progressed.io/bar/100?title=bitti)
 
 * Object (%100)
 * Number (%100)
@@ -78,11 +78,11 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Class ve Module (%100)
 
 ### Bölüm 5
-![%40](http://progressed.io/bar/40)
+![%48](http://progressed.io/bar/48)
 
-* Enumeration ve Iteration (100%)
-* Ranges (100%)
-* File System ve IO (Dosya Sistemi) (--)
+* Enumeration ve Iteration (%100)
+* Ranges (%100)
+* File System ve IO (Dosya Sistemi) (%40)
 * Exception Handling (--)
 * Kernel Modülü (--)
 
