@@ -1,0 +1,3 @@
+# Neden Ruby?
+
+wip...

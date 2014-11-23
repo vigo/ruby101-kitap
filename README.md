@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%77](http://progressed.io/bar/77?title=genel "Genel Tamamlanma %77")
+![%67](http://progressed.io/bar/67?title=genel "Genel Tamamlanma %67")
 
 ## Önsöz
 
@@ -99,3 +99,10 @@ https://www.gitbook.io/book/vigo/ruby-101
 
 ### Kod Yazma Tarzı (_Style Guide_)
 ![%98](http://progressed.io/bar/98)
+
+### Gerçek Hayat Ruby Örnekleri
+![%0](http://progressed.io/bar/0)
+
+* Denen Ruby? (--)
+* Ruby ve TDD/BDD/CI (--)
+* Kendi Rubygem'imizi yapalım! (--)

@@ -41,5 +41,9 @@
    * [Komut Satırı (Command-Line) Kullanımı](bolum_6/komut_satiri_command-line_kullanimi.md)
    * [Meta Programming](bolum_6/meta_programming.md)
 * [Kod Yazma Tarzı (Style Guide)](kod_yazma_tarzi_style_guide.md)
+* [Gerçek Hayat Ruby Örnekleri](gercek_hayat_ruby_ornekleri/README.md)
+   * [Neden Ruby?](gercek_hayat_ruby_ornekleri/neden_ruby.md)
+   * [Ruby ve TDD/BDD/CI](gercek_hayat_ruby_ornekleri/ruby_ve_tddbddci.md)
+   * [Kendi Rubygem'imizi yapalım!](gercek_hayat_ruby_ornekleri/kendi_rubygemimizi_yapalim.md)
 * [Yazar Hakkında](yazar_hakkinda/README.md)
 
