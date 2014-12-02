@@ -103,6 +103,6 @@ https://www.gitbook.io/book/vigo/ruby-101
 ### Gerçek Hayat Ruby Örnekleri
 ![%0](http://progressed.io/bar/0)
 
-* Denen Ruby? (--)
+* Neden Ruby? (--)
 * Ruby ve TDD/BDD/CI (--)
 * Kendi Rubygem'imizi yapalım! (--)
