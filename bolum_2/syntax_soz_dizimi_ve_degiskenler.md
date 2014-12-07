@@ -66,6 +66,7 @@ Bu da comment...
 Hatta bu da...
 =end
 ```
+
 Gördüğünüz gibi `block-comment` için ilave olarak `=begin` ve `=end` kelimeleri kullanılıyor.
 
 

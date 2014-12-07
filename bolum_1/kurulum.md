@@ -93,8 +93,5 @@ echo "2.1.1" > .ruby-version
 rbenv version
 ```
 
-
-
-
 ### RVM
 Kısaca ...

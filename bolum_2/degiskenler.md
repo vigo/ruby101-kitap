@@ -27,17 +27,21 @@ Yani, bir kuş, eğer ördek gibi yürüyorsa, ördek gibi yüzüyorsa ve ördek
 Yeri gelmişken hızlıca bir konuya değinmek istiyorum. Metinsel değişkenler tanımlarken (**String**) eşitlik esnasında tek ya da çift tırnak işareti kullanabiliriz. Fakat aradaki farkı bilerek kullanmamız gerekir.
 
 String içinde değişken kullanımı yaptığımız zaman yani;
+
 ```ruby
 a = 41
 puts "Siz tam #{a} yaşındasınız"
 ```
+
 gibi bir durumda, gördüğünüz gibi `#{a}` şeklinde tekst içinde değişken kullandık. Format olarak Ruby'de, `#{BU KISIMDA KOD ÇALIŞIR}` şeklinde istediğimiz kodu çalıştırma yetkimiz var. Bu işlem sadece **çift tırnak** kullanımında geçerlidir.
 
 Aynı kodu tek tırnak kullanarak yapmış olsaydık;
+
 ```ruby
 a = 41
 puts 'Siz tam #{a} yaşındasınız'
 ```
+
 çıktısı:
 
     Siz tam #{a} yaşındasınız
@@ -64,6 +68,7 @@ greet_user("vigo")  # Merhaba vigo
 
 ## Global (Genel)
 `$` işaretiyle başlayan tüm değişkenler **Global** değişkenlerdir. Kodun herhangi biryerinde kullanılabilir.
+
 ```ruby
 $today = "Pazartesi"
 def greet_user(user_name)
@@ -74,6 +79,7 @@ end
 puts "Bugün günlerden ne? #{$today}"
 greet_user("vigo")  # Merhaba vigo, bugün Pazartesi
 ```
+
 Bu örnekteki **Global** değişken `$today` değişkenidir.
 
 
@@ -87,6 +93,7 @@ your_age = 22
 puts defined?(My_Age)    # constant
 puts defined?(your_age)  # local-variable
 ```
+
 `My_Age` sabit, `your_age` de yerel değişken...
 
 Ruby'de ilginç bir durum daha var. Constant'lar **mutable** yani değiştirilebilir. Nasıl yani?
@@ -102,6 +109,7 @@ My_Age = 22
 puts defined?(My_Age)    # constant
 puts "My_Age: #{My_Age}" # My_Age: 22
 ```
+
 ama `warning` yani **uyarı mesajı** aldık!
 
     untitled:6: warning: already initialized constant My_Age
@@ -112,6 +120,7 @@ ama `warning` yani **uyarı mesajı** aldık!
 
 ## Paralel Atama
 Hemen ne demek istediğimi bir örnekle açayım:
+
 ```ruby
 x, y, z = 5, 11, 88
 puts x # 5

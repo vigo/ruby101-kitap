@@ -59,6 +59,7 @@ a = []
 a.class  # => Array
 a.length # => 0
 ```
+
 ## `[]=` Kullanım Örneği
 
 ```ruby
@@ -70,4 +71,19 @@ p a                # [nil, nil, nil, nil, nil, "Merhaba"]
 ## Unary Operatörleri
 
 **Unary** demek, `+=`, `-=`, `*=` gibi işlemleri yaptığımız operatörler. Yani `x+= 5` dediğimizde (_x'in değerine 5 ekle ve sonucu tekrar x'e ata_) aslında **Unary** operatörü kullanmış oluruz.
+
+Keza, aşağıdaki örnekteki gibi kullanımlarda ek fayda sağlamış oluruz:
+
+```ruby
+str = "Merhaba Dünya"
+
+class String
+  def -@
+    reverse
+  end
+end
+
+p str     # "Merhaba Dünya"
+p -str    # "aynüD abahreM"
+```
 
