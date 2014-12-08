@@ -60,6 +60,7 @@ end
 
 merhaba("vigo") # => "Merhaba vigo"
 ```
+
 aynı örneği aşağıdaki gibi de yazabiliriz:
 
 ```ruby
@@ -130,6 +131,7 @@ end
 merhaba          # => "Merhaba insalık!"
 merhaba("vigo")  # => "Merhaba vigo"
 ```
+
 Parametre geçmenden çağırdığımızda, tanımladığımız varsayılan (_default_) değer atandı.
 
 ## Değişken Argümanları (_Variable Arguments_)
