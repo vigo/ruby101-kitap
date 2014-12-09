@@ -72,6 +72,7 @@ end
 # Sayı 3
 # Sayı 4
 ```
+
 `test_function` adında bir fonksiyonum var (_yani method’um var_) Hiç parametre almıyor! ama **Block** alıyor. İlkinde **curly brace** ile (_yani_ `{` _ve_ `}`), ikincisinde `do/end` ile, son örnekte `do/end` ile ve iç kısımda başka bir iterasyonla kullandım.
 
 Kabaca, fonksiyona kod bloğu geçtim.
