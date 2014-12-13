@@ -28,13 +28,15 @@ Hmmm.. Peki **BasicObject** nereden geliyor?
 
 Peki, sayılarda durum ne?
 
-    numara = 1
-    numara.class # => Fixnum
-    numara.class.superclass # => Integer
-    numara.class.superclass.superclass # => Numeric
-    numara.class.superclass.superclass.superclass # => Object
-    numara.class.superclass.superclass.superclass.superclass # => BasicObject
-    numara.class.superclass.superclass.superclass.superclass.superclass # => nil
+```ruby
+numara = 1
+numara.class # => Fixnum
+numara.class.superclass # => Integer
+numara.class.superclass.superclass # => Numeric
+numara.class.superclass.superclass.superclass # => Object
+numara.class.superclass.superclass.superclass.superclass # => BasicObject
+numara.class.superclass.superclass.superclass.superclass.superclass # => nil
+```
 
 Ufff... bir an için bitmeyecek sandım :) Çok basit bir sayı tanımlası yaptığımızda bile, arka plandaki işleyiz yukarıdaki gibi oluyor. Yani
 
@@ -73,6 +75,7 @@ t.methods                # => [:<=>, :==, :===, :eql?, :hash, :casecmp, :+, :*, 
 
 t.method(:upcase).call   # => "HELLO"
 ```
+
 `t.methods` ise **String**'den türeyen `t` ye ait tüm method’ları listeledik. Sonuç **Array** (_Dizi_) olarak geldi ve bu dizinin tüm elemanları `:` işaretiyle başlıyor. Çünki bu elemanlar birer **Symbol**.
 
 `t.method(:upcase).call` da ise, `t`'nin `:upcase` method’unu `call` ile çağırdır. Aslında yaptığımız iş: `"hello".upcase` ile birebir aynı.
