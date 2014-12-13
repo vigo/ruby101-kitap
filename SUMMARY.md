@@ -33,7 +33,7 @@
    * [Exception Handling](bolum_5/exception_handling.md)
    * [Kernel Modülü](bolum_5/kernel_modulu.md)
 * [Bölüm 6](bolum_6/README.md)
-   * [Monkey Patching](bolum_6/monkey_patching)
+   * [Monkey Patching](bolum_6/monkey_patching.md)
    * [Regular Expressions](bolum_6/regular_expressions.md)
    * [Time ve Date Nesneleri](bolum_6/time_ve_date_nesneleri.md)
    * [Ruby Paketleri: RubyGems](bolum_6/ruby_paketleri_ruby_gems.md)

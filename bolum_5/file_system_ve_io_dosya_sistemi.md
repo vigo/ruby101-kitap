@@ -19,7 +19,7 @@ File::Separator      # => "/"
 
 ## Public Class Method'ları
 
-**absolute_path**, **expand_path**, **join**
+**absolute_path**, **expand_path**, **join**, **split**
 
 String olarak verilen path bilgisini **absolute path**'e çevirir. Eğer ikinci parametre verilmezse **CWD** (*current working directory*) yani o an için içinde çalıştığınız directory bilgisi kullanılır.
 
@@ -55,6 +55,11 @@ File.expand_path("../../main.rb", __FILE__)
 File.join("usr", "local", "bin") # => "usr/local/bin"
 ```
 
+Dizin ve dosya ayrıştırmasını da `split` ile yaparız:
+
+```ruby
+File.split("usr/local/bin/foo")   # => ["usr/local/bin", "foo"]
+```
 
 **atime**, **ctime**, **mtime**
 
@@ -161,7 +166,7 @@ Dosyanın byte cinsinden büyüklüğünü almak için `size`kullanırız:
 File.size("/Users/vigo/.gitignore") # => 323
 ```
 
-**delete**, **unlink**, **link**, **rename**
+**delete**, **unlink**, **link**, **rename**, **readlink**, **symlink**
 
 Her ikisi de dosya silmeye yarar. Eğer dosya başarıyla silinirse `1` döner, aksi halde hata alırız!
 
@@ -170,11 +175,26 @@ File.delete("/tmp/foo.txt") # => 1 yani silindi
 File.delete("/tmp/foo1.txt") # => No such file or directory
 ```
 
-`link` ile **HARD LINK** oluşturuyoruz. Bunu dosyanın bir kopyası / yansıması gibi düşünebilirsiz. Orijinal dosya değiştikçe linklenmiş dosya da güncel içeriğe sahip olur.
+`link` ile **HARD LINK** oluşturuyoruz. Bunu dosyanın bir kopyası / yansıması gibi düşünebilirsiz. Orijinal dosya değiştikçe linklenmiş dosya da güncel içeriğe sahip olur. Link'in hangi dosyaya bağlı olduğunu da `readlink` ile okuruz:
 
 ```ruby
 File.link("orijinal_dosya", "linklenecek_dosya")
+File.readlink("linklenecek_dosya") # => "orijinal_dosya"
 ```
+
+Sembolik link yani `symlink` için;
+
+```ruby
+File.symlink("foo.txt", "bar.txt") # => 0
+File.readlink("bar.txt")           # => "foo.txt"
+```
+
+Komut satırından bakınca;
+
+    -rw-r--r--   1 vigo wheel    0 Dec 13 16:08 foo.txt
+    lrwxr-xr-x   1 vigo wheel    7 Dec 13 16:08 bar.txt -> foo.txt
+
+şeklinde `bar.txt` dosyasının `foo.txt` dosyasına linklendiğini görürüz.
 
 Dosya ismini değiştirmek için `rename` kullanırız.
 
@@ -237,10 +257,48 @@ f.close
 | t | Text mode |
 
 
-**fnmatch**
+**fnmatch**, **fnmatch?**
 
-WIP
+**File Name Match** yani dosya adı eşleltirmek. RegEx pattern'ine göre dosya adı yakalamak / kontrol etmek için kullanılır. 2 zorunlu ve 1 opsiyonel olmak üzere 3 parametre alabilir. Pattern, dosya adı ve opsiyonal olarak Flag'ler...
+
+```ruby
+File.fnmatch('foo', 'foobar.rb')                       # => false
+File.fnmatch('foo*', 'foobar.rb')                      # => true
+File.fnmatch('*foo*', 'test_foobar.rb')                # => true
+```
+
+Şimdi;
+
+```ruby
+File.fnmatch('**.rb', './main.rb')                     # => false
+```
+
+Bu işlemin `true` dönemsi için `FNM_DOTMATCH` flag'ini kullanacağız:
+
+```ruby
+File.fnmatch('**.rb', './main.rb', File::FNM_DOTMATCH) # => true
+```
+
+
+| 0:0 | 1:0 |
+| -- | -- |
+| FNM_DOTMATCH | Nokta ile başlayan dosyalarda * kullanımına izin ver |
+| FNM_EXTGLOB | {a,b,c} gibi paternlerde global aramaya izin ver |
+| FNM_PATHNAME | Path ayraçlarında * kullanımını engelle |
+| FNM_CASEFOLD | Case in-sensitive yani büyük/küçük harf ayırt etme! |
+| File::FNM_NOESCAPE | ESCAPE kodu kullan |
+
+```ruby
+File.fnmatch('*', '/', File::FNM_PATHNAME)             # => false
+File.fnmatch('FOO*', 'foo.rb', File::FNM_CASEFOLD)     # => true
+File.fnmatch('f{o,a}o*', 'foo.rb', File::FNM_EXTGLOB)  # => true
+File.fnmatch('f{o,a}o*', 'fao.rb', File::FNM_EXTGLOB)  # => true
+File.fnmatch('\foo*', '\foo.rb')                       # => false
+File.fnmatch('\foo*', '\foo.rb', File::FNM_NOESCAPE)   # => true
+```
 
 ## IO
+
+wip
 
 wip...
