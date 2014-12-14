@@ -82,7 +82,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 
 * Enumeration ve Iteration (%100)
 * Ranges (%100)
-* File System ve IO (Dosya Sistemi) (%40)
+* File System ve IO (Dosya Sistemi) (%50)
 * Exception Handling (--)
 * Kernel Modülü (--)
 
@@ -106,3 +106,4 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Neden Ruby? (--)
 * Ruby ve TDD/BDD/CI (--)
 * Kendi Rubygem'imizi yapalım! (--)
+* Sinatra ve Web (--)
