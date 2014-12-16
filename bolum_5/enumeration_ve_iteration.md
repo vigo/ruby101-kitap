@@ -110,3 +110,9 @@ a.rewind      # => #<Enumerator: [1, 2, 3, 4]:each>
 a.peek_values # => [1]
 a.next        # => 1
 ```
+
+## Diğer Nesnelerdeki Enumeration Durumları
+
+### Number
+
+upto / downto wip!

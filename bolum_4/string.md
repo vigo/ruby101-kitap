@@ -2,8 +2,10 @@
 
 Kabaca, insanların anlayacağı şekilde tekst / metin bilgisi içeren nesnelerdir. Örneğin;
 
-    m = "Merhaba"
-    m.class # => String
+```ruby
+m = "Merhaba"
+m.class # => String
+```
 
 şeklindedir. Tanımlama yaparken **tek** ya da **çift** tırnak kullanılabilir ama aralarında fark vardır. **Expression Substitution** ya da **String Interpolation** olarak geçen, **String** içinde değişken kullanımı esnasında **çift tırnak** kullanmanız gerekir.
 
@@ -17,14 +19,18 @@ Tek tırnak kullandığımız örnekte `#{m}` değişkeni işlenmeden olduğu gi
 
 Çift tırnak içinde kullanılan `#{BURAYA RUBY KODU GELİR}` çok işe yarar. `{` ve `}` arasında kod çalıştırmamızı sağlar.
 
-    puts "Saat: #{Time.now}" # Saat: 2014-08-12 10:37:22 +0300
+```ruby
+puts "Saat: #{Time.now}" # Saat: 2014-08-12 10:37:22 +0300
+```
 
 dediğimizde; Ruby Kernel'dan `Time` nesnesinin `now` method'unu çalıştırmış oluruz.
 
-    puts "Merhaba\nDünya"
+```ruby
+puts "Merhaba\nDünya"
 
-    # Merhaba
-    # Dünya
+# Merhaba
+# Dünya
+```
 
 `\n` **New Line** ya da **Line Feed** ya da yeni satıra geçme karakteri çift tırnakta çalışır.
 
@@ -56,13 +62,16 @@ m = ""
 m << 65
 puts m # A
 ```
+
 `m` boş bir String, diziye eleman ekler gibi (`<<` _diziye eleman ekler, az sonra göreceğiz_) içine **65** ekledik. Bu `A` harfinin 10'luk sayı sistemindeki *ASCII* değeridir. Aslında `m = "A"` yaptık :)
 
 Eğer **65** in karakter setindeki değeri neydi? dersek `put 65.chr` yaptığımızda bize `A` döner. **0** ile **255** arası değerlerdir bunlar.
 
 Daha ilginç bir olay;
 
-    puts "öz" "yıl" "maz" "el" # özyılmazel
+```ruby
+puts "öz" "yıl" "maz" "el" # özyılmazel
+```
 
 yani `"tekst" "tekst" "tekst"` şekinde bir kullanım mevcuttur.
 
@@ -86,14 +95,18 @@ aynı işi; `%|Merhaba Dünya Ben vigo nasılsınız?|` süslü parantez yerine 
 
 Hızlıca **Array** üretmeyi sağlar:
 
-    %w{foo bar baz}       # => ["foo", "bar", "baz"]
-    %w{foo bar baz}.class # => Array
+```ruby
+%w{foo bar baz}       # => ["foo", "bar", "baz"]
+%w{foo bar baz}.class # => Array
+```
 
 ### `%i`
 
 İçinde **Symbol** olan **Array** üretir:
 
-    %i{foo bar baz} # => [:foo, :bar, :baz]
+```ruby
+%i{foo bar baz} # => [:foo, :bar, :baz]
+```
 
 ### `%q` ve `%Q`
 
@@ -109,14 +122,18 @@ person = "Uğur"
 
 **Symbol**'e çevirir:
 
-    %s{my_variable} # => :my_variable
-    %s{email} # => :email
+```ruby
+%s{my_variable} # => :my_variable
+%s{email} # => :email
+```
 
 ### `%r`
 
 **Regular Expression**'a çevirir:
 
-    %r{(.*)hello}i # => /(.*)hello/i
+```ruby
+%r{(.*)hello}i # => /(.*)hello/i
+```
 
 ### `%x`
 
@@ -137,11 +154,15 @@ Ruby'de **back tick** kullanarak **shell** komutu çalıştırabilirsiniz. Yani 
 
 gibi bir liste alıyorum. Yapacağım bir Ruby uygulamasında;
 
-    %x{ls -1 $HOME} # => "Applications\nDesktop\nDevelopment\nDocuments\nDotfiles\nDownloads\nLibrary\nVirtualBox VMs\nWorks\nbin\n"
+```ruby
+%x{ls -1 $HOME} # => "Applications\nDesktop\nDevelopment\nDocuments\nDotfiles\nDownloads\nLibrary\nVirtualBox VMs\nWorks\nbin\n"
+```
 
 Tüm liste tek bir String olarak geldi ve `\n` karakteri ile birleşti çünki sonuç alt alta satır satır geldi. Eğer;
 
-    %x{ls -1 $HOME}.split("\n")
+```ruby
+%x{ls -1 $HOME}.split("\n")
+```
 
 deseydim sonuç bana dizi olarak gelecekti!
 
@@ -187,6 +208,7 @@ puts mesaj
 ## String Method'ları
 
 ### String % argüman -> yeni String
+
 ```ruby
 "Merhaba %s" % "Uğur" # => "Merhaba Uğur"
 "Sayı: %010d" % 2014  # => "Sayı: 0000002014"
@@ -197,19 +219,23 @@ puts mesaj
 Keza bu method, `printf`, `sprintf` gibi, **String Format** mantığında çalışır. `"Sayı: %010d" % 2014` örneğinde `%010d` aslında **10** basamaklı, **0** ile pad edilmiş şekilde göster anlamındadır. **2014** 4 basamaklıdır, solunda **6** tane sıfır gelmiştir.
 
 ### String * sayı -> yeni String
+
 String ile sayıyı çarpmak mümkün!
+
 ```ruby
 "Merhaba!" * 3 # => "Merhaba!Merhaba!Merhaba!"
 "Merhaba!" * 0 # => ""
 ```
 
 ### String + String -> yeni String
+
 ```ruby
 "Merhaba" + " " + "Dünya" # => "Merhaba Dünya"
 ```
 
 ### String << sayı -> String
 ### String << nesne -> String
+
 ```ruby
 a = "Merhaba"
 a << " dünya" # => "Merhaba dünya"
@@ -219,16 +245,20 @@ a << 33 # => "Merhaba dünya!!"
 ```
 
 ### String <=> başka string → -1, 0, +1 ya da nil
+
 `<=>` Ruby dünyasında **Spaceship** operatörü olarak geçer. Aynı cins nesneleri karşılaştırmak için kullanılır.
+
 ```ruby
 "vigo" <=> "vigo"    # => 0   # eşit
 "vigo" <=> "vig"     # => 1   # vigo büyük
 "vigo" <=> "vigoo"   # => -1  # vigo küçük
 "vigo" <=> 3         # => nil # alakasız iki şey
 ```
+
 `casecmp` ile aynı işi yapar
 
 ### String =~ Nesne -> Fixnum ya da nil
+
 ```ruby
 "Saat tam 4'de buluşalım" =~ /\d/ # => 9
 
@@ -238,6 +268,7 @@ a << 33 # => "Merhaba dünya!!"
 ```
 
 ### String içinde hareket
+
 String aslında karakterlerden oluşan bir dizi olduğu için aşağıdaki gibi atraksiyonlar yapmak mümkün.
 
     String[indeks] -> yeni string ya da nil
@@ -263,16 +294,21 @@ m["vigo"] # => nil # olmayan metin
 ```
 
 aynı işi `slice` ile de yapabilirsiniz.
+
 ```ruby
 m = "merhaba"
 m.slice(2,5) # => "rhaba"
 ```
+
 gibi...
 
 ### Yardımcı Methodlar
+
 Sıkça kullanılanlar arasında; `capitalize`, `center`, `chars`, `chomp`, `chop`, `clear`, `count`, `size`, `length`, `delete`, `ljust`, `rjust`, `reverse`, `upcase`, `downcase`, `swapcase`, `reverse`, `index`, `hex`, `rindex`, `insert` gibi methodlar'dan örnekler ekledim. Herzaman olduğu gibi, hangi method'ların olduğunu görmek için;
 
-    String.new.methods # => [:<=>, :==, :===, :eql?, :hash, :casecmp, :+, :*, :%, :[], :[]=, :insert, :length, :size, :bytesize, :empty?, :=~, :match, :succ, :succ!, :next, :next!, :upto, :index, :rindex, :replace, :clear, :chr, :getbyte, :setbyte, :byteslice, :scrub, :scrub!, :freeze, :to_i, :to_f, :to_s, :to_str, :inspect, :dump, :upcase, :downcase, :capitalize, :swapcase, :upcase!, :downcase!, :capitalize!, :swapcase!, :hex, :oct, :split, :lines, :bytes, :chars, :codepoints, :reverse, :reverse!, :concat, :<<, :prepend, :crypt, :intern, :to_sym, :ord, :include?, :start_with?, :end_with?, :scan, :ljust, :rjust, :center, :sub, :gsub, :chop, :chomp, :strip, :lstrip, :rstrip, :sub!, :gsub!, :chop!, :chomp!, :strip!, :lstrip!, :rstrip!, :tr, :tr_s, :delete, :squeeze, :count, :tr!, :tr_s!, :delete!, :squeeze!, :each_line, :each_byte, :each_char, :each_codepoint, :sum, :slice, :slice!, :partition, :rpartition, :encoding, :force_encoding, :b, :valid_encoding?, :ascii_only?, :unpack, :encode, :encode!, :to_r, :to_c, :>, :>=, :<, :<=, :between?, :nil?, :!~, :class, :singleton_class, :clone, :dup, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :frozen?, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :extend, :display, :method, :public_method, :singleton_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
+```ruby
+String.new.methods # => [:<=>, :==, :===, :eql?, :hash, :casecmp, :+, :*, :%, :[], :[]=, :insert, :length, :size, :bytesize, :empty?, :=~, :match, :succ, :succ!, :next, :next!, :upto, :index, :rindex, :replace, :clear, :chr, :getbyte, :setbyte, :byteslice, :scrub, :scrub!, :freeze, :to_i, :to_f, :to_s, :to_str, :inspect, :dump, :upcase, :downcase, :capitalize, :swapcase, :upcase!, :downcase!, :capitalize!, :swapcase!, :hex, :oct, :split, :lines, :bytes, :chars, :codepoints, :reverse, :reverse!, :concat, :<<, :prepend, :crypt, :intern, :to_sym, :ord, :include?, :start_with?, :end_with?, :scan, :ljust, :rjust, :center, :sub, :gsub, :chop, :chomp, :strip, :lstrip, :rstrip, :sub!, :gsub!, :chop!, :chomp!, :strip!, :lstrip!, :rstrip!, :tr, :tr_s, :delete, :squeeze, :count, :tr!, :tr_s!, :delete!, :squeeze!, :each_line, :each_byte, :each_char, :each_codepoint, :sum, :slice, :slice!, :partition, :rpartition, :encoding, :force_encoding, :b, :valid_encoding?, :ascii_only?, :unpack, :encode, :encode!, :to_r, :to_c, :>, :>=, :<, :<=, :between?, :nil?, :!~, :class, :singleton_class, :clone, :dup, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :frozen?, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :extend, :display, :method, :public_method, :singleton_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
+```
 
 kullanabiliriz!
 
@@ -367,7 +403,9 @@ x.clear # => ""
 # a'dan e'y kadar X ile transform yap
 "merhaba dünya".tr("a-e", "X") # => "mXrhXXX XünyX"
 ```
+
 ### Convert Method'ları
+
 Tip değiştirmek için kullanılır. `to_i`, `to_f`, `to_s`, `to_str`, `to_sym`, `to_r`, `to_c`, `to_enum` method'larına bakalım:
 
 ```ruby
@@ -384,7 +422,6 @@ Tip değiştirmek için kullanılır. `to_i`, `to_f`, `to_s`, `to_str`, `to_sym`
 "1234".to_c       # => (1234+0i)
 "merhaba".to_enum # => #<Enumerator: "merhaba":each> # Enumeratör'e çevirdi
 ```
-
 
 ### Kontrol Method'ları
 
@@ -412,6 +449,7 @@ Method adı `?` ilen bitiyor demek, bir kontrol olduğu ve sonucun **Boolean** y
 ```
 
 ### Array ve Block ile İlişkili Methodlar
+
 **split**
 Metni parçalara böler, varsayılan **delimiter** (_ayırıcı_) boşuk karakteridir.
 
@@ -421,7 +459,6 @@ Metni parçalara böler, varsayılan **delimiter** (_ayırıcı_) boşuk karakte
 "A takımı: 65 B takımı: 120".split(/ +\d+ ?/) # => ["A takımı:", "B takımı:"]
 "1,2,3,4,5".split(",") # => ["1", "2", "3", "4", "5"]
 ```
-
 
 **each_byte**
 
@@ -438,6 +475,7 @@ Metni parçalara böler, varsayılan **delimiter** (_ayırıcı_) boşuk karakte
 ```
 
 **each_char**
+
 ```ruby
 "merhaba".each_char {|c| puts c }
 
@@ -451,6 +489,7 @@ Metni parçalara böler, varsayılan **delimiter** (_ayırıcı_) boşuk karakte
 ```
 
 **each_line**
+
 ```ruby
 "Merhaba\nDünya\nNasıl sın?".each_line {|l| puts l }
 
@@ -465,6 +504,7 @@ Metni parçalara böler, varsayılan **delimiter** (_ayırıcı_) boşuk karakte
 ```
 
 **upto**
+
 ```ruby
 "a1".upto("b1"){ |t| puts t }
 
@@ -503,6 +543,7 @@ Daha kapsamlı olarak **6.Bölüm**'de de değineceğimiz **Regular Expression**
 ```
 
 **match**
+
 ```ruby
 "merhaba".match("a") # => #<MatchData "a">
 
@@ -518,6 +559,7 @@ Daha kapsamlı olarak **6.Bölüm**'de de değineceğimiz **Regular Expression**
 ```
 
 **scan**
+
 **Match** gibi, metin üzerinde bir nevi arama yapıyoruz:
 
 ```ruby
