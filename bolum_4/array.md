@@ -103,7 +103,6 @@ isimler.values_at(1, 2)      # => ["Ömer", "Yeşim"]
 
 ["a", "b", "c", "d", "e"].at(1)  # => "b"
 ["a", "b", "c", "d", "e"].at(-1) # => "e"
-
 ```
 
 `rindex` ile sağdan hizalı index'e göre elemana ulaşıyoruz:
@@ -138,6 +137,7 @@ En çok kullanacağımız method'larsa;
 ```ruby
 Array.new.methods # => [:inspect, :to_s, :to_a, :to_h, :to_ary, :frozen?, :==, :eql?, :hash, :[], :[]=, :at, :fetch, :first, :last, :concat, :<<, :push, :pop, :shift, :unshift, :insert, :each, :each_index, :reverse_each, :length, :size, :empty?, :find_index, :index, :rindex, :join, :reverse, :reverse!, :rotate, :rotate!, :sort, :sort!, :sort_by!, :collect, :collect!, :map, :map!, :select, :select!, :keep_if, :values_at, :delete, :delete_at, :delete_if, :reject, :reject!, :zip, :transpose, :replace, :clear, :fill, :include?, :<=>, :slice, :slice!, :assoc, :rassoc, :+, :*, :-, :&, :|, :uniq, :uniq!, :compact, :compact!, :flatten, :flatten!, :count, :shuffle!, :shuffle, :sample, :cycle, :permutation, :combination, :repeated_permutation, :repeated_combination, :product, :take, :take_while, :drop, :drop_while, :bsearch, :pack, :entries, :sort_by, :grep, :find, :detect, :find_all, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :all?, :any?, :one?, :none?, :min, :max, :minmax, :min_by, :max_by, :minmax_by, :member?, :each_with_index, :each_entry, :each_slice, :each_cons, :each_with_object, :chunk, :slice_before, :lazy, :nil?, :===, :=~, :!~, :class, :singleton_class, :clone, :dup, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :extend, :display, :method, :public_method, :singleton_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
 ```
+
 Aynı **String**'deki gibi, şu Array'in bir röntgenini çekelim:
 
 ```ruby
@@ -221,7 +221,6 @@ Acaba verdiğim eleman Array'in içinde mi? Verdiğim eleman bu dizinin üyesi m
 ["Uğur", "Ezel", "Yeşim"].include?("Ömer") # => false
 ```
 
-
 **array & başka_bir_array**
 
 İki dizide de kullanın ortak elemanları alır yeni Array döner:
@@ -240,11 +239,13 @@ a * 5 # => ["a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b"
 
 a * "-vigo-" # => "a-vigo-b-vigo-c"
 ```
+
 **\*** çaparak **3** elemanlı `a` Array'inden sanki birleştirilmiş **15** elemanlı yeni bir Array oluşturduk. **String** ile çarpınca da aslında `join` methodu ile Array'den String yaptık ve birleştirici olarak **-vigo-** metni kullandık!
 
 **array + başka_array**
 
 İki Array'i toplar ve yeni Array döner:
+
 ```ruby
 a = ["Uğur", "Yeşim", "Ezel"]
 b = ["Ömer"]
@@ -255,6 +256,7 @@ a + b # => ["Uğur", "Yeşim", "Ezel", "Ömer"]
 **array - başka_array**
 
 Array'ler arasındaki farkı Array olarak bulmak:
+
 ```ruby
 a = ["Uğur", "Yeşim", "Ezel"]
 b = ["Uğur", "Yeşim"]
@@ -450,6 +452,7 @@ a.last(2)  # => [4, 5]
 ["Uğur", "Yeşim", "Ezel", "Ömer"].find { |n| n.length > 3 } # => "Uğur"
 ["Uğur", "Yeşim", "Ezel", "Ömer"].find_all { |n| n.length > 3 } # => ["Uğur", "Yeşim", "Ezel", "Ömer"]
 ```
+
 `detect` ile `find` aynı işi yapar.
 
 `index`, `find_index` ile elemanın index'ini buluruz:
@@ -642,7 +645,6 @@ Array'in içeriğini verilen direktife göre **Binary String** haline getirir. U
 ["a", "b", "c"].pack("a3a3a3")            # => "a\x00\x00b\x00\x00c\x00\x00"
 ```
 
-
 ## İterasyon ve Block Kullanımı
 
 **collect / map { |eleman| blok } → yeni_array**
@@ -795,6 +797,7 @@ Eğer `[1, 2, 3].cycle { |i| puts i }` gibi bir işlem yaparsanız, default olar
 notlar = [40, 45, 53, 70, 99, 65]
 notlar.drop_while {|notu| notu < 50 }   # => [53, 70, 99, 65]
 ```
+
 Koşula göre Array'den atar gibi düşünebilirsiniz. Not 50'den küçükse bırak.
 
 **take_while**
@@ -866,7 +869,6 @@ a.each_slice(2) { |ikili_grup| puts "#{ikili_grup}" }
 `each_cons` ise slice gibi ama mutlaka belirtilen miktarda parça üretir.
 
 ```ruby
-
 # 3'lü üret
 [1, 2, 3, 4, 5,6].each_cons(3).to_a # => [[1, 2, 3], [2, 3, 4], [3, 4, 5], [4, 5, 6]]
 
@@ -1005,6 +1007,7 @@ hayvanlar.all? { |hayvan_ismi| hayvan_ismi.start_with?("K") } # => true
 # Elemanların her biri true mu?
 [true, false, nil].all? # => false
 ```
+
 `any?` de yanlızca bir tanesi `true` olsa yeterlidir:
 
 ```ruby
@@ -1107,6 +1110,7 @@ en_uzun_hayvan_ismi # => "kamplumbağa"
 # 2 olanlar: [2, 5]
 # 0 olanlar (tam bölünenler) : [3, 6]
 ```
+
 Notu 50'den büyük olanlar:
 
 ```ruby
@@ -1194,5 +1198,3 @@ a.reverse! # => [5, 4, 3, 2, 1]
 # a artık reverse edilmiş halde!
 a          # => [5, 4, 3, 2, 1]
 ```
-
-
