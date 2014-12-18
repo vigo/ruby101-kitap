@@ -2,15 +2,21 @@
 
 Pek çok dilde **Dictionary** olarak geçen, Array'imsi, hatta **Associative Array** de denir, **Key**-**Value** çifti barındıran yine Array'e benzeyen başka bir taşıyıcıdır. **Key**-**Value** dediğimiz şey ise;
 
-    { key1: "value1", key2: "value2", .... }
+```ruby
+{key1: "value1", key2: "value2", ....}
+```
 
 şeklindedir. Yukarıdaki örnek, yeni syntax'ı kullanır. Ruby programcılarının alışık olduğu örnek:
 
-    { "key1" => "value1", "key2" => "value2", ... }
+```ruby
+{"key1" => "value1", "key2" => "value2", ...}
+```
 
 ya da
 
-    { :key1 => "value1", :key2 => "value2", ... }
+```ruby
+{:key1 => "value1", :key2 => "value2", ...}
+```
 
 şeklindedir. Hepsi aynı kapıya çıkar... Array'deki sıra (_index_) mantığı burada **key**'ler ile oluyor gibi düşünebilirsiniz. Key'ler **unique**'dir yani bir Hash içinde **2 tane aynı key**'den olamaz.
 
@@ -65,6 +71,7 @@ h["foobar"]           # => "User: foobar"
 h["animal"] = "horse" # => "horse"
 h                     # => {"vigo"=>"User: vigo", "foobar"=>"User: foobar", "animal"=>"horse"}
 ```
+
 bu tarz ilginç bir yöntem de kullanılabilir. Normalde `vigo` key'ine karşılık **value** yok ama `Hash`in `new` method'unda yaptığımız bir blok işlemi ile olmayan `key` için değer ataması yaptığımız gibi key-value ataması da yapabiliyoruz.
 
 ## Hash Class Method'ları
@@ -156,6 +163,7 @@ a = [ "a", "b" ]
 c = [ "c", "d" ]
 h = { a => 100, c => 300 } # => {["a", "b"]=>100, ["c", "d"]=>300}
 ```
+
 `h` Hash'inin keyleri nedir?
 
 ```ruby
@@ -592,6 +600,7 @@ h.default_proc.call(Array.new, 9) # => 36
 h.default_proc.call([], 9) # => 36
 h.default_proc.call({}, 9) # => 36
 ```
+
 şeklinde de, Hash'i sanki bir fonksiyon gibi kullanıp işleyebiliyoruz.
 
 Daha sonra, önceden tanımladığımız bu prosedürü değiştirmek istersek `default_proc=` methodunu kullanıyoruz:
@@ -627,6 +636,3 @@ h["a"]                 # => nil
 # burada benzer :)
 h[:c]                  # => "c"
 ```
-
-
-
