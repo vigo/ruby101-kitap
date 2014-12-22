@@ -673,6 +673,7 @@ erişebiliyorsunuz ama ;
 ```ruby
 User.say_hi # => undefined method `say_hi' for User:Class (NoMethodError)
 ```
+
 yaptığımızda olmayan bir method çağrımı yapmış oluruz. Eğer `include` yerine `extend` kullansaydık;
 
 ```ruby

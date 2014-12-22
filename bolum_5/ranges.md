@@ -38,6 +38,7 @@ Son değer hariç mi dahil mi anlamak için `exclude_end?` method'unu kullanır�
 r = Range.new(0,2)     # => 0..2
 r.to_a                 # => [0, 1, 2]
 ```
+
 kullanılabilir. `==` ya da `eql?` method'u ile karşılaştırılabilir;
 
 ```ruby
