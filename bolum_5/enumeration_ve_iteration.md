@@ -11,7 +11,9 @@ Sayılabilen nesneler `Enumerator` sınıfından türemişlerdir ve içinde dön
 
 **each_with_object**, **with_object**
 
-İki method'da aynı işi yapar. Elimizde **Enumerator** varsa, yani bu içinde dolaşılabilen bir nesne ise, bu iterasyona ara elementler takabiliriz. Bu iki method, Enumerator'deki her elemana verilen şeyi takar. Aşağıdaki örnekte `each_with_object("foo")`, `["a", "b", "c"]` dizisindeki her eleman içindir. Dolayısıyla, bu işlem sonrasında ne olduğunu anlamak için `Enumerator`ü `to_a` method'u ile `Array`e çevirdik.
+İki method'da aynı işi yapar. Elimizde **Enumerator** varsa, yani bu içinde dolaşılabilen bir nesne ise, bu iterasyona ara elementler takabiliriz.
+
+Bu iki method, Enumerator'deki her elemana verilen şeyi takar. Aşağıdaki örnekte `each_with_object("foo")`, `["a", "b", "c"]` dizisindeki her eleman içindir. Dolayısıyla, bu işlem sonrasında ne olduğunu anlamak için `Enumerator`ü `to_a` method'u ile `Array`e çevirdik.
 
 ```ruby
 enumerator = ["a", "b", "c"].each

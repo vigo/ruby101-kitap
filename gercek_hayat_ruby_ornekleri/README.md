@@ -11,3 +11,4 @@ Genel anlamda konu başlıklarımız;
 * Neden Ruby?
 * Ruby ve TDD/BDD/CI
 * Kendi Rubygem'imizi yapalım!
+* Sinatra ve Web

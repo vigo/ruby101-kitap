@@ -13,6 +13,7 @@ Bu kuralları ben [GitHub](https://github.com/styleguide/ruby)'dan aldım.
 * Operatörler, virgül, iki nokta, noktalı virgül, `{` ve `}` lerin etrafında mutlaka boşluk `space` karakteri olsun!
 
 **Yanlış**
+
 ```ruby
 a=1
 a,b=1,3
@@ -31,6 +32,7 @@ a ,b = 1, 3
 * Parantez ve Köşeli parantez kullanırken, ne öncesine ne de sonrasına boş karakter `space` koyma!
 
 **Doğru**
+
 ```ruby
 my_method(arg1, arg2).other
 [1, 2, 3].length
@@ -118,6 +120,7 @@ else
   something_else
 end
 ```
+
 * `and` ve `or` yerine `&&` ve `||` kullanın
 * Mümkün oldukça `if` leri tek satır şeklinde kullanın:
 
@@ -164,6 +167,7 @@ def some_method(arg1 = :default, arg2 = nil, arg3 = [])
   # kod...
 end
 ```
+
 * Varlık operatörü kullanmaktan çekinmeyin!
 
 ```ruby
