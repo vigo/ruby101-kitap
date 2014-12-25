@@ -12,6 +12,36 @@ Ancak büyük bir işe kalkıştığınızda bu Admin Panel kabusunuz oluyor ve 
 
 Kez Python 2 mi? 3 mü? gibi durumlar da söz konusu. Python 3 neredeyse tamamen farklı. An itibariyle (*30 Kasım 2014*) halen [Django](https://docs.djangoproject.com/en/1.7/topics/python3/) ve [Python3](https://docs.python.org/3/) desteği resmii olarak gelmiş değil.
 
-Bunun dışında Python topluluğu çok ağır hareket ediyor. Yeni çıkan bir servisin modül olarak hazırlanması ya da en son 3 sene önce güncellenmiş, yüzlerce pull-request'in beklediği GitHub projeleri mi istersiniz? Bu konular beni geliştirici olarak zorladı. Amacım hızla işimi düzgün bir şekilde yapıp yoluma devam etmekten başka birşey değil.
+Bunun dışında Python topluluğu çok ağır hareket ediyor. Yeni çıkan bir servisin modül olarak hazırlanması ya da en son 3 sene önce güncellenmiş, yüzlerce pull-request'in beklediği GitHub projeleri mi istersiniz?
 
-wip...
+Bu konular beni geliştirici olarak zorladı. Amacım hızla işimi düzgün bir şekilde yapıp yoluma devam etmekten başka birşey değil.
+
+## Ruby is Fun!
+
+Yani **Ruby eğlencelidir!** ne demek bu? İlk bakışta insan düşünüyor, programlama dilinin neresi eğlenceli olabilir ki? Neticede bilimsel bir işlem diye düşünüyor insan. Taaki Ruby ile uğraşmaya başlayana kadar...
+
+İlk dikkat çeken şey, Ruby dilinin insan diline çok benzemesi. Yani İngilizce bilen biri için okunması çok kolay. Hiç Ruby bilmeyen biri bile rahatlıkla ne tür bir işlem olduğunu anlayabilir.
+
+Daha önce hiçbir programlama dilinde rastlamadığım bir `if` kullanımı:
+
+```ruby
+puts "vigo" if a > 2
+```
+
+Bu şu demek, eğer `a`'nın değeri `2`'den büyükse ekrana `vigo` yaz. Asp, Python, Php, Perl, C gibi dillerde genelde `if` bloğu içinde ya da **oneline** yani tek satırda ifade şeklinde olurken ilk kez Ruby'de `if` koşulunun bu şekilde kullanıldığını gördüm.
+
+`unless` kelime anlamı olarak **if not** anlamındadır. Yani eğer `x`'in değeri `false` ise şunu yap derken:
+
+```ruby
+puts "vigo" unless x
+```
+
+gibi bir kullanım söz konusu. yani aşağıdaki gibi de kullanılabilir ama mantıksal olarak tercih edilmez:
+
+```ruby
+puts "vigo" if !x
+```
+
+Keza method isimleri, standart kütüphane ile gelen özellikler gayet akılda kalıcı ve mantıklı.
+
+wip -- date --
