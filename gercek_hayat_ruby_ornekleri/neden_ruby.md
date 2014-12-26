@@ -42,6 +42,28 @@ gibi bir kullanım söz konusu. yani aşağıdaki gibi de kullanılabilir ama ma
 puts "vigo" if !x
 ```
 
-Keza method isimleri, standart kütüphane ile gelen özellikler gayet akılda kalıcı ve mantıklı.
+Keza method isimleri, standart kütüphane ile gelen özellikler gayet akılda kalıcı ve mantıklı. Ruby sizin adınıza pek çok şeyi düşünüp hazır kullanıma sunuyor.
 
-wip -- date --
+> Acaba bugün günlerden cuma mı?
+
+Hemen bakalım:
+
+```ruby
+Time.now.friday? # => true # evet 
+```
+
+Aslında çok basit ama çok işe yarayan bir özellik. Bu tarz konulara **Syntactic Sugar** deniliyor.
+
+## Çok Güçlü ve Çalışkan Ruby Topluluğu
+
+Ne yazıkki ülkemizde çok da bilinen ya da tercih edilen bir dil olmamasına rağmen, dünyada durum çok farklı. Pek çok tanıdık proje Ruby, Ruby on Rails, Sinatra gibi Ruby dünyasının araçlarını kullanmakta.
+
+Python'dan gelen bir geliştirici olarak, yaşadığım en büyük sıkıntılardan biri de yavaş ilerleme durumuydu. Python'u ben Alman Mühendisliğine benzetiyorum. Herşey inanılmaz kurallı, süper sistemli olmak zorunda. Tamam bu çok güzel bir yaklaşım, kabul ediyorum ama bazen ağır kalıyor.
+
+Bazen öyle bir Python modülüne ihtiyacınız oluyor ve bir bakıyorsunuz son 3 yıldır güncelleme yapılmamış, GitHub'da bekleyen 50 tane Pull Request, kodu kimin maintain ettiği belli değil, uzay boşluğunda kendi kendine giden bir durumda kaderini bekliyor.
+
+Ruby topluluğu inanılmaz derecede üretken. Yeni bir API'mı çıktı? Hemen gem'ini bulmanız mümkün! Ruby mi öğrenmek istiyorsunuz? Tonlarca ücretsiz/ücretli online videolar, eğitimler var! Kitap, kod, konferans aklınıza ne gelirse...
+
+Ne yazıkki bu denli aktif bir dünyayı ben diğer uğraştığım dillerde göremedim.
+
+-- wip --
