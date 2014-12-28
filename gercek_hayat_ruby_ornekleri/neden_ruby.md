@@ -66,4 +66,16 @@ Ruby topluluğu inanılmaz derecede üretken. Yeni bir API'mı çıktı? Hemen g
 
 Ne yazıkki bu denli aktif bir dünyayı ben diğer uğraştığım dillerde göremedim.
 
--- wip --
+## Bir işi yapmanın pek çok farklı yolu olabilir!
+
+Son olarak, Ruby'deki en çok hoşuma giden mentaliteden bahsetmek istiyorum. Bir işi doğru yapmanın birden fazla yolu olabilir. 
+
+Örneğin Python'da sadece "tek bir yol" varken Ruby'de farklı farklı yöntemlerle, komutlarla aynı işi değişik şekillerde yapabilirsiniz ve hepsi de doğrudur!
+
+Neredeyse hiçbir programlama dili **DSL** (yani Domain Specific Language) yapmak için bu denli müsait değil. Yani Ruby kullanarak kafanıza göre Ruby üzerinde çalışan başka bir dünya yapabilirsiniz!
+
+Neticede hayatta herşey tercihler ve zevklerle ilgilidir. Ben kendi nedenlerimi belirtiyorum, bunlar size uymayabilir, hatta nefret bile edebilirsiniz. Eğer böyle bir durum varsa, sizden ricam sakin bir şekilde Ruby dünyasını incelemeniz.
+
+An itibariyle ne ile uğraşıyorsanız aynı şeyi Ruby ile yapmaya çalışmanız. Mutlaka deneyin. Denedikten, tadına baktıktan sonra karar verin.
+
+Sevgili annem küçükken hep derdi "önce bi tadına bak ondan sonra istemiyorsan yemeği yeme" diye :)
