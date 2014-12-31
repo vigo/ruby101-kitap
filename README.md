@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%67](http://progressed.io/bar/67?title=genel "Genel Tamamlanma %67")
+![%71](http://progressed.io/bar/71?title=genel "Genel Tamamlanma %71")
 
 ## Önsöz
 
@@ -78,7 +78,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Class ve Module (%100)
 
 ### Bölüm 5
-![%48](http://progressed.io/bar/48)
+![%50](http://progressed.io/bar/50)
 
 * Enumeration ve Iteration (%100)
 * Ranges (%100)
@@ -101,7 +101,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 ![%98](http://progressed.io/bar/98)
 
 ### Gerçek Hayat Ruby Örnekleri
-![%0](http://progressed.io/bar/0)
+![%25](http://progressed.io/bar/25)
 
 * Neden Ruby? (%100)
 * Ruby ve TDD/BDD/CI (--)
