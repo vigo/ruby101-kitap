@@ -7,6 +7,7 @@ Genel olarak bu interaktif kullanım **REPL** olarak geçer. REPL aslında **R**
 REPL olayı, Python ve PHP'de de var.
 
 ## IRB
+
 Ruby kurulumu ile beraber gelir. Yapmanız gereken Terminal'i açıp `irb` yazıp `enter`a basmak.
 
 ```bash
@@ -20,6 +21,7 @@ irb(main):002:0>
 
 
 ## Shell
+
 **Shebang** dediğimiz yöntemli Linux/Unix tabanlı işletim sistemlerinde Ruby dosyalarını aynı bir uygulama çalıştırır gibi kullanabilirsiniz.
 
 `test.rb` dosyası olduğunu düşünün; bu dosya

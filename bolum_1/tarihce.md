@@ -12,8 +12,8 @@ Ruby en büyük patlamasını [Ruby on Rails](http://rubyonrails.org/) framework
 
 Kitabı yazdığım an itibariyle (_13 Temmuz 2014, Pazar_) Ruby'nin en son sürümü `2.1.2` (Stabil sürüm)
 
-Güncelleme: Ruby version `2.1.3` oldu. (*26 Ekim 2014, Pazar*)
-
-Güncelleme: Ruby version `2.1.5` oldu. (*6 Aralık 2014, Pazar*)
+* Güncelleme: Ruby versiyon `2.1.3` oldu. (*26 Ekim 2014, Pazar*)
+* Güncelleme: Ruby versiyon `2.1.5` oldu. (*6 Aralık 2014, Pazar*)
+* Güncelleme: Ruby versiyon `2.2.0` oldu. (*25 Aralık 2014*)
 
 Ruby'nin en önemli özelliği her şeyin bir nesne yani **Object** olmasıdır. Nesneyi bir tür paket / kutu gibi düşünebilirsiniz. Doğal olarak Object olan bir şeyin, action'ları method'ları olur.

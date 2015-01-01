@@ -2,9 +2,11 @@
 
 Kurulum işlemleri bittikten sonra ya da kullandığınız **OS** (_İşletim Sistemi_) ön tanımlı Ruby ile geliyorsa hemen aşağıdaki testi yapabilirsiniz:
 
-    $ ruby --help
+```bash
+ruby --help
 
-    Usage: ruby [switches] [--] [programfile] [arguments]
+Usage: ruby [switches] [--] [programfile] [arguments]
+```
 
 `ruby`'yi çağırırken, her shell aracı gibi (_binary mi diyim, executable mı diyim karar veremedim!_) Ruby de çeşitli parametreler alabiliyor. Bu kısıma dikkat edelim çünkü burada bahsi geçecek **Switch**'ler 2.Bölümde göreceğimiz **Ön Tanımlı Değişkenler** ile çok alakalı.
 
@@ -45,23 +47,30 @@ Kurulum işlemleri bittikten sonra ya da kullandığınız **OS** (_İşletim Si
 
 Önce içinde düz metin olan bir dosya oluşturalım:
 
-    echo vigo > /tmp/test.txt
-    cat /tmp/test.txt
-    # vigo
+```bash
+echo vigo > /tmp/test.txt
+cat /tmp/test.txt
+# vigo
+```
 
 sonra;
 
-    ruby -p -i.backup -e '$_.upcase!' /tmp/test.txt
-    cat /tmp/test.txt.backup
-    # VIGO
+```bash
+ruby -p -i.backup -e '$_.upcase!' /tmp/test.txt
+cat /tmp/test.txt.backup
+# VIGO
+```
 
 Ne oldu? Amacımız, `/tmp/test.txt` dosyasında, satır satır okuyup her satırda yazan metni **uppercase** yani büyük harfe çevirmek. Normalde bu işlemi;
 
-    ruby -p -e '$_.upcase!' /tmp/test.txt
+```bash
+ruby -p -e '$_.upcase!' /tmp/test.txt
+```
 
 şeklinde komut satırından yapabiliyoruz. Ama **in-place-edit** mod ve **extension** özelliği ile, çalıştırılmış kod çıktısını başka bir dosyada görüntüleyebiliriz. Bu noktada `-i` devreye giriyor. `-i.backup` sonucun görüntülendiği dosya oluyor.
 
 ## `-n` örneği:
+
 Loop'tan kastım, sanki;
 
 ```ruby
@@ -72,23 +81,30 @@ end
 çevreler.
 
 ## `-s` örneği:
+
 `example_s.rb` adında bir dosyamız olsun ve içinde;
 ```ruby
 print "xyz argümanı kullanıldı\n" if $xyz
 ```
+
 yazsın. Bu dosyayı çalıştırın;
 
-    ruby example_s.rb
+```bash
+ruby example_s.rb
+```
 
 Hiçbir çıktı görmezsiniz. Eğer şu şekilde çalıştırırsanız;
 
-    ruby -s example_s.rb -xyz
+```bash
+ruby -s example_s.rb -xyz
+```
 
 şu çıktıyı alırsınız:
 
     xyz argümanı kullanıldı
 
 ## `-S` örneği:
+
 Bazı işletim sistemlerin **Shebang** sorunu olabilir. `#!/usr/bin/env ruby` Bu gibi durumlarda;
 
 ```bash
