@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%71](http://progressed.io/bar/71?title=genel "Genel Tamamlanma %71")
+![%72](http://progressed.io/bar/72?title=genel "Genel Tamamlanma %72")
 
 ## Önsöz
 
@@ -42,10 +42,10 @@ https://www.gitbook.io/book/vigo/ruby-101
 ## Tamamlanma Durumu
 
 ### Bölüm 1
-![%82](http://progressed.io/bar/82)
+![%94](http://progressed.io/bar/94)
 
-* Ruby Hakkında (%80)
-* Kurulum (%70)
+* Ruby Hakkında (%100)
+* Kurulum (%100)
 * İnteraktif Kullanım (%80)
 * Ruby Komutu ve Parametreleri (%98)
 
