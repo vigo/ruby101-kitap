@@ -112,3 +112,5 @@ Bazı işletim sistemlerin **Shebang** sorunu olabilir. `#!/usr/bin/env ruby` Bu
 exec ruby -S -x $0 "$@"
 ```
 şekinde, `bash` üzeriden Ruby scripti'ni çalıştırabiliriz.
+
+wip...

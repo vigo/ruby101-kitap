@@ -1,1 +1,3 @@
 # Time ve Date Nesneleri
+
+wip...
