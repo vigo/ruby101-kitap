@@ -28,7 +28,7 @@ Yazılım dünyası ne yazık ki İngilizce ve tüm kaynaklar da İngilizce. Bu 
 
 ## Lisans Mevzusu
 
-Prensip olarak, GitHub'a **Public** olarak koyduğum herşey, herkses tarafından her türlü şekilde kullanılabilir. Bence Public olarak sürülen bir şey (_ki ben eski Amiga'cı Public Domain'ci biriyim_) herkesin tepe tepe kullanabilmesi amaçlı olmalıdır.
+Prensip olarak, GitHub'a **Public** olarak koyduğum herşey, herkes tarafından her türlü şekilde kullanılabilir. Bence Public olarak sürülen bir şey (_ki ben eski Amiga'cı Public Domain'ci biriyim_) herkesin tepe tepe kullanabilmesi amaçlı olmalıdır.
 
 Her türlü lisans olayına karşıyım. Eğer bir tür lisanslama yapacaksanız kendinize saklayın :)
 
