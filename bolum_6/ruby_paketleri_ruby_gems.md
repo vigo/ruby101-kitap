@@ -10,4 +10,4 @@ RubyGems, efsane isim [Jim Weirich](http://en.wikipedia.org/wiki/Jim_Weirich) ta
 
 Herhangi bir paketi kurmak için `gem install PAKET_ADI`şeklinde yazmak yeterli fakat genelde Ruby'nin kurulu olduğu yer sistem dosyalarının kurulu olduğu yerde olduğu için eğer Ruby versiyon yöneticisi (rvm ya da rbenv) kullanmıyorsanız `sudo` ile ile işlem yapmanı gerekir: `sudo gem install PAKET_ADI`.
 
-wip...
+Tavsiyem [Rbenv](https://github.com/sstephenson/rbenv) ya da [RVM](https://rvm.io/) gibi bir paket yöneticisi kullanmanız. Bir sonraki bölümde göreceğimiz [Bundler](http://bundler.io/) aracıyla hem sisteminizi gereksiz gem'lerden korumuş olacağız hem de istediğimiz projede istediğimiz gem versiyonunu kullanmış olacağız. 
