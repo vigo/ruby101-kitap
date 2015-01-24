@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%72](http://progressed.io/bar/72?title=genel "Genel Tamamlanma %72")
+![%74](http://progressed.io/bar/74?title=genel "Genel Tamamlanma %74")
 
 ## Önsöz
 
@@ -87,12 +87,12 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Kernel Modülü (--)
 
 ### Bölüm 6
-![%14](http://progressed.io/bar/14)
+![%28](http://progressed.io/bar/28)
 
 * Monkey Patching (--)
 * Regular Expressions (--)
 * Time ve Date Nesneleri (--)
-* Ruby Paketleri: RubyGems (--)
+* Ruby Paketleri: RubyGems (100%)
 * Paket Yöneticisi: Bundler (--)
 * Komut Satırı (Command-Line) Kullanımı (--)
 * Meta Programming (%100)
