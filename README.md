@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
 
-![%74](http://progressed.io/bar/74?title=genel "Genel Tamamlanma %74")
+![%76](http://progressed.io/bar/76?title=genel "Genel Tamamlanma %76")
 
 ## Önsöz
 
@@ -87,9 +87,9 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Kernel Modülü (--)
 
 ### Bölüm 6
-![%28](http://progressed.io/bar/28)
+![%42](http://progressed.io/bar/42)
 
-* Monkey Patching (--)
+* Monkey Patching (100%)
 * Regular Expressions (--)
 * Time ve Date Nesneleri (--)
 * Ruby Paketleri: RubyGems (100%)
