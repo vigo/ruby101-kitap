@@ -299,6 +299,73 @@ File.fnmatch('\foo*', '\foo.rb', File::FNM_NOESCAPE)   # => true
 
 ## IO
 
-wip
+Tüm giriş/çıkış (Input/Output) işlerinin kalbi burada atar. `File` sınıfı da `IO`'nun alt sınıfıdır. Binary okuma/yazma işlemleri, multi tasking işlemler (*Process spawning, async işler*) hep bu sınıf sayesinde çalışır.
 
-wip...
+Ruby 101 seviyesi için biraz karmaşık olsa dahi, sadece fikriniz olması açısından, en bilinen ve kullanılan birkaç method'a değinmek istiyorum.
+
+**binread**
+
+Binary read, yani byte-byte okuma işlemi için kullanılır. Opsiyonel olarak geçilen 2.parametre, kaç byte okumak istediğimizi, 3.parametre de offset yani kaç byte öteden okumaya başlamak gerek bunu bildirir. Yani elinizde bir dosya olsun, dosyanın ilk 100 byte'ını 20.byte'tan itibaren okumanız gerekirse kullanacağınız method budur :)
+
+```ruby
+# 1 byte atlayarak 3 byte okuduk ve
+IO.binread("test.png", 3, 1) # => "PNG"
+```
+
+**binwrite**
+
+Tahmin edeceğiniz gibi `binread` in tersi, yani Binary olarak yazma işini yapan method. Aynı şekilde opsiyonel 2 ve 3.parametreleri kullanabilirsiniz.
+
+**copystream**
+
+Birebir kopya yapmaya yarar. İlk parametre SOURCE yani neyi kopyalacaksınız, ikinci parametre DESTINATION yani nereye kopyalacaksınız, eğer kullanırsanız 3.parametre kopyalanacak byte adedi, eğer 4.parametre kullanırsanız aynı read/write daki gibi offset değeri olarak kullanabilirsiniz.
+
+**foreach**
+
+Elimizde `test-file.txt` olsun ve içinde;
+
+    satır 1
+    satır 2
+
+yazsın... Satır-satır içinde dolaşmak için;
+
+```ruby
+IO.foreach("test-file.txt"){|x| print "bu satır: ",x}
+```
+
+Dediğimizde çıktı;
+
+    bu satır: satır 1
+    bu satır: satır 2
+
+şeklinde içeriye block pas edip kullanabiliriz.
+
+**popen**
+
+Subprocess yani alt işlemler açmak için kullanılır. Özellikle Ruby üzerinden SHELL komutları çağırmak için çok kullanılan bir yöntemdir. Asenkron işler.
+
+```ruby
+# Bu işlem asenkron/alt işlem olarak çalışır...
+IO.popen("date") do |response|
+  system_date = response.gets
+  puts "system_date: #{system_date}"
+end
+```
+
+`/tmp/` dizinini listeleyelim:
+
+```ruby
+p = IO.popen("ls /tmp/")
+p.pid       # => 52389
+p.readlines # => ["D8D75028-234B-4F49-9358-C4C4775B4A08_IN\n", "D8D75028-234B-4F49-9358-C4C4775B4A08_OUT\n", "F7C71944B49B446081C0603DE90E4855_IN\n", "F7C71944B49B446081C0603DE90E4855_OUT\n", "KSOutOfProcessFetcher.501.OlaJUhhgKAnFsX7fZ0FyXTFxIgg=\n", "com.apple.launchd.4H4RVax25p\n", "com.apple.launchd.Kn8Wcx4NQX\n", "fo\n", "lilo.12159\n", "swtag.log\n", "test-file.txt\n"]
+```
+
+Gördüğünüz gibi **pid** yani Process ID : 52389, eğer shell'den;
+
+    ps ax | grep 52389
+
+derseniz;
+
+    52389   ??  Z      0:00.00 (ls)
+
+gibi ilgili işlemi görürsünüz.
