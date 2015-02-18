@@ -115,6 +115,69 @@ a.next        # => 1
 
 ## Diğer Nesnelerdeki Enumeration Durumları
 
-### Number
+### Fixnum
 
-upto / downto wip!
+**upto**, **downto**, **times**
+
+Bir sayıdan yukarı doğru sayarken `upto`, aşağı doğru sayarken `downto` ve kaç defa aynı işlemi yaparken de `times` kullanırız.
+
+```ruby
+# 10'dan 5'e sayıyoruz, 10'da 5'de dahil..
+10.downto(5){ |i| puts "Sayı: #{i}" }
+# >> Sayı: 10
+# >> Sayı: 9
+# >> Sayı: 8
+# >> Sayı: 7
+# >> Sayı: 6
+# >> Sayı: 5
+
+# 5'den 10'a sayıyoruz, 10'da 5'de dahil..
+5.upto(10){ |i| puts "Sayı: #{i}" }
+# >> Sayı: 5
+# >> Sayı: 6
+# >> Sayı: 7
+# >> Sayı: 8
+# >> Sayı: 9
+# >> Sayı: 10
+
+# 3 defa block içindeki kod çalışsın
+# 0'dan 3'e kadar 3 hariç :)
+3.times{ |i| puts "#{i}" }
+# >> 0
+# >> 1
+# >> 2
+```
+
+### String
+
+Aynı mantıkta `upto` ve `downto` ilginç bir şekilde `String` için de kullanılır. Örneğin A'dan itibaren M'ye kadar demek için:
+
+```ruby
+"A".upto("M"){ |s| puts s }
+# >> A
+# >> B
+# >> C
+# >> D
+# >> E
+# >> F
+# >> G
+# >> H
+# >> I
+# >> J
+# >> K
+# >> L
+# >> M
+```
+
+ya da, "AB", "AC", "AD" gibi sekans olarak gitmek gerektiğinde de;
+
+```ruby
+"AB".upto("AE"){ |s| puts s }
+# >> AB
+# >> AC
+# >> AD
+# >> AE
+```
+
+tam tersi için `downto`kullanılır.
+
