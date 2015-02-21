@@ -1,8 +1,6 @@
 # Ruby 101 Kitabı
 
-[![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity)
-
-![%77](http://progressed.io/bar/77?title=genel "Genel Tamamlanma %77")
+[![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity) ![%77](http://progressed.io/bar/77?title=genel "Genel Tamamlanma %77")
 
 ## Önsöz
 
@@ -41,69 +39,61 @@ https://www.gitbook.io/book/vigo/ruby-101
 
 ## Tamamlanma Durumu
 
-### Bölüm 1
-![%94](http://progressed.io/bar/94)
+### Bölüm 1 (%94)
 
-* Ruby Hakkında (%100)
-* Kurulum (%100)
-* İnteraktif Kullanım (%80)
+* Ruby Hakkında
+* Kurulum
+* İnteraktif Kullanım
 * Ruby Komutu ve Parametreleri (%98)
 
 ### Bölüm 2
-![%100](http://progressed.io/bar/100?title=bitti)
 
-* Syntax (Söz Dizimi) ve Rezerve Kelimeler (%100)
-* Değişkenler (%100)
-* Ön Tanımlı ve Pseudo (Gerçek Olmayan) Değişkenler (%100)
-* Operatörler (%100)
-* Global Constants (Genel Sabitler) (%100)
+* Syntax (Söz Dizimi) ve Rezerve Kelimeler
+* Değişkenler
+* Ön Tanımlı ve Pseudo (Gerçek Olmayan) Değişkenler
+* Operatörler
+* Global Constants (Genel Sabitler)
 
 ### Bölüm 3
-![%100](http://progressed.io/bar/100?title=bitti)
 
-* Methods (Fonksiyonlar) (%100)
-* Blocks (Bloklar) (%100)
-* Proc ve Lambda (%100)
-* Conditional Statements (Koşullar) (%100)
+* Methods (Fonksiyonlar)
+* Blocks (Bloklar)
+* Proc ve Lambda
+* Conditional Statements (Koşullar)
 
 ### Bölüm 4
-![%100](http://progressed.io/bar/100?title=bitti)
 
-* Object (%100)
-* Number (%100)
-* String (%100)
-* Array (%100)
-* Hash (%100)
-* Symbol (%100)
-* Class ve Module (%100)
+* Object
+* Number
+* String
+* Array
+* Hash
+* Symbol
+* Class ve Module
 
-### Bölüm 5
-![%58](http://progressed.io/bar/58)
+### Bölüm 5 (%58)
 
-* Enumeration ve Iteration (%100)
-* Ranges (%100)
+* Enumeration ve Iteration
+* Ranges
 * File System ve IO (Dosya Sistemi) (%90)
 * Exception Handling (--)
 * Kernel Modülü (--)
 
-### Bölüm 6
-![%42](http://progressed.io/bar/42)
+### Bölüm 6 (%42)
 
-* Monkey Patching (100%)
+* Monkey Patching
 * Regular Expressions (--)
 * Time ve Date Nesneleri (--)
-* Ruby Paketleri: RubyGems (100%)
+* Ruby Paketleri: RubyGems
 * Paket Yöneticisi: Bundler (--)
 * Komut Satırı (Command-Line) Kullanımı (--)
-* Meta Programming (%100)
+* Meta Programming
 
-### Kod Yazma Tarzı (_Style Guide_)
-![%98](http://progressed.io/bar/98)
+### Kod Yazma Tarzı (_Style Guide_) (%98)
 
-### Gerçek Hayat Ruby Örnekleri
-![%25](http://progressed.io/bar/25)
+### Gerçek Hayat Ruby Örnekleri (%25)
 
-* Neden Ruby? (%100)
+* Neden Ruby?
 * Ruby ve TDD/BDD/CI (--)
 * Kendi Rubygem'imizi yapalım! (--)
 * Sinatra ve Web (--)
