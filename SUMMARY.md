@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+* [Giriş](README.md)
 * [İnceleme](inceleme/README.md)
 * [Bölüm 1](bolum_1/README.md)
    * [Ruby Hakkında](bolum_1/tarihce.md)
