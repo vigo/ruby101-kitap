@@ -91,6 +91,13 @@ https://www.gitbook.io/book/vigo/ruby-101
 
 ### Kod Yazma Tarzı (_Style Guide_) (%98)
 
+* Değişken Tanımlamarı
+* Blok Tanımlamarı
+* Syntax Tanımlamarı
+* Semantik Tanımlamalar
+* Yanlış ve Doğru Kullanımlar
+* İsimlendirmeler
+
 ### Gerçek Hayat Ruby Örnekleri (%25)
 
 * Neden Ruby?
