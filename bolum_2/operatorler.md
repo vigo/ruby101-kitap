@@ -3,7 +3,7 @@
 Operatörler çeşitli kontrolleri yapmak için kullanılır. Hatta bazıları aynı zamanda **method** olarak çalışır. Başı operatörlerin birden farklı işlemi vardır. Örneğin `+` hem matematik işlemi olan **toplama** için hem de **pozitif** değer kontrolü için kullanılabilir.
 
 | Operatör | Açıklama | Methodmu? |
-| -- | -- | -- |
+| ---------- | ------------------------------------------------------------------------------------------------------ | ----------- |
 | :: | İki tane iki nokta. **Scope resolution** anlamındadır. Class ve Modül konusunda detayları göreceğiz. | |
 | [] | Referans, set | Evet |
 | []= | Referans, set | Evet |
