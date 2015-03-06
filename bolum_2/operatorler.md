@@ -50,7 +50,7 @@ Operatörler çeşitli kontrolleri yapmak için kullanılır. Hatta bazıları a
 | &#124;= | Bit seviyesinde **or** ve atama |  |
 | ^= | Bit seviyesinde **eor** ve atama |  |
 | &&= | Mantıksal **and** ve atama |  |
-| &#124;&#124;= | Varlık ataması (_Existential Operator_) | &#20; |
+| &#124;&#124;= | Varlık ataması (_Existential Operator_) |  |
 
 İlk bakışta insanın aklını durduran bir sürü garip işaretler bunlar değil mi? Hemen örneklerle pekiştirelim.
 
