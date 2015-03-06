@@ -55,7 +55,7 @@ o = Object.new # => #<Object:0x007fe552099a68>
 o.__id__       # => 70311450299700
 ```
 
-yaptığımızda, oluşan nesnenin hafızada **unique** (_yani bundan sadece bir tane_) bir **identifier**'ı (_kabaca buna kimlik diyelim__) yani **ID**'si olduğunu görürüz. `__id__` yerine `object_id` yani `o.object_id` şeklinde de kullanabiliriz.
+yaptığımızda, oluşan nesnenin hafızada **unique** (_yani bundan sadece bir tane_) bir **identifier**'ı (_kabaca buna kimlik diyelim_) yani **ID**'si olduğunu görürüz. `__id__` yerine `object_id` yani `o.object_id` şeklinde de kullanabiliriz.
 
 Eğer `hash` method’unu çağırırsak, Ruby bize ilgili objenin `Fixnum` türünde sayısal değerini üretir ve verir.
 
