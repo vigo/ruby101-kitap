@@ -187,7 +187,7 @@ Bu örnekte **Ternary** olarak `amount == 1 ? "apple" : "apples"` kullanılmış
 
 ## BEGIN ve END
 
-Ruby'de ilgin bir özellikte, kodun çalışmasından önceye ve sonraya bir ek takabiliyoruz.
+Ruby'de ilginç bir özellik de, kodun çalışmasından önceye ve sonraya bir ek takabiliyoruz.
 
 ```ruby
 BEGIN { puts "Kodun başlama saati #{Time.now.to_s}" }
