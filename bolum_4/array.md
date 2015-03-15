@@ -76,7 +76,7 @@ a = ["Hello", :word, 2014, 3.14] # içinde String, Symbol, Fixnum ve Float var!
 a # => ["Hello", :word, 2014, 3.14]
 ```
 
-Array içindeki elemanlar sıralı bir şekilde dururlar. Bu sıraka **Index** denir. **0**'dan başlar. Yani ilk eleman demek Array'in 0.elemanı demektir. İsteğimiz elemanı almak için ya `Array[index]` ya da `Array.fetch(index)` yöntemlerini kullanabiliriz.
+Array içindeki elemanlar sıralı bir şekilde dururlar. Bu sıraya **Index** denir. **0**'dan başlar. Yani ilk eleman demek Array'in 0.elemanı demektir. İsteğimiz elemanı almak için ya `Array[index]` ya da `Array.fetch(index)` yöntemlerini kullanabiliriz.
 
 ```ruby
 a = ["Uğur", "Yeşim", "Ezel", "Ömer"]

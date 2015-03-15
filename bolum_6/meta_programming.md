@@ -4,7 +4,7 @@ Ruby'deki **Meta Programming**, yazılan kodun **run-time**'da pekçok şeyi de�
 
 Hatta bazen yazdığınız programı restart etmeden bile kodu değişikliği yapmak mümkün olur.
 
-Bazı komutlar, kullanm şekilleri gerçekten de çok tehlikeli olabilir! Özellikle dış dünyadan gelecek input'ların run-time'da yorumlanması pek de önerilen bir yöntem değildir. Yani burada göreceğimiz bazı yöntemleri bilelim ama gerçek dünyada pek fazla **uygulamayalım**!
+Bazı komutlar, kullanım şekilleri gerçekten de çok tehlikeli olabilir! Özellikle dış dünyadan gelecek input'ların run-time'da yorumlanması pek de önerilen bir yöntem değildir. Yani burada göreceğimiz bazı yöntemleri bilelim ama gerçek dünyada pek fazla **uygulamayalım**!
 
 ## Class'lar Değiştirilebilir!
 

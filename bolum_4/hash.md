@@ -42,7 +42,7 @@ Dikkat ettiyseniz Hash'in bir üst sınıfı **Module**. Aynı Array'deki gibi. 
 Hash.included_modules # => [Enumerable, Kernel]
 ```
 
-Eğer Hash'i oluştururken **default** değer geçersek, tanımsız olak **key** için değer atamış oluruz:
+Eğer Hash'i oluştururken **default** değer geçersek, tanımsız olan **key** için değer atamış oluruz:
 
 ```ruby
 h = Hash.new("Tanımsız") # => {}
