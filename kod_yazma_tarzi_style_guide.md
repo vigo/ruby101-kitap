@@ -9,7 +9,7 @@ Bu kuralları ben [GitHub](https://github.com/styleguide/ruby)'dan aldım.
 * **soft-tabs** yani `TAB` karakteri yerine **2 adet space** karakteri ile girinti yapılmalı
 * Mümkünse satır uzunluğu **80** karakteri geçmesin!
 * Satır sonlarında boş karakter **white-space** bırakmayın!
-* Hey `rb` dosyası ya da Ruby kodu içeren dosya boş bir satırla bitsin.
+* Her `rb` dosyası ya da Ruby kodu içeren dosya boş bir satırla bitsin.
 * Operatörler, virgül, iki nokta, noktalı virgül, `{` ve `}` lerin etrafında mutlaka boşluk `space` karakteri olsun!
 
 **Yanlış**

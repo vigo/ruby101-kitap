@@ -44,7 +44,7 @@ hey.selam_sana # => "Selam sana, Uğur"
 
 `@isim` ise **Instance Variable** yani Class'tan türeyen nesneye ait değişkendir.
 
-`selam_sana` ise bu Class'ın bir method'udur. `hey` değişkeni, `Merhaba` Class'ından türemiş bir **Instance**'dır. `Merhaba` sınıfındaki tüm method'lar **inherit** hani miras olarak `hey` nesnesine geçmiştir.
+`selam_sana` ise bu Class'ın bir method'udur. `hey` değişkeni, `Merhaba` Class'ından türemiş bir **Instance**'dır. `Merhaba` sınıfındaki tüm method'lar **inherit** yani miras olarak `hey` nesnesine geçmiştir.
 
 Class'ı tanımlarken ister klasik ister block yöntemini kullanabilirsiniz. Klasik yöntem:
 
@@ -486,7 +486,7 @@ alien.class.superclass # => Object
 
 Class'a benzeyen ama Class gibi **instantiate** edilemeyen şeydir modül. Modül denen şeye Class'e eklenebilir (*include edilir*) Modülden gelen methodlar artık ilgili Class'ın methodu haline gelir.
 
-Yani düşününki bir Class var, bu Class'ın farklı 2-3 Class'tan özellik almasını istiyorsunuz. Bunu başarmak için ilgili Class'a o 2-3 Class'ı Modül olarak ekliyorsunuz!
+Yani düşünün ki bir Class var, bu Class'ın farklı 2-3 Class'tan özellik almasını istiyorsunuz. Bunu başarmak için ilgili Class'a o 2-3 Class'ı Modül olarak ekliyorsunuz!
 
 Module'ler sayesinde **Namespace** ve **Mix-in** fonksiyonalitesi de gelmiş olur.
 

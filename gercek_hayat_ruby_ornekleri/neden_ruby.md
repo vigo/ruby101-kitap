@@ -10,7 +10,7 @@ PHP ile hatırı sayılır pek çok proje yaptım. Daha sonra, sevgili kardeşim
 
 Ancak büyük bir işe kalkıştığınızda bu Admin Panel kabusunuz oluyor ve işi gücü bırakıp sadece bu paneli **customize** (*yani özelleştirme*) etmekle uğraşıyorsunuz.
 
-Kez Python 2 mi? 3 mü? gibi durumlar da söz konusu. Python 3 neredeyse tamamen farklı. An itibariyle (*30 Kasım 2014*) halen [Django](https://docs.djangoproject.com/en/1.7/topics/python3/) ve [Python3](https://docs.python.org/3/) desteği resmii olarak gelmiş değil.
+Keza Python 2 mi? 3 mü? gibi durumlar da söz konusu. Python 3 neredeyse tamamen farklı. An itibariyle (*30 Kasım 2014*) halen [Django](https://docs.djangoproject.com/en/1.7/topics/python3/) ve [Python3](https://docs.python.org/3/) desteği resmii olarak gelmiş değil.
 
 Bunun dışında Python topluluğu çok ağır hareket ediyor. Yeni çıkan bir servisin modül olarak hazırlanması ya da en son 3 sene önce güncellenmiş, yüzlerce pull-request'in beklediği GitHub projeleri mi istersiniz?
 

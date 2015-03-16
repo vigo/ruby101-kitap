@@ -52,7 +52,7 @@ puts "Merhaba\nDünya"
 | \C-x | Control-x |
 | \M-x | Meta-x |
 | \M-\C-x | Meta-Control-x |
-| \x | x'in kendisi (\" çift tırkan demektir.) |
+| \x | x'in kendisi (\" çift tırnak demektir.) |
 
 
 String'ler **byte array**'lerden oluşur yani elemanları **byte** cinsinden dizidir aslında.
