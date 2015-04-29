@@ -58,4 +58,60 @@ t.tuesday? # => true
 
 Ruby bize otomatik olarak ayın birini işaret etti ve 1 Ağustos 1972'nin salı gününe denk geldiğini `tuesday?` method'u ile anladık.
 
-@wip
+Tahmin edebileceğiniz gibi, İngilizce olarak, günleri kontrol edebiliyoruz. Yani `sunday?`, `monday?` ... gibi
+
+Eğer UNIX'in epoch zaman formatında istersek, yapmamız gereken `to_i` method'u ile integer'a çevirmek:
+
+```ruby
+Time.new(1972, 8).to_i # => 81464400
+```
+
+Eğer elimizde epoch cinsinden bir zaman varsa:
+
+```ruby
+Time.at(81464400)      # => 1972-08-01 00:00:00 +0300
+Time.at(81464400).year # => 1972
+```
+
+şeklinde de kullanabiliriz. Bunlara ek olarak;
+
+```ruby
+Time.now.zone # => "EEST"
+Time.now.day  # => 29
+Time.now.wday # => 3      # çarşamba
+Time.now.utc? # => false
+Time.now.gmt? # => false
+```
+
+Zamanlar arasındaki farkı bulmak için de aynı matematik işlemi gibi yaparmış gibi davranabilirsiniz.
+
+```ruby
+birth_day = Time.new(1972, 8)         # Ağustos 1972
+Time.now.to_i  # => 1430284388
+birth_day.to_i # => 81464400
+
+Time.now.to_i - birth_day.to_i        # => 1348819988 saniye
+1348819870 / (60 * 60 * 24)           # => 15611 gün
+1348819870 / (60 * 60 * 24 * 30)      # => 520 ay
+1348819870 / (60 * 60 * 24 * 30 * 12) # => 43 yıl
+```
+
+Ayni şekilde karşılaştırma işlemleri de matematik işlemleri gibi. Doğduğum yıl ile bugünü karşılaştıralım:
+
+```ruby
+birth_day = Time.new(1972, 8)
+now = Time.now
+tomorrow = now + (60 * 60 * 24)
+
+now.to_i                       # => 1430284645
+tomorrow.to_i                  # => 1430371045
+birth_day.to_i                 # => 81464400
+
+now.to_i > birth_day.to_i      # => true      bugün > doğum tarihi
+now.to_i > tomorrow.to_i       # => false     bugün < yarın
+tomorrow.to_i > now.to_i       # => true      yarın > bugün
+```
+
+## Zamanı Formatlı Şekilde Göstermek
+
+@wip - strftime
