@@ -37,7 +37,7 @@ Kitabı online olarak okumak için:
 https://www.gitbook.io/book/vigo/ruby-101
 
 
-## Tamamlanma Durumu
+## Tamamlanma Durumu (%78)
 
 ### Bölüm 1 (%94)
 
@@ -46,7 +46,7 @@ https://www.gitbook.io/book/vigo/ruby-101
 * İnteraktif Kullanım
 * Ruby Komutu ve Parametreleri (%98)
 
-### Bölüm 2
+### Bölüm 2 (%100)
 
 * Syntax (Söz Dizimi) ve Rezerve Kelimeler
 * Değişkenler
@@ -54,14 +54,14 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Operatörler
 * Global Constants (Genel Sabitler)
 
-### Bölüm 3
+### Bölüm 3 (%100)
 
 * Methods (Fonksiyonlar)
 * Blocks (Bloklar)
 * Proc ve Lambda
 * Conditional Statements (Koşullar)
 
-### Bölüm 4
+### Bölüm 4 (%100)
 
 * Object
 * Number
@@ -79,11 +79,11 @@ https://www.gitbook.io/book/vigo/ruby-101
 * Exception Handling (--)
 * Kernel Modülü (--)
 
-### Bölüm 6 (%42)
+### Bölüm 6 (%50)
 
 * Monkey Patching
 * Regular Expressions (--)
-* Time ve Date Nesneleri (--)
+* Time ve Date Nesneleri (%50)
 * Ruby Paketleri: RubyGems
 * Paket Yöneticisi: Bundler (--)
 * Komut Satırı (Command-Line) Kullanımı (--)

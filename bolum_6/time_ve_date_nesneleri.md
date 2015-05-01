@@ -114,4 +114,53 @@ tomorrow.to_i > now.to_i       # => true      yarın > bugün
 
 ## Zamanı Formatlı Şekilde Göstermek
 
-@wip - strftime
+Tarih bilgisini istediğimiz şekilde format ederek çıktı alabiliriz. 
+
+```ruby
+t = Time.now
+t.strftime("Bugün %d %B %Y, %A, saat: %H:%M") # => "Bugün 01 May 2015, Friday, saat: 12:35"
+```
+
+Dikkat ettiyseniz İngilizce olarak çıktıyı aldık. Ne yazıkki Ruby'de **locale** kavramı yok. Bu yüzden Türkçe çıktı almak için `I18n` gem'ini kullanmamız gerekiyor.
+
+```bash
+gem install i18n
+```
+
+Daha sonra herhangi bir dizin altında;
+
+```bash
+cd ~
+mkdir i18n-works
+cd i18n-works/
+mkdir locales
+cd locales/
+curl -O https://raw.githubusercontent.com/svenfuchs/rails-i18n/master/rails/locale/tr.yml
+cd ../..
+touch run.rb
+```
+
+şimdi `run.rb` dosyası içine;
+
+```ruby
+require 'i18n'
+
+I18n.load_path = Dir['./locales/*.yml']
+I18n.locale = :tr
+puts I18n.locale
+t = Time.now
+puts I18n.localize t, :format => "Bugün %d %B %Y, %A, saat: %H:%M"
+```
+
+yaptığımızda çıktı:
+
+```
+tr
+Bugün 01 Mayıs 2015, Cuma, saat: 12:55
+```
+
+şeklinde olacaktır.
+
+@wip - params / options
+
+
