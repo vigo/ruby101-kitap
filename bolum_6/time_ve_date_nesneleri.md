@@ -161,6 +161,64 @@ Bugün 01 Mayıs 2015, Cuma, saat: 12:55
 
 şeklinde olacaktır.
 
-@wip - params / options
+Kullanımda: `%<flags><width><modifier><conversion>` şeklinde bir yöntem bulunmakta.
+
+**Flag'ler**
+
+```
+-  don't pad a numerical output
+_  use spaces for padding
+0  use zeros for padding
+^  upcase the result string
+#  change case
+:  use colons for %z
+```
+
+Hemen örneklerle görelim, ilk olarak `-`, `_` ve `0` kullanımına bakalım:
+
+```ruby
+t = Time.now       # => 2015-05-02 11:35:26 +0300  
+t.strftime("%d")   # => "02"
+
+# şimdi - ile yapıyoruz
+t.strftime("%-d")  # => "2"   # 0'la doldurmadı...
+
+# şimdi _ ile yapıyoruz
+t.strftime("%_d")  # => " 2"  # SPACE karakteri ile doldurdu...
+
+# şimdi 0 ile yapıyoruz
+t.strftime("%0d")  # => " 02" # 0 ile doldurdu...
+```
+
+Şimdi `^`, `#` ve `:` flag'lerine bakalım:
+
+```ruby
+t.strftime("%A")        # => "Saturday"
+t.strftime("%^A")       # => "SATURDAY" # upcase yaptı
+t.strftime("%#A")       # => "SATURDAY" # changecase demek, upcase ise down, downcase ise up yapmak demek.
+                        # saturday downcase geldi, upcase oldu
+t.strftime("%z")        # => "+0300"
+ t.strftime("%:z")      # => "+03:00" # : ile ayırdı
+```
+
+**width**
+
+```ruby
+t.strftime("%d")   # => "02"
+t.strftime("%10d")   # => "0000000002" # 10 basamk yaptı.
+```
+
+**Formatlama**
+
+| İşaret | Açıklama |
+| -- | -- |
+| %Y | 4 dijitli yıl |
+| %C | yıl/100, yüzyıl için |
+| %y | yıl mod 100, 2015 için **15** gelir. |
+| %m | Yılın ayı. (01..12) |
+
+@wip
+
+
 
 
