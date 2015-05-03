@@ -114,7 +114,7 @@ tomorrow.to_i > now.to_i       # => true      yarın > bugün
 
 ## Zamanı Formatlı Şekilde Göstermek
 
-Tarih bilgisini istediğimiz şekilde format ederek çıktı alabiliriz. 
+Tarih bilgisini istediğimiz şekilde format ederek çıktı alabiliriz.
 
 ```ruby
 t = Time.now
@@ -177,7 +177,7 @@ _  use spaces for padding
 Hemen örneklerle görelim, ilk olarak `-`, `_` ve `0` kullanımına bakalım:
 
 ```ruby
-t = Time.now       # => 2015-05-02 11:35:26 +0300  
+t = Time.now       # => 2015-05-02 11:35:26 +0300
 t.strftime("%d")   # => "02"
 
 # şimdi - ile yapıyoruz
@@ -216,6 +216,21 @@ t.strftime("%10d")   # => "0000000002" # 10 basamk yaptı.
 | %C | yıl/100, yüzyıl için |
 | %y | yıl mod 100, 2015 için **15** gelir. |
 | %m | Yılın ayı. (01..12) |
+| %B | Ayın tam adı (January) |
+| %b ya da %h | Ayın kısa adı (Jan) |
+| %d | Ayın günü, 0 eklemeli (01..31) |
+| %e | Ayın günü, SPACE karakteri eklemeli ( 1..31) |
+| %j | Yılın günü (001..366) |
+| %H | Saat, 24-saat formatında 0 eklemeli (00..23) |
+| %k | Saat, 24-saat formatında SPACE karakteri eklemeli ( 0..23) |
+| %I | Saat, 12-saat formatında 0 eklemeli (01..12) |
+| %l | Saat, 12-saat formatında SPACE karakteri eklemeli ( 1..12) |
+| %P | Meridyen göstergeci, küçük harf (`am` ya da `pm`) |
+| %p | Meridyen göstergeci, büyük harf (`AM` ya da `PM`) |
+| %M | Dakika (00..59) |
+| %S | Saniye (00..60) |
+| %L | Milisaniye (000..999) |
+
 
 @wip
 
