@@ -12,7 +12,7 @@ Bu değişken **String** nesnesinden türemiş. Peki, **String** nereden geliyor
 
     mesaj.class.superclass # => Object
 
-Dikkat ettiyseniz burada `superclass` kullandık. Yani bu hiyeraşideki bir üst sınıfı arıyoruz. Karşımıza ne çıktı? **Object**. Peki acaba **Object** nereden türemiş?
+Dikkat ettiyseniz burada `superclass` kullandık. Yani bu hiyerarşideki bir üst sınıfı arıyoruz. Karşımıza ne çıktı? **Object**. Peki acaba **Object** nereden türemiş?
 
     mesaj.class.superclass.superclass # => BasicObject
 
@@ -20,11 +20,11 @@ Hmmm.. Peki **BasicObject** nereden geliyor?
 
     mesaj.class.superclass.superclass.superclass # => nil
 
-İşte şu anda dibi bulduk :) Demekki hiyeraşi;
+İşte şu anda dibi bulduk :) Demek ki hiyerarşi;
 
     BasicObject > Object > String
 
-şeklinde bir hiyeraşi söz konusu.
+şeklinde bir hiyerarşi söz konusu.
 
 Peki, sayılarda durum ne?
 
@@ -38,11 +38,11 @@ numara.class.superclass.superclass.superclass.superclass # => BasicObject
 numara.class.superclass.superclass.superclass.superclass.superclass # => nil
 ```
 
-Ufff... bir an için bitmeyecek sandım :) Çok basit bir sayı tanımlası yaptığımızda bile, arka plandaki işleyiz yukarıdaki gibi oluyor. Yani
+Ufff... bir an için bitmeyecek sandım :) Çok basit bir sayı tanımlası yaptığımızda bile, arka plandaki işleyiş yukarıdaki gibi oluyor. Yani
 
     BasicObject > Object > Numeric > Integer > Fixnum
 
-şeklinde yine ana nesne **BasicObject** olmak koşuluyla uzun bir hiyeraşi söz konusu.
+şeklinde yine ana nesne **BasicObject** olmak koşuluyla uzun bir hiyerarşi söz konusu.
 
 Herşey **BasicObject** den türüyor, bu yüzden de aslında herşey bir **Class** dolayısıyla bu durum dile çok ciddi esneklik kazandırıyor.
 
@@ -76,7 +76,7 @@ t.methods                # => [:<=>, :==, :===, :eql?, :hash, :casecmp, :+, :*, 
 t.method(:upcase).call   # => "HELLO"
 ```
 
-`t.methods` ise **String**'den türeyen `t` ye ait tüm method’ları listeledik. Sonuç **Array** (_Dizi_) olarak geldi ve bu dizinin tüm elemanları `:` işaretiyle başlıyor. Çünki bu elemanlar birer **Symbol**.
+`t.methods` ise **String**'den türeyen `t` ye ait tüm method’ları listeledik. Sonuç **Array** (_Dizi_) olarak geldi ve bu dizinin tüm elemanları `:` işaretiyle başlıyor. Çünkü bu elemanlar birer **Symbol**.
 
 `t.method(:upcase).call` da ise, `t`'nin `:upcase` method’unu `call` ile çağırdır. Aslında yaptığımız iş: `"hello".upcase` ile birebir aynı.
 
@@ -84,7 +84,7 @@ Acaba bu nesne ne?
 
 `t.is_a?(String) # => true` `is_a?` method’u ile nesnenin türünü kontrol edebiliriz.
 
-Diğer dillerin pek çoğunda (_özellikle Python_) bir işi yapmanın bir ya da en fazla iki yolu varken, **Ruby** bu konuda çok rahattır. Bir işi yapmanın herzaman birden fazla yolu olur ve bunların neredeyse hepsi doğrudur. (_Kullanıldığı yere ve amaca bağlı olarak_)
+Diğer dillerin pek çoğunda (_özellikle Python_) bir işi yapmanın bir ya da en fazla iki yolu varken, **Ruby** bu konuda çok rahattır. Bir işi yapmanın her zaman birden fazla yolu olur ve bunların neredeyse hepsi doğrudur. (_Kullanıldığı yere ve amaca bağlı olarak_)
 
 `is_a?` yerine `kind_of?` da kullanabiliriz!
 
@@ -127,7 +127,7 @@ u.show_user_info # => "This user has no information"
 u.show_user_age  # => "You've called show_user_age, You've passed: []"
 ```
 
-`User` adında bir Class'ımız var. İçinde hiçbir method tanımlı değil. `u.show_user_info` satırında, olmayan bir method'u çağırıyoruz. Tanımladığımız `method_missing` method'u ile olmayan method çağırılmasını yakalıyoruz. Eğer `show_user_info` diye bir method çağrılırsa yakalıyoruz, bunun dışında birşey olursa da method adını ve geçilen parametreleri gösteriyoruz.
+`User` adında bir Class'ımız var. İçinde hiçbir method tanımlı değil. `u.show_user_info` satırında, olmayan bir method'u çağırıyoruz. Tanımladığımız `method_missing` method'u ile olmayan method çağırılmasını yakalıyoruz. Eğer `show_user_info` diye bir method çağrılırsa yakalıyoruz, bunun dışında bir şey olursa da method adını ve geçilen parametreleri gösteriyoruz.
 
 Bu sayede `NoMethodError` hatası almadan işimize devam edebiliyoruz.
 
@@ -157,7 +157,7 @@ r.C # => 100
 r.M # => 1000
 ```
 
-Bunu geliştirim "MMCX" ya da "III" gibi gerçek dönüştürme işini yapabilirsiniz.
+Bunu geliştirip "MMCX" ya da "III" gibi gerçek dönüştürme işini yapabilirsiniz.
 
 **respond_to_missing?**
 
@@ -193,7 +193,7 @@ class Roman
     roman_to_str method.id2name
   end
   def respond_to_missing?(method_name, include_private = false)
-    [:x, :X, :c, :C, :m, :M].include?(method_name) || super 
+    [:x, :X, :c, :C, :m, :M].include?(method_name) || super
   end
 end
 

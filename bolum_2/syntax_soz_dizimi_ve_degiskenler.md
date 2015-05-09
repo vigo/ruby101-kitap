@@ -3,7 +3,7 @@
 ## Syntax (Söz Dizimi)
 Genel olarak çok kolay ve anlaşılır bir **syntax**'a sahiptir. Sanki İngilizce okur/konuşur gibi söz dizimi bulunur. Örneğin,
 
-> Eğer a'nın değeri 5'ten büyükse ekrar "Merhaba" yaz
+> Eğer a'nın değeri 5'ten büyükse ekrana "Merhaba" yaz
 
 demek istiyorsak;
 
@@ -32,7 +32,7 @@ end
 greet_user "Uğur" # Merhaba Uğur
 ```
 
-şeklinde olur. Keza, pek çok dilde, fonksiyon eğer birşey dönerse geriye, mutlaka `return` komutu kullanılır. Ruby'de buna da gerek yok. Çünkü her method (_yani Fonksiyon_) mutlaka default olarak birşey döner. Hiçbirşey dönmese bile `nil` döner. Bu bakımdan da;
+şeklinde olur. Keza, pek çok dilde, fonksiyon eğer bir şey dönerse geriye, mutlaka `return` komutu kullanılır. Ruby'de buna da gerek yok. Çünkü her method (_yani Fonksiyon_) mutlaka default olarak bir şey döner. Hiçbir şey dönmese bile `nil` döner. Bu bakımdan da;
 
 ```ruby
 def greet_user user_name
@@ -41,7 +41,7 @@ end
 
 puts greet_user "Uğur" # Merhaba Uğur
 ```
-şeklinde kullanım yapabiliriz. Kormayın, kafalar karışmasın. Detaylara ileride gireceğiz.
+şeklinde kullanabiliriz. Korkmayın, kafalar karışmasın. Detaylara ileride gireceğiz.
 
 
 ## Comments

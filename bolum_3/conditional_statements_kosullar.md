@@ -44,7 +44,7 @@ ama bunu çok daha basit hale getirebiliriz:
 
 `puts "Merhaba" if a == 5` Tek satırda, `if`i koşul sonucunda olacak şeyin sağına yazmak yeterlidir.
 
-## `elseif`
+## `elsif`
 
 Programlama mantığında pek de sevmediğim (_daha düzgün yöntemleri var_) ama bazen mecbur kaldığımız bir durumdur.
 
@@ -111,7 +111,7 @@ end
 Yani `i` **10**'a eşit olmadığı sürece bu loop çalışır.
 
 ## `case`, `when`
-`elseif` yerine kullanılması muhtemel, daha anlaşılır kontrol mekanizmasıdır. Hemen örneğe bakalım:
+`elsif` yerine kullanılması muhtemel, daha anlaşılır kontrol mekanizmasıdır. Hemen örneğe bakalım:
 
 ```ruby
 computer = "c64"
@@ -128,7 +128,7 @@ puts "#{computer} çıkış yılı #{year}"
 # c64 çıkış yılı 1982
 ```
 
-Yukarıdaki kodu bir ton `if`, `elseif` ile yapmak yerine, `when` ve `then` ile daha anlaşılır hale getirdiğimizi düşünüyorum.
+Yukarıdaki kodu bir ton `if`, `elsif` ile yapmak yerine, `when` ve `then` ile daha anlaşılır hale getirdiğimizi düşünüyorum.
 
 `when`kullanırken **range** (_aralık_) belirmesi de yapma şansı var.
 

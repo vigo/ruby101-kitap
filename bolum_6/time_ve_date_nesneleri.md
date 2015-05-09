@@ -121,7 +121,7 @@ t = Time.now
 t.strftime("Bugün %d %B %Y, %A, saat: %H:%M") # => "Bugün 01 May 2015, Friday, saat: 12:35"
 ```
 
-Dikkat ettiyseniz İngilizce olarak çıktıyı aldık. Ne yazıkki Ruby'de **locale** kavramı yok. Bu yüzden Türkçe çıktı almak için `I18n` gem'ini kullanmamız gerekiyor.
+Dikkat ettiyseniz İngilizce olarak çıktıyı aldık. Ne yazık ki Ruby'de **locale** kavramı yok. Bu yüzden Türkçe çıktı almak için `I18n` gem'ini kullanmamız gerekiyor.
 
 ```bash
 gem install i18n
@@ -205,7 +205,7 @@ t.strftime("%z")        # => "+0300"
 
 ```ruby
 t.strftime("%d")   # => "02"
-t.strftime("%10d")   # => "0000000002" # 10 basamk yaptı.
+t.strftime("%10d")   # => "0000000002" # 10 basamak yaptı.
 ```
 
 **Formatlama**

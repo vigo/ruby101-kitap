@@ -160,7 +160,7 @@ Array.included_modules # => [Enumerable, Kernel]
 
 Bu bakımdan Array, Hash gibi nesnelerde benzer ortak method'lar görmek mümkün.
 
-**length** ve ya **count**
+**length** veya **count**
 
 Array'in boyu / içinde kaç eleman olduğu ile ilgili bilgiyi almak için kullanılır.
 

@@ -17,13 +17,13 @@ puts global_variables
 | $1, $2, ..., $9 | Yine, Regex ile patern yakalama (_pattern matching_) yaptığımızda, yakaladığımız şeylerin sıra numarası. |
 | $~ | O anki kapsama alanında (_scope_) son yakalananla ilgili bilgilerin tutulduğu değişken |
 | $= | Regex ile uğraşırken, karakterlerin büyük/küçük harfe duyarlılığı ile ilgi ayarlar vardır. Örneğin büyük/küçük harf farkı olmadan aramak yaparken (_case insensitive_) bu değişkene atama yaparız. Varsayılan değer (_default_) `nil`'dir |
-| $/ | Dosyadan okuma yapılırken satırların nasıl ayrıldığının tespit edildiği değişkendir. Eğer `nil` olarak atarnırsa, dosya okuması esnasında satır-satır okuma yerine tüm dosya biranda okunur. |
+| $/ | Dosyadan okuma yapılırken satırların nasıl ayrıldığının tespit edildiği değişkendir. Eğer `nil` olarak atarnırsa, dosya okuması esnasında satır-satır okuma yerine tüm dosya bir anda okunur. |
 | $\ | Bu da çıktı için ayraçtır. `print`ve `puts` gibi komutlarda `IO#write` gibi işlemlerde kullanılır. Varsayılan değer `nil`'dir |
 | $, | `print` ve `Array#join` de kullanılan ayraçtır. |
 | $; | `String#split` de kullanılan ayraçtır. |
-| $. | Dosya işlemlerinde son okunan dosyanın aktif satır numarısını verir. |
+| $. | Dosya işlemlerinde son okunan dosyanın aktif satır numarasını verir. |
 | $< | Aynı `shell` deki ekleme (_concatenation_) işlemi gibi sanal ekleme yapar. |
-| $> | `print` ve `printf` işlemi için varsayılan çıktıdır. Varsayılan değeride `$stdout` |
+| $> | `print` ve `printf` işlemi için varsayılan çıktıdır. Varsayılan değeri de `$stdout` |
 | $_ | `gets` veya `readline` ile alınan son satırdır, cinsi **String**'dir. |
 | $0 | Çalıştırılan script'in dosya adıdır. |
 | $* | Komut satırı işlemlerinde, dosyaya geçilen argümanların saklandığı değişkendir. |
@@ -31,7 +31,7 @@ puts global_variables
 | $? | Çalıştırılan son alt işlemin (_Child Process_) durumu. |
 | $: | Modüller ve ek dosyalar için **Path** (_Load Path__) bilgisi. `require` komutunda göreceğiz. |
 | $" | `require` ile yüklenen dosyaların adlarının tutulduğu dizi (_Array_) |
-| $DEBUG | Adında da anlaşıldığı gibi, eğer **DEBUG** modda çalıştırma yapıyorsak (_ki bunu -d ile yaparız_) oluşan her **exception**'ın `$stderr` değişkenine atanmasını sağlar. |
+| $DEBUG | Adından da anlaşıldığı gibi, eğer **DEBUG** modda çalıştırma yapıyorsak (_ki bunu -d ile yaparız_) oluşan her **exception**'ın `$stderr` değişkenine atanmasını sağlar. |
 | $KCODE | Kod yazdığımız script dosyasının **encoding** tipini seçmemize yarar. Son sürümlerde ihtiyaç kalmadı, herşey **default** olarak `UTF-8` çalışıyor. |
 | $FILENAME | Komut satırından argüman olarak dosya geçtiğimizde geçilen dosyanın adını almak için kullanılır. Aslında `ARGF.filename` ile aynı işi yapar. |
 | $LOAD_PATH | `$:` ile aynı işi yapan **alias**'dır (_alias = takma ad_) |

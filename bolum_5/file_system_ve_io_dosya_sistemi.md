@@ -2,7 +2,7 @@
 
 ## File
 
-`IO` sınıfından özellikler içeren `File` sınıfı, fiziki dosyalarla işlem yapmamızı sağlan özellikleri sunar bize. Ruby'nin üzerinde çalıştığı işletim sistemine göre de **file permission** yani dosya üzerindeki yetki sistemi de devrededir.
+`IO` sınıfından özellikler içeren `File` sınıfı, fiziki dosyalarla işlem yapmamızı sağlayan özellikleri sunar bize. Ruby'nin üzerinde çalıştığı işletim sistemine göre de **file permission** yani dosya üzerindeki yetki sistemi de devrededir.
 
 Default olarak gelen Constant'ları:
 
@@ -204,7 +204,7 @@ File.rename("/tmp/file-01.txt", "/tmp/file-01.txt.bak") # => 0
 
 **file?**, **directory?**, **executable?**, **exist?**, **identical?**, **readable?**, **size?**,
 
-Dosya gerçekten fiziki bir dosyamı? ya da directory'mi? ya da bu dosya var mı?
+Dosya gerçekten fiziki bir dosya mı? ya da directory mi? ya da bu dosya var mı?
 
 ```ruby
 # file?
@@ -259,7 +259,7 @@ f.close
 
 **fnmatch**, **fnmatch?**
 
-**File Name Match** yani dosya adı eşleltirmek. RegEx pattern'ine göre dosya adı yakalamak / kontrol etmek için kullanılır. 2 zorunlu ve 1 opsiyonel olmak üzere 3 parametre alabilir. Pattern, dosya adı ve opsiyonal olarak Flag'ler...
+**File Name Match** yani dosya adı eşleştirmek. RegEx pattern'ine göre dosya adı yakalamak / kontrol etmek için kullanılır. 2 zorunlu ve 1 opsiyonel olmak üzere 3 parametre alabilir. Pattern, dosya adı ve opsiyonal olarak Flag'ler...
 
 ```ruby
 File.fnmatch('foo', 'foobar.rb')                       # => false

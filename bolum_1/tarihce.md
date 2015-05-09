@@ -8,7 +8,7 @@ Dilin en büyük esin kaynakları tabiiki yine varolan diller. Bunlar; Perl, Sma
 
 İlk stabil sürümü 1995'de yayınlanan Ruby'nin geliştiricilerin tam anlamıyla dikkatini çekmesi **2006** yılına kadar sürdü. Keza ilk versiyonları gerçekten çok yavaş ve sıkıntılıydı.
 
-Ruby en büyük patlamasını [Ruby on Rails](http://rubyonrails.org/) framework'ü ile yaptı. Danimarkalı yazılımcı [@dhh](http://twitter.com/dhh)'in (_David Heinemeier Hansson_) yayınladığı bu framework ne yazıkki Ruby dilinin önüne bile geçti.
+Ruby en büyük patlamasını [Ruby on Rails](http://rubyonrails.org/) framework'ü ile yaptı. Danimarkalı yazılımcı [@dhh](http://twitter.com/dhh)'in (_David Heinemeier Hansson_) yayınladığı bu framework ne yazık ki Ruby dilinin önüne bile geçti.
 
 Kitabı yazdığım an itibariyle (_13 Temmuz 2014, Pazar_) Ruby'nin en son sürümü `2.1.2` (Stabil sürüm)
 
@@ -42,7 +42,7 @@ end
 
 Sayılara (yani Numeric tipine) `topla` diye bir method ekledik...
 
-Block ve Mixin ise Ruby'nin yine öne çıkan özelliklerindendir. Block denen şey aslında [closure](http://en.wikipedia.org/wiki/Closure_%28computer_programming%29)'dur. Herhangibir method'a block takılabilir:
+Block ve Mixin ise Ruby'nin yine öne çıkan özelliklerindendir. Block denen şey aslında [closure](http://en.wikipedia.org/wiki/Closure_%28computer_programming%29)'dur. Herhangi bir method'a block takılabilir:
 
 ```ruby
 search_engines = %w[Google Yahoo MSN].map do |engine|
@@ -52,7 +52,7 @@ end
 search_engines # => ["http://www.google.com", "http://www.yahoo.com", "http://www.msn.com"]
 ```
 
-Ruby'de bir **Class** (sınıf) sadece tek bir sınıftan türeyebilir. Yani A class'ı B'den türer ama aynı anda hem B'den hem C'den türeyemez. Bu Python'da mümkün olan birşeydir. Ruby'de ise class'lar **Module**'leri kullanır. Bir Class N tane Module içerebilir, işte bu tür nesnelere **Mixin** denir:
+Ruby'de bir **Class** (sınıf) sadece tek bir sınıftan türeyebilir. Yani A class'ı B'den türer ama aynı anda hem B'den hem C'den türeyemez. Bu Python'da mümkün olan bir şeydir. Ruby'de ise class'lar **Module**'leri kullanır. Bir Class N tane Module içerebilir, işte bu tür nesnelere **Mixin** denir:
 
 ```ruby
 class MyArray
@@ -60,9 +60,9 @@ class MyArray
 end
 ```
 
-Ortak kullanılacakları ayrı bir Module olarak tasarlayıp, gerektiği yerde `include` ederek Class + Module karşımından olşuşan Mixin'ler ortaya çıkar.
+Ortak kullanılacakları ayrı bir Module olarak tasarlayıp, gerektiği yerde `include` ederek Class + Module karışımından oluşan Mixin'ler ortaya çıkar.
 
-Diğer dillerdeki gibi Exception Handling, Garbage Collector özelliklerinin yanısıra, C-Extension'ı yazmak diğer dillere göre daha kolaydır. İşletim sisteminden bağımsız **threading** imkanı sunmaktadır. Pek çok işletim sisteminde Ruby kullanmak mümkündür: Linux / Unix / Mac OS X / Windows / DOS / BeOS / OS/2 gibi...
+Diğer dillerdeki gibi Exception Handling, Garbage Collector özelliklerinin yanı sıra, C-Extension'ı yazmak diğer dillere göre daha kolaydır. İşletim sisteminden bağımsız **threading** imkanı sunmaktadır. Pek çok işletim sisteminde Ruby kullanmak mümkündür: Linux / Unix / Mac OS X / Windows / DOS / BeOS / OS/2 gibi...
 
 Ruby'den türemiş farklı Ruby uygulamaları da var:
 
