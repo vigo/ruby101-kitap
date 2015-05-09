@@ -35,7 +35,7 @@ Usage: ruby [switches] [--] [programfile] [arguments]
 | -v, --verbose | Önce versiyon numarasını yazar sonra da **verbose** (_Ayrıntılı çalıştırma_) modu aktive eder. Yani `$VERBOSE` **true** olur. |
 | -w | `-v` ile aynı işi yapar sadece versiyon numarasını yazmaz. |
 | -W | Uyarı seviyesini belirler (_Warning Level_). **0** Sessiz, **1** Orta şekerli, **2** Verbose! |
-| -x | **Shebang**'den önceki teksti siler atar ve alternatif olara ilgili dizine `cd` yapar.  |
+| -x | **Shebang**'den önceki yazıyı siler atar ve alternatif olarak ilgili dizine `cd` yapar.  |
 | --copyright | Ruby'e ait telif bilgisini yazar. `ruby - Copyright (C) 1993-2013 Yukihiro Matsumoto` |
 | --enable=feature[,...], --disable=feature[,...] | Örneğin kodun **RubyGem**'lerini kullanmasını istemiyorsanız `--disable-gems` şeklinde, ya da `$RUBYOPT` çevre değişkenini devre dışı bırakmak için `--disable-rubyopt` gibi. `--disable-all` her ek özelliği devre dışı bırakır. `--enable-all` ya da devreye sokar. |
 | --version | Versiyon numarasını yazar. |

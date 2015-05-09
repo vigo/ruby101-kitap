@@ -32,7 +32,7 @@ Son değer hariç mi dahil mi anlamak için `exclude_end?` method'unu kullanır�
 (5...10).exclude_end?         # => true
 ```
 
-`Range` alsında bir `Class`'dır ve her Class gibi;
+`Range` aslında bir `Class`'dır ve her Class gibi;
 
 ```ruby
 r = Range.new(0,2)     # => 0..2

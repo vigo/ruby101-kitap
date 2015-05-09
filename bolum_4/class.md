@@ -4,7 +4,7 @@ Ruby, **Object-Oriented** (*OO*) bir dil olduğu için, methodları değişkenle
 
 Zaten önceki konularda **Class Methods**, **Instance Methods** gibi kavramlara girmiştik.
 
-Class'lar birbirinden türeyebilir (*Hani* `class.superclass` *şeklinde anlalizler yapmıştık*)
+Class'lar birbirinden türeyebilir (*Hani* `class.superclass` *şeklinde analizler yapmıştık*)
 
 Teknik olarak bir dosyada birden fazla Class tanımlaması yapılabilir. Örneğin, `my_class.rb` adlı bir dosya içinde farklı farklı Class tanımlamaları olabilir;
 
@@ -19,7 +19,7 @@ a = MyClass.new    # => #<MyClass:0x007ffa2b09b758>
 b = OtherClass.new # => #<OtherClass:0x007ffa2b09b3c0>
 ```
 
-Class tek başına bir nesne (*Obje*) bu bakımdan **instantiate** etmeseniz bile (*Yani* `a = Array.new` *gibi*) kullanabileceğiniz birşeydir.
+Class tek başına bir nesne (*Obje*) bu bakımdan **instantiate** etmeseniz bile (*Yani* `a = Array.new` *gibi*) kullanabileceğiniz bir şeydir.
 
 Class'ların diğer bir özelliği de açık olmasıdır. Ruby'nin bence en harika özelliği, **built-in** yani dilin çekirdeğinden gelen Class'lara bile method / property eklemeniz mümkündür. Bu konuları **Monkey Patching** kısmında detaylı göreceğiz.
 
@@ -295,7 +295,7 @@ end
 Area.calculate(5, 5) # => 25
 ```
 
-Gördüğünüz gibi hiçbir şekilde `new` ya da benzer birşey türetme kulanmadık direkt olarak `Area.calculate(5, 5)` şeklinde kullandık. Keza aynı işi;
+Gördüğünüz gibi hiçbir şekilde `new` ya da benzer bir şey türetme kullanmadık direkt olarak `Area.calculate(5, 5)` şeklinde kullandık. Keza aynı işi;
 
 ```ruby
 class Area
@@ -428,7 +428,7 @@ v.give_random_age # => "Kendi yaşım: 43, rnd= 44"
 
 ## Sınıflar Açıktır, Modifiye Edilebilir!
 
-İster Kernel'dan ister başka biryerden gelsin, her şekilde Class'lar modifiye edilebilir. Detayları **Monkey Patching**'de göreceğiz. Kısa bir örnek yapalım. `String` Class'ına neşemize göre bir method ekleyelim:
+İster Kernel'dan ister başka bir yerden gelsin, her şekilde Class'lar modifiye edilebilir. Detayları **Monkey Patching**'de göreceğiz. Kısa bir örnek yapalım. `String` Class'ına neşemize göre bir method ekleyelim:
 
 ```ruby
 class String
@@ -445,7 +445,7 @@ Tipi `String` olan herşeyin artık `hello` diye bir method'u oldu :)
 
 ## Nested Class
 
-Aynı Module'lerde olduğu gibi, içiçe Class tanımlamak da mümkündür. Kimi zaman düzenli olmak için (*Namespace*) kimi zaman da belli bir kuralı uygulamak için kullanılır;
+Aynı Module'lerde olduğu gibi, iç içe Class tanımlamak da mümkündür. Kimi zaman düzenli olmak için (*Namespace*) kimi zaman da belli bir kuralı uygulamak için kullanılır;
 
 ```ruby
 class Animal
@@ -453,7 +453,7 @@ class Animal
   def initialize(name)
     @name = name
   end
-  
+
   class Cat < Animal
   end
   class Horse < Animal
@@ -514,7 +514,7 @@ x = RaceGame.new
 x.generate # => 7
 ```
 
-`RandomNumbers` adında bir Module yaptık, iki farklı Class'ımız var, `DiceGame` ve `RaceGame` diye, `include` ile bu Module'ü 2 farklı Class'a ekledik. Şimdi heriki Class'ın da `generate` adında method'u oldu...
+`RandomNumbers` adında bir Module yaptık, iki farklı Class'ımız var, `DiceGame` ve `RaceGame` diye, `include` ile bu Module'ü 2 farklı Class'a ekledik. Şimdi her iki Class'ın da `generate` adında method'u oldu...
 
 ## Namespacing
 

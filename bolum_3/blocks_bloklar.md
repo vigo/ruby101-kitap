@@ -4,7 +4,7 @@ Blok olayı, bence Ruby'nin en çılgın özelliklerinden biri. Aslında bu konu
 
 Kitabımız 101 yani giriş seviyesinde olduğu için, kafaları minimum karıştırma adına basit şekilde değineceğim.
 
-Blok'lar, genelde [Closure](http://en.wikipedia.org/wiki/Closure_(computer_programming)) ya da [Anonim](http://en.wikipedia.org/wiki/Anonymous_function) fonksiyonlar olarak tanımlanır. Sanki method içinde başka bir method’u işaret eden ya da değişkenleri method’lar arasında paylaşan kapalı bir ortam gibidirler.
+Blok'lar, genelde [Closure](http://en.wikipedia.org/wiki/Closure_(computer_programming) ya da [Anonim](http://en.wikipedia.org/wiki/Anonymous_function) fonksiyonlar olarak tanımlanır. Sanki method içinde başka bir method’u işaret eden ya da değişkenleri method’lar arasında paylaşan kapalı bir ortam gibidirler.
 
 Genelde ya `{` `}` ile ya da `do/end` ile sarmalanmışlardır.
 
@@ -42,7 +42,7 @@ Komut satırında `ri Array#each` dersek bize Array'in **each** method’uyla il
 
 `do` komutundan hemen sonra gelen `|member_name|` bizim kafamıza göre tanımladığımız bir değişkendir ve Array'in her elemanı bu değişkene atanır.
 
-**Enumeration** bölümünde bunlarda sıkça bahsedeceğiz. Blockların esas gücü `yield` olayından gelir. Hemen bir örnek verelim:
+**Enumeration** bölümünde bunlardan sıkça bahsedeceğiz. Blockların esas gücü `yield` olayından gelir. Hemen bir örnek verelim:
 
 ```ruby
 def test_function
@@ -81,7 +81,7 @@ Peki, ya şu şekilde kullansaydım `test_function` ? yani hiçbirşey geçmeden
 
     no block given (yield)
 
-olacaktı. Demekki block geçilip geçilmediğimi anlamanın bir yolu var :)
+olacaktı. Demek ki block geçilip geçilmediğini anlamanın bir yolu var :)
 
 ```ruby
 def test_function

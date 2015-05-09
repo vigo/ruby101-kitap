@@ -100,7 +100,7 @@ rbenv version
 
 ### RVM
 
-Adındanda anlaşılacağı gibi **R**uby **V**ersion **M**anager yani [RVM](https://rvm.io/) de aynı Rbenv gibi Ruby versiyonalarını kolay yönetmeyi sağlıyor. Ruby dünyasından Rbenv'ciler ve RVM'ciler olarak iki kanat olduğunu söyleyebilirim.
+Adındanda anlaşılacağı gibi **R**uby **V**ersion **M**anager yani [RVM](https://rvm.io/) de aynı Rbenv gibi Ruby versiyonlarını kolay yönetmeyi sağlıyor. Ruby dünyasından Rbenv'ciler ve RVM'ciler olarak iki kanat olduğunu söyleyebilirim.
 
 Kurulumu da zor değil:
 
@@ -111,4 +111,4 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 
 Rbenv'den en büyük farklığı **Gem Set** yani proje bazlı Ruby paketi yönetimi özelliği.
 
-Ben Rbenv'ci olduğum için RVM kullanmıyorum. Özellike yeni başlayanlar için RVM'i öneriyorum, Rbenv'e göre daha kolay kurulumu ve kullanımı var.
+Ben Rbenv'ci olduğum için RVM kullanmıyorum. Özellikle yeni başlayanlar için RVM'i öneriyorum, Rbenv'e göre daha kolay kurulumu ve kullanımı var.

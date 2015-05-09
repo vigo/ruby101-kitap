@@ -33,7 +33,7 @@ a = 41
 puts "Siz tam #{a} yaşındasınız"
 ```
 
-gibi bir durumda, gördüğünüz gibi `#{a}` şeklinde tekst içinde değişken kullandık. Format olarak Ruby'de, `#{BU KISIMDA KOD ÇALIŞIR}` şeklinde istediğimiz kodu çalıştırma yetkimiz var. Bu işlem sadece **çift tırnak** kullanımında geçerlidir.
+gibi bir durumda, gördüğünüz gibi `#{a}` şeklinde yazı içinde değişken kullandık. Format olarak Ruby'de, `#{BU KISIMDA KOD ÇALIŞIR}` şeklinde istediğimiz kodu çalıştırma yetkimiz var. Bu işlem sadece **çift tırnak** kullanımında geçerlidir.
 
 Aynı kodu tek tırnak kullanarak yapmış olsaydık;
 
@@ -67,7 +67,7 @@ greet_user("vigo")  # Merhaba vigo
 
 
 ## Global (Genel)
-`$` işaretiyle başlayan tüm değişkenler **Global** değişkenlerdir. Kodun herhangi biryerinde kullanılabilir.
+`$` işaretiyle başlayan tüm değişkenler **Global** değişkenlerdir. Kodun herhangi bir yerinde kullanılabilir.
 
 ```ruby
 $today = "Pazartesi"

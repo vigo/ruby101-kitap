@@ -1,6 +1,6 @@
 # İnteraktif Kullanım
 
-Ruby'nin (*ve benzeri dillerin*) en çok hoşuma giden özelliği İnteraktif Shell özelliği olmasıdır. Aynı eskiden Commodore 64 günlerindeki gibi, shell'i açıp Ruby yazmaya başlayabiliriz.
+Ruby'nin (*ve benzer dillerin*) en çok hoşuma giden özelliği İnteraktif Shell özelliği olmasıdır. Aynı eskiden Commodore 64 günlerindeki gibi, shell'i açıp Ruby yazmaya başlayabiliriz.
 
 Genel olarak bu interaktif kullanım **REPL** olarak geçer. REPL aslında **R**ead **E**xecute **P**rint **L**oop'un baş harfleridir. Yani, kullanıcıdan bir input (_Read_) gelir, bu girdi çalıştırılır (_Evaluate_), sonuç ekrana yazdırılır (_Print_) ve son olarak başa döner ve yine input bekler (_Loop_).
 

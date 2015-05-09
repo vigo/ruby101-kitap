@@ -141,7 +141,7 @@ Bir sonraki bölümde karşımıza çıkacak olan **Symbol** tipi ile karşı ka
 h.keys.map(&:class) # => [Symbol, Symbol, String]
 ```
 
-İlk iki key **Symbol** iken son key **String** oldu. Demekki Hash içine key cinsi olarak karşık atama yapabiliniyor. Biraz sıkıntılı bir durum ama genel kültür mahiyetinde aklınızda tutun bunu!
+İlk iki key **Symbol** iken son key **String** oldu. Demek ki Hash içine key cinsi olarak karşık atama yapabiliniyor. Biraz sıkıntılı bir durum ama genel kültür mahiyetinde aklınızda tutun bunu!
 
 Şimdi genel olarak Hash hangi method'lara sahip hemen bakalım:
 
@@ -179,7 +179,7 @@ h[c]                       # => 300
 h[["c", "d"]]              # => 300
 ```
 
-Şimdi işeri karıştıralım. `a` Array'inin ilk değerini değiştirelim. Bakalım `h` ne olacak?
+Şimdi işleri karıştıralım. `a` Array'inin ilk değerini değiştirelim. Bakalım `h` ne olacak?
 
 ```ruby
 a[0] = "v"                 # => "v"
@@ -330,7 +330,7 @@ h.values_at(:user, :password) # => ["vigo", "secret"]
 
 **key?**, **value?**, **has_key?**, **has_value?**
 
-Soru işareti ile biten method'lar bize herzaman **Boolean** yani `true` ya da `false` döner demiştik. Acaba Hash'in içinde ilgili key var mı? ya da value var mı?
+Soru işareti ile biten method'lar bize her zaman **Boolean** yani `true` ya da `false` döner demiştik. Acaba Hash'in içinde ilgili key var mı? ya da value var mı?
 
 ```ruby
 h = {:user => "vigo", :password => "secret", :email => "vigo@foo.com"}

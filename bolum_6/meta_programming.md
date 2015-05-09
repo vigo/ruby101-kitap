@@ -1,6 +1,6 @@
 # Meta Programming
 
-Ruby'deki **Meta Programming**, yazılan kodun **run-time**'da pekçok şeyi değiştirmesi, Kernel'dan gelen sistem fonksiyonlarını manipule etmesi (*Class, Module, Instance ile ilgili şeyler*) şeklindedir.
+Ruby'deki **Meta Programming**, yazılan kodun **run-time**'da pek çok şeyi değiştirmesi, Kernel'dan gelen sistem fonksiyonlarını manipule etmesi (*Class, Module, Instance ile ilgili şeyler*) şeklindedir.
 
 Hatta bazen yazdığınız programı restart etmeden bile kodu değişikliği yapmak mümkün olur.
 
@@ -93,7 +93,7 @@ a.class.instance_methods(false) # => [:personality]
 
 **send**
 
-`send` method'u `Object` sınıfından gelen bir method'dur. Sınıfıa göndereceğimiz mesaj ilk parametre olup bu da aslında çağıracağımız method adıdır.
+`send` method'u `Object` sınıfından gelen bir method'dur. Sınıfa göndereceğimiz mesaj ilk parametre olup bu da aslında çağıracağımız method adıdır.
 
 ```ruby
 class Developer
@@ -109,7 +109,7 @@ Unutmayın, sadece `public` method'lara erişebilirsiniz!
 
 **remove_method** ve **undef_method**
 
-Adından da anlaşılacağı gibi method'u yoketmek için kullanılır ama eğer `remove_method` ile iptal edilmek istenilen method, türediği üst sınıfında var ise ne yazıkki yok edilemez. Bu durumda da `undef_method` devreye girer:
+Adından da anlaşılacağı gibi method'u yoketmek için kullanılır ama eğer `remove_method` ile iptal edilmek istenilen method, türediği üst sınıfında var ise ne yazık ki yok edilemez. Bu durumda da `undef_method` devreye girer:
 
 ```ruby
 class Developer
@@ -150,7 +150,7 @@ yaparsak, method komple uçar ve `method_missing` ile yakaladığımız kod blo�
 
 **eval**
 
-Pekçok programlama dilinde **evaluate** etmekten gelen, yani `String` formundaki metnin çalışabilir kod parçası haline gelmesi olayıdır `eval`:
+Pek çok programlama dilinde **evaluate** etmekten gelen, yani `String` formundaki metnin çalışabilir kod parçası haline gelmesi olayıdır `eval`:
 
 ```ruby
 eval("5 + 5")            # => 10
@@ -242,7 +242,7 @@ class Developer
     @name = name
     @star = star
   end
-  
+
   def show
     "Name: #{@name}, Star: #{@star}"
   end

@@ -7,7 +7,7 @@ Sayılabilen nesneler `Enumerator` sınıfından türemişlerdir ve içinde dön
 ["a", "b", "c"].each.class # => Enumerator
 ```
 
-`["a", "b", "c"]` aslında bir `Array` iken, `#each` method'unu çağırdığımız anda elimideki `Array` birden `Enumerator` haline geldi ve içinde **iterasyon** yapılabilecek yani teker teker dizi içindeki elemanlara erişip istediğimizi gibi kullanabileceğimiz bir hale geldi.
+`["a", "b", "c"]` aslında bir `Array` iken, `#each` method'unu çağırdığımız anda elimizdeki `Array` birden `Enumerator` haline geldi ve içinde **iterasyon** yapılabilecek yani teker teker dizi içindeki elemanlara erişip istediğimizi gibi kullanabileceğimiz bir hale geldi.
 
 **each_with_object**, **with_object**
 

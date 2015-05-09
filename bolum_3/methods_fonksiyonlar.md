@@ -121,7 +121,7 @@ u # => #<User:0x007ff7229ed880 @email="vigo@xyz.com">
 
 ## Varsayılan Argümanlar (_Default Arguments_)
 
-Method argümanlarına varsayılan değerler atayabilirsiniz. Bu, eğer geçilmesi beklenen argüman gelmemişse otomatik olarak değer atamsı yapmayı sağlar.
+Method argümanlarına varsayılan değerler atayabilirsiniz. Bu, eğer geçilmesi beklenen argüman gelmemişse otomatik olarak değer atama yapmayı sağlar.
 
 ```ruby
 def merhaba(isim="insalık!")
@@ -132,7 +132,7 @@ merhaba          # => "Merhaba insalık!"
 merhaba("vigo")  # => "Merhaba vigo"
 ```
 
-Parametre geçmenden çağırdığımızda, tanımladığımız varsayılan (_default_) değer atandı.
+Parametre geçmeden çağırdığımızda, tanımladığımız varsayılan (_default_) değer atandı.
 
 ## Değişken Argümanları (_Variable Arguments_)
 
@@ -185,8 +185,8 @@ Formül şu: `alias` `TAKMA AD` `ORİJİNAL` yani `alias naber merhaba` derken, 
 ### Unutma!
 
 * `return` kullanmadan method’dan geri dönüş yapılabilir
-* Parantez kullanmadan method’ tanımlanabilir
-* Parantez kullanmadan method’ çağırılıp parametre geçilebilir.
+* Parantez kullanmadan method tanımlanabilir
+* Parantez kullanmadan method çağırılıp parametre geçilebilir.
 * `?` ile biten method mutlaka `true` ya da `false` döner.
 * `!` ile biten orijinal değeri mutlaka değiştirir.
 * `=` ile biten **setter**'dır.
