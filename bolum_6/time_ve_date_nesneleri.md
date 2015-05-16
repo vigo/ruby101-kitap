@@ -230,6 +230,24 @@ t.strftime("%10d")   # => "0000000002" # 10 basamak yaptı.
 | %M | Dakika (00..59) |
 | %S | Saniye (00..60) |
 | %L | Milisaniye (000..999) |
+| %N | Kesirli saniye, varsayılan 9 dijitli |
+| %z | saat ve dakika ofsetli UTC zaman kuşağı (time zone) |
+| %Z | Zaman kuşağının harfsel karşılığı |
+
+**Örnek**
+
+```ruby
+t = Time.now        # => 2015-05-16 14:29:43 +0300
+t.strftime("%N")    # => "691659000"
+t.strftime("%3N")   # => "691" # milisaniye, 3 dijit
+t.strftime("%6N")   # => "691659" # mikrosaniye, 6 dijit
+
+t.strftime("%z")    # => "+0300"
+t.strftime("%Z")    # => "EEST"
+                    #    Eastern European Summer Time yani
+                    #    yaz saati :)
+```
+
 
 
 @wip
