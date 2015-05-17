@@ -233,6 +233,10 @@ t.strftime("%10d")   # => "0000000002" # 10 basamak yaptı.
 | %N | Kesirli saniye, varsayılan 9 dijitli |
 | %z | saat ve dakika ofsetli UTC zaman kuşağı (time zone) |
 | %Z | Zaman kuşağının harfsel karşılığı |
+| %A | Haftanın günü, tam yazım |
+| %a | Haftanın günü, kısa yazım |
+| %u | Haftanın kaçıncı günü, Pazartesi 1 |
+| %w | Haftanın kaçıncı günü, Pazar 0 |
 
 **Örnek**
 
@@ -246,6 +250,11 @@ t.strftime("%z")    # => "+0300"
 t.strftime("%Z")    # => "EEST"
                     #    Eastern European Summer Time yani
                     #    yaz saati :)
+
+t.strftime("%A")    # Sunday
+t.strftime("%a")    # Sun
+t.strftime("%u")    # "7"
+ t.strftime("%w")   # "0"
 ```
 
 
