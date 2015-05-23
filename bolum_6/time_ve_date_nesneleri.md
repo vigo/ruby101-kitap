@@ -237,6 +237,16 @@ t.strftime("%10d")   # => "0000000002" # 10 basamak yaptı.
 | %a | Haftanın günü, kısa yazım |
 | %u | Haftanın kaçıncı günü, Pazartesi 1 |
 | %w | Haftanın kaçıncı günü, Pazar 0 |
+| %c | "%a %b %e %T %Y" şeklinde |
+| %D | "%m/%d/%y" şeklinde |
+| %F | ISO 8601 - "%Y-%m-%d" |
+| %v | VMS - "%e-%^b-%4Y" |
+| %x | %D ile aynı |
+| %X | %T ile aynı |
+| %r | 12 saat cinsinden saat "%I:%M:%S %p" |
+| %R | 24 saat cinsinden saat "%H:%M" |
+| %T | 23 saat cinsinden saat "%H:%M:%S" |
+
 
 **Örnek**
 
