@@ -33,9 +33,22 @@ a = 41
 puts "Siz tam #{a} yaşındasınız"
 ```
 
-gibi bir durumda, gördüğünüz gibi `#{a}` şeklinde yazı içinde değişken kullandık. Format olarak Ruby'de, `#{BU KISIMDA KOD ÇALIŞIR}` şeklinde istediğimiz kodu çalıştırma yetkimiz var. Bu işlem sadece **çift tırnak** kullanımında geçerlidir.
+gibi bir durumda, gördüğünüz gibi `#{a}` şeklinde yazı içinde değişken kullandık. Bu kodun çıktısı aşağıdaki gibi olacak. 
 
-Aynı kodu tek tırnak kullanarak yapmış olsaydık;
+    Siz tam 41 yaşındasınız
+
+Format olarak Ruby'de, `#{BU KISIMDA KOD ÇALIŞIR}` şeklinde istediğimiz kodu çalıştırma yetkimiz var. Bu işlem sadece **çift tırnak** kullanımında geçerlidir. Başka bir örnek vermek gerekirse; 
+
+```ruby
+a = 41
+puts "Siz tam #{a+2} yaşındasınız"
+```
+
+Yukarıdaki örnekte Ruby `a+2` komutunu çalıştıracaktır ve sonuç olarak `43` değerini bulacaktır ve bunu ekrana yazdıracak. Yani sonuç:
+
+    Siz tam 43 yaşındasınız
+
+şeklinde olacaktır. Ancak aynı kodu tek tırnak kullanarak yapmış olsaydık;
 
 ```ruby
 a = 41
@@ -50,24 +63,23 @@ olacaktı. **Tek tırnak** içinde bu işlem çalışmaz!
 
 
 ## Local (Bölgesel)
-Bölgesel ya da **Yerel** değişkenler, bir **scope** içindeki değişkenlerdir. Scope nedir? kodun çalıştığı bölge olarak tanımlayabiliriz. Bu tür değişkenler mutlaka küçük harfle ya da `_` (_underscore_) işareti ile başlamalıdır. Kesinlike `@`, `@@` ya da `$` işareti gibi ön ekler alamazlar.
+Bölgesel ya da **Yerel** değişkenler, bir **scope** içindeki değişkenlerdir. Scope nedir? Kodun çalıştığı bölge olarak tanımlayabiliriz. Bu tür değişkenler mutlaka küçük harfle ya da `_` (_underscore_) işareti ile başlamalıdır. Kesinlike `@`, `@@` ya da `$` işareti gibi ön ekler alamazlar.
 
 ```ruby
 out_text = "vigo"
 def greet_user(user_name)
   out_text = "Merhaba #{user_name}"
-  puts out_text
 end
 
-puts out_text       # vigo
-greet_user("vigo")  # Merhaba vigo
+puts greet_user("vigo")  # Merhaba vigo
+puts out_text            # vigo
 ```
 
-`greet_user` method'undaki (_fonksiyonundaki_) `out_text` aslında `local variable` yani yerel değişken şeklinde çalışmaktadır.
+Program çalıştığında `out_text` değişkeninin değeri `vigo` olarak atanmaktadır. Daha sonra 6. satırda `greet_user` method'u (_fonksiyonu_) çalıştığında, o methodun içerisinde `out_text` değişkeninin değeri değiştiriliyor gibi görünüyor. Daha sonra 7. satırda `out_text` değişkeninin değeri `puts` methodu ile ekrana yazdırılmaktadır. Ancak burada çıktılara baktığınızda methodun içerisindeki `out_text` değişkenindeki değişim, programın en başında tanımladığımız `out_text` değişkenin değerini etkilememiştir. Method içerisinde kalmıştır. Burada method içerisindeki `out_text` değişkeni aslında `local variable` yani yerel değişken şeklinde çalışmaktadır.
 
 
 ## Global (Genel)
-`$` işaretiyle başlayan tüm değişkenler **Global** değişkenlerdir. Kodun herhangi bir yerinde kullanılabilir.
+`$` işaretiyle başlayan tüm değişkenler **Global** değişkenlerdir. Kodun herhangi bir yerinde kullanılabilir ve erişilebilir.
 
 ```ruby
 $today = "Pazartesi"

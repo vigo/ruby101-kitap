@@ -42,7 +42,7 @@ sudo make install
 
 ## Ruby Versiyon Yöneticileri
 
-Bazen kullandığınız hazır kütüphaneler'in destekledikleri Ruby versiyonlarındaki kısıtlamalar, kişisel tercihiniz gibi farklı nedenlerle birden fazla Ruby sürümü ile çalışmak isteyebilirsiniz. Projelerinizden biri, örneğin `ruby 1.9.3` kullanırken, diğer bir projeniz `ruby 2.1.0` kullanıyor olabilir. Bu anlarda kullandığınız Ruby versiyonunu kolayca değiştirmek, aslında aktive etmek de diyebiliriz, için 2 adet popüler versiyon yöneticisi bulunmaktadır.
+Bazen, kullandığınız hazır kütüphanelerin destekledikleri Ruby versiyonlarındaki kısıtlamalar ya da kişisel tercihiniz gibi, farklı nedenlerle birden fazla Ruby sürümü ile çalışmak isteyebilirsiniz. Projelerinizden biri, örneğin `ruby 1.9.3` kullanırken, diğer bir projeniz `ruby 2.1.0` kullanıyor olabilir. Bu anlarda kullandığınız Ruby versiyonunu kolayca değiştirmek, aslında aktive etmek de diyebiliriz, için 2 adet popüler versiyon yöneticisi bulunmaktadır.
 
 ### Rbenv
 
@@ -100,7 +100,7 @@ rbenv version
 
 ### RVM
 
-Adındanda anlaşılacağı gibi **R**uby **V**ersion **M**anager yani [RVM](https://rvm.io/) de aynı Rbenv gibi Ruby versiyonlarını kolay yönetmeyi sağlıyor. Ruby dünyasından Rbenv'ciler ve RVM'ciler olarak iki kanat olduğunu söyleyebilirim.
+Adından da anlaşılacağı gibi **R**uby **V**ersion **M**anager yani [RVM](https://rvm.io/) de aynı Rbenv gibi Ruby versiyonlarını kolay yönetmeyi sağlıyor. Ruby dünyasından Rbenv'ciler ve RVM'ciler olarak iki kanat olduğunu söyleyebilirim.
 
 Kurulumu da zor değil:
 
