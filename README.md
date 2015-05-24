@@ -18,7 +18,7 @@ Prensip olarak **Developer** (_Yazılım Geliştiren Kişi_) denen insanın **de
 
 Takıldığınız bir konuda, GitHub'da yorumları okumanız gerekecek. Hatta bazen siz bir şey soracaksınız. **Issue**'lara bakacaksınız, **Pull Request** yapacaksınız. Gördüğünüz gibi bir cümlede iki tane İngilizce terim. Bunlar evrensel. Bilmemiz gerekiyor yoksa çuvallarız :)
 
-Özellikle pek çok şeyi olduğu gibi İngilizce olarak kullanmak istedim. Tabii ki Türçe anlamını da yazdım fakat, genel olarak kullandığım terminoloji Ruby ve yazılım geliştirme terminolojisi.
+Özellikle pek çok şeyi olduğu gibi İngilizce olarak kullanmak istedim. Tabii ki Türkçe anlamını da yazdım fakat, genel olarak kullandığım terminoloji Ruby ve yazılım geliştirme terminolojisi.
 
 Örneğin **Constant** dediğimde bunun ne anlama geldiğini anlamış olmanız gerekiyor. Ya da **Instance** dediğimde, bunun sınıftan oluşturulmuş bir nesne olduğunu anlamanız gerekiyor.
 

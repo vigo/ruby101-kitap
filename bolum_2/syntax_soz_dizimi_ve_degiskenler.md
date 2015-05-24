@@ -44,13 +44,13 @@ puts greet_user "Uğur" # Merhaba Uğur
 şeklinde kullanabiliriz. Korkmayın, kafalar karışmasın. Detaylara ileride gireceğiz.
 
 
-## Comments
+## Comments (Yorum Satırları)
 Her dilde olduğu gibi **Comment out** yani "işaretli kısmı çalıştırma" demek için kullandığımız şey Ruby'de de var.
 
-**Comment** için `#` işareti kullanılıyor. Genelde `line-comment`yani satır bazlı, ve `block-comment` kod bloğu bazlı comment yapma şekilleri var.
+**Comment** için `#` işareti kullanılıyor. Genelde `line-comment` yani satır bazlı, ve `block-comment` yani kod bloğu bazlı yorum yapma şekilleri var.
 
 ```ruby
-# Bu satır yorum satırı
+# Bu satır line-comment, yani tek satırlı yorum
 
 # Bu kısım block-comment
 #
@@ -61,17 +61,17 @@ Her dilde olduğu gibi **Comment out** yani "işaretli kısmı çalıştırma" d
 # ya da
 
 =begin
-Bu comment...
-Bu da comment...
+Bu yorum...
+Bu da yorum...
 Hatta bu da...
 =end
 ```
 
-Gördüğünüz gibi `block-comment` için ilave olarak `=begin` ve `=end` kelimeleri kullanılıyor.
+Gördüğünüz gibi `block-comment` için ilave olarak `=begin` ve `=end` kelimeleri kullanılabiliyor.
 
 
 ## Rezerve Edilmiş Kelimeler
-Bu kelimeleri değişken adı olarak kullanamıyoruz. Bu kelimeler Ruby komutları ve özel durumlar için rezerve edilmiş.
+Her dilde olduğu gibi Ruby'de de daha önceden rezerve edilmiş bazı kelimeler bulunmaktadır. Bu kelimeleri değişken ya da method adı olarak kullanamıyoruz. Bu kelimeler Ruby komutları ve özel durumlar için rezerve edilmiş.
 
 | Kelime | Kelime |
 | -- | -- |

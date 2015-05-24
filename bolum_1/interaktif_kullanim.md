@@ -44,4 +44,26 @@ chmod +x test.rb
 ./test.rb
 ```
 
-çalıştırabilirsiniz.
+çalıştırabilirsiniz. Eğer Execute flag'ini aktif hale getirmez iseniz işletim sistemi size aşağıdaki gibi bir hata dönecektir.
+
+```bash
+permission denied: ./test.rb
+```
+
+Bunun sebebi dosyanızın Execute edilebilmesi için izninin bulunmamasıdır. Konuya daha yakından bakmak için `test.rb` dosyasının bulunduğu dizinde `ls -l` komutunu çalıştıralım. 
+
+```bash
+$ ls -l
+total 8
+-rw-r--r--  1 kullanici  staff  42 May 20 23:48 test.rb
+```
+
+Burada görüleceği gibi `-rw-r--r--` dosyanızın sadece okuma ve aktif kullanıcı için yazma izni bulunmakta. Eğer yukarıdaki gibi Execute flag'ini aktif hale getirirseniz dosyanızın son hali aşağıdaki gibi olacaktır. 
+
+```bash
+$ ls -l
+total 8
+-rwxr-xr-x  1 kullanici  staff  42 May 20 23:48 test.rb
+```
+
+Şu anda dosyanız tüm kullanıcılarda okunabilir ve çalıştırılabilir durumda. 
