@@ -4,7 +4,7 @@
 
 Bazen, her seferinde aynı bloğu sürekli geçmek gerektiğinde imdadımıza **Proc** yetişiyor. Nasıl mı?
 
-Düşününki bir method'unuz (_fonksiyonunuz_) olsun, ve bu method’u dinamik olarak programlayabilseniz?
+Düşünün ki bir method'unuz (_fonksiyonunuz_) olsun, ve bu method’u dinamik olarak programlayabilseniz?
 
 ```ruby
 def multiplier(with)
@@ -67,6 +67,7 @@ Python'la uğraşan okurlarımız **Lambda**'ya aşina olabilirler. **Proc** ile
 custom_print = lambda { |txt| puts txt }
 custom_print.call("Hello") # Hello
 ```
+
 Eğer **2** parametre geçseydik:
 
 ```ruby
@@ -77,6 +78,7 @@ custom_print.call("Hello", "World")
 ```
 
 Ya da;
+
 ```ruby
 l = lambda { "Merhaba" }
 puts l.call # Merhaba

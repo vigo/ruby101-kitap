@@ -1,20 +1,22 @@
 # Conditional Statements (Koşullar)
 
-Verilen ifadenin testi yapılır, akış **true** ya da **false** durumuna göre seyreder.
+Verilen ifadenin doğru ya da yanlış olduğunun testi yapılır, akış **true** ya da **false** durumuna göre seyreder.
 
 ## `if` durumu
 
-`if a == b then` dediğimizde, **Eğer a, b'ye eşitse** demiş oluruz.
+`if a == b then` dediğimizde, **Eğer "a, b'ye eşittir" önermesi doğruysa** demiş oluruz.
 
-`if a != b then` dediğimizde, **Eğer a, b'ye eşit değilse** demiş oluruz.
+`if a != b then` dediğimizde, **Eğer "a, b'ye eşit değildir" önermesi doğruysa** demiş oluruz.
 
-Aynı mantıkta, `a > b` (a, b'den büyükse), `a < b` (a, b'den küçükse), `a >= b` (a, b'en büyük ya da eşitse), `a <= b` (a, b'den küçükse ya da eşitse) şeklinde ilerler.
+Aynı mantıkta, `a > b` ("a, b'den büyüktür"), `a < b` ("a, b'den küçüktür"), `a >= b` ("a, b'en büyük ya da eşittir"), `a <= b` ("a, b'den küçük ya da eşitse") şeklinde önermeler de kurulabilir.
 
 ## Negatiflik Operatörü
 
 `!` işareti önermenin sol tarafında kullanılırsa, negatiflik ya da olumsuzluk kontrolü olduğu anlamındadır.
 
-`if !a == b then puts "a, b'ye eşit değil" end` ya da `if !a > b then puts "a, b'den büyük değil" end` gibi kullanılır.
+`if !a == b then puts "a, b'ye eşit değil" end` ya da `if !a > b then puts "a, b'den büyük değil" end` gibi kullanılır. İçerideki önermenin tersi doğruysa demektir. 
+
+`if !a == b then` örneğini daha iyi inceleyecek olursak. Örnekte önerme "a, b'ye eşittir" önermesinin olumsuzu, yani "a, b'ye eşit değildir"dir. Yani bu `if` durumu şuna karşılık gelmektedir:  **"a, b'ye eşit değildir" doğru ise**
 
 ## Çoklu Kontrol
 
@@ -51,15 +53,13 @@ Programlama mantığında pek de sevmediğim (_daha düzgün yöntemleri var_) a
 ```ruby
 if a == b
   puts "a, b'ye eşit"
-elsif a != b
-  puts "a, b'ye eşit değil"
-elsif a > b
-  puts "a, b'ten büyük"
-else
+elsif a < b
   puts "a, b'den küçük"
+else
+  puts "a, b'ten büyük"
 ```
 
-İlk olarak `a == b` kontrolü yapılır, eğer sonuç `false` ise, `a != b` kontrol edilir, o da `false` ise `a > b` eğer bu da olmazsa en sondaki `else` devreye giriyor.
+İlk olarak `a == b` kontrolü yapılır, eğer sonuç `false` ise, `a < b` kontrol edilir, o da `false` ise en sondaki `else` devreye giriyor ve çıktı olarak "a, b'ten büyük" yazdırılıyor.
 
 ## `unless`
 
@@ -73,7 +73,7 @@ end
 
 Aynı mantıkta `puts "Eşit değil" unless a == b` şeklinde de yazabiliriz. Semantik olarak olumsuzluk kontrolü yaparken `unless` kullanılması önerilir. Kodu okuma ve anlama açısından kolay olması için.
 
-## `while`, `break`, `until`
+## `while`, `break`, `until` Döngüleri
 
 Tanımlanan önerme `true` olduğu sürece **loop** yani döngü çalıştırma kontrolüdür.
 
@@ -110,7 +110,8 @@ end
 
 Yani `i` **10**'a eşit olmadığı sürece bu loop çalışır.
 
-## `case`, `when`
+## `case`, `when` Yapısı
+
 `elsif` yerine kullanılması muhtemel, daha anlaşılır kontrol mekanizmasıdır. Hemen örneğe bakalım:
 
 ```ruby
@@ -130,7 +131,7 @@ puts "#{computer} çıkış yılı #{year}"
 
 Yukarıdaki kodu bir ton `if`, `elsif` ile yapmak yerine, `when` ve `then` ile daha anlaşılır hale getirdiğimizi düşünüyorum.
 
-`when`kullanırken **range** (_aralık_) belirmesi de yapma şansı var.
+`when` kullanırken **range** (_aralık_) belirmesi de yapma şansı var.
 
 ```ruby
 student_grade = 8
@@ -175,7 +176,7 @@ Aynı işi çok daha kolay yapmanın yolunu **5.Bölüm**'de **Iteration** kısm
 
 ## Ternary Operatörü
 
-Hemen hemen pek çok dilde kullanılan, **Eğer şu doğru ise bu değilse bu** ifadesi için kullanılır.
+Kısaltılmış `if` yapısıdır. Hemen hemen pek çok dilde kullanılan, **Eğer şu doğru ise bu değilse bu** ifadesi için kullanılır.
 
 ```ruby
 amount = 2
@@ -187,10 +188,13 @@ Bu örnekte **Ternary** olarak `amount == 1 ? "apple" : "apples"` kullanılmış
 
 ## BEGIN ve END
 
-Ruby'de ilginç bir özellik de, kodun çalışmasından önceye ve sonraya bir ek takabiliyoruz.
+Ruby'de ilginç bir özellik de, kodun çalışmasından önceye ve sonraya bir ek takabiliyoruz. 
+
+Aşağıdaki örnekte BEGIN block'undaki kodlar program başladığında, END block'undaki kodlar program bitmeden hemen önce çalışacaktır. 
 
 ```ruby
 BEGIN { puts "Kodun başlama saati #{Time.now.to_s}" }
+END { puts "Kodun bitme saati #{Time.now.to_s}" }
 
 def say_hello(username)
   "Merhaba #{username}"
@@ -198,8 +202,6 @@ end
 
 puts say_hello "Uğur"
 sleep 5  # zaman farkı için 5 saniye bekle
-
-END { puts "Kodun bitme saati #{Time.now.to_s}" }
 
 # Kodun başlama saati 2014-08-04 09:30:24 +0300
 # Merhaba Uğur
