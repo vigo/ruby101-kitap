@@ -59,7 +59,7 @@ test_function do
   puts "Ben block içinden geliyorum"
 end
 
-Ben block içinden geliyorum
+# Ben block içinden geliyorum
 
 test_function do
   [1, 2, 3, 4].each do |n|
@@ -137,4 +137,4 @@ Fonksiyon içine fonksiyon geçtik gibi.
 end
 ```
 
-Not: Aslında `times` sayılara ait bir method ve blok geçebiliyoruz kendisine.
+Not: Aslında `times` sayılara ait bir method ve yukarıdaki örneklerde gördüğünüz gibi blok geçebiliyoruz kendisine.

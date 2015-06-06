@@ -1,6 +1,6 @@
 # Methods (Fonksiyonlar)
 
-Programlama parçacıklarının ve/veya ifadelerin biraraya toplandığı şeydir method. Aslında lise matematiğinden hepimiz aşinayız.
+Programlama parçacıklarının ve/veya ifadelerin bir araya toplandığı şeydir method. Aslında lise matematiğinden hepimiz aşinayız.
 
 Bildiğiniz matematik fonksiyonu. Bundan böyle fonksiyon yerine **method** kullanacağım. Çünkü Ruby demek neredeyse **Obje** (_Nesne_) ve **Method** (_Method_) demek.
 
@@ -16,9 +16,9 @@ merhaba        # => "Merhaba"
 
 `def` ve `end` anahtar kelimeleri arasına method’un adı geldi. Önce method’u tanımladık, sonra çağırdık.
 
-Ruby'de herşey mutlaka **geriye birşey döner**. Ne demek bu? Prensip olarak method’lar zinciri olarak çalıştığı için, method denen şey de aslında bir fonksiyon ve fonksiyon denen şey de bir dizi işlemin yapılıp geriye sonucun dönüldüğü bir taşıyıcı aslında.
+Ruby'de herşey mutlaka **geriye birşey döner**. Ne demek bu? Prensip olarak method’lar zincir olarak çalıştığı için, method denen şey de aslında bir fonksiyon ve fonksiyon denen şey de bir dizi işlemin yapılıp geriye sonucun dönüldüğü bir taşıyıcı aslında.
 
-Hemen `irb` ye geçelim:
+Bir örnek vermek için hemen `irb` ye geçelim:
 
     irb(main):001:0> puts "Merhaba"
     Merhaba
@@ -32,9 +32,27 @@ Hemen `irb` ye geçelim:
 
 Pek çok dilde fonksiyondan birşey geri dönmek için **return** kelimesi kullanılır. Ruby'de de kullanılır ama zorunlu değildir. Yukarıdaki `def merhaba` örneğinde `return` kullanmamamıza rağmen geriye **Merhaba** dönebildi.
 
+Ruby'de methodlar içerisindeki çalıştırılan en son satırın değerini döndürür. Ancak siz daha öncesinde özellikle `return` anahtar kelimesi ile bir sonuç dönmezseniz. Bir örnekle konuyu pekiştirelim.
+
+```ruby
+def merhabaBir
+  m = "Merhaba"
+  n = "Ornek"
+end
+
+def merhabaIki
+  m = "Merhaba"
+  n = "Ornek"
+  return "Return Ornek"
+end
+
+puts merhabaBir   # Sonuç : Ornek
+puts merhabaIki   # Sonuç : Return Ornek
+```
+
 İşte bu Ruby'nin özelliği. Kodu okurken bunu bilmezsek kafamız süper karışabilir.
 
-`def` ile tanımlanan method’u, `undef` ile yokedebilirsiniz.
+`def` ile tanımlanan method’u, `undef` ile yok edebilirsiniz.
 
 ```ruby
 def merhaba
@@ -49,7 +67,7 @@ merhaba # =>
 # ~> -:9:in `<main>': undefined local variable or method `merhaba' for main:Object (NameError)
 ```
 
-Gördüğünüz gibi `undefined local variable or method .. Object (NameError)` oldu.
+Gördüğünüz gibi `undefined local variable or method .. Object (NameError)` hatasını aldık.
 
 Method’lar argüman alabilir. Yani fonksiyona, doğal olarak, parametre geçebilirsiniz.
 
@@ -71,7 +89,7 @@ end
 merhaba "vigo" # => "Merhaba vigo"
 ```
 
-Method’u tanımlarken ve çağırırken **parantez** kullanmadık! Bu durumda alışmanız gereken önemli konulardan. Şahsen ben, daha önce hiçbir programlama dilinde böyle birşey görmedim!
+Method’u tanımlarken ve çağırırken **parantez** kullanmadık! Bu alışmanız gereken önemli konulardan birisi. Şahsen ben, daha önce hiçbir programlama dilinde böyle birşey görmedim!
 
 Bazı durumlara, argüman alan method çağırırken, argümanın tipine göre, eğer parantez kullanmadan çağırma yaparsanız **warning** alabilirsiniz!
 
@@ -121,7 +139,7 @@ u # => #<User:0x007ff7229ed880 @email="vigo@xyz.com">
 
 ## Varsayılan Argümanlar (_Default Arguments_)
 
-Method argümanlarına varsayılan değerler atayabilirsiniz. Bu, eğer geçilmesi beklenen argüman gelmemişse otomatik olarak değer atama yapmayı sağlar.
+Method argümanlarına varsayılan değerler atayabilirsiniz. Bu, eğer methoda gönderilmesi beklenen argüman gelmemişse otomatik olarak değer atama yapmayı sağlar.
 
 ```ruby
 def merhaba(isim="insalık!")
@@ -134,9 +152,9 @@ merhaba("vigo")  # => "Merhaba vigo"
 
 Parametre geçmeden çağırdığımızda, tanımladığımız varsayılan (_default_) değer atandı.
 
-## Değişken Argümanları (_Variable Arguments_)
+## Değişken Sayıda Argümanlar (_Variable-Length Arguments_)
 
-Bazı durumlarda method’a dinamik olarak parametre geçmek gerekebilir. Bu durumda argümanın başına `*` işareti gelir. Bu sayede o argüman artık bir dizi (_Array_) haline gelir.
+Bazı durumlarda method’a değişken sayıda olarak parametre geçmek gerekebilir. Bu durumda argümanın başına `*` işareti gelir. Bu sayede o argüman artık bir dizi (_Array_) haline gelir.
 
 ```ruby
 def merhaba(*isimler)
