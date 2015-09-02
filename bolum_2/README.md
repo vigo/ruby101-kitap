@@ -7,7 +7,7 @@ Bu bölümde;
 * [Rezerve Edilmiş Kelimeler](syntax_soz_dizimi_ve_degiskenler.md)
 * [Değişken Tanımlama ve Türleri](degiskenler.md)
 * [Duck Typing](degiskenler.md)
-* Ön Tanımlı Değişkenler
+* [Ön Tanımlı Değişkenler](on_tanimli_degiskenler.md)
 * Pseudo Değişkenler
 * Operatörler
 * Global Constants (_Genel Sabitler_)
