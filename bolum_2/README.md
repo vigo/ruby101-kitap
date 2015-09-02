@@ -8,7 +8,7 @@ Bu bölümde;
 * [Değişken Tanımlama ve Türleri](degiskenler.md)
 * [Duck Typing](degiskenler.md)
 * [Ön Tanımlı Değişkenler](on_tanimli_degiskenler.md)
-* Pseudo Değişkenler
+* [Pseudo Değişkenler](on_tanimli_degiskenler.md)
 * Operatörler
 * Global Constants (_Genel Sabitler_)
 
