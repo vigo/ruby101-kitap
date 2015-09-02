@@ -40,7 +40,7 @@ end
 5.topla(16) # => 21
 ```
 
-Sayılara (yani Numeric tipine) `topla` diye bir method ekledik...
+Sayılara (*yani Numeric tipine*) `topla` diye bir method ekledik...
 
 Block ve Mixin ise Ruby'nin yine öne çıkan özelliklerindendir. Block denen şey aslında [closure](http://en.wikipedia.org/wiki/Closure_%28computer_programming%29)'dur. Herhangi bir method'a block takılabilir:
 
