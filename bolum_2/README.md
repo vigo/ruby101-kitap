@@ -9,7 +9,7 @@ Bu bölümde;
 * [Duck Typing](degiskenler.md)
 * [Ön Tanımlı Değişkenler](on_tanimli_degiskenler.md)
 * [Pseudo Değişkenler](on_tanimli_degiskenler.md)
-* Operatörler
-* Global Constants (_Genel Sabitler_)
+* [Operatörler](operatorler.md)
+* [Global Constants](global_constants_genel_sabitler.md) (_Genel Sabitler_)
 
 konularını işleyeceğiz.
