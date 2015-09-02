@@ -8,7 +8,7 @@ Kitap yazmak hep hayalini kurduğum bir şeydi. Hem kendi işime yarayacak hem d
 
 Kafamda kabaca planlar yaptım hep ama son noktayı bir türlü koyamadım. [Gitbook.io](http://gitbook.io) bu konuda çok işime yaradı. Hem beni fişekledi hem de [GitHub](http://github.com) ile kolay entegre olması kendimi organize etmem açısından çok rahat oldu.
 
-Hep [O'Reilly](http://www.oreilly.com/)'nin **Pocket** yani cep kitaplarına bayılmışımdır. Hem boyut itibariyle hem de içerik anlamında. Sürekli yanınızda taşıyabileceğiniz, içinde konusuyla ilgili herşeyin kompakt bir şekilde bulunduğu kaynak.
+Hep [O'Reilly](http://www.oreilly.com/)'nin **Pocket** yani cep kitaplarına bayılmışımdır. Hem boyut itibariyle hem de içerik anlamında. Sürekli yanınızda taşıyabileceğiniz, içinde konusuyla ilgili her şeyin kompak bir şekilde bulunduğu kaynak.
 
 Amacım, bu kitaplar tadında, her zaman yanınızda bulunabilecek, tabiri caizse **başucu** kitabı hazırlamak.
 
@@ -26,7 +26,7 @@ Yazılım dünyası ne yazık ki İngilizce ve tüm kaynaklar da İngilizce. Bu 
 
 ## Lisans Mevzusu
 
-Prensip olarak, GitHub'a **Public** olarak koyduğum herşey, herkes tarafından her türlü şekilde kullanılabilir. Bence Public olarak sürülen bir şey (_ki ben eski Amiga'cı Public Domain'ci biriyim_) herkesin tepe tepe kullanabilmesi amaçlı olmalıdır.
+Prensip olarak, GitHub'a **Public** olarak koyduğum her şey, herkes tarafından her türlü şekilde kullanılabilir. Bence Public olarak sürülen bir şey (_ki ben eski Amiga'cı Public Domain'ci biriyim_) herkesin tepe tepe kullanabilmesi amaçlı olmalıdır.
 
 Her türlü lisans olayına karşıyım. Eğer bir tür lisanslama yapacaksanız kendinize saklayın :)
 
@@ -91,9 +91,9 @@ https://www.gitbook.io/book/vigo/ruby-101
 
 ### Kod Yazma Tarzı (_Style Guide_) (%98)
 
-* Değişken Tanımlamarı
-* Blok Tanımlamarı
-* Syntax Tanımlamarı
+* Değişken Tanımlamaları
+* Blok Tanımlamaları
+* Syntax Tanımlamaları
 * Semantik Tanımlamalar
 * Yanlış ve Doğru Kullanımlar
 * İsimlendirmeler
