@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity) ![%77](http://progressed.io/bar/77?title=genel "Genel Tamamlanma %77")
 
-## Önsöz
+## Ön söz
 
 Kitap yazmak hep hayalini kurduğum bir şeydi. Hem kendi işime yarayacak hem de başkalarının işini görecek bir kitap olmalıydı. Aslında bir sene önce bu işe soyundum ama bir türlü fırsat bulamadım.
 
