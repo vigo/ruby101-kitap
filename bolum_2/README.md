@@ -3,8 +3,8 @@
 Bu bölümde;
 
 * [Syntax](syntax_soz_dizimi_ve_degiskenler.md) (_Söz Dizimi_)
-* Comments (_Yorum satırı_)
-* Rezerve Edilmiş Kelimeler
+* [Comments](syntax_soz_dizimi_ve_degiskenler.md) (_Yorum satırı_)
+* [Rezerve Edilmiş Kelimeler](syntax_soz_dizimi_ve_degiskenler.md)
 * Değişken Tanımlama ve Türleri
 * Duck Typing
 * Ön Tanımlı Değişkenler
