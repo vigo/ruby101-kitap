@@ -6,7 +6,7 @@ Bu bölümde;
 * [Comments](syntax_soz_dizimi_ve_degiskenler.md) (_Yorum satırı_)
 * [Rezerve Edilmiş Kelimeler](syntax_soz_dizimi_ve_degiskenler.md)
 * [Değişken Tanımlama ve Türleri](degiskenler.md)
-* Duck Typing
+* [Duck Typing](degiskenler.md)
 * Ön Tanımlı Değişkenler
 * Pseudo Değişkenler
 * Operatörler
