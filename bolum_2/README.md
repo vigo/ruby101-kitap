@@ -2,7 +2,7 @@
 
 Bu bölümde;
 
-* Syntax (_Söz Dizimi_)
+* [Syntax](syntax_soz_dizimi_ve_degiskenler.md) (_Söz Dizimi_)
 * Comments (_Yorum satırı_)
 * Rezerve Edilmiş Kelimeler
 * Değişken Tanımlama ve Türleri
