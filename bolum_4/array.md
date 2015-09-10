@@ -484,7 +484,7 @@ a.reverse # => [5, 4, 3, 2, 1]
 
 **sample**
 
-Array'den **random** olarak eleman almaya yarar. Parameter geçilirse geçilen adet kadar random eleman döner.
+Array'den **random** olarak eleman almaya yarar. Eğer parametre geçilirse geçilen adet kadar random eleman döner.
 
 ```ruby
 a = [1, 2, 3, 4, 5]
