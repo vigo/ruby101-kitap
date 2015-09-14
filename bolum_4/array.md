@@ -303,7 +303,7 @@ a # => [1, 2, 3, 4, 5, 6]
 
 **join**
 
-Array elemanlarını birleştirip **String**'e çevirmeye yarar. Eğer parametre verirses aradaki birleştiriciyi de belirlemiş oluruz.
+Array elemanlarını birleştirip **String**'e çevirmeye yarar. Eğer parametre verirsek aradaki birleştiriciyi de belirlemiş oluruz.
 
 ```ruby
 ["Commodore 64", "Amiga", "Sinclair", "Amstrad"].join        # => "Commodore 64AmigaSinclairAmstrad"
