@@ -1,6 +1,6 @@
 # Ruby 101 Kitabı
 
-[![Build Status](https://www.gitbook.io/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity) ![%77](http://progressed.io/bar/77?title=genel "Genel Tamamlanma %77")
+![%77](http://progressed.io/bar/77?title=genel "Genel Tamamlanma %77")
 
 ## Ön söz
 
