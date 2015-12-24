@@ -57,6 +57,7 @@ elsif a < b
   puts "a, b'den küçük"
 else
   puts "a, b'ten büyük"
+end
 ```
 
 İlk olarak `a == b` kontrolü yapılır, eğer sonuç `false` ise, `a < b` kontrol edilir, o da `false` ise en sondaki `else` devreye giriyor ve çıktı olarak "a, b'ten büyük" yazdırılıyor.
