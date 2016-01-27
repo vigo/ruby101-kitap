@@ -695,6 +695,7 @@ yaptığımızda olmayan bir method çağrımı yapmış oluruz. Eğer `include`
 ```ruby
 module Person
   attr_accessor :name
+  
   def say_hi
     @name ||= "Undefined name"
     "Hello #{@name}"
@@ -703,6 +704,7 @@ end
 
 class User
   extend Person
+  
   def initialize(name)
     @name = name
   end
