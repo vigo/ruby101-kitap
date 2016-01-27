@@ -727,7 +727,7 @@ User.instance_methods - Object.instance_methods # => [] # boş array
 
 Özetle, `include` ile sanki başka bir sınıftan türer gibi tüm özellikleri **instance method** olarak alırken, `extend` kullandığımızda direk **Class** kopyası gibi davranıyor.
 
-
+Modülden gelen method'ları **Class** içinde **instance method** gibi kullanmak yerine **singleton method** olarak kullanacağınız zaman extend kullanabilirsiniz!
 
 
 
