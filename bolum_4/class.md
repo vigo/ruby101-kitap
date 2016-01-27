@@ -10,7 +10,7 @@ Teknik olarak bir dosyada birden fazla Class tanımlaması yapılabilir. Örneğ
 
 ```ruby
 class MyClass
-  end
+end
 
 class OtherClass
 end
