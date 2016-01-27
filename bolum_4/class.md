@@ -116,6 +116,7 @@ class Person
   def name
     @name
   end
+  
   def name=(name)
     @name = name
   end
@@ -204,9 +205,11 @@ Set edebiliyoruz ama get edemiyoruz! Peki `attr_writer` nerede işimize yarar? �
 ```ruby
 class Person
   attr_writer :name
+  
   def initialize(name)
     @name = name
   end
+  
   def greet
     "Hello #{@name}"
   end
@@ -225,14 +228,17 @@ vigo.greet # => "Hello Uğur"
 ```ruby
 class Person
   attr_accessor :name
+  
   @@amount = 0
   def initialize(name)
     @@amount += 1
     @name = name
   end
+  
   def greet
     "Hello #{name}"
   end
+  
   def how_many_people_created
     "Number of people: #{@@amount}"
   end
@@ -253,14 +259,17 @@ user3.how_many_people_created        # => "Number of people: 3"
 ```ruby
 class Person
   attr_accessor :name
+  
   @@amount = 0
   def initialize(name)
     @@amount += 1
     @name = name
   end
+  
   def greet
     "Hello #{name}"
   end
+  
   def how_many_people_created
     "Number of people: #{@@amount}"
   end
@@ -317,9 +326,11 @@ Aslında bu da bildiğimiz bir şey. Sınıftan türeme yaparkan, türettiğimiz
 ```ruby
 class Animal
   attr_accessor :name, :kind
+  
   def initialize(name)
     @name = name
   end
+  
   def say_hi
     "Hello! I'm a #{@kind}, my name is #{@name}"
   end
