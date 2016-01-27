@@ -463,14 +463,17 @@ Aynı Module'lerde olduğu gibi, iç içe Class tanımlamak da mümkündür. Kim
 ```ruby
 class Animal
   attr_reader :name
+  
   def initialize(name)
     @name = name
   end
 
   class Cat < Animal
   end
+  
   class Horse < Animal
   end
+  
   class Uber
   end
 end
