@@ -410,6 +410,7 @@ Bazı durumlarda, üst sınıftaki method'u ezmek gerekir. Bu işlemi yaparken a
 ```ruby
 class User
   attr_accessor :name
+  
   def initialize(name)
     @name = name
   end
@@ -421,6 +422,7 @@ end
 
 class SuperUser < User
   alias :yedek :give_random_age # üst sınıftaki give_random_age’i sakladık, yedek adını verdik
+  
   def give_random_age
     rnd = self.yedek
     "Kendi yaşım: 43, rnd= #{rnd}"
