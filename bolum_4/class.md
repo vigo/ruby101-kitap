@@ -716,16 +716,18 @@ user = User.new("Yeşim") # => #<User:0x007f87c39702a0 @name="Yeşim">
 user.name # => undefined method `name' for #<User:0x007f87c39702a0 @name="Yeşim"> (NoMethodError)
 ```
 
-Çünki `Person`a ait özellikleri eklemek (*include*) yerine extend (*genişletme*) ettik ve;
+Çünki `Person`a ait özellikleri eklemek (*include*) yerine **extend** (*genişletme*) ettik ve;
 
 ```ruby
 User.say_hi # => "Hello Undefined name"
 User.instance_methods - Object.instance_methods # => [] # boş array
 ```
 
-`say_hi` artık bir singleton haline geldi yani Instance method'u olmak yerine Class method'u oldu. Zaten ilgili sınıfın varolan method'larına baktığımızda boş Array döndüğünü görürüz.
+`say_hi` artık bir **singleton** haline geldi yani **Instance Method**'u olmak yerine **Class Method**'u oldu. Zaten ilgili sınıfın varolan method'larına baktığımızda boş `Array` döndüğünü görürüz.
 
-Özetle, `include` ile sanki başka bir sınıftan türer gibi tüm özellikleri **instance method** olarak alırken, `extend` kullandığımızda direk Class kopyası gibi davranıyor.
+Özetle, `include` ile sanki başka bir sınıftan türer gibi tüm özellikleri **instance method** olarak alırken, `extend` kullandığımızda direk **Class** kopyası gibi davranıyor.
+
+
 
 
 
