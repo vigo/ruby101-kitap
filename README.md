@@ -34,7 +34,7 @@ Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
 
 Kitabı online olarak okumak için:
 
-[https://www.gitbook.io/book/vigo/ruby-101](https://www.gitbook.io/book/vigo/ruby-101)
+[https://www.gitbook.com/book/vigo/ruby-101](https://www.gitbook.com/book/vigo/ruby-101)
 
 
 ## Tamamlanma Durumu (%78)
