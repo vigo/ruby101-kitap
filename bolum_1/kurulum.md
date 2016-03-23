@@ -73,11 +73,11 @@ Kurulumdan sonra istediğini Ruby versiyonu için;
 # kurulabilecek versiyonları göster
 rbenv install -l
 
-# ruby 2.1.1'i kuralım
-rbenv install 2.1.1
+# ruby 2.3.0'ı kuralım
+rbenv install 2.3.0
 ```
 
-Kurulan Ruby'i
+Kurulan Ruby'yi
 
 * Sistem genelinde `rbenv global`
 * Sadece bulunduğumuz dizin içinde (Uygulamaya Özel) `rbenv local`
