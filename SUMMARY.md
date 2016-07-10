@@ -18,7 +18,7 @@
    * [Blocks (Bloklar)](bolum_3/blocks_bloklar.md)
    * [Proc ve Lambda](bolum_3/proc_ve_lambda.md)
    * [Conditional Statements (Koşullar)](bolum_3/conditional_statements_kosullar.md)
-* [Bölüm 4](bolum_4/veri_tipleri.md)
+* [Bölüm 4](bolum_4/README.md)
    * [Object](bolum_4/object.md)
    * [Number](bolum_4/number.md)
    * [String](bolum_4/string.md)
