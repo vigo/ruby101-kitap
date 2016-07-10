@@ -1,6 +1,6 @@
 # Yazar Hakkında
 
-1972’de İstanbul’da doğdum. Rahmetli anne-annem’in satın aldığı [Commodore 16](http://en.wikipedia.org/wiki/Commodore_16) ile bilgisayarı hayatımı değiştirdi.
+1972’de İstanbul’da doğdum. Rahmetli anne-annem’in satın aldığı [Commodore 16][link-C16] ile bilgisayarı hayatımı değiştirdi.
 
 Uzun yıllar [Commodore 64](http://en.wikipedia.org/wiki/Commodore_64) ve [Amiga](http://en.wikipedia.org/wiki/Amiga) kullandım. İnternetin, Google'ın ve Stackoverflow'un olmadığı bir dünyada [Assembly](http://en.wikipedia.org/wiki/Assembly_language) dili ile **code** yazdım.
 
@@ -13,3 +13,5 @@ Uzun yıllar [İstanbul Bilgi Üniversitesi](http://bilgi.edu.tr)'nde çalışt�
 2003 yılında evlendim, 2011'de dünyanın en güzel hediyesini verdi eşim. Kızım **Ezel** dünyaya geldi! Bazen beraber Amiga'da oyun oynuyoruz :)
 
 Halen, büyük bir heyecanla, **Amiga** ve **Commodore 64** makine dili programlama ile uğraşıyorum. Sizlere de tavsiye ederim :)
+
+[link-C16]: http://en.wikipedia.org/wiki/Commodore_16
