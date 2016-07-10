@@ -2,9 +2,10 @@
 
 Bu bölümde;
 
-* Fonksiyonlar (_Methods_)
-* Bloklar (_Blocks_)
-* Proc ve Lambda
-* Koşullar (_Conditional Statements_)
+* [Methods](methods_fonksiyonlar.md) (_Fonksiyonlar_)
+* [Blocks](blocks_bloklar.md) (_Bloklar_)
+* [Proc ve Lambda](proc_ve_lambda.md)
+* [Conditional Statements](conditional_statements_kosullar.md) (_Koşullar_)
 
 Konularını işleyeceğiz.
+
