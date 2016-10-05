@@ -105,7 +105,7 @@ isimler.values_at(1, 2)      # => ["Ömer", "Yeşim"]
 ["a", "b", "c", "d", "e"].at(-1) # => "e"
 ```
 
-`rindex` ile sağdan hizalı index'e göre elemana ulaşıyoruz:
+`rindex` ile dizi elemanı üzerinden elemanın yer aldığı en büyük index'e ulaşıyoruz:
 
 ```ruby
 a = [ "a", "b", "b", "b", "c" ]
