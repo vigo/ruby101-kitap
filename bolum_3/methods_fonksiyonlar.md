@@ -16,7 +16,7 @@ merhaba        # => "Merhaba"
 
 `def` ve `end` anahtar kelimeleri arasına method’un adı geldi. Önce method’u tanımladık, sonra çağırdık.
 
-Ruby'de herşey mutlaka **geriye birşey döner**. Ne demek bu? Prensip olarak method’lar zincir olarak çalıştığı için, method denen şey de aslında bir fonksiyon ve fonksiyon denen şey de bir dizi işlemin yapılıp geriye sonucun dönüldüğü bir taşıyıcı aslında.
+Ruby'de her şey mutlaka **geriye bir şey döner**. Ne demek bu? Prensip olarak method’lar zincir olarak çalıştığı için, method denen şey de aslında bir fonksiyon ve fonksiyon denen şey de bir dizi işlemin yapılıp geriye sonucun dönüldüğü bir taşıyıcı aslında.
 
 Bir örnek vermek için hemen `irb` ye geçelim:
 
@@ -30,7 +30,7 @@ Bir örnek vermek için hemen `irb` ye geçelim:
 
 Çünkü `puts` method’u işini yaptı bitirdi ve geriye `nil` döndü! Peki daha önceki programlama tecrübelerimize dayanak, **geriye döndü** işini hangi komut yapmış olabilir?
 
-Pek çok dilde fonksiyondan birşey geri dönmek için **return** kelimesi kullanılır. Ruby'de de kullanılır ama zorunlu değildir. Yukarıdaki `def merhaba` örneğinde `return` kullanmamamıza rağmen geriye **Merhaba** dönebildi.
+Pek çok dilde fonksiyondan bir şey geri dönmek için **return** kelimesi kullanılır. Ruby'de de kullanılır ama zorunlu değildir. Yukarıdaki `def merhaba` örneğinde `return` kullanmamamıza rağmen geriye **Merhaba** dönebildi.
 
 Ruby'de methodlar içerisindeki çalıştırılan en son satırın değerini döndürür. Ancak siz daha öncesinde özellikle `return` anahtar kelimesi ile bir sonuç dönmezseniz. Bir örnekle konuyu pekiştirelim.
 
@@ -89,7 +89,7 @@ end
 merhaba "vigo" # => "Merhaba vigo"
 ```
 
-Method’u tanımlarken ve çağırırken **parantez** kullanmadık! Bu alışmanız gereken önemli konulardan birisi. Şahsen ben, daha önce hiçbir programlama dilinde böyle birşey görmedim!
+Method’u tanımlarken ve çağırırken **parantez** kullanmadık! Bu alışmanız gereken önemli konulardan birisi. Şahsen ben, daha önce hiçbir programlama dilinde böyle bir şey görmedim!
 
 Bazı durumlara, argüman alan method çağırırken, argümanın tipine göre, eğer parantez kullanmadan çağırma yaparsanız **warning** alabilirsiniz!
 

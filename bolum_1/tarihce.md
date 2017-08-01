@@ -27,7 +27,7 @@ Ruby'nin yaratıcısı **Matz** şöyle demiş:
 
 > **Perl** dilinden daha güçlü, **Python** dilinden daha object-oriented bir script dili olmasını istedim.
 
-Pek çok programlama dilinde sayılar primitive \(ilkel\/basit\) tiplerdir, nesne değildirler. Halbuki Ruby'de sayılar dahil herşey nesnedir. Yani sayının method'ları vardır :\)
+Pek çok programlama dilinde sayılar primitive \(ilkel\/basit\) tiplerdir, nesne değildirler. Halbuki Ruby'de sayılar dahil her şey nesnedir. Yani sayının method'ları vardır :\)
 
 [Örnek](https://www.ruby-lang.org/en/about/)
 

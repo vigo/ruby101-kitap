@@ -60,7 +60,7 @@ class Fixnum
 end
 ```
 
-Şimdi şöyle birşey yapalım:
+Şimdi şöyle bir şey yapalım:
 
 ```ruby
 Time.now    # => 2015-02-09 12:55:33 +0200

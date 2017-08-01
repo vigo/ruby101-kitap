@@ -14,7 +14,7 @@ yapmamız yeterlidir. Saniye bazında ekleme ya da çıkartma yaparak başka zam
 Time.now - (60 * 60) # => 2015-04-28 07:51:01 +0300
 ```
 
-Hemen Ruby'sel bir hareketle ufak birşey yapalım:
+Hemen Ruby'sel bir hareketle ufak bir şey yapalım:
 
 ```ruby
 class Fixnum

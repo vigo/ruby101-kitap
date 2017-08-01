@@ -1,6 +1,6 @@
 # Object (Nesne)
 
-Ruby, **Object Oriented Programming**'in dibidir :) Herşey nesnelerden oluşur. Nasıl mı? hemen basit bir değişken oluşturup içine bir tekst yazalım.
+Ruby, **Object Oriented Programming**'in dibidir :) Her şey nesnelerden oluşur. Nasıl mı? hemen basit bir değişken oluşturup içine bir tekst yazalım.
 
     mesaj = "Merhaba"
 
@@ -44,7 +44,7 @@ Ufff... bir an için bitmeyecek sandım :) Çok basit bir sayı tanımlası yapt
 
 şeklinde yine ana nesne **BasicObject** olmak koşuluyla uzun bir hiyerarşi söz konusu.
 
-Herşey **BasicObject** den türüyor, bu yüzden de aslında herşey bir **Class** dolayısıyla bu durum dile çok ciddi esneklik kazandırıyor.
+Her şey **BasicObject** den türüyor, bu yüzden de aslında her şey bir **Class** dolayısıyla bu durum dile çok ciddi esneklik kazandırıyor.
 
 ## Nesne Metodları (Object Instance Methods)
 

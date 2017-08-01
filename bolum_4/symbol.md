@@ -1,6 +1,6 @@
 # Symbol
 
-Symbol (*sembol*) Ruby'e ait özel bir nesnedir. Bir tür **placeholder** (*yer tutucu*) görevindedir. `:` işareti ile başlayan herşey semboldür.
+Symbol (*sembol*) Ruby'e ait özel bir nesnedir. Bir tür **placeholder** (*yer tutucu*) görevindedir. `:` işareti ile başlayan her şey semboldür.
 
 Sembolün, değişkenden en önemli farkı tekil olmasıdır. Yani sembole atanan değişkenden hafızada 1 adet bulunur.
 

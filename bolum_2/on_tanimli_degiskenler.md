@@ -32,7 +32,7 @@ puts global_variables
 | $: | Modüller ve ek dosyalar için **Path** (_Load Path__) bilgisi. `require` komutunda göreceğiz. |
 | $" | `require` ile yüklenen dosyaların adlarının tutulduğu dizi (_Array_) |
 | $DEBUG | Adından da anlaşıldığı gibi, eğer **DEBUG** modda çalıştırma yapıyorsak (_ki bunu -d ile yaparız_) oluşan her **exception**'ın `$stderr` değişkenine atanmasını sağlar. |
-| $KCODE | Kod yazdığımız script dosyasının **encoding** tipini seçmemize yarar. Son sürümlerde ihtiyaç kalmadı, herşey **default** olarak `UTF-8` çalışıyor. |
+| $KCODE | Kod yazdığımız script dosyasının **encoding** tipini seçmemize yarar. Son sürümlerde ihtiyaç kalmadı, her şey **default** olarak `UTF-8` çalışıyor. |
 | $FILENAME | Komut satırından argüman olarak dosya geçtiğimizde geçilen dosyanın adını almak için kullanılır. Aslında `ARGF.filename` ile aynı işi yapar. |
 | $LOAD_PATH | `$:` ile aynı işi yapan **alias**'dır (_alias = takma ad_) |
 | $SAFE | Güvenlik seviyesidir. Varsayılan değer `0` dır. Bu dereceler 0'dan 4'e kadardır. Kod güvenliği ve kilitleme yapmak için kullanılır. Biraz karmaşık bir konudur :) Örneğin, emin olmadığınız bir kütüphane kullanırken kodunuzu güvenli hale getirmek için, kod bloğunun önüne `$SAFE=4` ekerseniz, takip eden kod `array` `hash` ve `string` lerde hiç bir modifikasyon yapamaz! Hatta pek [çok şeyi](http://phrogz.net/programmingruby/taint.html) yapamaz! |

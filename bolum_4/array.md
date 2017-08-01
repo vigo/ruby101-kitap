@@ -351,7 +351,7 @@ a                         # => ["Foo", "Bar"]
 
 **pop**, **shift**, **delete**, **delete_at**, **delete_if**
 
-Son elemanı çıkartmank için **pop** ilk elemanı çıkartmak için **shift** kullanılır. Herhangibir elemanı çıkartmak için **delete**, belirli bir index'deki elemanı çıkartmak için **delete_at** kullanılır.
+Son elemanı çıkartmank için **pop** ilk elemanı çıkartmak için **shift** kullanılır. Herhangi bir elemanı çıkartmak için **delete**, belirli bir index'deki elemanı çıkartmak için **delete_at** kullanılır.
 
 ```ruby
 a = ["Uğur", "Ömer", "Yeşim", "Ezel", "Eren"]

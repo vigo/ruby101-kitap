@@ -74,7 +74,7 @@ Son olarak, Ruby'deki en çok hoşuma giden mentaliteden bahsetmek istiyorum. Bi
 
 Neredeyse hiçbir programlama dili **DSL** (yani Domain Specific Language) yapmak için bu denli müsait değil. Yani Ruby kullanarak kafanıza göre Ruby üzerinde çalışan başka bir dünya yapabilirsiniz!
 
-Neticede hayatta herşey tercihler ve zevklerle ilgilidir. Ben kendi nedenlerimi belirtiyorum, bunlar size uymayabilir, hatta nefret bile edebilirsiniz. Eğer böyle bir durum varsa, sizden ricam sakin bir şekilde Ruby dünyasını incelemeniz.
+Neticede hayatta her şey tercihler ve zevklerle ilgilidir. Ben kendi nedenlerimi belirtiyorum, bunlar size uymayabilir, hatta nefret bile edebilirsiniz. Eğer böyle bir durum varsa, sizden ricam sakin bir şekilde Ruby dünyasını incelemeniz.
 
 An itibariyle ne ile uğraşıyorsanız aynı şeyi Ruby ile yapmaya çalışmanız. Mutlaka deneyin. Denedikten, tadına baktıktan sonra karar verin.
 

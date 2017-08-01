@@ -1,6 +1,6 @@
 # Değişkenler
 
-Değişken denen şey, yani **Variable**, nesneye atanmış bir işaretçidir aslında. Ne demiştik? Ruby'de herşey bir nesne yani **Object**. Bu nesnelere erişmek için aracıdır değişkenler.
+Değişken denen şey, yani **Variable**, nesneye atanmış bir işaretçidir aslında. Ne demiştik? Ruby'de her şey bir nesne yani **Object**. Bu nesnelere erişmek için aracıdır değişkenler.
 
 ![Resim 3.2.1 Obje Hiyeraşisi](../images/ruby-object-hiyerasi.png)
 
@@ -172,7 +172,7 @@ puts u.name          # Uğur
 
 
 ## Class Variable
-**Class**'a ait değişkendir. Dikkat edin burada türeyen birşey yok. `@@` ile başlar. Kullanmadan önce bu değişkeni mutlaka `init` etmelisiniz (_Yani ön tanımlama yapmalısınız_)
+**Class**'a ait değişkendir. Dikkat edin burada türeyen bir şey yok. `@@` ile başlar. Kullanmadan önce bu değişkeni mutlaka `init` etmelisiniz (_Yani ön tanımlama yapmalısınız_)
 
 ```ruby
 class User

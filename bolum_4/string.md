@@ -81,7 +81,7 @@ Ruby'de, yine diğer dillerde olmayan ilginç bir özellik. `%` işareti ve sonr
 
 ### `%`
 
-Süslü parantezler arasında kalan herşey **concat** (_yani toplanarak_) edilir ve **String** olarak çıktı verir ve tırnakları **escape** eder.
+Süslü parantezler arasında kalan her şey **concat** (_yani toplanarak_) edilir ve **String** olarak çıktı verir ve tırnakları **escape** eder.
 
 ```ruby
 %{Merhaba Dünya Ben vigo nasılsınız?} # => "Merhaba Dünya Ben vigo nasılsınız?"

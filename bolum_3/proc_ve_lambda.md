@@ -120,7 +120,7 @@ Aynı kodu kullandık, **Lambda** yeterli parametre almadığı için hata verdi
 
 ## Proc'u Block'a çevirmek
 
-Elimizdeki **Array** elemanlarının her birini bir fonksiyona tabii tutsak? Dizinin her elemanını ekrana yazdıran birşey?
+Elimizdeki **Array** elemanlarının her birini bir fonksiyona tabii tutsak? Dizinin her elemanını ekrana yazdıran bir şey?
 
 ```ruby
 items = ["Bu bir", "bu iki", "bu üç"]

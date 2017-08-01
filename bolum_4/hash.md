@@ -368,7 +368,7 @@ Hash'in içinde eleman var mı yok mu?
 
 **all?**, **any?**, **one?**, **none?**
 
-**Array** bölümünde görmüştük, **Enumerable** modülünden gelen bu özellik aynen Hash'de de kullanılıyor. `all?` da tüm elemanlar, verilen koşuldan `nil` ya da `false` dışında birşey dönmek zorunda, aksi halde sonuç `false` oluyor:
+**Array** bölümünde görmüştük, **Enumerable** modülünden gelen bu özellik aynen Hash'de de kullanılıyor. `all?` da tüm elemanlar, verilen koşuldan `nil` ya da `false` dışında bir şey dönmek zorunda, aksi halde sonuç `false` oluyor:
 
 ```ruby
 # value'su boş olan var mı?

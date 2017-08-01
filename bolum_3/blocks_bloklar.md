@@ -77,7 +77,7 @@ end
 
 Kabaca, fonksiyona kod bloğu geçtim.
 
-Peki, ya şu şekilde kullansaydım `test_function` ? yani hiçbirşey geçmeden? Alacağım hata mesajı:
+Peki, ya şu şekilde kullansaydım `test_function` ? yani hiçbir şey geçmeden? Alacağım hata mesajı:
 
     no block given (yield)
 

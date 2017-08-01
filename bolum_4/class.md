@@ -254,7 +254,7 @@ user3.how_many_people_created        # => "Number of people: 3"
 
 ## Class Methods
 
-İlgili Class'dan türetme yapmadan, direk Class'dan çağırılan özel method'dur. Bu method'u çağırmak için sınıftan herhangibir türetme yapmaya gerek olmaz, direkt olarak sınıf'tan çağırılır:
+İlgili Class'dan türetme yapmadan, direk Class'dan çağırılan özel method'dur. Bu method'u çağırmak için sınıftan herhangi bir türetme yapmaya gerek olmaz, direkt olarak sınıf'tan çağırılır:
 
 ```ruby
 class Person
@@ -454,7 +454,7 @@ end
 "Deneme".hello # => "Hello: Deneme"
 ```
 
-Tipi `String` olan herşeyin artık `hello` diye bir method'u oldu :)
+Tipi `String` olan her şeyin artık `hello` diye bir method'u oldu :)
 
 ## Nested Class
 
