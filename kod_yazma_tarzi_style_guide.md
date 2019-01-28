@@ -25,7 +25,7 @@ a,b=1,3
 
 ```ruby
 a = 1
-a ,b = 1, 3
+a, b = 1, 3
 1 > 2 ? true : false; puts "Merhaba"
 [1, 2, 3].each{ |n| puts n }
 ```

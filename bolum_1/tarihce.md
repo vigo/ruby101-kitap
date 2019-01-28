@@ -19,6 +19,7 @@ Kitabı yazdığım an itibariyle \(_13 Temmuz 2014, Pazar_\) Ruby'nin en son s�
 * Güncelleme: Ruby versiyon `2.2.2` oldu. \(_1 Mayıs 2015_\)
 * Güncelleme: Ruby versiyon `2.3.0` oldu. \(_24 Aralık 2015_\)
 * Güncelleme: Ruby versiyon `2.3.1` oldu.
+* Güncelleme: Ruby versiyon `2.6.0` oldu. \(_25 Aralık 2018_\)
 
 
 Ruby'nin en önemli özelliği her şeyin bir nesne yani **Object** olmasıdır. Nesneyi bir tür paket \/ kutu gibi düşünebilirsiniz. Doğal olarak, **Object** yani nesne olan bir şeyin, action'ları \/ method'ları da olur.
