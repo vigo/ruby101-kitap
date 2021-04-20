@@ -1,6 +1,6 @@
-# Ruby 101 Kitabı
+<a target="_blank" href="https://www.patreon.com/vigoo"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"></a>
 
-[![Build Status](https://www.gitbook.com/button/status/book/vigo/ruby-101)](https://www.gitbook.io/book/vigo/ruby-101/activity) ![%77](http://progressed.io/bar/77?title=genel "Genel Tamamlanma %77")
+# Ruby 101 Kitabı
 
 ## Önsöz
 
