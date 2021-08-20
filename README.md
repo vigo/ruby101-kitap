@@ -1,106 +1,43 @@
-<a target="_blank" href="https://www.patreon.com/vigoo"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"></a>
-
 # Ruby 101 Kitabı
 
-## Önsöz
+https://github.com/vigo/ruby101-kitap
 
-Kitap yazmak hep hayalini kurduğum bir şeydi. Hem kendi işime yarayacak hem de başkalarının işini görecek bir kitap olmalıydı. Aslında bir sene önce bu işe soyundum ama bir türlü fırsat bulamadım.
+<a target="_blank" href="https://www.patreon.com/vigoo"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"></a>
 
-Kafamda kabaca planlar yaptım hep ama son noktayı bir türlü koyamadım. [Gitbook.io](http://gitbook.io) bu konuda çok işime yaradı. Hem beni fişekledi hem de [GitHub](http://github.com) ile kolay entegre olması kendimi organize etmem açısından çok rahat oldu.
+Ruby öğrenmeyen kalmasın amacıyla kendi halimde bir kitap yazmaya başladım.
+Biliyorum biraz eskidi ama genel olarak hemen hemen her şey halen geçerli.
 
-Hep [O'Reilly](http://www.oreilly.com/)'nin **Pocket** yani cep kitaplarına bayılmışımdır. Hem boyut itibariyle hem de içerik anlamında. Sürekli yanınızda taşıyabileceğiniz, içinde konusuyla ilgili her şeyin kompak bir şekilde bulunduğu kaynak.
+`mkdocs` entegrasyonu yaptım, rahat rahat web üzerinden okunabiliyor artık!
 
-Amacım, bu kitaplar tadında, her zaman yanınızda bulunabilecek, tabiri caizse **başucu** kitabı hazırlamak.
+---
 
-Kitabı hazırlarken en çok zorlandığım kısım İngilizce'den anlamlı Türkçe metinler çıkartmak oldu. Bazı şeyleri İngilizce olarak ifade etmek çok kolay, fakat bazı durumlarda tam Türkçe anlamlı karşılık bulmak gerçekten zor oluyor.
+## Lisans
 
-Prensip olarak **Developer** (_Yazılım Geliştiren Kişi_) denen insanın **default** olarak İngilizce bilmesi gerektiğine inanıyorum. Neden? Örneğin milyonlarca açık-kaynak projenin bulunduğu GitHub'da herkes İngilizce konuşuyor.
+Bu proje MIT lisansı kullanmaktadır.
 
-Takıldığınız bir konuda, GitHub'da yorumları okumanız gerekecek. Hatta bazen siz bir şey soracaksınız. **Issue**'lara bakacaksınız, **Pull Request** yapacaksınız. Gördüğünüz gibi bir cümlede iki tane İngilizce terim. Bunlar evrensel. Bilmemiz gerekiyor yoksa çuvallarız :)
+Bu proje, işbirliği için güvenli ve davetkar bir alan olarak tasarlanmıştır ve
+katkıda bulunanların [davranış kurallarına][coc] uymaları beklenir.
 
-Özellikle pek çok şeyi olduğu gibi İngilizce olarak kullanmak istedim. Tabii ki Türkçe anlamını da yazdım fakat, genel olarak kullandığım terminoloji Ruby ve yazılım geliştirme terminolojisi.
+---
 
-Örneğin **Constant** dediğimde bunun ne anlama geldiğini anlamış olmanız gerekiyor. Ya da **Instance** dediğimde, bunun sınıftan oluşturulmuş bir nesne olduğunu anlamanız gerekiyor.
+## Katkı Yapın
 
-Yazılım dünyası ne yazık ki İngilizce ve tüm kaynaklar da İngilizce. Bu bakımdan orijinal kelimeleri ve terminolojiyi öğrenmemiz, bilmemiz şart :)
+1. `fork` (https://github.com/vigo/ruby101-kitap/fork)
+1. Yeni bir `branch` açın (`git checkout -b duzeltmeler`)
+1. `commit` edin (`git commit -am 'imla hataları'`)
+1. `branch`’inizi `push` edin (`git push origin duzeltmeler`)
+1. ve **Pull Request** açın!
 
-## Lisans Mevzusu
+---
 
-Prensip olarak, GitHub'a **Public** olarak koyduğum her şey, herkes tarafından her türlü şekilde kullanılabilir. Bence Public olarak sürülen bir şey (_ki ben eski Amiga'cı Public Domain'ci biriyim_) herkesin tepe tepe kullanabilmesi amaçlı olmalıdır.
+## Rakefile
 
-Her türlü lisans olayına karşıyım. Eğer bir tür lisanslama yapacaksanız kendinize saklayın :)
+```bash
+$ rake -T
 
-Bu kitap ananızın ak sütü gibi hepinize helal olsun. Umarım işinize yarar!
+rake build   # Build docs
+rake deploy  # Deploy to github
+rake serve   # Run docs server
+```
 
-Kitabı online olarak okumak için:
-
-https://vigo.gitbooks.io/ruby-101/content/
-
-
-## Tamamlanma Durumu (%78)
-
-### Bölüm 1 (%94)
-
-* Ruby Hakkında
-* Kurulum
-* İnteraktif Kullanım
-* Ruby Komutu ve Parametreleri (%98)
-
-### Bölüm 2 (%100)
-
-* Syntax (Söz Dizimi) ve Rezerve Kelimeler
-* Değişkenler
-* Ön Tanımlı ve Pseudo (Gerçek Olmayan) Değişkenler
-* Operatörler
-* Global Constants (Genel Sabitler)
-
-### Bölüm 3 (%100)
-
-* Methods (Fonksiyonlar)
-* Blocks (Bloklar)
-* Proc ve Lambda
-* Conditional Statements (Koşullar)
-
-### Bölüm 4 (%100)
-
-* Object
-* Number
-* String
-* Array
-* Hash
-* Symbol
-* Class ve Module
-
-### Bölüm 5 (%58)
-
-* Enumeration ve Iteration
-* Ranges
-* File System ve IO (Dosya Sistemi) (%90)
-* Exception Handling (--)
-* Kernel Modülü (--)
-
-### Bölüm 6 (%50)
-
-* Monkey Patching
-* Regular Expressions (--)
-* Time ve Date Nesneleri (%50)
-* Ruby Paketleri: RubyGems
-* Paket Yöneticisi: Bundler (--)
-* Komut Satırı (Command-Line) Kullanımı (--)
-* Meta Programming
-
-### Kod Yazma Tarzı (_Style Guide_) (%98)
-
-* Değişken Tanımlamaları
-* Blok Tanımlamaları
-* Syntax Tanımlamaları
-* Semantik Tanımlamalar
-* Yanlış ve Doğru Kullanımlar
-* İsimlendirmeler
-
-### Gerçek Hayat Ruby Örnekleri (%25)
-
-* Neden Ruby?
-* Ruby ve TDD/BDD/CI (--)
-* Kendi Rubygem'imizi yapalım! (--)
-* Sinatra ve Web (--)
+[coc]: https://github.com/vigo/ruby101-kitap/blob/main/CODE_OF_CONDUCT.md

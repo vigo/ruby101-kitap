@@ -1,0 +1,1 @@
+![Kitabın kapağı](cover.jpg "Ruby 101 Kitabı")

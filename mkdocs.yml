@@ -1,0 +1,79 @@
+site_name: Ruby 101 Kitabı
+site_description: Ruby öğrenmek isteyen herkesin işine yarayacak bir kitap!
+site_author: Uğur vigo Özyılmazel
+site_url: https://vigo.github.io/ruby101-kitap/
+dev_addr: 127.0.0.1:9000
+theme:
+  name: 'material'
+repo_name: vigo/ruby101-kitap
+repo_url: https://github.com/vigo/ruby101-kitap
+extra_css:
+  - stylesheets/extra.css
+markdown_extensions:
+  - toc
+  - extra
+  - codehilite
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed
+nav:
+    - "Kapak": "cover.md"
+    - "Önsöz": "preface.md"
+    - "Teknik İncleme": "technical-review.md"
+    - "Bölüm İndeksi": "index.md"
+    - "Bölüm 1":
+      - "İndeks": "bolum-01/index.md"
+      - "Ruby Hakkında": "bolum-01/01-tarihce.md"
+      - "Kurulum": "bolum-01/02-kurulum.md"
+      - "İnteraktif Kullanım": "bolum-01/03-interaktif-kullanim.md"
+      - "Ruby Komutu ve Parametreleri": "bolum-01/04-ruby-komutu-ve-parametreleri.md"
+    - "Bölüm 2":
+      - "İndeks": "bolum-02/index.md"
+      - "Syntax, Comments, Rezerve Edilmiş Kelimeler": "bolum-02/01-syntax-soz-dizimi-ve-degiskenler.md"
+      - "Değişkenler": "bolum-02/02-degiskenler.md"
+      - "Ön Tanımlı Değişkenler": "bolum-02/03-on-tanimli-degiskenler.md"
+      - "Operatörler": "bolum-02/04-operatorler.md"
+      - "Genel Sabitler": "bolum-02/05-global-constants-genel-sabitler.md"
+    - "Bölüm 3":
+      - "İndeks": "bolum-03/index.md"
+      - "Methods (Fonksiyonlar)": "bolum-03/01-methods-fonksiyonlar.md"
+      - "Blocks (Bloklar)": "bolum-03/02-blocks-bloklar.md"
+      - "Proc ve Lambda": "bolum-03/03-proc-ve-lambda.md"
+      - "Conditional Statements (Koşullar)": "bolum-03/04-conditional-statements-kosullar.md"
+    - "Bölüm 4":
+      - "İndeks": "bolum-04/index.md"
+      - "Object": "bolum-04/01-object.md"
+      - "Number": "bolum-04/02-number.md"
+      - "String": "bolum-04/03-string.md"
+      - "Array": "bolum-04/04-array.md"
+      - "Hash": "bolum-04/05-hash.md"
+      - "Symbol": "bolum-04/06-symbol.md"
+      - "Class": "bolum-04/07-class.md"
+      - "Module": "bolum-04/08-module.md"
+    - "Bölüm 5":
+      - "İndeks": "bolum-05/index.md"
+      - "Enumeration ve Iteration": "bolum-05/01-enumeration-ve-iteration.md"
+      - "Ranges": "bolum-05/02-ranges.md"
+      - "File System ve IO (Dosya Sistemi)": "bolum-05/03-file-system-ve-io-dosya-sistemi.md"
+      - "Exception Handling": "bolum-05/04-exception-handling.md"
+      - "Kernel Modülü": "bolum-05/05-kernel-modulu.md"
+    - "Bölüm 6":
+      - "İndeks": "bolum-06/index.md"
+      - "Monkey Patching": "bolum-06/01-monkey-patching.md"
+      - "Regular Expressions": "bolum-06/02-regular-expressions.md"
+      - "Time ve Date Nesneleri": "bolum-06/03-time-ve-date-nesneleri.md"
+      - "Ruby Paketleri: RubyGems": "bolum-06/04-ruby-paketleri-ruby_gems.md"
+      - "Paket Yöneticisi: Bundler": "bolum-06/05-paket-yoneticisi-bundler.md"
+      - "Komut Satırı (Command-Line) Kullanımı": "bolum-06/06-komut-satiri-command-line-kullanimi.md"
+      - "Meta Programming": "bolum-06/07-meta-programming.md"
+    - "Bölüm 7":
+      - "İndeks": "bolum-07/index.md"
+      - "Kod Yazma Tarzı (Style Guide)": "bolum-07/01-kod-yazma-tarzi-style-guide.md"
+    - "Bölüm 8":
+      - "İndeks": "bolum-08/index.md"
+      - "Neden Ruby?": "bolum-08/01-neden-ruby.md"
+      - "Ruby ve TDD/BDD/CI": "bolum-08/02-ruby-ve-tddbddci.md"
+      - "Kendi Rubygem'imizi yapalım!": "bolum-08/03-kendi-rubygemimizi-yapalim.md"
+      - "Sinatra ve Web": "bolum-08/04-sinatra-ve-web.md"
+    - "Teşekkürler": "acknowledgements.md"

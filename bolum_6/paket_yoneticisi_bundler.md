@@ -1,3 +1,0 @@
-# Paket yöneticisi: Bundler
-
-wip...
