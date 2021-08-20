@@ -1,0 +1,1710 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ruby öğrenmek isteyen herkesin işine yarayacak bir kitap!">
+      
+      
+      
+        <meta name="author" content="Uğur vigo Özyılmazel">
+      
+      
+        <link rel="canonical" href="https://vigo.github.io/ruby101-kitap/bolum-04/03-string/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>String - Ruby 101 Kitabı</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#string" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-header__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ruby 101 Kitabı
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              String
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-nav__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Ruby 101 Kitabı
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cover/" class="md-nav__link">
+        Kapak
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preface/" class="md-nav__link">
+        Önsöz
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-review/" class="md-nav__link">
+        Teknik İncleme
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Bölüm İndeksi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Bölüm 1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/01-tarihce/" class="md-nav__link">
+        Ruby Hakkında
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/02-kurulum/" class="md-nav__link">
+        Kurulum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/03-interaktif-kullanim/" class="md-nav__link">
+        İnteraktif Kullanım
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/04-ruby-komutu-ve-parametreleri/" class="md-nav__link">
+        Ruby Komutu ve Parametreleri
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Bölüm 2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/01-syntax-soz-dizimi-ve-degiskenler/" class="md-nav__link">
+        Syntax, Comments, Rezerve Edilmiş Kelimeler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/02-degiskenler/" class="md-nav__link">
+        Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/03-on-tanimli-degiskenler/" class="md-nav__link">
+        Ön Tanımlı Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/04-operatorler/" class="md-nav__link">
+        Operatörler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/05-global-constants-genel-sabitler/" class="md-nav__link">
+        Genel Sabitler
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Bölüm 3
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/01-methods-fonksiyonlar/" class="md-nav__link">
+        Methods (Fonksiyonlar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/02-blocks-bloklar/" class="md-nav__link">
+        Blocks (Bloklar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/03-proc-ve-lambda/" class="md-nav__link">
+        Proc ve Lambda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/04-conditional-statements-kosullar/" class="md-nav__link">
+        Conditional Statements (Koşullar)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      <label class="md-nav__link" for="__nav_8">
+        Bölüm 4
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-number/" class="md-nav__link">
+        Number
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        String
+      </a>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-array/" class="md-nav__link">
+        Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-hash/" class="md-nav__link">
+        Hash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-symbol/" class="md-nav__link">
+        Symbol
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-class/" class="md-nav__link">
+        Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-module/" class="md-nav__link">
+        Module
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Bölüm 5
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 5" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/01-enumeration-ve-iteration/" class="md-nav__link">
+        Enumeration ve Iteration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/02-ranges/" class="md-nav__link">
+        Ranges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/03-file-system-ve-io-dosya-sistemi/" class="md-nav__link">
+        File System ve IO (Dosya Sistemi)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/04-exception-handling/" class="md-nav__link">
+        Exception Handling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/05-kernel-modulu/" class="md-nav__link">
+        Kernel Modülü
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Bölüm 6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/01-monkey-patching/" class="md-nav__link">
+        Monkey Patching
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/02-regular-expressions/" class="md-nav__link">
+        Regular Expressions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/03-time-ve-date-nesneleri/" class="md-nav__link">
+        Time ve Date Nesneleri
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/04-ruby-paketleri-ruby_gems/" class="md-nav__link">
+        Ruby Paketleri: RubyGems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/05-paket-yoneticisi-bundler/" class="md-nav__link">
+        Paket Yöneticisi: Bundler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/06-komut-satiri-command-line-kullanimi/" class="md-nav__link">
+        Komut Satırı (Command-Line) Kullanımı
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/07-meta-programming/" class="md-nav__link">
+        Meta Programming
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        Bölüm 7
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 7" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/01-kod-yazma-tarzi-style-guide/" class="md-nav__link">
+        Kod Yazma Tarzı (Style Guide)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        Bölüm 8
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 8" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 8
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/01-neden-ruby/" class="md-nav__link">
+        Neden Ruby?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/02-ruby-ve-tddbddci/" class="md-nav__link">
+        Ruby ve TDD/BDD/CI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/03-kendi-rubygemimizi-yapalim/" class="md-nav__link">
+        Kendi Rubygem'imizi yapalım!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/04-sinatra-ve-web/" class="md-nav__link">
+        Sinatra ve Web
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        Teşekkürler
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vigo/ruby101-kitap/edit/master/docs/bolum-04/03-string.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="string">String</h1>
+<p>Kabaca, insanların anlayacağı şekilde tekst / metin bilgisi içeren
+nesnelerdir. Örneğin;</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="s2">&quot;Merhaba&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">class</span> <span class="c1"># =&gt; String</span>
+</code></pre></div>
+<p>şeklindedir. Tanımlama yaparken <strong>tek</strong> ya da <strong>çift</strong> tırnak kullanılabilir
+ama aralarında fark vardır. <strong>Expression Substitution</strong> ya da <strong>String
+Interpolation</strong> olarak geçen, <strong>String</strong> içinde değişken kullanımı esnasında
+<strong>çift tırnak</strong> kullanmanız gerekir.</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="s2">&quot;Merhaba&quot;</span>
+<span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">m</span><span class="si">}</span><span class="s2"> Uğur&quot;</span> <span class="c1"># Merhaba Uğur</span>
+<span class="nb">puts</span> <span class="s1">&#39;</span><span class="si">#{</span><span class="n">m</span><span class="si">}</span><span class="s1"> Uğur&#39;</span> <span class="c1"># #{m} Uğur</span>
+</code></pre></div>
+<p>Tek tırnak kullandığımız örnekte <code>#{m}</code> değişkeni işlenmeden olduğu gibi çıktı
+vermiştir. Aynı şekilde <strong>escape codes</strong> yani görünmeyen özel karakterleri de
+sadece çift tırnak içinde kullanmak mümkündür.</p>
+<p>Çift tırnak içinde kullanılan <code>#{BURAYA RUBY KODU GELİR}</code> çok işe yarar. <code>{</code>
+ve <code>}</code> arasında kod çalıştırmamızı sağlar.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">puts</span> <span class="s2">&quot;Saat: </span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># Saat: 2014-08-12 10:37:22 +0300</span>
+</code></pre></div>
+<p>dediğimizde; Ruby Kernel'dan <code>Time</code> nesnesinin <code>now</code> method'unu çalıştırmış
+oluruz.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">puts</span> <span class="s2">&quot;Merhaba</span><span class="se">\n</span><span class="s2">Dünya&quot;</span>
+
+<span class="c1"># Merhaba</span>
+<span class="c1"># Dünya</span>
+</code></pre></div>
+<p><code>\n</code> <strong>New Line</strong> ya da <strong>Line Feed</strong> ya da yeni satıra geçme karakteri çift tırnakta çalışır.</p>
+<table>
+<thead>
+<tr>
+<th>Escape Kod</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\n</td>
+<td>Yeni satır (0x0a)</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>Boşluk (0x20)</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>Satır Başı (0x0d)</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>Tab Karakteri (0x09)</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>Dikey Tab (0x0b)</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>Formfeed (0x0c)</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>Backspace (Bir geri) (0x08)</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>Bell/Alert (Uyarı) (0x07)</td>
+</tr>
+<tr>
+<td>\e</td>
+<td>Escape (0x1b)</td>
+</tr>
+<tr>
+<td>\nnn</td>
+<td>Octal, 8'lik değer</td>
+</tr>
+<tr>
+<td>\xnn</td>
+<td>Hexadecimal, 16'lık değer</td>
+</tr>
+<tr>
+<td>\unnnn</td>
+<td>Unicode: U+nnnn (Ruby 1.9+)</td>
+</tr>
+<tr>
+<td>\cx</td>
+<td>Control-x</td>
+</tr>
+<tr>
+<td>\C-x</td>
+<td>Control-x</td>
+</tr>
+<tr>
+<td>\M-x</td>
+<td>Meta-x</td>
+</tr>
+<tr>
+<td>\M-\C-x</td>
+<td>Meta-Control-x</td>
+</tr>
+<tr>
+<td>\x</td>
+<td>x'in kendisi (\" çift tırnak demektir.)</td>
+</tr>
+</tbody>
+</table>
+<p>String'ler <strong>byte array</strong>'lerden oluşur yani elemanları <strong>byte</strong> cinsinden
+dizidir aslında.</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="mi">65</span>
+<span class="nb">puts</span> <span class="n">m</span> <span class="c1"># A</span>
+</code></pre></div>
+<p><code>m</code> boş bir String, diziye eleman ekler gibi (<code>&lt;&lt;</code> <em>diziye eleman ekler, az
+sonra göreceğiz</em>) içine <strong>65</strong> ekledik. Bu <code>A</code> harfinin 10'luk sayı
+sistemindeki <em>ASCII</em> değeridir. Aslında <code>m = "A"</code> yaptık :)</p>
+<p>Eğer <strong>65</strong> in karakter setindeki değeri neydi? dersek <code>put 65.chr</code>
+yaptığımızda bize <code>A</code> döner. <strong>0</strong> ile <strong>255</strong> arası değerlerdir bunlar.</p>
+<p>Daha ilginç bir olay;</p>
+<div class="highlight"><pre><span></span><code><span class="nb">puts</span> <span class="s2">&quot;öz&quot;</span> <span class="s2">&quot;yıl&quot;</span> <span class="s2">&quot;maz&quot;</span> <span class="s2">&quot;el&quot;</span> <span class="c1"># özyılmazel</span>
+</code></pre></div>
+<p>yani <code>"tekst" "tekst" "tekst"</code> şekinde bir kullanım mevcuttur.</p>
+<h1 id="string-literals-string-kalplar">String Literals (String Kalıpları)</h1>
+<p>Ruby'de, yine diğer dillerde olmayan ilginç bir özellik. <code>%</code> işareti ve
+sonrasında gelen bazı karakterler yardımıyla enteresan şeyler yapmak mümkün:</p>
+<h2 id="_1"><code>%</code></h2>
+<p>Süslü parantezler arasında kalan her şey <strong>concat</strong> (<em>yani toplanarak</em>) edilir
+ve <strong>String</strong> olarak çıktı verir ve tırnakları <strong>escape</strong> eder.</p>
+<div class="highlight"><pre><span></span><code><span class="sx">%{Merhaba Dünya Ben vigo nasılsınız?}</span> <span class="c1"># =&gt; &quot;Merhaba Dünya Ben vigo nasılsınız?&quot;</span>
+
+<span class="sx">%{Bu işlemlerin %80&#39;i &quot;uydurma&quot;}</span> <span class="c1"># =&gt; &quot;Bu işlemlerin %80&#39;i \&quot;uydurma\&quot;&quot;</span>
+</code></pre></div>
+<p>aynı işi; <code>%|Merhaba Dünya Ben vigo nasılsınız?|</code> süslü parantez yerine
+<strong>pipe</strong> <code>|</code> kullanarak da yapabilirsiniz!</p>
+<h2 id="w"><code>%w</code></h2>
+<p>Hızlıca <strong>Array</strong> üretmeyi sağlar:</p>
+<div class="highlight"><pre><span></span><code><span class="sx">%w{foo bar baz}</span>       <span class="c1"># =&gt; [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;]</span>
+<span class="sx">%w{foo bar baz}</span><span class="o">.</span><span class="n">class</span> <span class="c1"># =&gt; Array</span>
+</code></pre></div>
+<h2 id="i"><code>%i</code></h2>
+<p>İçinde <strong>Symbol</strong> olan <strong>Array</strong> üretir:</p>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">i</span><span class="p">{</span><span class="n">foo</span> <span class="n">bar</span> <span class="n">baz</span><span class="p">}</span> <span class="c1"># =&gt; [:foo, :bar, :baz]</span>
+</code></pre></div>
+<h2 id="q-ve-q"><code>%q</code> ve <code>%Q</code></h2>
+<p><code>q</code> tek tırnak, <code>Q</code> çift tırnakla sarmalamış gibi yapar:</p>
+<div class="highlight"><pre><span></span><code><span class="n">person</span> <span class="o">=</span> <span class="s2">&quot;Uğur&quot;</span>
+<span class="sx">%q{Merhaba #{person}}</span> <span class="c1"># =&gt; &quot;Merhaba \#{person}&quot;</span>
+<span class="sx">%Q{Merhaba </span><span class="si">#{</span><span class="n">person</span><span class="si">}</span><span class="sx">}</span> <span class="c1"># =&gt; &quot;Merhaba Uğur&quot;</span>
+</code></pre></div>
+<h2 id="s"><code>%s</code></h2>
+<p><strong>Symbol</strong>'e çevirir:</p>
+<div class="highlight"><pre><span></span><code><span class="sx">%s{my_variable}</span> <span class="c1"># =&gt; :my_variable</span>
+<span class="sx">%s{email}</span> <span class="c1"># =&gt; :email</span>
+</code></pre></div>
+<h2 id="r"><code>%r</code></h2>
+<p><strong>Regular Expression</strong>'a çevirir:</p>
+<div class="highlight"><pre><span></span><code><span class="sr">%r{(.*)hello}i</span> <span class="c1"># =&gt; /(.*)hello/i</span>
+</code></pre></div>
+<h2 id="x"><code>%x</code></h2>
+<p>Ruby'de <strong>back tick</strong> kullanarak <strong>shell</strong> komutu çalıştırabilirsiniz. Yani
+Linux ve Mac kullanan okuyucular <strong>Terminal</strong> ile haşır-neşir olmuşlardır.
+Örneğin, bulunduğunuz dizindeki dosya listesini almak için <code>ls</code> komutunu
+kullanırsınız. Örneğin kendi <strong>home</strong> dizinimde <code>ls</code> yaptığımda (<em>OSX
+kullanıyorum</em>)</p>
+<div class="highlight"><pre><span></span><code>$ ls -1 <span class="c1"># alt alta listemelek için</span>
+Applications
+Desktop
+Development
+Documents
+Dotfiles
+Downloads
+Library
+VirtualBox VMs
+Works
+bin
+</code></pre></div>
+<p>gibi bir liste alıyorum. Yapacağım bir Ruby uygulamasında;</p>
+<div class="highlight"><pre><span></span><code><span class="sx">%x{ls -1 $HOME}</span> <span class="c1"># =&gt; &quot;Applications\nDesktop\nDevelopment\nDocuments\nDotfiles\nDownloads\nLibrary\nVirtualBox VMs\nWorks\nbin\n&quot;</span>
+</code></pre></div>
+<p>Tüm liste tek bir String olarak geldi ve <code>\n</code> karakteri ile birleşti çünki
+sonuç alt alta satır satır geldi. Eğer;</p>
+<div class="highlight"><pre><span></span><code><span class="sx">%x{ls -1 $HOME}</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>deseydim sonuç bana dizi olarak gelecekti!</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># [&quot;Applications&quot;, &quot;Desktop&quot;, &quot;Development&quot;, &quot;Documents&quot;, &quot;Dotfiles&quot;, &quot;Downloads&quot;, &quot;Library&quot;, &quot;VirtualBox VMs&quot;, &quot;Works&quot;, &quot;bin&quot;]</span>
+
+<span class="sx">%x{ruby --copyright}</span> <span class="c1"># =&gt; &quot;ruby - Copyright (C) 1993-2014 Yukihiro Matsumoto\n&quot;</span>
+</code></pre></div>
+<h1 id="here-document-kullanm">Here Document Kullanımı</h1>
+<p>Uzun metin kullanımlarında çok işe yarar:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mesaj</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="dl">END</span>
+<span class="sh">Merhaba nasılsınız?</span>
+<span class="sh">Biz de çok iyiyiz</span>
+<span class="sh">Görüşürüz!</span>
+<span class="dl">END</span>
+<span class="nb">puts</span> <span class="n">mesaj</span>
+
+<span class="c1"># Merhaba nasılsınız?</span>
+<span class="c1"># Biz de çok iyiyiz</span>
+<span class="c1"># Görüşürüz!</span>
+</code></pre></div>
+<p>Bu örnekte <code>mesaj = &lt;&lt;END</code> ile <code>END</code> kelimesini görene kadar içinde ne varsa
+kullan diyoruz! Daha da çılgın bir kullanım şekli;</p>
+<div class="highlight"><pre><span></span><code><span class="n">mesaj</span> <span class="o">=</span> <span class="o">[&lt;&lt;</span><span class="dl">BİR</span><span class="p">,</span> <span class="o">&lt;&lt;</span><span class="err">İ</span><span class="no">Kİ</span><span class="p">,</span> <span class="o">&lt;&lt;</span><span class="err">ÜÇ</span><span class="o">]</span>
+<span class="sh">  Bu Bir</span>
+<span class="dl">BİR</span>
+  <span class="no">Bu</span> <span class="n">iki</span><span class="o">....</span>
+<span class="err">İ</span><span class="no">Kİ</span>
+  <span class="no">Bu</span> <span class="n">da</span> <span class="err">üüüüüüüüç</span>
+<span class="err">ÜÇ</span>
+
+<span class="nb">puts</span> <span class="n">mesaj</span>
+
+<span class="c1"># - Bu Bir</span>
+<span class="c1"># - Bu iki....</span>
+<span class="c1"># - Bu da üüüüüüüüç</span>
+</code></pre></div>
+<h2 id="string-methodlar">String Method'ları</h2>
+<h3 id="string-arguman-yeni-string">String % argüman -&gt; yeni String</h3>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Merhaba %s&quot;</span> <span class="o">%</span> <span class="s2">&quot;Uğur&quot;</span> <span class="c1"># =&gt; &quot;Merhaba Uğur&quot;</span>
+<span class="s2">&quot;Sayı: %010d&quot;</span> <span class="o">%</span> <span class="mi">2014</span>  <span class="c1"># =&gt; &quot;Sayı: 0000002014&quot;</span>
+<span class="s2">&quot;Kullanıcı Adı: %s, E-Posta: %s&quot;</span> <span class="o">%</span> <span class="o">[</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="s2">&quot;vigo@foo.com&quot;</span> <span class="o">]</span> <span class="c1"># =&gt; &quot;Kullanıcı Adı: vigo, E-Posta: vigo@foo.com&quot;</span>
+<span class="s2">&quot;Merhaba %{username}!&quot;</span> <span class="o">%</span> <span class="p">{</span> <span class="ss">:username</span> <span class="o">=&gt;</span> <span class="s1">&#39;vigo&#39;</span> <span class="p">}</span> <span class="c1"># =&gt; &quot;Merhaba vigo!&quot;</span>
+</code></pre></div>
+<p>Keza bu method, <code>printf</code>, <code>sprintf</code> gibi, <strong>String Format</strong> mantığında
+çalışır. <code>"Sayı: %010d" % 2014</code> örneğinde <code>%010d</code> aslında <strong>10</strong> basamaklı,
+<strong>0</strong> ile pad edilmiş şekilde göster anlamındadır. <strong>2014</strong> 4 basamaklıdır,
+solunda <strong>6</strong> tane sıfır gelmiştir.</p>
+<h3 id="string-say-yeni-string">String * sayı -&gt; yeni String</h3>
+<p>String ile sayıyı çarpmak mümkün!</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Merhaba!&quot;</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># =&gt; &quot;Merhaba!Merhaba!Merhaba!&quot;</span>
+<span class="s2">&quot;Merhaba!&quot;</span> <span class="o">*</span> <span class="mi">0</span> <span class="c1"># =&gt; &quot;&quot;</span>
+</code></pre></div>
+<h3 id="string-string-yeni-string">String + String -&gt; yeni String</h3>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Merhaba&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="s2">&quot;Dünya&quot;</span> <span class="c1"># =&gt; &quot;Merhaba Dünya&quot;</span>
+</code></pre></div>
+<h3 id="string-say-string-string-nesne-string">String &lt;&lt; sayı -&gt; String / String &lt;&lt; nesne -&gt; String</h3>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;Merhaba&quot;</span>
+<span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; dünya&quot;</span> <span class="c1"># =&gt; &quot;Merhaba dünya&quot;</span>
+<span class="n">a</span> <span class="c1"># =&gt; &quot;Merhaba dünya&quot;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Merhaba dünya!&quot;</span>
+<span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">33</span> <span class="c1"># =&gt; &quot;Merhaba dünya!!&quot;</span>
+</code></pre></div>
+<h3 id="string-baska-string-1-0-1-ya-da-nil">String &lt;=&gt; başka string → -1, 0, +1 ya da nil</h3>
+<p><code>&lt;=&gt;</code> Ruby dünyasında <strong>Spaceship</strong> operatörü olarak geçer. Aynı cins
+nesneleri karşılaştırmak için kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;vigo&quot;</span> <span class="o">&lt;=&gt;</span> <span class="s2">&quot;vigo&quot;</span>    <span class="c1"># =&gt; 0   # eşit</span>
+<span class="s2">&quot;vigo&quot;</span> <span class="o">&lt;=&gt;</span> <span class="s2">&quot;vig&quot;</span>     <span class="c1"># =&gt; 1   # vigo büyük</span>
+<span class="s2">&quot;vigo&quot;</span> <span class="o">&lt;=&gt;</span> <span class="s2">&quot;vigoo&quot;</span>   <span class="c1"># =&gt; -1  # vigo küçük</span>
+<span class="s2">&quot;vigo&quot;</span> <span class="o">&lt;=&gt;</span> <span class="mi">3</span>         <span class="c1"># =&gt; nil # alakasız iki şey</span>
+</code></pre></div>
+<p><code>casecmp</code> ile aynı işi yapar</p>
+<h3 id="string-nesne-fixnum-ya-da-nil">String =~ Nesne -&gt; Fixnum ya da nil</h3>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Saat tam 4&#39;de buluşalım&quot;</span> <span class="o">=~</span> <span class="sr">/\d/</span> <span class="c1"># =&gt; 9</span>
+
+<span class="c1"># \d sayı yakaladı ve indeksi döndü</span>
+
+<span class="s2">&quot;Saat tam 4&#39;de buluşalım&quot;</span><span class="o">[</span><span class="mi">9</span><span class="o">]</span> <span class="c1"># =&gt; &quot;4&quot;</span>
+</code></pre></div>
+<h3 id="string-icinde-hareket">String içinde hareket</h3>
+<p>String aslında karakterlerden oluşan bir dizi olduğu için aşağıdaki gibi
+atraksiyonlar yapmak mümkün.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">String</span><span class="o">[</span><span class="n">indeks</span><span class="o">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">yeni</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">ya</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">nil</span><span class="w"></span>
+<span class="n">String</span><span class="o">[</span><span class="n">başlangıç, uzunluk</span><span class="o">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">yeni</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">ya</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">nil</span><span class="w"></span>
+<span class="n">String</span><span class="o">[</span><span class="n">range</span><span class="o">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">yeni</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">ya</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">nil</span><span class="w"></span>
+<span class="n">String</span><span class="o">[</span><span class="n">regexp</span><span class="o">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">yeni</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">ya</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">nil</span><span class="w"></span>
+<span class="n">String</span><span class="o">[</span><span class="n">regexp, yakalan</span><span class="o">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">yeni</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">ya</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">nil</span><span class="w"></span>
+<span class="n">String</span><span class="o">[</span><span class="n">metinni_bul</span><span class="o">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">yeni</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">ya</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">nil</span><span class="w"></span>
+</code></pre></div>
+
+<p>örnek olarak;</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="s2">&quot;Merhaba Dünya&quot;</span>
+<span class="n">m</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>         <span class="c1"># =&gt; &quot;M&quot;  # 0.karakter</span>
+<span class="n">m</span><span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>      <span class="c1"># =&gt; &quot;Me&quot; # 0&#39;dan itibaren 2 karakter</span>
+<span class="n">m</span><span class="o">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">4</span><span class="o">]</span>      <span class="c1"># =&gt; &quot;Merha&quot; # range, 0&#39;dan 4 dahil</span>
+<span class="n">m</span><span class="o">[-</span><span class="mi">1</span><span class="p">,</span><span class="o">]</span>       <span class="c1"># =&gt; &quot;a&quot; # son karakter</span>
+<span class="n">m</span><span class="o">[-</span><span class="mi">13</span><span class="o">..-</span><span class="mi">1</span><span class="o">]</span>   <span class="c1"># =&gt; &quot;Merhaba Dünya&quot; # sondan başa</span>
+<span class="n">m</span><span class="o">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span>     <span class="c1"># =&gt; nil # olmayan indeks</span>
+<span class="n">m</span><span class="o">[</span><span class="sr">/(?&lt;sesli&gt;[aeiou])/</span><span class="p">,</span> <span class="s2">&quot;sesli&quot;</span><span class="o">]</span> <span class="c1"># =&gt; &quot;e&quot; # regexp</span>
+<span class="n">m</span><span class="o">[</span><span class="s2">&quot;Merhaba&quot;</span><span class="o">]</span> <span class="c1"># =&gt; &quot;Merhaba&quot; # metni bul</span>
+<span class="n">m</span><span class="o">[</span><span class="s2">&quot;vigo&quot;</span><span class="o">]</span> <span class="c1"># =&gt; nil # olmayan metin</span>
+</code></pre></div>
+<p>aynı işi <code>slice</code> ile de yapabilirsiniz.</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="s2">&quot;merhaba&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># =&gt; &quot;rhaba&quot;</span>
+</code></pre></div>
+<p>gibi...</p>
+<h3 id="yardmc-methodlar">Yardımcı Methodlar</h3>
+<p>Sıkça kullanılanlar arasında; <code>capitalize</code>, <code>center</code>, <code>chars</code>, <code>chomp</code>,
+<code>chop</code>, <code>clear</code>, <code>count</code>, <code>size</code>, <code>length</code>, <code>delete</code>, <code>ljust</code>, <code>rjust</code>,
+<code>reverse</code>, <code>upcase</code>, <code>downcase</code>, <code>swapcase</code>, <code>reverse</code>, <code>index</code>, <code>hex</code>,
+<code>rindex</code>, <code>insert</code> gibi methodlar'dan örnekler ekledim. Her zaman olduğu gibi,
+hangi method'ların olduğunu görmek için;</p>
+<div class="highlight"><pre><span></span><code><span class="nb">String</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">methods</span> <span class="c1"># =&gt; [:&lt;=&gt;, :==, :===, :eql?, :hash, :casecmp, :+, :*, :%, :[], :[]=, :insert, :length, :size, :bytesize, :empty?, :=~, :match, :succ, :succ!, :next, :next!, :upto, :index, :rindex, :replace, :clear, :chr, :getbyte, :setbyte, :byteslice, :scrub, :scrub!, :freeze, :to_i, :to_f, :to_s, :to_str, :inspect, :dump, :upcase, :downcase, :capitalize, :swapcase, :upcase!, :downcase!, :capitalize!, :swapcase!, :hex, :oct, :split, :lines, :bytes, :chars, :codepoints, :reverse, :reverse!, :concat, :&lt;&lt;, :prepend, :crypt, :intern, :to_sym, :ord, :include?, :start_with?, :end_with?, :scan, :ljust, :rjust, :center, :sub, :gsub, :chop, :chomp, :strip, :lstrip, :rstrip, :sub!, :gsub!, :chop!, :chomp!, :strip!, :lstrip!, :rstrip!, :tr, :tr_s, :delete, :squeeze, :count, :tr!, :tr_s!, :delete!, :squeeze!, :each_line, :each_byte, :each_char, :each_codepoint, :sum, :slice, :slice!, :partition, :rpartition, :encoding, :force_encoding, :b, :valid_encoding?, :ascii_only?, :unpack, :encode, :encode!, :to_r, :to_c, :&gt;, :&gt;=, :&lt;, :&lt;=, :between?, :nil?, :!~, :class, :singleton_class, :clone, :dup, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :frozen?, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :extend, :display, :method, :public_method, :singleton_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]</span>
+</code></pre></div>
+<p>kullanabiliriz!</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="s2">&quot;merhaba&quot;</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">capitalize</span> <span class="c1"># =&gt; &quot;Merhaba&quot;</span>
+<span class="n">m</span> <span class="c1"># =&gt; &quot;merhaba&quot;</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">capitalize!</span> <span class="c1"># =&gt; &quot;Merhaba&quot; # m&#39;in değeri artık değişti!</span>
+<span class="n">m</span> <span class="c1"># =&gt; &quot;Merhaba&quot;</span>
+
+<span class="s2">&quot;vigo&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># =&gt; &quot;    vigo    &quot;</span>
+<span class="s2">&quot;vigo&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;****vigo****&quot;</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">chars</span> <span class="c1"># =&gt; [&quot;m&quot;, &quot;e&quot;, &quot;r&quot;, &quot;h&quot;, &quot;a&quot;, &quot;b&quot;, &quot;a&quot;]</span>
+
+<span class="s2">&quot;merhaba</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">chomp</span> <span class="c1"># =&gt; &quot;merhaba&quot;</span>
+<span class="s2">&quot;merhaba dünya&quot;</span><span class="o">.</span><span class="n">chomp</span><span class="p">(</span><span class="s2">&quot; dünya&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;merhaba&quot;</span>
+
+<span class="s2">&quot;merhaba vigo&quot;</span><span class="o">.</span><span class="n">chop</span> <span class="c1"># =&gt; &quot;merhaba vig&quot;</span>
+<span class="s2">&quot;merhaba vigo</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">chomp</span> <span class="c1"># =&gt; &quot;merhaba vigo&quot;</span>
+
+<span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">chr</span> <span class="c1"># =&gt; &quot;a&quot;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Merhaba&quot;</span>
+<span class="n">x</span><span class="o">.</span><span class="n">clear</span> <span class="c1"># =&gt; &quot;&quot;</span>
+
+<span class="s2">&quot;Merhaba Dünya&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 3  # 3 adet a</span>
+<span class="s2">&quot;Merhaba Dünya&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 4 # a ve b toplam 4 tane</span>
+<span class="s2">&quot;Merhaba Dünya&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 1  # e&#39;den 1 tane</span>
+
+<span class="s2">&quot;Merhaba Dünya&quot;</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Mrhaba Dünya&quot;</span>
+<span class="s2">&quot;Merhaba Dünya&quot;</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ba&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Merhb Düny&quot;</span>
+
+<span class="s2">&quot;MERHABA&quot;</span><span class="o">.</span><span class="n">downcase</span> <span class="c1"># =&gt; &quot;merhaba&quot;</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">upcase</span> <span class="c1"># =&gt; &quot;MERHABA&quot;</span>
+<span class="s2">&quot;Merhaba&quot;</span><span class="o">.</span><span class="n">swapcase</span> <span class="c1"># =&gt; &quot;mERHABA&quot;</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">size</span> <span class="c1"># =&gt; 7</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">length</span> <span class="c1"># =&gt; 7</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>      <span class="c1"># =&gt; &quot;merhaba             &quot;</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;merhaba*************&quot;</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>      <span class="c1"># =&gt; &quot;             merhaba&quot;</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;*************merhaba&quot;</span>
+
+<span class="s2">&quot;   merhaba  &quot;</span><span class="o">.</span><span class="n">strip</span>  <span class="c1"># =&gt; &quot;merhaba&quot;</span>
+<span class="s2">&quot;  merhaba&quot;</span><span class="o">.</span><span class="n">lstrip</span>    <span class="c1"># =&gt; &quot;merhaba&quot;</span>
+<span class="s2">&quot;merhaba  &quot;</span><span class="o">.</span><span class="n">rstrip</span>    <span class="c1"># =&gt; &quot;merhaba&quot;</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 0</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;ba&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 5</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 0</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 3</span>
+
+<span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">next</span>     <span class="c1"># =&gt; &quot;b&quot;</span>
+<span class="s2">&quot;abcd&quot;</span><span class="o">.</span><span class="n">next</span>  <span class="c1"># =&gt; &quot;abce&quot; # d&#39;den sonra e geldi...</span>
+<span class="s2">&quot;b&quot;</span><span class="o">.</span><span class="n">succ</span>     <span class="c1"># =&gt; &quot;c&quot;</span>
+
+<span class="c1"># baş, ayraç, son</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;me&quot;, &quot;r&quot;, &quot;haba&quot;]</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;merh&quot;, &quot;a&quot;, &quot;ba&quot;]</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;&quot;, &quot;&quot;, &quot;merhaba&quot;]</span>
+
+<span class="s2">&quot;merhaba dünya&quot;</span><span class="o">.</span><span class="n">reverse</span> <span class="c1"># =&gt; &quot;aynüd abahrem&quot;</span>
+
+<span class="s2">&quot;hey seeeeeeeeeeeeeeen! aloooooooo&quot;</span><span class="o">.</span><span class="n">squeeze</span> <span class="c1"># =&gt; &quot;hey sen! alo&quot;</span>
+
+<span class="s2">&quot;Merhaba&quot;</span><span class="o">.</span><span class="n">dump</span> <span class="c1"># =&gt; &quot;\&quot;Merhaba\&quot;&quot;</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">getbyte</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># =&gt; 109 # m&#39;in ascii değeri</span>
+
+<span class="s2">&quot;0x0f&quot;</span><span class="o">.</span><span class="n">hex</span> <span class="c1"># =&gt; 15</span>
+<span class="s2">&quot;0x0fff&quot;</span><span class="o">.</span><span class="n">hex</span> <span class="c1"># =&gt; 4095</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Xmerhaba&quot;</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;merAhaba&quot;</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;merhaba.&quot;</span>
+
+<span class="s2">&quot;123&quot;</span><span class="o">.</span><span class="n">oct</span> <span class="c1"># =&gt; 83 # Octal&#39;e çevirdi (8&#39;lik)</span>
+
+<span class="s2">&quot;A&quot;</span><span class="o">.</span><span class="n">ord</span> <span class="c1"># =&gt; 65  # Ascii değeri</span>
+<span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">ord</span> <span class="c1"># =&gt; 97 # Ascii değeri</span>
+
+<span class="s2">&quot;dünya&quot;</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="s2">&quot;Merhaba &quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Merhaba dünya&quot; # öne ekledi</span>
+
+<span class="c1"># transform</span>
+<span class="s2">&quot;merhaba hello&quot;</span><span class="o">.</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;el&quot;</span><span class="p">,</span> <span class="s2">&quot;ip&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;mirhaba hippo&quot; # e=&gt;i, l =&gt; p oldu</span>
+<span class="s2">&quot;ArkAdAşlar nasılsınız?&quot;</span><span class="o">.</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;arkadaşlar nasılsınız?&quot;</span>
+
+<span class="c1"># a&#39;dan e&#39;y kadar X ile transform yap</span>
+<span class="s2">&quot;merhaba dünya&quot;</span><span class="o">.</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;a-e&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;mXrhXXX XünyX&quot;</span>
+</code></pre></div>
+<h3 id="convert-methodlar">Convert Method'ları</h3>
+<p>Tip değiştirmek için kullanılır. <code>to_i</code>, <code>to_f</code>, <code>to_s</code>, <code>to_str</code>, <code>to_sym</code>,
+<code>to_r</code>, <code>to_c</code>, <code>to_enum</code> method'larına bakalım:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">to_i</span>   <span class="c1"># =&gt; 0 # integer&#39;a çevirdi</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">to_f</span>   <span class="c1"># =&gt; 0.0 # float&#39;a çevirdi</span>
+<span class="s2">&quot;5&quot;</span><span class="o">.</span><span class="n">to_i</span>          <span class="c1"># =&gt; 5</span>
+<span class="s2">&quot;1.5&quot;</span><span class="o">.</span><span class="n">to_f</span>        <span class="c1"># =&gt; 1.5</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">to_s</span>    <span class="c1"># =&gt; &quot;merhaba&quot; # string</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">to_str</span>  <span class="c1"># =&gt; &quot;merhaba&quot; # string</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">to_sym</span>  <span class="c1"># =&gt; :merhaba # symbol</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">to_r</span>    <span class="c1"># =&gt; (0/1) # Rasyonel sayı</span>
+<span class="s2">&quot;0.2&quot;</span><span class="o">.</span><span class="n">to_r</span>        <span class="c1"># =&gt; (1/5) # Rasyonel sayı</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">to_c</span>    <span class="c1"># =&gt; (0+0i) # Kompleks sayı</span>
+<span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">to_c</span>       <span class="c1"># =&gt; (1234+0i)</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">to_enum</span> <span class="c1"># =&gt; #&lt;Enumerator: &quot;merhaba&quot;:each&gt; # Enumeratör&#39;e çevirdi</span>
+</code></pre></div>
+<h3 id="kontrol-methodlar">Kontrol Method'ları</h3>
+<p>Method adı <code>?</code> ilen bitiyor demek, bir kontrol olduğu ve sonucun <strong>Boolean</strong>
+yanı <code>true</code> ya da <code>false</code> döndüğü anlamında olduğunu söylemiştik.</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s2">&quot;mer&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;haba&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;zoo&quot;</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">eql?</span><span class="p">(</span><span class="s2">&quot;Merhaba&quot;</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">eql?</span><span class="p">(</span><span class="s2">&quot;merhaba&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+
+<span class="s2">&quot;merhaba dünya&quot;</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="s2">&quot;dünya&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">empty?</span> <span class="c1"># =&gt; false</span>
+<span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">empty?</span> <span class="c1"># =&gt; true</span>
+
+<span class="s2">&quot;kedi&quot;</span><span class="o">.</span><span class="n">between?</span><span class="p">(</span><span class="s2">&quot;at&quot;</span><span class="p">,</span> <span class="s2">&quot;balık&quot;</span><span class="p">)</span> <span class="c1"># =&gt; false # başlangıç harfi a ve b arasındamı? gibi düşünün</span>
+<span class="s2">&quot;kedi&quot;</span><span class="o">.</span><span class="n">between?</span><span class="p">(</span><span class="s2">&quot;fare&quot;</span><span class="p">,</span> <span class="s2">&quot;sinek&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<h3 id="array-ve-block-ile-iliskili-methodlar">Array ve Block ile İlişkili Methodlar</h3>
+<p><strong>split</strong>
+Metni parçalara böler, varsayılan <strong>delimiter</strong> (<em>ayırıcı</em>) boşuk karakteridir.</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Selam millet nasıl sınız?&quot;</span><span class="o">.</span><span class="n">split</span> <span class="c1"># =&gt; [&quot;Selam&quot;, &quot;millet&quot;, &quot;nasıl&quot;, &quot;sınız?&quot;]</span>
+<span class="s2">&quot;Selam millet-nasıl sınız?&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;Selam millet&quot;, &quot;nasıl sınız?&quot;]</span>
+<span class="s2">&quot;A takımı: 65 B takımı: 120&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ +\d+ ?/</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;A takımı:&quot;, &quot;B takımı:&quot;]</span>
+<span class="s2">&quot;1,2,3,4,5&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]</span>
+</code></pre></div>
+<p><strong>each_byte</strong></p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">each_byte</span> <span class="p">{</span><span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">c</span> <span class="p">}</span>
+
+<span class="c1"># 109 (m)</span>
+<span class="c1"># 101 (e)</span>
+<span class="c1"># 114 (r)</span>
+<span class="c1"># 104 (h)</span>
+<span class="c1"># 97  (a)</span>
+<span class="c1"># 98  (b)</span>
+<span class="c1"># 97  (a)</span>
+</code></pre></div>
+<p><strong>each_char</strong></p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">each_char</span> <span class="p">{</span><span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">c</span> <span class="p">}</span>
+
+<span class="c1"># m</span>
+<span class="c1"># e</span>
+<span class="c1"># r</span>
+<span class="c1"># h</span>
+<span class="c1"># a</span>
+<span class="c1"># b</span>
+<span class="c1"># a</span>
+</code></pre></div>
+<p><strong>each_line</strong></p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Merhaba</span><span class="se">\n</span><span class="s2">Dünya</span><span class="se">\n</span><span class="s2">Nasıl sın?&quot;</span><span class="o">.</span><span class="n">each_line</span> <span class="p">{</span><span class="o">|</span><span class="n">l</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">l</span> <span class="p">}</span>
+
+<span class="c1"># Merhaba</span>
+<span class="c1"># Dünya</span>
+<span class="c1"># Nasıl sın?</span>
+
+<span class="s2">&quot;Merhaba@@Dünya@@Nasıl sın?&quot;</span><span class="o">.</span><span class="n">each_line</span><span class="p">(</span><span class="s2">&quot;@@&quot;</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">l</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">l</span> <span class="p">}</span>
+<span class="c1"># Merhaba@@</span>
+<span class="c1"># Dünya@@</span>
+<span class="c1"># Nasıl sın?</span>
+</code></pre></div>
+<p><strong>upto</strong></p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;a1&quot;</span><span class="o">.</span><span class="n">upto</span><span class="p">(</span><span class="s2">&quot;b1&quot;</span><span class="p">){</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">t</span> <span class="p">}</span>
+
+<span class="c1"># a1</span>
+<span class="c1"># a2</span>
+<span class="c1"># a3</span>
+<span class="c1"># a4</span>
+<span class="c1"># a5</span>
+<span class="c1"># a6</span>
+<span class="c1"># a7</span>
+<span class="c1"># a8</span>
+<span class="c1"># a9</span>
+<span class="c1"># b0</span>
+<span class="c1"># b1</span>
+</code></pre></div>
+<h3 id="pattern-yakalama-regexp">Pattern Yakalama (Regexp)</h3>
+<p>Daha kapsamlı olarak <strong>6.Bölüm</strong>'de de değineceğimiz <strong>Regular Expression</strong>
+konusu, String'lerle çok ilişkili. Hemen ilgili method'lara bakalım</p>
+<p><strong>gsub</strong> ve <strong>sub</strong></p>
+<p><code>sub</code> ile <code>gsub</code> arasındaki fark, <code>sub</code> ilk bulduğunu işler, <code>gsub</code> <strong>Global</strong>
+anlamındadır.</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;merhaba dünya, merhaba uzay&quot;</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;merhaba&quot;</span><span class="p">,</span> <span class="s2">&quot;olaa&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;olaa dünya, merhaba uzay&quot;</span>
+<span class="s2">&quot;merhaba dünya, merhaba uzay&quot;</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&quot;merhaba&quot;</span><span class="p">,</span> <span class="s2">&quot;olaa&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;olaa dünya, olaa uzay&quot;</span>
+
+
+<span class="s2">&quot;Merhaba Dünya&quot;</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[aeiou]/</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Mxrhxbx Dünyx&quot;</span>
+<span class="s2">&quot;Merhaba Dünya&quot;</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/([aeiou])/</span><span class="p">,</span> <span class="s1">&#39;(</span><span class="se">\1</span><span class="s1">)&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;M(e)rh(a)b(a) Düny(a)&quot;</span>
+<span class="s2">&quot;Merhaba dünya, merhaba uzay, merhaba evren&quot;</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/((m|M)erhaba)/</span><span class="p">){</span><span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="n">c</span><span class="o">.</span><span class="n">upcase</span> <span class="p">}</span> <span class="c1"># =&gt; &quot;MERHABA dünya, MERHABA uzay, MERHABA evren&quot;</span>
+<span class="s2">&quot;Merhaba Dünya&quot;</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/(?&lt;sesli_harf&gt;[aeiou])/</span><span class="p">,</span> <span class="s1">&#39;{\k&lt;sesli_harf&gt;}&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;M{e}rh{a}b{a} Düny{a}&quot;</span>
+<span class="s2">&quot;Merhaba Dünya&quot;</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[ea]/</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;M1rhXbX DünyX&quot;</span>
+</code></pre></div>
+<p><strong>match</strong></p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="c1"># =&gt; #&lt;MatchData &quot;a&quot;&gt;</span>
+
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;(a)&quot;</span><span class="p">)</span> <span class="c1"># =&gt; #&lt;MatchData &quot;a&quot; 1:&quot;a&quot;&gt; # 1 tane yakaladı, (a) ve Array geldi</span>
+<span class="s2">&quot;merhaba&quot;</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;(a)&quot;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="c1"># =&gt; &quot;a&quot; # yakalanan</span>
+
+<span class="s2">&quot;merhaba 2014&quot;</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/\d/</span><span class="p">)</span> <span class="c1"># =&gt; #&lt;MatchData &quot;2&quot;&gt;</span>
+
+<span class="s2">&quot;merhaba 2014&quot;</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/(\d)/</span><span class="p">)</span> <span class="c1"># =&gt; #&lt;MatchData &quot;2&quot; 1:&quot;2&quot;&gt;</span>
+<span class="s2">&quot;merhaba 2014&quot;</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/(\d+)/</span><span class="p">)</span> <span class="c1"># =&gt; #&lt;MatchData &quot;2014&quot; 1:&quot;2014&quot;&gt;</span>
+<span class="s2">&quot;merhaba 2014&quot;</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/(\d+)/</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="c1"># =&gt; &quot;2014&quot;</span>
+<span class="s2">&quot;merhaba 2014&quot;</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/(\d+)/</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">to_i</span> <span class="c1"># =&gt; 2014</span>
+</code></pre></div>
+<p><strong>scan</strong></p>
+<p><strong>Match</strong> gibi, metin üzerinde bir nevi arama yapıyoruz:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Merhaba millet!&quot;</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="sr">/\w+/</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;Merhaba&quot;, &quot;millet&quot;]</span>
+<span class="s2">&quot;Merhaba millet!&quot;</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="sr">/./</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;M&quot;, &quot;e&quot;, &quot;r&quot;, &quot;h&quot;, &quot;a&quot;, &quot;b&quot;, &quot;a&quot;, &quot; &quot;, &quot;m&quot;, &quot;i&quot;, &quot;l&quot;, &quot;l&quot;, &quot;e&quot;, &quot;t&quot;, &quot;!&quot;]</span>
+<span class="s2">&quot;Merhaba millet! Saat 10&#39;da buluşalım&quot;</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="sr">/Saat \d+/</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;Saat 10&quot;]</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../02-number/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Number" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Number
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../04-array/" class="md-footer__link md-footer__link--next" aria-label="Next: Array" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Array
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>

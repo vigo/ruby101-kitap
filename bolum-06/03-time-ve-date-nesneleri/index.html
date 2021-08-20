@@ -1,0 +1,1577 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ruby öğrenmek isteyen herkesin işine yarayacak bir kitap!">
+      
+      
+      
+        <meta name="author" content="Uğur vigo Özyılmazel">
+      
+      
+        <link rel="canonical" href="https://vigo.github.io/ruby101-kitap/bolum-06/03-time-ve-date-nesneleri/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Time ve Date Nesneleri - Ruby 101 Kitabı</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#time-ve-date-nesneleri" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-header__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ruby 101 Kitabı
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Time ve Date Nesneleri
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-nav__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Ruby 101 Kitabı
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cover/" class="md-nav__link">
+        Kapak
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preface/" class="md-nav__link">
+        Önsöz
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-review/" class="md-nav__link">
+        Teknik İncleme
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Bölüm İndeksi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Bölüm 1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/01-tarihce/" class="md-nav__link">
+        Ruby Hakkında
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/02-kurulum/" class="md-nav__link">
+        Kurulum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/03-interaktif-kullanim/" class="md-nav__link">
+        İnteraktif Kullanım
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/04-ruby-komutu-ve-parametreleri/" class="md-nav__link">
+        Ruby Komutu ve Parametreleri
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Bölüm 2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/01-syntax-soz-dizimi-ve-degiskenler/" class="md-nav__link">
+        Syntax, Comments, Rezerve Edilmiş Kelimeler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/02-degiskenler/" class="md-nav__link">
+        Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/03-on-tanimli-degiskenler/" class="md-nav__link">
+        Ön Tanımlı Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/04-operatorler/" class="md-nav__link">
+        Operatörler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/05-global-constants-genel-sabitler/" class="md-nav__link">
+        Genel Sabitler
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Bölüm 3
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/01-methods-fonksiyonlar/" class="md-nav__link">
+        Methods (Fonksiyonlar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/02-blocks-bloklar/" class="md-nav__link">
+        Blocks (Bloklar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/03-proc-ve-lambda/" class="md-nav__link">
+        Proc ve Lambda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/04-conditional-statements-kosullar/" class="md-nav__link">
+        Conditional Statements (Koşullar)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Bölüm 4
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/01-object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/02-number/" class="md-nav__link">
+        Number
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/03-string/" class="md-nav__link">
+        String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/04-array/" class="md-nav__link">
+        Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/05-hash/" class="md-nav__link">
+        Hash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/06-symbol/" class="md-nav__link">
+        Symbol
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/07-class/" class="md-nav__link">
+        Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/08-module/" class="md-nav__link">
+        Module
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Bölüm 5
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 5" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/01-enumeration-ve-iteration/" class="md-nav__link">
+        Enumeration ve Iteration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/02-ranges/" class="md-nav__link">
+        Ranges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/03-file-system-ve-io-dosya-sistemi/" class="md-nav__link">
+        File System ve IO (Dosya Sistemi)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/04-exception-handling/" class="md-nav__link">
+        Exception Handling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/05-kernel-modulu/" class="md-nav__link">
+        Kernel Modülü
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
+      
+      <label class="md-nav__link" for="__nav_10">
+        Bölüm 6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-monkey-patching/" class="md-nav__link">
+        Monkey Patching
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-regular-expressions/" class="md-nav__link">
+        Regular Expressions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Time ve Date Nesneleri
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Time ve Date Nesneleri
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    Time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zaman-formatl-sekilde-gostermek" class="md-nav__link">
+    Zamanı Formatlı Şekilde Göstermek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-ruby-paketleri-ruby_gems/" class="md-nav__link">
+        Ruby Paketleri: RubyGems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-paket-yoneticisi-bundler/" class="md-nav__link">
+        Paket Yöneticisi: Bundler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-komut-satiri-command-line-kullanimi/" class="md-nav__link">
+        Komut Satırı (Command-Line) Kullanımı
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-meta-programming/" class="md-nav__link">
+        Meta Programming
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        Bölüm 7
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 7" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/01-kod-yazma-tarzi-style-guide/" class="md-nav__link">
+        Kod Yazma Tarzı (Style Guide)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        Bölüm 8
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 8" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 8
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/01-neden-ruby/" class="md-nav__link">
+        Neden Ruby?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/02-ruby-ve-tddbddci/" class="md-nav__link">
+        Ruby ve TDD/BDD/CI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/03-kendi-rubygemimizi-yapalim/" class="md-nav__link">
+        Kendi Rubygem'imizi yapalım!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/04-sinatra-ve-web/" class="md-nav__link">
+        Sinatra ve Web
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        Teşekkürler
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    Time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zaman-formatl-sekilde-gostermek" class="md-nav__link">
+    Zamanı Formatlı Şekilde Göstermek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vigo/ruby101-kitap/edit/master/docs/bolum-06/03-time-ve-date-nesneleri.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="time-ve-date-nesneleri">Time ve Date Nesneleri</h1>
+<p>Zaman, tarih ve saat gibi işlemleri yapmak için Ruby ile birlikte gelen <code>Time</code>
+ve <code>Date</code> sınıflarından bahsedeceğim. En basit tanımıyla saatin kaç olduğunu
+ya da <code>now</code> yani <strong>şimdi</strong> / <strong>şu anda</strong> yı bulmak için:</p>
+<h2 id="time">Time</h2>
+<div class="highlight"><pre><span></span><code><span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="c1"># =&gt; 2015-04-28 08:49:20 +0300</span>
+</code></pre></div>
+<p>yapmamız yeterlidir. Saniye bazında ekleme ya da çıkartma yaparak başka
+zamanları da bulabiliriz. <strong>1 saat önceyi</strong> bulmak için <strong>60 saniye * 60
+dakika</strong> yapmamız yeterli.</p>
+<div class="highlight"><pre><span></span><code><span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="p">(</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span> <span class="c1"># =&gt; 2015-04-28 07:51:01 +0300</span>
+</code></pre></div>
+<p>Hemen Ruby’sel bir hareketle ufak bir şey yapalım:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Fixnum</span>
+  <span class="k">def</span> <span class="nf">seconds</span>
+    <span class="nb">self</span>
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">minutes</span>
+    <span class="nb">self</span> <span class="o">*</span> <span class="mi">60</span>
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">hours</span>
+    <span class="nb">self</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span>
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">days</span>
+    <span class="nb">self</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># 10 gün sonrayı bulalım</span>
+<span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="mi">10</span><span class="o">.</span><span class="n">days</span> <span class="c1"># =&gt; 2015-05-08 08:54:02 +0300</span>
+</code></pre></div>
+<p>Saat farkları yüzünden çeşitli <strong>Time Zone</strong>’lar mevcut. An itibariyle (<em>28
+Nisan 2015</em>) yerel zamana baktığımda:</p>
+<div class="highlight"><pre><span></span><code><span class="no">Time</span><span class="o">.</span><span class="n">local</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">54</span><span class="p">)</span> <span class="c1"># =&gt; 2015-04-28 08:54:00 +0300</span>
+</code></pre></div>
+<p>Peki <a href="http://wwp.greenwichmeantime.com/">GMT</a>’ye göre durum ne?</p>
+<div class="highlight"><pre><span></span><code><span class="no">Time</span><span class="o">.</span><span class="n">gm</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">54</span><span class="p">)</span>    <span class="c1"># =&gt; 2015-04-28 08:54:00 UTC</span>
+</code></pre></div>
+<p>Şimdi kendi istediğimiz bir zamanı oluşturalım. Doğduğum yıl ve ayı kullanarak
+bir zaman oluşturup kabaca hangi güne denk geldiğini bulalım. Sadece <strong>YIL</strong>
+ve <strong>AY</strong> kullanıyoruz!</p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1972</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="c1"># =&gt; 1972-08-01 00:00:00 +0300</span>
+<span class="n">t</span><span class="o">.</span><span class="n">monday?</span>  <span class="c1"># =&gt; false</span>
+<span class="n">t</span><span class="o">.</span><span class="n">tuesday?</span> <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p>Ruby bize otomatik olarak ayın birini işaret etti ve 1 Ağustos 1972’nin salı
+gününe denk geldiğini <code>tuesday?</code> method’u ile anladık.</p>
+<p>Tahmin edebileceğiniz gibi, İngilizce olarak, günleri kontrol edebiliyoruz.
+Yani <code>sunday?</code>, <code>monday?</code> ... gibi</p>
+<p>Eğer UNIX’in <code>epoch</code> zaman formatında istersek, yapmamız gereken <code>to_i</code> method’u
+ile integer’a çevirmek:</p>
+<div class="highlight"><pre><span></span><code><span class="no">Time</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1972</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span> <span class="c1"># =&gt; 81464400</span>
+</code></pre></div>
+<p>Eğer elimizde epoch cinsinden bir zaman varsa:</p>
+<div class="highlight"><pre><span></span><code><span class="no">Time</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="mi">81464400</span><span class="p">)</span>      <span class="c1"># =&gt; 1972-08-01 00:00:00 +0300</span>
+<span class="no">Time</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="mi">81464400</span><span class="p">)</span><span class="o">.</span><span class="n">year</span> <span class="c1"># =&gt; 1972</span>
+</code></pre></div>
+<p>şeklinde de kullanabiliriz. Bunlara ek olarak;</p>
+<div class="highlight"><pre><span></span><code><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">zone</span> <span class="c1"># =&gt; &quot;EEST&quot;</span>
+<span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">day</span>  <span class="c1"># =&gt; 29</span>
+<span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">wday</span> <span class="c1"># =&gt; 3      # çarşamba</span>
+<span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">utc?</span> <span class="c1"># =&gt; false</span>
+<span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">gmt?</span> <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p>Zamanlar arasındaki farkı bulmak için de aynı matematik işlemi gibi yaparmış
+gibi davranabilirsiniz.</p>
+<div class="highlight"><pre><span></span><code><span class="n">birth_day</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1972</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>         <span class="c1"># Ağustos 1972</span>
+<span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">to_i</span>  <span class="c1"># =&gt; 1430284388</span>
+<span class="n">birth_day</span><span class="o">.</span><span class="n">to_i</span> <span class="c1"># =&gt; 81464400</span>
+
+<span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">to_i</span> <span class="o">-</span> <span class="n">birth_day</span><span class="o">.</span><span class="n">to_i</span>        <span class="c1"># =&gt; 1348819988 saniye</span>
+<span class="mi">1348819870</span> <span class="o">/</span> <span class="p">(</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span><span class="p">)</span>           <span class="c1"># =&gt; 15611 gün</span>
+<span class="mi">1348819870</span> <span class="o">/</span> <span class="p">(</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>      <span class="c1"># =&gt; 520 ay</span>
+<span class="mi">1348819870</span> <span class="o">/</span> <span class="p">(</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">12</span><span class="p">)</span> <span class="c1"># =&gt; 43 yıl</span>
+</code></pre></div>
+<p>Ayni şekilde karşılaştırma işlemleri de matematik işlemleri gibi. Doğduğum yıl
+ile bugünü karşılaştıralım:</p>
+<div class="highlight"><pre><span></span><code><span class="n">birth_day</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1972</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">now</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+<span class="n">tomorrow</span> <span class="o">=</span> <span class="n">now</span> <span class="o">+</span> <span class="p">(</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span><span class="p">)</span>
+
+<span class="n">now</span><span class="o">.</span><span class="n">to_i</span>                       <span class="c1"># =&gt; 1430284645</span>
+<span class="n">tomorrow</span><span class="o">.</span><span class="n">to_i</span>                  <span class="c1"># =&gt; 1430371045</span>
+<span class="n">birth_day</span><span class="o">.</span><span class="n">to_i</span>                 <span class="c1"># =&gt; 81464400</span>
+
+<span class="n">now</span><span class="o">.</span><span class="n">to_i</span> <span class="o">&gt;</span> <span class="n">birth_day</span><span class="o">.</span><span class="n">to_i</span>      <span class="c1"># =&gt; true      bugün &gt; doğum tarihi</span>
+<span class="n">now</span><span class="o">.</span><span class="n">to_i</span> <span class="o">&gt;</span> <span class="n">tomorrow</span><span class="o">.</span><span class="n">to_i</span>       <span class="c1"># =&gt; false     bugün &lt; yarın</span>
+<span class="n">tomorrow</span><span class="o">.</span><span class="n">to_i</span> <span class="o">&gt;</span> <span class="n">now</span><span class="o">.</span><span class="n">to_i</span>       <span class="c1"># =&gt; true      yarın &gt; bugün</span>
+</code></pre></div>
+<h2 id="zaman-formatl-sekilde-gostermek">Zamanı Formatlı Şekilde Göstermek</h2>
+<p>Tarih bilgisini istediğimiz şekilde format ederek çıktı alabiliriz.</p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Bugün %d %B %Y, %A, saat: %H:%M&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Bugün 01 May 2015, Friday, saat: 12:35&quot;</span>
+</code></pre></div>
+<p>Dikkat ettiyseniz İngilizce olarak çıktıyı aldık. Ne yazık ki Ruby’de
+<strong>locale</strong> kavramı yok. Bu yüzden Türkçe çıktı almak için <code>I18n</code> gem’ini
+kullanmamız gerekiyor.</p>
+<div class="highlight"><pre><span></span><code>$ gem install i18n
+</code></pre></div>
+<p>Daha sonra herhangi bir dizin altında;</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> ~
+$ mkdir i18n-works
+$ <span class="nb">cd</span> i18n-works/
+$ mkdir locales
+$ <span class="nb">cd</span> locales/
+$ curl -O https://raw.githubusercontent.com/svenfuchs/rails-i18n/master/rails/locale/tr.yml
+$ <span class="nb">cd</span> ../..
+$ touch run.rb
+</code></pre></div>
+<p>şimdi <code>run.rb</code> dosyası içine;</p>
+<div class="highlight"><pre><span></span><code><span class="nb">require</span> <span class="err">’</span><span class="n">i18n</span><span class="err">’</span>
+
+<span class="no">I18n</span><span class="o">.</span><span class="n">load_path</span> <span class="o">=</span> <span class="no">Dir</span><span class="o">[</span><span class="err">’</span><span class="o">.</span><span class="n n-Operator">/</span><span class="n">locales</span><span class="o">/*.</span><span class="n">yml</span><span class="err">’</span><span class="o">]</span>
+<span class="no">I18n</span><span class="o">.</span><span class="n">locale</span> <span class="o">=</span> <span class="ss">:tr</span>
+<span class="nb">puts</span> <span class="no">I18n</span><span class="o">.</span><span class="n">locale</span>
+<span class="n">t</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+<span class="nb">puts</span> <span class="no">I18n</span><span class="o">.</span><span class="n">localize</span> <span class="n">t</span><span class="p">,</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="s2">&quot;Bugün %d %B %Y, %A, saat: %H:%M&quot;</span>
+</code></pre></div>
+<p>yaptığımızda çıktı:</p>
+<div class="codehilite"><pre><span></span><code>tr
+Bugün 01 Mayıs 2015, Cuma, saat: 12:55
+</code></pre></div>
+
+<p>şeklinde olacaktır.</p>
+<p>Kullanımda: <code>%&lt;flags&gt;&lt;width&gt;&lt;modifier&gt;&lt;conversion&gt;</code> şeklinde bir yöntem
+bulunmakta.</p>
+<p><strong>Flag’ler</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="o">-</span>  <span class="nv">don</span>’<span class="nv">t</span> <span class="nv">pad</span> <span class="nv">a</span> <span class="nv">numerical</span> <span class="nv">output</span>
+<span class="nv">_</span>  <span class="nv">use</span> <span class="nv">spaces</span> <span class="k">for</span> <span class="nv">padding</span>
+<span class="mi">0</span>  <span class="nv">use</span> <span class="nv">zeros</span> <span class="k">for</span> <span class="nv">padding</span>
+<span class="o">^</span>  <span class="nv">upcase</span> <span class="nv">the</span> <span class="nb">result</span> <span class="nv">string</span>
+#  <span class="nv">change</span> <span class="nv">case</span>
+:  <span class="nv">use</span> <span class="nv">colons</span> <span class="k">for</span> <span class="o">%</span><span class="nv">z</span>
+</code></pre></div>
+
+<p>Hemen örneklerle görelim, ilk olarak <code>-</code>, <code>_</code> ve <code>0</code> kullanımına bakalım:</p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>       <span class="c1"># =&gt; 2015-05-02 11:35:26 +0300</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%d&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; &quot;02&quot;</span>
+
+<span class="c1"># şimdi - ile yapıyoruz</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%-d&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; &quot;2&quot;   # 0’la doldurmadı...</span>
+
+<span class="c1"># şimdi _ ile yapıyoruz</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%_d&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; &quot; 2&quot;  # SPACE karakteri ile doldurdu...</span>
+
+<span class="c1"># şimdi 0 ile yapıyoruz</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%0d&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; &quot; 02&quot; # 0 ile doldurdu...</span>
+</code></pre></div>
+<p>Şimdi <code>^</code>, <code>#</code> ve <code>:</code> flag’lerine bakalım:</p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">)</span>        <span class="c1"># =&gt; &quot;Saturday&quot;</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%^A&quot;</span><span class="p">)</span>       <span class="c1"># =&gt; &quot;SATURDAY&quot; # upcase yaptı</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%#A&quot;</span><span class="p">)</span>       <span class="c1"># =&gt; &quot;SATURDAY&quot; # changecase demek, upcase ise down, downcase ise up yapmak demek.</span>
+                        <span class="c1"># saturday downcase geldi, upcase oldu</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%z&quot;</span><span class="p">)</span>        <span class="c1"># =&gt; &quot;+0300&quot;</span>
+ <span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%:z&quot;</span><span class="p">)</span>      <span class="c1"># =&gt; &quot;+03:00&quot; # : ile ayırdı</span>
+</code></pre></div>
+<p><strong>width</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%d&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; &quot;02&quot;</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%10d&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; &quot;0000000002&quot; # 10 basamak yaptı.</span>
+</code></pre></div>
+<p><strong>Formatlama</strong></p>
+<table>
+<thead>
+<tr>
+<th>İşaret</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%Y</td>
+<td>4 dijitli yıl</td>
+</tr>
+<tr>
+<td>%C</td>
+<td>yıl/100, yüzyıl için</td>
+</tr>
+<tr>
+<td>%y</td>
+<td>yıl mod 100, 2015 için <strong>15</strong> gelir.</td>
+</tr>
+<tr>
+<td>%m</td>
+<td>Yılın ayı. (01..12)</td>
+</tr>
+<tr>
+<td>%B</td>
+<td>Ayın tam adı (January)</td>
+</tr>
+<tr>
+<td>%b ya da %h</td>
+<td>Ayın kısa adı (Jan)</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>Ayın günü, 0 eklemeli (01..31)</td>
+</tr>
+<tr>
+<td>%e</td>
+<td>Ayın günü, SPACE karakteri eklemeli ( 1..31)</td>
+</tr>
+<tr>
+<td>%j</td>
+<td>Yılın günü (001..366)</td>
+</tr>
+<tr>
+<td>%H</td>
+<td>Saat, 24-saat formatında 0 eklemeli (00..23)</td>
+</tr>
+<tr>
+<td>%k</td>
+<td>Saat, 24-saat formatında SPACE karakteri eklemeli ( 0..23)</td>
+</tr>
+<tr>
+<td>%I</td>
+<td>Saat, 12-saat formatında 0 eklemeli (01..12)</td>
+</tr>
+<tr>
+<td>%l</td>
+<td>Saat, 12-saat formatında SPACE karakteri eklemeli ( 1..12)</td>
+</tr>
+<tr>
+<td>%P</td>
+<td>Meridyen göstergeci, küçük harf (<code>am</code> ya da <code>pm</code>)</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>Meridyen göstergeci, büyük harf (<code>AM</code> ya da <code>PM</code>)</td>
+</tr>
+<tr>
+<td>%M</td>
+<td>Dakika (00..59)</td>
+</tr>
+<tr>
+<td>%S</td>
+<td>Saniye (00..60)</td>
+</tr>
+<tr>
+<td>%L</td>
+<td>Milisaniye (000..999)</td>
+</tr>
+<tr>
+<td>%N</td>
+<td>Kesirli saniye, varsayılan 9 dijitli</td>
+</tr>
+<tr>
+<td>%z</td>
+<td>saat ve dakika ofsetli UTC zaman kuşağı (time zone)</td>
+</tr>
+<tr>
+<td>%Z</td>
+<td>Zaman kuşağının harfsel karşılığı</td>
+</tr>
+<tr>
+<td>%A</td>
+<td>Haftanın günü, tam yazım</td>
+</tr>
+<tr>
+<td>%a</td>
+<td>Haftanın günü, kısa yazım</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>Haftanın kaçıncı günü, Pazartesi 1</td>
+</tr>
+<tr>
+<td>%w</td>
+<td>Haftanın kaçıncı günü, Pazar 0</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>"%a %b %e %T %Y" şeklinde</td>
+</tr>
+<tr>
+<td>%D</td>
+<td>"%m/%d/%y" şeklinde</td>
+</tr>
+<tr>
+<td>%F</td>
+<td>ISO 8601 - "%Y-%m-%d"</td>
+</tr>
+<tr>
+<td>%v</td>
+<td>VMS - "%e-%^b-%4Y"</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>%D ile aynı</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>%T ile aynı</td>
+</tr>
+<tr>
+<td>%r</td>
+<td>12 saat cinsinden saat "%I:%M:%S %p"</td>
+</tr>
+<tr>
+<td>%R</td>
+<td>24 saat cinsinden saat "%H:%M"</td>
+</tr>
+<tr>
+<td>%T</td>
+<td>23 saat cinsinden saat "%H:%M:%S"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Örnek</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>        <span class="c1"># =&gt; 2015-05-16 14:29:43 +0300</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%N&quot;</span><span class="p">)</span>    <span class="c1"># =&gt; &quot;691659000&quot;</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%3N&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; &quot;691&quot; # milisaniye, 3 dijit</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%6N&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; &quot;691659&quot; # mikrosaniye, 6 dijit</span>
+
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%z&quot;</span><span class="p">)</span>    <span class="c1"># =&gt; &quot;+0300&quot;</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Z&quot;</span><span class="p">)</span>    <span class="c1"># =&gt; &quot;EEST&quot;</span>
+                    <span class="c1">#    Eastern European Summer Time yani</span>
+                    <span class="c1">#    yaz saati :)</span>
+
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">)</span>    <span class="c1"># Sunday</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%a&quot;</span><span class="p">)</span>    <span class="c1"># Sun</span>
+<span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%u&quot;</span><span class="p">)</span>    <span class="c1"># &quot;7&quot;</span>
+ <span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%w&quot;</span><span class="p">)</span>   <span class="c1"># &quot;0&quot;</span>
+</code></pre></div>
+<p>@wip</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../02-regular-expressions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Regular Expressions" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Regular Expressions
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../04-ruby-paketleri-ruby_gems/" class="md-footer__link md-footer__link--next" aria-label="Next: Ruby Paketleri: RubyGems" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Ruby Paketleri: RubyGems
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1540 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ruby öğrenmek isteyen herkesin işine yarayacak bir kitap!">
+      
+      
+      
+        <meta name="author" content="Uğur vigo Özyılmazel">
+      
+      
+        <link rel="canonical" href="https://vigo.github.io/ruby101-kitap/bolum-03/04-conditional-statements-kosullar/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Conditional Statements (Koşullar) - Ruby 101 Kitabı</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#conditional-statements-kosullar" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-header__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ruby 101 Kitabı
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Conditional Statements (Koşullar)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-nav__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Ruby 101 Kitabı
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cover/" class="md-nav__link">
+        Kapak
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preface/" class="md-nav__link">
+        Önsöz
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-review/" class="md-nav__link">
+        Teknik İncleme
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Bölüm İndeksi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Bölüm 1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/01-tarihce/" class="md-nav__link">
+        Ruby Hakkında
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/02-kurulum/" class="md-nav__link">
+        Kurulum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/03-interaktif-kullanim/" class="md-nav__link">
+        İnteraktif Kullanım
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/04-ruby-komutu-ve-parametreleri/" class="md-nav__link">
+        Ruby Komutu ve Parametreleri
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Bölüm 2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/01-syntax-soz-dizimi-ve-degiskenler/" class="md-nav__link">
+        Syntax, Comments, Rezerve Edilmiş Kelimeler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/02-degiskenler/" class="md-nav__link">
+        Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/03-on-tanimli-degiskenler/" class="md-nav__link">
+        Ön Tanımlı Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/04-operatorler/" class="md-nav__link">
+        Operatörler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/05-global-constants-genel-sabitler/" class="md-nav__link">
+        Genel Sabitler
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      <label class="md-nav__link" for="__nav_7">
+        Bölüm 3
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-methods-fonksiyonlar/" class="md-nav__link">
+        Methods (Fonksiyonlar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-blocks-bloklar/" class="md-nav__link">
+        Blocks (Bloklar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-proc-ve-lambda/" class="md-nav__link">
+        Proc ve Lambda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Conditional Statements (Koşullar)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Conditional Statements (Koşullar)
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#if-durumu" class="md-nav__link">
+    if durumu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#negatiflik-operatoru" class="md-nav__link">
+    Negatiflik Operatörü
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coklu-kontrol" class="md-nav__link">
+    Çoklu Kontrol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elsif" class="md-nav__link">
+    elsif
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unless" class="md-nav__link">
+    unless
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while-break-until-donguleri" class="md-nav__link">
+    while, break, until Döngüleri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case-when-yaps" class="md-nav__link">
+    case, when Yapısı
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-dongusu" class="md-nav__link">
+    for Döngüsü
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ternary-operatoru" class="md-nav__link">
+    Ternary Operatörü
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#begin-ve-end" class="md-nav__link">
+    BEGIN ve END
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Bölüm 4
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/01-object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/02-number/" class="md-nav__link">
+        Number
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/03-string/" class="md-nav__link">
+        String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/04-array/" class="md-nav__link">
+        Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/05-hash/" class="md-nav__link">
+        Hash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/06-symbol/" class="md-nav__link">
+        Symbol
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/07-class/" class="md-nav__link">
+        Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/08-module/" class="md-nav__link">
+        Module
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Bölüm 5
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 5" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/01-enumeration-ve-iteration/" class="md-nav__link">
+        Enumeration ve Iteration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/02-ranges/" class="md-nav__link">
+        Ranges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/03-file-system-ve-io-dosya-sistemi/" class="md-nav__link">
+        File System ve IO (Dosya Sistemi)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/04-exception-handling/" class="md-nav__link">
+        Exception Handling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/05-kernel-modulu/" class="md-nav__link">
+        Kernel Modülü
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Bölüm 6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/01-monkey-patching/" class="md-nav__link">
+        Monkey Patching
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/02-regular-expressions/" class="md-nav__link">
+        Regular Expressions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/03-time-ve-date-nesneleri/" class="md-nav__link">
+        Time ve Date Nesneleri
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/04-ruby-paketleri-ruby_gems/" class="md-nav__link">
+        Ruby Paketleri: RubyGems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/05-paket-yoneticisi-bundler/" class="md-nav__link">
+        Paket Yöneticisi: Bundler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/06-komut-satiri-command-line-kullanimi/" class="md-nav__link">
+        Komut Satırı (Command-Line) Kullanımı
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/07-meta-programming/" class="md-nav__link">
+        Meta Programming
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        Bölüm 7
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 7" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/01-kod-yazma-tarzi-style-guide/" class="md-nav__link">
+        Kod Yazma Tarzı (Style Guide)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        Bölüm 8
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 8" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 8
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/01-neden-ruby/" class="md-nav__link">
+        Neden Ruby?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/02-ruby-ve-tddbddci/" class="md-nav__link">
+        Ruby ve TDD/BDD/CI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/03-kendi-rubygemimizi-yapalim/" class="md-nav__link">
+        Kendi Rubygem'imizi yapalım!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/04-sinatra-ve-web/" class="md-nav__link">
+        Sinatra ve Web
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        Teşekkürler
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#if-durumu" class="md-nav__link">
+    if durumu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#negatiflik-operatoru" class="md-nav__link">
+    Negatiflik Operatörü
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coklu-kontrol" class="md-nav__link">
+    Çoklu Kontrol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elsif" class="md-nav__link">
+    elsif
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unless" class="md-nav__link">
+    unless
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while-break-until-donguleri" class="md-nav__link">
+    while, break, until Döngüleri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case-when-yaps" class="md-nav__link">
+    case, when Yapısı
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-dongusu" class="md-nav__link">
+    for Döngüsü
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ternary-operatoru" class="md-nav__link">
+    Ternary Operatörü
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#begin-ve-end" class="md-nav__link">
+    BEGIN ve END
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vigo/ruby101-kitap/edit/master/docs/bolum-03/04-conditional-statements-kosullar.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="conditional-statements-kosullar">Conditional Statements (Koşullar)</h1>
+<p>Verilen ifadenin doğru ya da yanlış olduğunun testi yapılır, akış <strong>true</strong> ya
+da <strong>false</strong> durumuna göre seyreder.</p>
+<h2 id="if-durumu"><code>if</code> durumu</h2>
+<p><code>if a == b then</code> dediğimizde, <strong>Eğer "a, b'ye eşittir" önermesi doğruysa</strong>
+demiş oluruz.</p>
+<p><code>if a != b then</code> dediğimizde, <strong>Eğer "a, b'ye eşit değildir" önermesi
+doğruysa</strong> demiş oluruz.</p>
+<p>Aynı mantıkta, <code>a &gt; b</code> ("a, b'den büyüktür"), <code>a &lt; b</code> ("a, b'den küçüktür"),
+<code>a &gt;= b</code> ("a, b'en büyük ya da eşittir"), <code>a &lt;= b</code> ("a, b'den küçük ya da
+eşitse") şeklinde önermeler de kurulabilir.</p>
+<h2 id="negatiflik-operatoru">Negatiflik Operatörü</h2>
+<p><code>!</code> işareti önermenin sol tarafında kullanılırsa, negatiflik ya da olumsuzluk
+kontrolü olduğu anlamındadır.</p>
+<p><code>if !a == b then puts "a, b'ye eşit değil" end</code> ya da <code>if !a &gt; b then puts "a,
+b'den büyük değil" end</code> gibi kullanılır. İçerideki önermenin tersi doğruysa
+demektir.</p>
+<p><code>if !a == b then</code> örneğini daha iyi inceleyecek olursak. Örnekte önerme "a,
+b'ye eşittir" önermesinin olumsuzu, yani "a, b'ye eşit değildir"dir. Yani bu
+<code>if</code> durumu şuna karşılık gelmektedir: <strong>"a, b'ye eşit değildir" doğru ise</strong></p>
+<h2 id="coklu-kontrol">Çoklu Kontrol</h2>
+<p>Eğer önermeler arasında <code>and</code> (<em>ve</em>), <code>or</code> (<em>veya</em>) ya da bunların kısa
+yollarını (<em>and</em> için <code>&amp;&amp;</code>, <em>or</em> için <code>||</code>) kullanırsak birden fazla şeyi
+kontrol etmiş oluruz.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">10</span>
+  <span class="nb">puts</span> <span class="s2">&quot;İşleme devam edebiliriz!&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><code>if a == 5 &amp;&amp; b == 10</code> yerine <code>if a == 5 and b == 10</code> de yazabilirdik.</p>
+<p>Ruby'nin konuşma diline yakın olması sebebiyle, çok daha anlaşılır kontrol
+satırları yazmak mümkün. Örneğin, <strong>Eğer, a, 5'e eşitse Merhaba Yaz</strong> demek
+için ilk akla gelen yöntem:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">5</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Merhaba&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>ama bunu çok daha basit hale getirebiliriz:</p>
+<p><code>puts "Merhaba" if a == 5</code> Tek satırda, <code>if</code>i koşul sonucunda olacak şeyin
+sağına yazmak yeterlidir.</p>
+<h2 id="elsif"><code>elsif</code></h2>
+<p>Programlama mantığında pek de sevmediğim (<em>daha düzgün yöntemleri var</em>) ama
+bazen mecbur kaldığımız bir durumdur.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+  <span class="nb">puts</span> <span class="s2">&quot;a, b&#39;ye eşit&quot;</span>
+<span class="k">elsif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
+  <span class="nb">puts</span> <span class="s2">&quot;a, b&#39;den küçük&quot;</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">&quot;a, b&#39;ten büyük&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>İlk olarak <code>a == b</code> kontrolü yapılır, eğer sonuç <code>false</code> ise, <code>a &lt; b</code> kontrol
+edilir, o da <code>false</code> ise en sondaki <code>else</code> devreye giriyor ve çıktı olarak "a,
+b'ten büyük" yazdırılıyor.</p>
+<h2 id="unless"><code>unless</code></h2>
+<p>Bu, aslında <code>if</code>in tersi gibi. Daha doğrusu <code>if not</code> anlamında. <strong>Eğer a, b'ye
+eşit değilse</strong> demek için;</p>
+<div class="highlight"><pre><span></span><code><span class="k">unless</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Eşit değil&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Aynı mantıkta <code>puts "Eşit değil" unless a == b</code> şeklinde de yazabiliriz.
+Semantik olarak olumsuzluk kontrolü yaparken <code>unless</code> kullanılması önerilir.
+Kodu okuma ve anlama açısından kolay olması için.</p>
+<h2 id="while-break-until-donguleri"><code>while</code>, <code>break</code>, <code>until</code> Döngüleri</h2>
+<p>Tanımlanan önerme <code>true</code> olduğu sürece <strong>loop</strong> yani döngü çalıştırma
+kontrolüdür.</p>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">&quot;i = </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Eğer <code>i += 1</code> yani <code>i</code>yi bir arttır, demezsek sonsuz döngüye gireriz. Eğer
+belli bir anda döngüyü kırmak istersek,</p>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">&quot;i = </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">break</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><code>i</code> <strong>3</strong> olduğunda loop devre dışı kalır...</p>
+<p>Aynı <code>unless</code> mantığında, <code>until</code> kullanılır loop'larda.</p>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">until</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">10</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">&quot;i = </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Yani <code>i</code> <strong>10</strong>'a eşit olmadığı sürece bu loop çalışır.</p>
+<h2 id="case-when-yaps"><code>case</code>, <code>when</code> Yapısı</h2>
+<p><code>elsif</code> yerine kullanılması muhtemel, daha anlaşılır kontrol mekanizmasıdır.
+Hemen örneğe bakalım:</p>
+<div class="highlight"><pre><span></span><code><span class="n">computer</span> <span class="o">=</span> <span class="s2">&quot;c64&quot;</span>
+<span class="n">year</span> <span class="o">=</span> <span class="k">case</span> <span class="n">computer</span>
+  <span class="k">when</span> <span class="s2">&quot;c64&quot;</span> <span class="k">then</span> <span class="s2">&quot;1982&quot;</span>
+  <span class="k">when</span> <span class="s2">&quot;c16&quot;</span> <span class="k">then</span> <span class="s2">&quot;1984&quot;</span>
+  <span class="k">when</span> <span class="s2">&quot;amiga&quot;</span> <span class="k">then</span> <span class="s2">&quot;1985&quot;</span>
+  <span class="k">else</span>
+    <span class="s2">&quot;Tarih bilinmiyor&quot;</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer</span><span class="si">}</span><span class="s2"> çıkış yılı </span><span class="si">#{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># c64 çıkış yılı 1982</span>
+</code></pre></div>
+<p>Yukarıdaki kodu bir ton <code>if</code>, <code>elsif</code> ile yapmak yerine, <code>when</code> ve <code>then</code> ile
+daha anlaşılır hale getirdiğimizi düşünüyorum.</p>
+<p><code>when</code> kullanırken <strong>range</strong> (<em>aralık</em>) belirmesi de yapma şansı var.</p>
+<div class="highlight"><pre><span></span><code><span class="n">student_grade</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="k">case</span> <span class="n">student_grade</span>
+<span class="k">when</span> <span class="mi">0</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Çok kötü&quot;</span>
+<span class="k">when</span> <span class="mi">1</span><span class="o">..</span><span class="mi">4</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Başarısız&quot;</span>
+<span class="k">when</span> <span class="mi">5</span><span class="o">..</span><span class="mi">7</span>
+  <span class="nb">puts</span> <span class="s2">&quot;İyi&quot;</span>
+<span class="k">when</span> <span class="mi">8</span><span class="o">..</span><span class="mi">9</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Çok İyi&quot;</span>
+<span class="k">when</span> <span class="mi">10</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Süper&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Eğer not <strong>1</strong> ile <strong>4</strong> aralığındaysa (ve dahil ise) ya da <strong>5</strong> ile <strong>7</strong>
+aralığındaysa gibi bir kontrol ekledik.</p>
+<h2 id="for-dongusu"><code>for</code> Döngüsü</h2>
+<p><strong>1</strong>'den <strong>10</strong>'a kadar (1 ve 10 dahil) bir döngü yapalım:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">..</span><span class="mi">10</span>
+  <span class="nb">puts</span> <span class="s2">&quot;i = </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+
+<span class="c1"># i = 1</span>
+<span class="c1"># i = 2</span>
+<span class="c1"># i = 3</span>
+<span class="c1"># i = 4</span>
+<span class="c1"># i = 5</span>
+<span class="c1"># i = 6</span>
+<span class="c1"># i = 7</span>
+<span class="c1"># i = 8</span>
+<span class="c1"># i = 9</span>
+<span class="c1"># i = 10</span>
+</code></pre></div>
+<p>Aynı işi çok daha kolay yapmanın yolunu <strong>5.Bölüm</strong>'de <strong>Iteration</strong> kısmında
+göreceğiz!</p>
+<h2 id="ternary-operatoru">Ternary Operatörü</h2>
+<p>Kısaltılmış <code>if</code> yapısıdır. Hemen hemen pek çok dilde kullanılan, <strong>Eğer şu
+doğru ise bu değilse bu</strong> ifadesi için kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">amount</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">pluralize</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="s2">&quot;apple&quot;</span> <span class="p">:</span> <span class="s2">&quot;apples&quot;</span>
+<span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">amount</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">pluralize</span><span class="si">}</span><span class="s2">.&quot;</span>
+</code></pre></div>
+<p>Bu örnekte <strong>Ternary</strong> olarak <code>amount == 1 ? "apple" : "apples"</code> kullanılmış,
+eğer <code>amount</code> <strong>1</strong> ise "apple" dönecek, değil ise "apples" dönecek. Yani
+<code>pluralize</code> değişkenine kontrolden dönen atanıyor.</p>
+<h2 id="begin-ve-end">BEGIN ve END</h2>
+<p>Ruby'de ilginç bir özellik de, kodun çalışmasından önceye ve sonraya bir ek
+takabiliyoruz.</p>
+<p>Aşağıdaki örnekte BEGIN block'undaki kodlar program başladığında, END
+block'undaki kodlar program bitmeden hemen önce çalışacaktır.</p>
+<div class="highlight"><pre><span></span><code><span class="k">BEGIN</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;Kodun başlama saati </span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">to_s</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+<span class="k">END</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;Kodun bitme saati </span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">to_s</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+  <span class="s2">&quot;Merhaba </span><span class="si">#{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">say_hello</span> <span class="s2">&quot;Uğur&quot;</span>
+<span class="nb">sleep</span> <span class="mi">5</span>  <span class="c1"># zaman farkı için 5 saniye bekle</span>
+
+<span class="c1"># Kodun başlama saati 2014-08-04 09:30:24 +0300</span>
+<span class="c1"># Merhaba Uğur</span>
+<span class="c1"># Kodun bitme saati 2014-08-04 09:30:29 +0300</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../03-proc-ve-lambda/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Proc ve Lambda" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Proc ve Lambda
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../bolum-04/" class="md-footer__link md-footer__link--next" aria-label="Next: İndeks" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              İndeks
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>

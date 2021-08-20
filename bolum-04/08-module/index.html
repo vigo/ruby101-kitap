@@ -1,0 +1,1484 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ruby öğrenmek isteyen herkesin işine yarayacak bir kitap!">
+      
+      
+      
+        <meta name="author" content="Uğur vigo Özyılmazel">
+      
+      
+        <link rel="canonical" href="https://vigo.github.io/ruby101-kitap/bolum-04/08-module/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Module - Ruby 101 Kitabı</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-header__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ruby 101 Kitabı
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-nav__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Ruby 101 Kitabı
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cover/" class="md-nav__link">
+        Kapak
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preface/" class="md-nav__link">
+        Önsöz
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-review/" class="md-nav__link">
+        Teknik İncleme
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Bölüm İndeksi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Bölüm 1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/01-tarihce/" class="md-nav__link">
+        Ruby Hakkında
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/02-kurulum/" class="md-nav__link">
+        Kurulum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/03-interaktif-kullanim/" class="md-nav__link">
+        İnteraktif Kullanım
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/04-ruby-komutu-ve-parametreleri/" class="md-nav__link">
+        Ruby Komutu ve Parametreleri
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Bölüm 2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/01-syntax-soz-dizimi-ve-degiskenler/" class="md-nav__link">
+        Syntax, Comments, Rezerve Edilmiş Kelimeler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/02-degiskenler/" class="md-nav__link">
+        Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/03-on-tanimli-degiskenler/" class="md-nav__link">
+        Ön Tanımlı Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/04-operatorler/" class="md-nav__link">
+        Operatörler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/05-global-constants-genel-sabitler/" class="md-nav__link">
+        Genel Sabitler
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Bölüm 3
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/01-methods-fonksiyonlar/" class="md-nav__link">
+        Methods (Fonksiyonlar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/02-blocks-bloklar/" class="md-nav__link">
+        Blocks (Bloklar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/03-proc-ve-lambda/" class="md-nav__link">
+        Proc ve Lambda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/04-conditional-statements-kosullar/" class="md-nav__link">
+        Conditional Statements (Koşullar)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      <label class="md-nav__link" for="__nav_8">
+        Bölüm 4
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-number/" class="md-nav__link">
+        Number
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-string/" class="md-nav__link">
+        String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-array/" class="md-nav__link">
+        Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-hash/" class="md-nav__link">
+        Hash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-symbol/" class="md-nav__link">
+        Symbol
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-class/" class="md-nav__link">
+        Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Module
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Module
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespacing" class="md-nav__link">
+    Namespacing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-kapsama-alan" class="md-nav__link">
+    Scope (Kapsama Alanı)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants-sabitler" class="md-nav__link">
+    Constants (Sabitler)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visibility-access-level-erisim" class="md-nav__link">
+    Visibility, Access Level (Erişim):
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Bölüm 5
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 5" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/01-enumeration-ve-iteration/" class="md-nav__link">
+        Enumeration ve Iteration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/02-ranges/" class="md-nav__link">
+        Ranges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/03-file-system-ve-io-dosya-sistemi/" class="md-nav__link">
+        File System ve IO (Dosya Sistemi)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/04-exception-handling/" class="md-nav__link">
+        Exception Handling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/05-kernel-modulu/" class="md-nav__link">
+        Kernel Modülü
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Bölüm 6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/01-monkey-patching/" class="md-nav__link">
+        Monkey Patching
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/02-regular-expressions/" class="md-nav__link">
+        Regular Expressions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/03-time-ve-date-nesneleri/" class="md-nav__link">
+        Time ve Date Nesneleri
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/04-ruby-paketleri-ruby_gems/" class="md-nav__link">
+        Ruby Paketleri: RubyGems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/05-paket-yoneticisi-bundler/" class="md-nav__link">
+        Paket Yöneticisi: Bundler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/06-komut-satiri-command-line-kullanimi/" class="md-nav__link">
+        Komut Satırı (Command-Line) Kullanımı
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/07-meta-programming/" class="md-nav__link">
+        Meta Programming
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        Bölüm 7
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 7" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/01-kod-yazma-tarzi-style-guide/" class="md-nav__link">
+        Kod Yazma Tarzı (Style Guide)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        Bölüm 8
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 8" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 8
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/01-neden-ruby/" class="md-nav__link">
+        Neden Ruby?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/02-ruby-ve-tddbddci/" class="md-nav__link">
+        Ruby ve TDD/BDD/CI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/03-kendi-rubygemimizi-yapalim/" class="md-nav__link">
+        Kendi Rubygem'imizi yapalım!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/04-sinatra-ve-web/" class="md-nav__link">
+        Sinatra ve Web
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        Teşekkürler
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespacing" class="md-nav__link">
+    Namespacing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-kapsama-alan" class="md-nav__link">
+    Scope (Kapsama Alanı)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants-sabitler" class="md-nav__link">
+    Constants (Sabitler)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visibility-access-level-erisim" class="md-nav__link">
+    Visibility, Access Level (Erişim):
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vigo/ruby101-kitap/edit/master/docs/bolum-04/08-module.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="module">Module</h1>
+<p>Class’a benzeyen ama Class gibi <strong>instantiate</strong> edilemeyen şeydir modül. Modül
+denen şeye Class eklenebilir (<em>include edilir</em>) Modülden gelen methodlar artık
+ilgili Class’ın methodu haline gelir.</p>
+<p>Yani düşünün ki bir Class var, bu Class’ın farklı 2-3 Class’tan özellik
+almasını istiyorsunuz. Bunu başarmak için ilgili Class’a o 2-3 Class’ı Modül
+olarak ekliyorsunuz!</p>
+<p>Module’ler sayesinde <strong>Namespace</strong> ve <strong>Mix-in</strong> fonksiyonalitesi de gelmiş
+olur.</p>
+<p>Tahmin edebileceğiniz gibi <code>module</code> kelimesiyle başlarlar ve aynı Class’larda
+olduğu gibi büyük harfle başlayan module adı ya da Namespace tanımlaması
+yapılır:</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">RandomNumbers</span>
+  <span class="k">def</span> <span class="nf">generate</span>
+    <span class="nb">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">DiceGame</span>
+  <span class="kp">include</span> <span class="no">RandomNumbers</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">RaceGame</span>
+  <span class="kp">include</span> <span class="no">RandomNumbers</span>
+<span class="k">end</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="no">DiceGame</span><span class="o">.</span><span class="n">new</span>
+<span class="n">g</span><span class="o">.</span><span class="n">generate</span> <span class="c1"># =&gt; 3</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="no">RaceGame</span><span class="o">.</span><span class="n">new</span>
+<span class="n">x</span><span class="o">.</span><span class="n">generate</span> <span class="c1"># =&gt; 7</span>
+</code></pre></div>
+<p><code>RandomNumbers</code> adında bir Module yaptık, iki farklı Class’ımız var,
+<code>DiceGame</code> ve <code>RaceGame</code> diye, <code>include</code> ile bu Module’ü 2 farklı Class’a
+ekledik. Şimdi her iki Class’ın da <code>generate</code> adında method’u oldu...</p>
+<h2 id="namespacing">Namespacing</h2>
+<p>Module içinde Module tanımlayabilirsiniz. Bu sayede belirlediğiniz Module
+tanımı altında başka alt Module’ler ve method’lar ekleyebilir, bu sayede tüm
+fonksiyonaliteyi ortak bir isim altından yürütebilirsiniz:</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">Framework</span>
+  <span class="k">module</span> <span class="nn">HttpFunctions</span>
+    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">fetch_url</span>
+      <span class="s2">&quot;This is url fetcher&quot;</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Framework</span><span class="o">::</span><span class="no">HttpFunctions</span><span class="o">.</span><span class="n">fetch_url</span> <span class="c1"># =&gt; &quot;This is url fetcher&quot;</span>
+</code></pre></div>
+<p>Alt Module’e ulaşmak için <code>::</code> kullandık. Aynı kodu şu şekilde de
+tanımlayabilirdik:</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">Framework</span>
+<span class="k">end</span>
+
+<span class="k">module</span> <span class="nn">Framework::HttpFunctions</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">fetch_url</span>
+    <span class="s2">&quot;This is url fetcher&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Framework</span><span class="o">::</span><span class="no">HttpFunctions</span><span class="o">.</span><span class="n">fetch_url</span> <span class="c1"># =&gt; &quot;This is url fetcher&quot;</span>
+</code></pre></div>
+<p>Bu sayede, başka bir kütüphaneden gelen Module’e ek Module’ler takma şansınız
+olur. Örneğin <a href="http://sinatrarb.com">Sinatra</a> için ek bir özellik
+yapıyorsunuz. Bu durumda;</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">Sinatra::MyFeature</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Şeklinde kullanabilirsiniz.</p>
+<h2 id="scope-kapsama-alan">Scope (Kapsama Alanı)</h2>
+<p>Dikkat ettiyseniz Module’ü kullanırken Class gibi instanciate etmedik. Keza
+örnekte <code>self.fetch_url</code> diye method tanımlaması yaptık. Aslında burada
+<strong>Singleton</strong> gibi kullandık. Örnekte <code>fetch_url</code> methodu için scope olarak
+<code>HttpFunctions</code> vermiş olduk. Yani <code>fetch_url</code> sadece
+<code>Framework::HttpFunctions.fetch_url</code> şeklinde erişilebilir oldu.</p>
+<h2 id="constants-sabitler">Constants (Sabitler)</h2>
+<p>Module içinde sabit değer tanımlaması da yapmak mümkündür.</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">A</span>
+  <span class="no">SABIT</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">end</span>
+
+<span class="n">A</span><span class="o">::</span><span class="no">SABIT</span> <span class="c1"># =&gt; 5</span>
+</code></pre></div>
+<p>Eğer <strong>nested</strong> (<em>iç içe</em>) yani Module içinde Module yaparsak, sabitlere
+aşağıdaki gibi erişebiliriz:</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">A</span>
+  <span class="no">SABIT</span> <span class="o">=</span> <span class="mi">5</span>
+  <span class="k">module</span> <span class="nn">B</span>
+    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">sabit_degeri_ver</span>
+      <span class="no">SABIT</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">A</span><span class="o">::</span><span class="no">SABIT</span>              <span class="c1"># =&gt; 5</span>
+<span class="n">A</span><span class="o">::</span><span class="n">B</span><span class="o">.</span><span class="n">sabit_degeri_ver</span> <span class="c1"># =&gt; 5</span>
+</code></pre></div>
+<p>Peki, dışarıda tanımlanmış bir sabit varsa?</p>
+<div class="highlight"><pre><span></span><code><span class="no">SABIT</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># en dıştaki global</span>
+<span class="k">module</span> <span class="nn">A</span>
+  <span class="no">SABIT</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># içerideki</span>
+  <span class="k">module</span> <span class="nn">B</span>
+    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">sabit_degeri_ver</span>
+      <span class="s2">&quot;</span><span class="si">#{</span><span class="o">::</span><span class="no">SABIT</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="no">SABIT</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">A</span><span class="o">::</span><span class="n">B</span><span class="o">.</span><span class="n">sabit_degeri_ver</span> <span class="c1"># =&gt; &quot;5, 10&quot;</span>
+</code></pre></div>
+<p>En dıştakini <code>::SABIT</code> ile aldık.</p>
+<h2 id="visibility-access-level-erisim">Visibility, Access Level (Erişim):</h2>
+<p>Aynı Class’lardaki gibi <code>public</code>, <code>private</code> ve <code>protected</code> olayı Module’ler
+için de geçerlidir.</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">A</span>
+  <span class="k">def</span> <span class="nf">sadece_iceriden</span>
+    <span class="s2">&quot;Bu private method&quot;</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">bu_sayede_private_erisim_olur</span>
+    <span class="n">sadece_iceriden</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span> <span class="ss">:sadece_iceriden</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Deneme</span>
+  <span class="kp">include</span> <span class="n">A</span>
+<span class="k">end</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">Deneme</span><span class="o">.</span><span class="n">new</span>
+<span class="n">c</span><span class="o">.</span><span class="n">sadece_iceriden</span> <span class="c1"># =&gt; NoMethodError: private method ‘sadece_iceriden’ called for #&lt;Deneme:0x007f8f7c9188c8&gt;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">bu_sayede_private_erisim_olur</span> <span class="c1"># =&gt; &quot;Bu private method&quot;</span>
+</code></pre></div>
+<h1 id="extend-ve-include-durumlar">Extend ve Include Durumları</h1>
+<p>Ruby’de bir Class sadece tek bir Class’tan türeyebildiği için <code>module</code> ve
+<code>include</code> çözümlerinden bahsetmiştik:</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">Person</span>
+  <span class="kp">attr_accessor</span> <span class="ss">:name</span>
+  <span class="k">def</span> <span class="nf">say_hi</span>
+    <span class="s2">&quot;Hello </span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Person</span> <span class="c1"># =&gt; Person</span>
+
+<span class="k">class</span> <span class="nc">User</span>
+  <span class="kp">include</span> <span class="no">Person</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">User</span> <span class="c1"># =&gt; User</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Uğur&quot;</span><span class="p">)</span> <span class="c1"># =&gt; #&lt;User:0x007fcd42976de8 @name=&quot;Uğur&quot;&gt;</span>
+<span class="n">u</span><span class="o">.</span><span class="n">say_hi</span> <span class="c1"># =&gt; &quot;Hello Uğur&quot;</span>
+
+<span class="n">u</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;vigo&quot;</span>
+<span class="n">u</span><span class="o">.</span><span class="n">say_hi</span> <span class="c1"># =&gt; &quot;Hello vigo&quot;</span>
+</code></pre></div>
+<p><code>Person</code> modülünden gelen <code>say_hi</code> method’una;</p>
+<div class="highlight"><pre><span></span><code><span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Ezel&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">say_hi</span> <span class="c1"># =&gt; &quot;Hello Ezel&quot;</span>
+</code></pre></div>
+<p>erişebiliyorsunuz ama ;</p>
+<div class="highlight"><pre><span></span><code><span class="no">User</span><span class="o">.</span><span class="n">say_hi</span> <span class="c1"># =&gt; undefined method `say_hi’ for User:Class (NoMethodError)</span>
+</code></pre></div>
+<p>yaptığımızda olmayan bir method çağrımı yapmış oluruz. Eğer <code>include</code> yerine
+<code>extend</code> kullansaydık;</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">Person</span>
+  <span class="kp">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="k">def</span> <span class="nf">say_hi</span>
+    <span class="vi">@name</span> <span class="o">||=</span> <span class="s2">&quot;Undefined name&quot;</span>
+    <span class="s2">&quot;Hello </span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">User</span>
+  <span class="kp">extend</span> <span class="no">Person</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Yeşim&quot;</span><span class="p">)</span> <span class="c1"># =&gt; #&lt;User:0x007f87c39702a0 @name=&quot;Yeşim&quot;&gt;</span>
+<span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="c1"># =&gt; undefined method `name’ for #&lt;User:0x007f87c39702a0 @name=&quot;Yeşim&quot;&gt; (NoMethodError)</span>
+</code></pre></div>
+<p>Çünki <code>Person</code>a ait özellikleri eklemek (<em>include</em>) yerine <strong>extend</strong>
+(<em>genişletme</em>) ettik ve;</p>
+<div class="highlight"><pre><span></span><code><span class="no">User</span><span class="o">.</span><span class="n">say_hi</span> <span class="c1"># =&gt; &quot;Hello Undefined name&quot;</span>
+<span class="no">User</span><span class="o">.</span><span class="n">instance_methods</span> <span class="o">-</span> <span class="no">Object</span><span class="o">.</span><span class="n">instance_methods</span> <span class="c1"># =&gt; [] # boş array</span>
+</code></pre></div>
+<p><code>say_hi</code> artık bir <strong>singleton</strong> haline geldi yani <strong>Instance Method</strong>’u olmak
+yerine <strong>Class Method</strong>’u oldu. Zaten ilgili sınıfın varolan method’larına
+baktığımızda boş <code>Array</code> döndüğünü görürüz.</p>
+<p>Özetle, <code>include</code> ile sanki başka bir sınıftan türer gibi tüm özellikleri
+<strong>instance method</strong> olarak alırken, <code>extend</code> kullandığımızda direk <strong>Class</strong>
+kopyası gibi davranıyor.</p>
+<p>Modülden gelen method’ları <strong>Class</strong> içinde <strong>instance method</strong> gibi kullanmak
+yerine <strong>singleton method</strong> olarak kullanacağınız zaman extend
+kullanabilirsiniz!</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../07-class/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Class" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Class
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../bolum-05/" class="md-footer__link md-footer__link--next" aria-label="Next: İndeks" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              İndeks
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1614 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ruby öğrenmek isteyen herkesin işine yarayacak bir kitap!">
+      
+      
+      
+        <meta name="author" content="Uğur vigo Özyılmazel">
+      
+      
+        <link rel="canonical" href="https://vigo.github.io/ruby101-kitap/bolum-05/03-file-system-ve-io-dosya-sistemi/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>File System ve IO (Dosya Sistemi) - Ruby 101 Kitabı</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-system-ve-io-dosya-sistemi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-header__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ruby 101 Kitabı
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File System ve IO (Dosya Sistemi)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-nav__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Ruby 101 Kitabı
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cover/" class="md-nav__link">
+        Kapak
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preface/" class="md-nav__link">
+        Önsöz
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-review/" class="md-nav__link">
+        Teknik İncleme
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Bölüm İndeksi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Bölüm 1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/01-tarihce/" class="md-nav__link">
+        Ruby Hakkında
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/02-kurulum/" class="md-nav__link">
+        Kurulum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/03-interaktif-kullanim/" class="md-nav__link">
+        İnteraktif Kullanım
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/04-ruby-komutu-ve-parametreleri/" class="md-nav__link">
+        Ruby Komutu ve Parametreleri
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Bölüm 2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/01-syntax-soz-dizimi-ve-degiskenler/" class="md-nav__link">
+        Syntax, Comments, Rezerve Edilmiş Kelimeler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/02-degiskenler/" class="md-nav__link">
+        Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/03-on-tanimli-degiskenler/" class="md-nav__link">
+        Ön Tanımlı Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/04-operatorler/" class="md-nav__link">
+        Operatörler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/05-global-constants-genel-sabitler/" class="md-nav__link">
+        Genel Sabitler
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Bölüm 3
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/01-methods-fonksiyonlar/" class="md-nav__link">
+        Methods (Fonksiyonlar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/02-blocks-bloklar/" class="md-nav__link">
+        Blocks (Bloklar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/03-proc-ve-lambda/" class="md-nav__link">
+        Proc ve Lambda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/04-conditional-statements-kosullar/" class="md-nav__link">
+        Conditional Statements (Koşullar)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Bölüm 4
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/01-object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/02-number/" class="md-nav__link">
+        Number
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/03-string/" class="md-nav__link">
+        String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/04-array/" class="md-nav__link">
+        Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/05-hash/" class="md-nav__link">
+        Hash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/06-symbol/" class="md-nav__link">
+        Symbol
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/07-class/" class="md-nav__link">
+        Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-04/08-module/" class="md-nav__link">
+        Module
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      <label class="md-nav__link" for="__nav_9">
+        Bölüm 5
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 5" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-enumeration-ve-iteration/" class="md-nav__link">
+        Enumeration ve Iteration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ranges/" class="md-nav__link">
+        Ranges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          File System ve IO (Dosya Sistemi)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        File System ve IO (Dosya Sistemi)
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-class-methodlar" class="md-nav__link">
+    Public Class Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-exception-handling/" class="md-nav__link">
+        Exception Handling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-kernel-modulu/" class="md-nav__link">
+        Kernel Modülü
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Bölüm 6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/01-monkey-patching/" class="md-nav__link">
+        Monkey Patching
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/02-regular-expressions/" class="md-nav__link">
+        Regular Expressions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/03-time-ve-date-nesneleri/" class="md-nav__link">
+        Time ve Date Nesneleri
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/04-ruby-paketleri-ruby_gems/" class="md-nav__link">
+        Ruby Paketleri: RubyGems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/05-paket-yoneticisi-bundler/" class="md-nav__link">
+        Paket Yöneticisi: Bundler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/06-komut-satiri-command-line-kullanimi/" class="md-nav__link">
+        Komut Satırı (Command-Line) Kullanımı
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/07-meta-programming/" class="md-nav__link">
+        Meta Programming
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        Bölüm 7
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 7" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/01-kod-yazma-tarzi-style-guide/" class="md-nav__link">
+        Kod Yazma Tarzı (Style Guide)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        Bölüm 8
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 8" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 8
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/01-neden-ruby/" class="md-nav__link">
+        Neden Ruby?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/02-ruby-ve-tddbddci/" class="md-nav__link">
+        Ruby ve TDD/BDD/CI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/03-kendi-rubygemimizi-yapalim/" class="md-nav__link">
+        Kendi Rubygem'imizi yapalım!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/04-sinatra-ve-web/" class="md-nav__link">
+        Sinatra ve Web
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        Teşekkürler
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-class-methodlar" class="md-nav__link">
+    Public Class Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vigo/ruby101-kitap/edit/master/docs/bolum-05/03-file-system-ve-io-dosya-sistemi.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="file-system-ve-io-dosya-sistemi">File System ve IO (Dosya Sistemi)</h1>
+<h2 id="file">File</h2>
+<p><code>IO</code> sınıfından özellikler içeren <code>File</code> sınıfı, fiziki dosyalarla işlem
+yapmamızı sağlayan özellikleri sunar bize. Ruby’nin üzerinde çalıştığı işletim
+sistemine göre de <strong>file permission</strong> yani dosya üzerindeki yetki sistemi de
+devrededir.</p>
+<p>Default olarak gelen Constant’ları:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">constants</span> <span class="c1"># =&gt; [:Separator, :SEPARATOR, :ALT_SEPARATOR, :PATH_SEPARATOR, :Constants, :Stat, :WaitReadable, :WaitWritable, :EAGAINWaitReadable, :EAGAINWaitWritable, :EWOULDBLOCKWaitReadable, :EWOULDBLOCKWaitWritable, :EINPROGRESSWaitReadable, :EINPROGRESSWaitWritable, :SEEK_SET, :SEEK_CUR, :SEEK_END, :RDONLY, :WRONLY, :RDWR, :APPEND, :CREAT, :EXCL, :NONBLOCK, :TRUNC, :NOCTTY, :BINARY, :SYNC, :DSYNC, :NOFOLLOW, :LOCK_SH, :LOCK_EX, :LOCK_UN, :LOCK_NB, :NULL, :FNM_NOESCAPE, :FNM_PATHNAME, :FNM_DOTMATCH, :FNM_CASEFOLD, :FNM_EXTGLOB, :FNM_SYSCASE]</span>
+
+<span class="no">File</span><span class="o">::</span><span class="no">ALT_SEPARATOR</span>  <span class="c1"># =&gt; nil # Bu Ruby’nin çalıştığı platforma özeldir</span>
+<span class="no">File</span><span class="o">::</span><span class="no">PATH_SEPARATOR</span> <span class="c1"># =&gt; &quot;:&quot;</span>
+<span class="no">File</span><span class="o">::</span><span class="no">SEPARATOR</span>      <span class="c1"># =&gt; &quot;/&quot;</span>
+<span class="no">File</span><span class="o">::</span><span class="no">Separator</span>      <span class="c1"># =&gt; &quot;/&quot;</span>
+</code></pre></div>
+<p>Örneğin Windows’da çalışan Ruby’de <code>SEPARATOR</code> ters slash <code>\</code> şeklinde
+gelecektir.</p>
+<h2 id="public-class-methodlar">Public Class Method’ları</h2>
+<p><strong>absolute_path</strong>, <strong>expand_path</strong>, <strong>join</strong>, <strong>split</strong></p>
+<p>String olarak verilen path bilgisini <strong>absolute path</strong>’e çevirir. Eğer ikinci
+parametre verilmezse <strong>CWD</strong> (<em>current working directory</em>) yani o an için
+içinde çalıştığınız directory bilgisi kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">absolute_path</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span>               <span class="c1"># =&gt; &quot;/~&quot;</span>
+<span class="no">File</span><span class="o">.</span><span class="n">absolute_path</span><span class="p">(</span><span class="s2">&quot;.gitignore&quot;</span><span class="p">,</span> <span class="s2">&quot;~&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;/~/.gitignore&quot;</span>
+</code></pre></div>
+<p><code>expand_path</code> de bir nevi absolute path’e çevirir:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s2">&quot;~/.gitignore&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;/Users/vigo/.gitignore&quot;</span>
+</code></pre></div>
+<p>Keza daha kompleks path bulma işlerinde de kullanılır. Bu durumda <code>__FILE__</code>
+sabiti hayatımızı kolaylaştırır. O an Ruby script’inin çalıştığı dosyanın
+path’i <code>__FILE__</code> sabitindedir. Örneğin aşağıdaki gibi bir directory yapısı
+olsa:</p>
+<div class="codehilite"><pre><span></span><code>proje/
+├── lib
+│   └── users.rb
+└── main.rb
+</code></pre></div>
+
+<p>ve <code>lib/users.rb</code> içinden, dışarıda bulunan <code>main.rb</code> dosyasının path’ine
+ulaşmak istesek;</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s2">&quot;../../main.rb&quot;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">)</span>
+</code></pre></div>
+<p>şeklinde kullanırız.</p>
+<p><code>join</code> kullanarak, Ruby’nin çalıştığı işletim sistemine bağlı olarak,
+<code>File::SEPARATOR</code> kullanarak geçilen string’leri birleştiririz:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;usr&quot;</span><span class="p">,</span> <span class="s2">&quot;local&quot;</span><span class="p">,</span> <span class="s2">&quot;bin&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;usr/local/bin&quot;</span>
+</code></pre></div>
+<p>Dizin ve dosya ayrıştırmasını da <code>split</code> ile yaparız:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;usr/local/bin/foo&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; [&quot;usr/local/bin&quot;, &quot;foo&quot;]</span>
+</code></pre></div>
+<p><strong>atime</strong>, <strong>ctime</strong>, <strong>mtime</strong></p>
+<p>Dosyaya son erişilen tarihi <code>atime</code> ile, dosyada yapılmış olan son değişiklik
+tarihini de <code>ctime</code> ile, son değişiklik zamanını da <code>mtime</code> ile alırız.</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">atime</span><span class="p">(</span><span class="s2">&quot;/Users/vigo/.gitignore&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2014-11-05 11:45:10 +0200</span>
+<span class="no">File</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="s2">&quot;/Users/vigo/.gitignore&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2014-08-04 11:33:14 +0300</span>
+<span class="no">File</span><span class="o">.</span><span class="n">mtime</span><span class="p">(</span><span class="s2">&quot;/Users/vigo/.gitignore&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2014-10-29 15:05:15 +0200</span>
+</code></pre></div>
+<p><strong>basename</strong>, <strong>dirname</strong>, <strong>extname</strong></p>
+<p>Path içinden dosya adını almak için <code>basename</code> kullanırız. Eğer parametre
+olarak atacağımız şeyi (<em>örneğin extension olarak .gif, .rb gibi</em>) geçersek
+bize sadece dosyanın adını verir.</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="s2">&quot;/Users/vigo/test.rb&quot;</span><span class="p">)</span>        <span class="c1"># =&gt; &quot;test.rb&quot;</span>
+<span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="s2">&quot;/Users/vigo/test.rb&quot;</span><span class="p">,</span> <span class="s2">&quot;.rb&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;test&quot;</span>
+</code></pre></div>
+<p>Bu işin tersini de <code>dirname</code> ile yaparız, yani directory adı gerekince:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="s2">&quot;/Users/vigo/test.rb&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;/Users/vigo&quot;</span>
+</code></pre></div>
+<p>şekinde kullanırız. Dosyanın extension’ını öğrenmek için <code>extname</code> kullanırız.</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">extname</span><span class="p">(</span><span class="s2">&quot;test_file.rb&quot;</span><span class="p">)</span>          <span class="c1"># =&gt; &quot;.rb&quot;</span>
+<span class="no">File</span><span class="o">.</span><span class="n">extname</span><span class="p">(</span><span class="s2">&quot;/foo/bar/test_file.rb&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;.rb&quot;</span>
+<span class="no">File</span><span class="o">.</span><span class="n">extname</span><span class="p">(</span><span class="s2">&quot;test_file&quot;</span><span class="p">)</span>             <span class="c1"># =&gt; &quot;&quot;</span>
+</code></pre></div>
+<p><strong>chmod</strong>, <strong>chown</strong>, <strong>lchmod</strong>, <strong>lchown</strong></p>
+<p>Her iki komut da Unix’den gelir. <strong>Change mod</strong> ve <strong>Change owner</strong> işlerini
+yapmamızı sağlar. <code>chmod</code> ile Unix izinlerini ayarlarız:</p>
+<div class="highlight"><pre><span></span><code>-rw-r--r-- <span class="m">1</span> vigo wheel <span class="m">0</span> Aug <span class="m">30</span> <span class="m">19</span>:19 file-01.txt
+<span class="o">||||||||||</span>
+<span class="o">||||||||</span><span class="p">|</span>+--- Others, Execute    <span class="o">(</span>x<span class="o">)</span> <span class="nv">1</span> <span class="o">=</span> <span class="m">2</span>^0
+<span class="o">||||||||</span>+---- Others, Write      <span class="o">(</span>w<span class="o">)</span> <span class="nv">2</span> <span class="o">=</span> <span class="m">2</span>^1
+<span class="o">||||||</span><span class="p">|</span>+----- Others, Read       <span class="o">(</span>r<span class="o">)</span> <span class="nv">4</span> <span class="o">=</span> <span class="m">2</span>^2
+<span class="o">||||||</span>+------ Group, Execute     <span class="o">(</span>x<span class="o">)</span> <span class="nv">1</span> <span class="o">=</span> <span class="m">2</span>^0
+<span class="o">||||</span><span class="p">|</span>+------- Group, Write       <span class="o">(</span>w<span class="o">)</span> <span class="nv">2</span> <span class="o">=</span> <span class="m">2</span>^1
+<span class="o">||||</span>+-------- Group, Read        <span class="o">(</span>r<span class="o">)</span> <span class="nv">4</span> <span class="o">=</span> <span class="m">2</span>^2
+<span class="o">||</span><span class="p">|</span>+--------- Owner/User Execute <span class="o">(</span>e<span class="o">)</span> <span class="nv">1</span> <span class="o">=</span> <span class="m">2</span>^0
+<span class="o">||</span>+---------- Owner/User Write   <span class="o">(</span>w<span class="o">)</span> <span class="nv">2</span> <span class="o">=</span> <span class="m">2</span>^1
+<span class="p">|</span>+----------- Owner/User Read    <span class="o">(</span>r<span class="o">)</span> <span class="nv">4</span> <span class="o">=</span> <span class="m">2</span>^2
++------------ Is Directory?      <span class="o">(</span>d<span class="o">)</span>
+</code></pre></div>
+<p><code>file-01.txt</code> dosyasında, User (yani dosyanın sahibi) <strong>R</strong>ead ve <strong>W</strong>rite
+hakkına sahiptir. Group ve Others ise sadece <strong>R</strong>ead hakkına sahiptir. Bu
+durumda varolan bu dosyanin <strong>chmod</strong> değeri:</p>
+<div class="highlight"><pre><span></span><code>Owner/User  : Read, <span class="nv">Write</span>  <span class="o">=</span>&gt; <span class="m">4</span> + <span class="nv">2</span> <span class="o">=</span> <span class="m">6</span>
+Group       : <span class="nv">Read</span>         <span class="o">=</span>&gt; <span class="nv">4</span>     <span class="o">=</span> <span class="m">4</span>
+Others      : <span class="nv">Read</span>         <span class="o">=</span>&gt; <span class="nv">4</span>     <span class="o">=</span> <span class="m">4</span>
+----------------------------------------
+<span class="m">644</span> unix file permission
+</code></pre></div>
+<p>şeklindedir. Hatta Terminal’den; <code>stat -f ’%A’ file-01.txt</code> yaparsak <strong>644</strong>
+olduğunu da görebiliriz. Şimdi bu dosyayı Ruby ile sadece sahibi tarafından
+okunur ve yazılır yapıp, başka hiçbir kimse tarafından okunamaz ve yazılamaz
+hale getirelim:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="mo">0600</span><span class="p">,</span> <span class="s2">&quot;file-01.txt&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Keza dosyanın sahibini de düzenlemek için <code>chown</code> kullanırız. Aynı
+terminaldeki gibi <strong>KULLANICI:GRUP</strong> şeklinde, toplamda üç parametre geçeriz.
+İlki kullanıcıyı belirler. <code>nil</code> ya da <code>-1</code> geçtiğimiz taktirde ilgili şeyi
+set etmemiş oluruz. Yani sadece grubu değiştireceksek kullanıcı için <code>nil</code> ya
+da <code>-1</code> geçebiliriz.</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">chown</span><span class="p">(</span><span class="kp">nil</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 1</span>
+</code></pre></div>
+<p>Grup ID olarak 20 geçtik, OSX’deki id 20 karşılık olarak <strong>staff</strong> grubuna
+denk gelir.</p>
+<p><code>lchmod</code> ve <code>lchown</code> ile normal <code>chmod</code>,<code>chown</code> farkı, <code>l</code> ile başlayanlar
+sembolik linkleri takip etmezler.</p>
+<p><strong>ftype</strong>, <strong>stat</strong>, <strong>lstat</strong>, <strong>size</strong></p>
+<p>Dosyanın ne tür bir dosya olduğunu <code>ftype</code> ile anlarız:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">ftype</span><span class="p">(</span><span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;file&quot;</span>
+<span class="no">File</span><span class="o">.</span><span class="n">ftype</span><span class="p">(</span><span class="s2">&quot;/usr/&quot;</span><span class="p">)</span>            <span class="c1"># =&gt; &quot;directory&quot;</span>
+<span class="no">File</span><span class="o">.</span><span class="n">ftype</span><span class="p">(</span><span class="s2">&quot;/dev/null&quot;</span><span class="p">)</span>        <span class="c1"># =&gt; &quot;characterSpecial&quot;</span>
+</code></pre></div>
+<p><code>stat</code> ile aynen biraz önce shell’den yaptığımız (<em>stat -f ’%A’ file-01.txt</em>)
+gibi aynı işi Ruby’den de yapabiliriz:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">)</span>       <span class="c1"># =&gt; #&lt;File::Stat dev=0x1000004, ino=1540444, mode=0100600, nlink=1, uid=501, gid=20, rdev=0x0, size=4, blksize=4096, blocks=8, atime=2014-11-12 14:41:49 +0200, mtime=2014-11-12 14:40:13 +0200, ctime=2014-11-12 14:45:28 +0200&gt;</span>
+<span class="no">File</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">uid</span>   <span class="c1"># =&gt; 501</span>
+<span class="no">File</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">gid</span>   <span class="c1"># =&gt; 20</span>
+<span class="no">File</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mtime</span> <span class="c1"># =&gt; 2014-11-12 14:40:13 +0200</span>
+</code></pre></div>
+<p><code>lstat</code> da aynı işi yapar fakat aynı <code>lchmod</code> ve <code>lchown</code> daki gibi sembolik
+linkleri takip etmez!</p>
+<p>Dosyanın byte cinsinden büyüklüğünü almak için <code>size</code>kullanırız:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="s2">&quot;/Users/vigo/.gitignore&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 323</span>
+</code></pre></div>
+<p><strong>delete</strong>, <strong>unlink</strong>, <strong>link</strong>, <strong>rename</strong>, <strong>readlink</strong>, <strong>symlink</strong></p>
+<p>Her ikisi de dosya silmeye yarar. Eğer dosya başarıyla silinirse <code>1</code> döner,
+aksi halde hata alırız!</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/tmp/foo.txt&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 1 yani silindi</span>
+<span class="no">File</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/tmp/foo1.txt&quot;</span><span class="p">)</span> <span class="c1"># =&gt; No such file or directory</span>
+</code></pre></div>
+<p><code>link</code> ile <strong>HARD LINK</strong> oluşturuyoruz. Bunu dosyanın bir kopyası / yansıması
+gibi düşünebilirsiz. Orijinal dosya değiştikçe linklenmiş dosya da güncel
+içeriğe sahip olur. Link’in hangi dosyaya bağlı olduğunu da <code>readlink</code> ile
+okuruz:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="s2">&quot;orijinal_dosya&quot;</span><span class="p">,</span> <span class="s2">&quot;linklenecek_dosya&quot;</span><span class="p">)</span>
+<span class="no">File</span><span class="o">.</span><span class="n">readlink</span><span class="p">(</span><span class="s2">&quot;linklenecek_dosya&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;orijinal_dosya&quot;</span>
+</code></pre></div>
+<p>Sembolik link yani <code>symlink</code> için;</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">symlink</span><span class="p">(</span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;bar.txt&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 0</span>
+<span class="no">File</span><span class="o">.</span><span class="n">readlink</span><span class="p">(</span><span class="s2">&quot;bar.txt&quot;</span><span class="p">)</span>           <span class="c1"># =&gt; &quot;foo.txt&quot;</span>
+</code></pre></div>
+<p>Komut satırından bakınca;</p>
+<div class="codehilite"><pre><span></span><code><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span>   <span class="mi">1</span> <span class="n">vigo</span> <span class="n">wheel</span>    <span class="mi">0</span> <span class="n">Dec</span> <span class="mi">13</span> <span class="mi">16</span><span class="o">:</span><span class="mi">08</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">lrwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">1</span> <span class="n">vigo</span> <span class="n">wheel</span>    <span class="mi">7</span> <span class="n">Dec</span> <span class="mi">13</span> <span class="mi">16</span><span class="o">:</span><span class="mi">08</span> <span class="n">bar</span><span class="p">.</span><span class="n">txt</span> <span class="o">-&gt;</span> <span class="n">foo</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
+
+<p>şeklinde <code>bar.txt</code> dosyasının <code>foo.txt</code> dosyasına linklendiğini görürüz.</p>
+<p>Dosya ismini değiştirmek için <code>rename</code> kullanırız.</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;/tmp/file-01.txt.bak&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 0</span>
+</code></pre></div>
+<p><strong>file?</strong>, <strong>directory?</strong>, <strong>executable?</strong>, <strong>exist?</strong>, <strong>identical?</strong>, <strong>readable?</strong>, <strong>size?</strong>,</p>
+<p>Dosya gerçekten fiziki bir dosya mı? ya da directory mi? ya da bu dosya var mı?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># file?</span>
+<span class="no">File</span><span class="o">.</span><span class="n">file?</span><span class="p">(</span><span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">)</span>      <span class="c1"># =&gt; true (evet)</span>
+<span class="no">File</span><span class="o">.</span><span class="n">file?</span><span class="p">(</span><span class="s2">&quot;/tmp/file-02.txt&quot;</span><span class="p">)</span>      <span class="c1"># =&gt; false</span>
+
+<span class="c1"># directory?</span>
+<span class="no">File</span><span class="o">.</span><span class="n">directory?</span><span class="p">(</span><span class="s2">&quot;/tmp/file-02.txt&quot;</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+<span class="no">File</span><span class="o">.</span><span class="n">directory?</span><span class="p">(</span><span class="s2">&quot;/tmp/test_folder&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true (evet)</span>
+
+<span class="c1"># dosya var mı?</span>
+<span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true (var)</span>
+<span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="s2">&quot;/tmp/file-02.txt&quot;</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p>Daha önce dosya izinlerinden bahsetmiş, bazı dosyaların <strong>executable</strong>
+olduğunu söylemiştik. Acaba dosya çalıştırılabilir yani executable mı?</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">executable?</span><span class="p">(</span><span class="s2">&quot;/tmp/file-01.txt&quot;</span><span class="p">)</span>      <span class="c1"># =&gt; false</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">vigo</span> <span class="n">wheel</span>   <span class="mi">0</span> <span class="no">Nov</span> <span class="mi">15</span> <span class="mi">10</span><span class="p">:</span><span class="mi">39</span> <span class="n">file</span><span class="o">-</span><span class="mo">01</span><span class="o">.</span><span class="n">txt</span>
+
+
+<span class="no">File</span><span class="o">.</span><span class="n">executable?</span><span class="p">(</span><span class="s2">&quot;/tmp/execuatable_file&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">1</span> <span class="n">vigo</span> <span class="n">wheel</span>   <span class="mi">0</span> <span class="no">Nov</span> <span class="mi">15</span> <span class="mi">10</span><span class="p">:</span><span class="mi">43</span> <span class="n">execuatable_file</span>
+</code></pre></div>
+<p>Executable olan dosyada <code>x</code> flag aktif gördüğünüz gibi :)</p>
+<p><strong>new</strong>, <strong>open</strong></p>
+<p><code>open</code> method’u ile <code>new</code> aynı işi yapar. Dosya açmaya yarar. Dosyayı açarken
+hangi duruma göre açacağımızı yani okumak için mi? yazmak için mi? yoksa
+varolan dosyaya ek yapmak için mi? belirtmemiz gerekir.</p>
+<div class="highlight"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;/tmp/test.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;Merhaba&quot;</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span>
+</code></pre></div>
+<p><code>/tmp/test.txt</code> adlı bir dosya oluşturup içine <code>puts</code> ile <strong>Merhaba</strong> yazdık.
+Eğer <code>cat /tmp/test.txt</code> yaparsanız kontrol edebilirsiniz. Dikkat ettiyseniz
+mode olarak "w" kullandık. Bu mode’lar neler?</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>Read-only, sadece okumak için. Bu default mode’dur.</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>Read+write, hatta read + prepend, pointer’ı başa alır, yani bu method’la bişi yazarsanız, yazdığınız şey dosyanın başına eklenir.</td>
+</tr>
+<tr>
+<td>w</td>
+<td>Write-only, sadece yazmak içindir. Eğer dosya yoksa hata verir!</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>Read+Write, hatta read + append, pointer’ı dosyanın sonuna alır ve yazdıklarınızı sona ekler. Eğer dosya yoksa hata verir!</td>
+</tr>
+<tr>
+<td>a</td>
+<td>Write-only, Eğer dosya varsa pointer’ı sona alır ve sona ek yapar, dosya yoksa sıfırdan yeni dosya üretir.</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>Read+write, Aynı a gibi çalışır, sona ek yapar, hem okumaya hem de yazmaya izin verir.</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Binary mode</td>
+</tr>
+<tr>
+<td>t</td>
+<td>Text mode</td>
+</tr>
+</tbody>
+</table>
+<p><strong>fnmatch</strong>, <strong>fnmatch?</strong></p>
+<p><strong>File Name Match</strong> yani dosya adı eşleştirmek. RegEx pattern’ine göre dosya
+adı yakalamak / kontrol etmek için kullanılır. 2 zorunlu ve 1 opsiyonel olmak
+üzere 3 parametre alabilir. Pattern, dosya adı ve opsiyonal olarak Flag’ler...</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="n">foo</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">foobar</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">)</span>                       <span class="c1"># =&gt; false</span>
+<span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="n">foo</span><span class="o">*</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">foobar</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">)</span>                      <span class="c1"># =&gt; true</span>
+<span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="o">*</span><span class="n">foo</span><span class="o">*</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">test_foobar</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">)</span>                <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p>Şimdi;</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="o">**.</span><span class="n">rb</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="o">.</span><span class="n n-Operator">/</span><span class="n">main</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">)</span>                     <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p>Bu işlemin <code>true</code> dönemsi için <code>FNM_DOTMATCH</code> flag’ini kullanacağız:</p>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="o">**.</span><span class="n">rb</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="o">.</span><span class="n n-Operator">/</span><span class="n">main</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">,</span> <span class="no">File</span><span class="o">::</span><span class="no">FNM_DOTMATCH</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>0:0</th>
+<th>1:0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FNM_DOTMATCH</td>
+<td>Nokta ile başlayan dosyalarda * kullanımına izin ver</td>
+</tr>
+<tr>
+<td>FNM_EXTGLOB</td>
+<td>{a,b,c} gibi paternlerde global aramaya izin ver</td>
+</tr>
+<tr>
+<td>FNM_PATHNAME</td>
+<td>Path ayraçlarında * kullanımını engelle</td>
+</tr>
+<tr>
+<td>FNM_CASEFOLD</td>
+<td>Case in-sensitive yani büyük/küçük harf ayırt etme!</td>
+</tr>
+<tr>
+<td>File::FNM_NOESCAPE</td>
+<td>ESCAPE kodu kullan</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="o">*</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="o">/</span><span class="err">’</span><span class="p">,</span> <span class="no">File</span><span class="o">::</span><span class="no">FNM_PATHNAME</span><span class="p">)</span>             <span class="c1"># =&gt; false</span>
+<span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="no">FOO</span><span class="o">*</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">foo</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">,</span> <span class="no">File</span><span class="o">::</span><span class="no">FNM_CASEFOLD</span><span class="p">)</span>     <span class="c1"># =&gt; true</span>
+<span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="n">f</span><span class="p">{</span><span class="n">o</span><span class="p">,</span><span class="n">a</span><span class="p">}</span><span class="n">o</span><span class="o">*</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">foo</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">,</span> <span class="no">File</span><span class="o">::</span><span class="no">FNM_EXTGLOB</span><span class="p">)</span>  <span class="c1"># =&gt; true</span>
+<span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="n">f</span><span class="p">{</span><span class="n">o</span><span class="p">,</span><span class="n">a</span><span class="p">}</span><span class="n">o</span><span class="o">*</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">fao</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">,</span> <span class="no">File</span><span class="o">::</span><span class="no">FNM_EXTGLOB</span><span class="p">)</span>  <span class="c1"># =&gt; true</span>
+<span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="p">\</span><span class="n">foo</span><span class="o">*</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="p">\</span><span class="n">foo</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">)</span>                       <span class="c1"># =&gt; false</span>
+<span class="no">File</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="err">’</span><span class="p">\</span><span class="n">foo</span><span class="o">*</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="p">\</span><span class="n">foo</span><span class="o">.</span><span class="n">rb</span><span class="err">’</span><span class="p">,</span> <span class="no">File</span><span class="o">::</span><span class="no">FNM_NOESCAPE</span><span class="p">)</span>   <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<h2 id="io">IO</h2>
+<p>Tüm giriş/çıkış (Input/Output) işlerinin kalbi burada atar. <code>File</code> sınıfı da
+<code>IO</code>’nun alt sınıfıdır. Binary okuma/yazma işlemleri, multi tasking işlemler
+(<em>Process spawning, async işler</em>) hep bu sınıf sayesinde çalışır.</p>
+<p>Ruby 101 seviyesi için biraz karmaşık olsa dahi, sadece fikriniz olması
+açısından, en bilinen ve kullanılan birkaç method’a değinmek istiyorum.</p>
+<p><strong>binread</strong></p>
+<p>Binary read, yani byte-byte okuma işlemi için kullanılır. Opsiyonel olarak
+geçilen 2.parametre, kaç byte okumak istediğimizi, 3.parametre de offset yani
+kaç byte öteden okumaya başlamak gerek bunu bildirir. Yani elinizde bir dosya
+olsun, dosyanın ilk 100 byte’ını 20.byte’tan itibaren okumanız gerekirse
+kullanacağınız method budur :)</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1 byte atlayarak 3 byte okuduk ve</span>
+<span class="no">IO</span><span class="o">.</span><span class="n">binread</span><span class="p">(</span><span class="s2">&quot;test.png&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; &quot;PNG&quot;</span>
+</code></pre></div>
+<p><strong>binwrite</strong></p>
+<p>Tahmin edeceğiniz gibi <code>binread</code> in tersi, yani Binary olarak yazma işini
+yapan method. Aynı şekilde opsiyonel 2 ve 3.parametreleri kullanabilirsiniz.</p>
+<p><strong>copystream</strong></p>
+<p>Birebir kopya yapmaya yarar. İlk parametre SOURCE yani neyi kopyalacaksınız,
+ikinci parametre DESTINATION yani nereye kopyalacaksınız, eğer kullanırsanız
+3.parametre kopyalanacak byte adedi, eğer 4.parametre kullanırsanız aynı
+read/write daki gibi offset değeri olarak kullanabilirsiniz.</p>
+<p><strong>foreach</strong></p>
+<p>Elimizde <code>test-file.txt</code> olsun ve içinde;</p>
+<div class="codehilite"><pre><span></span><code>satır 1
+satır 2
+</code></pre></div>
+
+<p>yazsın... Satır-satır içinde dolaşmak için;</p>
+<div class="highlight"><pre><span></span><code><span class="no">IO</span><span class="o">.</span><span class="n">foreach</span><span class="p">(</span><span class="s2">&quot;test-file.txt&quot;</span><span class="p">){</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">print</span> <span class="s2">&quot;bu satır: &quot;</span><span class="p">,</span><span class="n">x</span><span class="p">}</span>
+</code></pre></div>
+<p>Dediğimizde çıktı;</p>
+<div class="codehilite"><pre><span></span><code>bu satır: satır 1
+bu satır: satır 2
+</code></pre></div>
+
+<p>şeklinde içeriye block pas edip kullanabiliriz.</p>
+<p><strong>popen</strong></p>
+<p><strong>Subprocess</strong> yani alt işlemler açmak için kullanılır. Özellikle Ruby
+üzerinden <strong>SHELL</strong> komutları çağırmak için çok kullanılan bir yöntemdir.
+Asenkron işler.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Bu işlem asenkron/alt işlem olarak çalışır...</span>
+<span class="no">IO</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">response</span><span class="o">|</span>
+  <span class="n">system_date</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">gets</span>
+  <span class="nb">puts</span> <span class="s2">&quot;system_date: </span><span class="si">#{</span><span class="n">system_date</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><code>/tmp/</code> dizinini listeleyelim:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">p</span> <span class="o">=</span> <span class="no">IO</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&quot;ls /tmp/&quot;</span><span class="p">)</span>
+<span class="nb">p</span><span class="o">.</span><span class="n">pid</span>       <span class="c1"># =&gt; 52389</span>
+<span class="nb">p</span><span class="o">.</span><span class="n">readlines</span> <span class="c1"># =&gt; [&quot;D8D75028-234B-4F49-9358-C4C4775B4A08_IN\n&quot;, &quot;D8D75028-234B-4F49-9358-C4C4775B4A08_OUT\n&quot;, &quot;F7C71944B49B446081C0603DE90E4855_IN\n&quot;, &quot;F7C71944B49B446081C0603DE90E4855_OUT\n&quot;, &quot;KSOutOfProcessFetcher.501.OlaJUhhgKAnFsX7fZ0FyXTFxIgg=\n&quot;, &quot;com.apple.launchd.4H4RVax25p\n&quot;, &quot;com.apple.launchd.Kn8Wcx4NQX\n&quot;, &quot;fo\n&quot;, &quot;lilo.12159\n&quot;, &quot;swtag.log\n&quot;, &quot;test-file.txt\n&quot;]</span>
+</code></pre></div>
+<p>Gördüğünüz gibi <strong>pid</strong> yani Process ID : 52389, eğer shell’den;</p>
+<div class="codehilite"><pre><span></span><code>ps ax | grep 52389
+</code></pre></div>
+
+<p>derseniz;</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">52389</span>   <span class="err">??</span>  <span class="n">Z</span>      <span class="mf">0</span><span class="p">:</span><span class="mf">00.00</span> <span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+</code></pre></div>
+
+<p>gibi ilgili işlemi görürsünüz.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../02-ranges/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ranges" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Ranges
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../04-exception-handling/" class="md-footer__link md-footer__link--next" aria-label="Next: Exception Handling" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Exception Handling
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>

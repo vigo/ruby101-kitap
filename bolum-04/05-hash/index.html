@@ -1,0 +1,1758 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ruby öğrenmek isteyen herkesin işine yarayacak bir kitap!">
+      
+      
+      
+        <meta name="author" content="Uğur vigo Özyılmazel">
+      
+      
+        <link rel="canonical" href="https://vigo.github.io/ruby101-kitap/bolum-04/05-hash/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Hash - Ruby 101 Kitabı</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hash" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-header__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ruby 101 Kitabı
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hash
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-nav__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Ruby 101 Kitabı
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cover/" class="md-nav__link">
+        Kapak
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preface/" class="md-nav__link">
+        Önsöz
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-review/" class="md-nav__link">
+        Teknik İncleme
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Bölüm İndeksi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Bölüm 1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/01-tarihce/" class="md-nav__link">
+        Ruby Hakkında
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/02-kurulum/" class="md-nav__link">
+        Kurulum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/03-interaktif-kullanim/" class="md-nav__link">
+        İnteraktif Kullanım
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/04-ruby-komutu-ve-parametreleri/" class="md-nav__link">
+        Ruby Komutu ve Parametreleri
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Bölüm 2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/01-syntax-soz-dizimi-ve-degiskenler/" class="md-nav__link">
+        Syntax, Comments, Rezerve Edilmiş Kelimeler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/02-degiskenler/" class="md-nav__link">
+        Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/03-on-tanimli-degiskenler/" class="md-nav__link">
+        Ön Tanımlı Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/04-operatorler/" class="md-nav__link">
+        Operatörler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/05-global-constants-genel-sabitler/" class="md-nav__link">
+        Genel Sabitler
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Bölüm 3
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/01-methods-fonksiyonlar/" class="md-nav__link">
+        Methods (Fonksiyonlar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/02-blocks-bloklar/" class="md-nav__link">
+        Blocks (Bloklar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/03-proc-ve-lambda/" class="md-nav__link">
+        Proc ve Lambda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/04-conditional-statements-kosullar/" class="md-nav__link">
+        Conditional Statements (Koşullar)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      <label class="md-nav__link" for="__nav_8">
+        Bölüm 4
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-number/" class="md-nav__link">
+        Number
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-string/" class="md-nav__link">
+        String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-array/" class="md-nav__link">
+        Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Hash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Hash
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hash-class-methodlar" class="md-nav__link">
+    Hash Class Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash-instance-methodlar" class="md-nav__link">
+    Hash Instance Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-value-kontrolleri" class="md-nav__link">
+    Key, Value Kontrolleri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterasyon-ve-block-kullanm" class="md-nav__link">
+    İterasyon ve Block Kullanımı
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-symbol/" class="md-nav__link">
+        Symbol
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-class/" class="md-nav__link">
+        Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-module/" class="md-nav__link">
+        Module
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Bölüm 5
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 5" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/01-enumeration-ve-iteration/" class="md-nav__link">
+        Enumeration ve Iteration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/02-ranges/" class="md-nav__link">
+        Ranges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/03-file-system-ve-io-dosya-sistemi/" class="md-nav__link">
+        File System ve IO (Dosya Sistemi)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/04-exception-handling/" class="md-nav__link">
+        Exception Handling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/05-kernel-modulu/" class="md-nav__link">
+        Kernel Modülü
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Bölüm 6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/01-monkey-patching/" class="md-nav__link">
+        Monkey Patching
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/02-regular-expressions/" class="md-nav__link">
+        Regular Expressions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/03-time-ve-date-nesneleri/" class="md-nav__link">
+        Time ve Date Nesneleri
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/04-ruby-paketleri-ruby_gems/" class="md-nav__link">
+        Ruby Paketleri: RubyGems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/05-paket-yoneticisi-bundler/" class="md-nav__link">
+        Paket Yöneticisi: Bundler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/06-komut-satiri-command-line-kullanimi/" class="md-nav__link">
+        Komut Satırı (Command-Line) Kullanımı
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/07-meta-programming/" class="md-nav__link">
+        Meta Programming
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        Bölüm 7
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 7" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/01-kod-yazma-tarzi-style-guide/" class="md-nav__link">
+        Kod Yazma Tarzı (Style Guide)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        Bölüm 8
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 8" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 8
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/01-neden-ruby/" class="md-nav__link">
+        Neden Ruby?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/02-ruby-ve-tddbddci/" class="md-nav__link">
+        Ruby ve TDD/BDD/CI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/03-kendi-rubygemimizi-yapalim/" class="md-nav__link">
+        Kendi Rubygem'imizi yapalım!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/04-sinatra-ve-web/" class="md-nav__link">
+        Sinatra ve Web
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        Teşekkürler
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hash-class-methodlar" class="md-nav__link">
+    Hash Class Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash-instance-methodlar" class="md-nav__link">
+    Hash Instance Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-value-kontrolleri" class="md-nav__link">
+    Key, Value Kontrolleri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterasyon-ve-block-kullanm" class="md-nav__link">
+    İterasyon ve Block Kullanımı
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vigo/ruby101-kitap/edit/master/docs/bolum-04/05-hash.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="hash">Hash</h1>
+<p>Pek çok dilde <strong>Dictionary</strong> olarak geçen, Array’imsi, hatta <strong>Associative
+Array</strong> de denir, <strong>Key</strong>-<strong>Value</strong> çifti barındıran yine Array’e benzeyen
+başka bir taşıyıcıdır. <strong>Key</strong>-<strong>Value</strong> dediğimiz şey ise;</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="ss">key1</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="ss">key2</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="o">....</span><span class="p">}</span>
+</code></pre></div>
+<p>şeklindedir. Yukarıdaki örnek, yeni syntax’ı kullanır. Ruby programcılarının
+alışık olduğu örnek:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+</code></pre></div>
+<p>ya da</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="ss">:key1</span> <span class="o">=&gt;</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="ss">:key2</span> <span class="o">=&gt;</span> <span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+</code></pre></div>
+<p>şeklindedir. Hepsi aynı kapıya çıkar... Array’deki sıra (<em>index</em>) mantığı
+burada <strong>key</strong>’ler ile oluyor gibi düşünebilirsiniz. Key’ler <strong>unique</strong>’dir
+yani bir Hash içinde <strong>2 tane aynı key</strong>’den olamaz.</p>
+<p>Hash’de sonuçta bir class olduğu için <code>new</code> method’u ile Hash’i
+oluşturabiliriz;</p>
+<div class="highlight"><pre><span></span><code><span class="no">Hash</span><span class="o">.</span><span class="n">new</span> <span class="c1"># =&gt; {}</span>
+</code></pre></div>
+<p>Aynı Array’deki gibi Hash’in de hızlı oluşurma yolu var : <code>h = {}</code>. Hemen
+Hash’in nereden geldiğine bakalım:</p>
+<div class="highlight"><pre><span></span><code><span class="no">Hash</span><span class="o">.</span><span class="n">class</span>                                  <span class="c1"># =&gt; Class</span>
+<span class="no">Hash</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span>                       <span class="c1"># =&gt; Module</span>
+<span class="no">Hash</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span>            <span class="c1"># =&gt; Object</span>
+<span class="no">Hash</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; BasicObject</span>
+<span class="no">Hash</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div>
+<p>Dikkat ettiyseniz Hash’in bir üst sınıfı <strong>Module</strong>. Aynı Array’deki gibi.
+Peki bu modüller nelermiş?</p>
+<div class="highlight"><pre><span></span><code><span class="no">Hash</span><span class="o">.</span><span class="n">included_modules</span> <span class="c1"># =&gt; [Enumerable, Kernel]</span>
+</code></pre></div>
+<p>Eğer Hash’i oluştururken <strong>default</strong> değer geçersek, tanımsız olan <strong>key</strong>
+için değer atamış oluruz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Tanımsız&quot;</span><span class="p">)</span> <span class="c1"># =&gt; {}</span>
+<span class="n">h</span><span class="o">[</span><span class="ss">:isim</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;Uğur&quot;</span>        <span class="c1"># =&gt; &quot;Uğur&quot;</span>
+<span class="n">h</span>                        <span class="c1"># =&gt; {:isim=&gt;&quot;Uğur&quot;}</span>
+<span class="n">h</span><span class="o">[</span><span class="ss">:soyad</span><span class="o">]</span>                <span class="c1"># =&gt; &quot;Tanımsız&quot;</span>
+<span class="n">h</span><span class="o">.</span><span class="n">default</span>                <span class="c1"># =&gt; &quot;Tanımsız&quot;</span>
+</code></pre></div>
+<p>Olmayan bir key’e ulaşmak istediğimizde <code>"Tanımsız"</code> değeri geldi. Eğer bu
+default değeri atamasaydı ne olacaktı?</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span>               <span class="c1"># =&gt; {}</span>
+<span class="n">h</span><span class="o">[</span><span class="ss">:isim</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;Uğur&quot;</span>          <span class="c1"># =&gt; &quot;Uğur&quot;</span>
+<span class="n">h</span><span class="o">[</span><span class="ss">:soyad</span><span class="o">]</span>                  <span class="c1"># =&gt; nil</span>
+</code></pre></div>
+<p><code>nil</code> gelecekti. Biraz sonra göreceğimiz <code>fetch</code> method’unu lütfen aklınızda
+tutun!</p>
+<p><strong>Default</strong> değer tanımlama mantığında;</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">key</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;User: </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+<span class="n">h</span><span class="o">[</span><span class="s2">&quot;vigo&quot;</span><span class="o">]</span>             <span class="c1"># =&gt; &quot;User: vigo&quot;</span>
+<span class="n">h</span><span class="o">[</span><span class="s2">&quot;foobar&quot;</span><span class="o">]</span>           <span class="c1"># =&gt; &quot;User: foobar&quot;</span>
+<span class="n">h</span><span class="o">[</span><span class="s2">&quot;animal&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;horse&quot;</span> <span class="c1"># =&gt; &quot;horse&quot;</span>
+<span class="n">h</span>                     <span class="c1"># =&gt; {&quot;vigo&quot;=&gt;&quot;User: vigo&quot;, &quot;foobar&quot;=&gt;&quot;User: foobar&quot;, &quot;animal&quot;=&gt;&quot;horse&quot;}</span>
+</code></pre></div>
+<p>bu tarz ilginç bir yöntem de kullanılabilir. Normalde <code>vigo</code> key’ine karşılık
+<strong>value</strong> yok ama <code>Hash</code>in <code>new</code> method’unda yaptığımız bir blok işlemi ile
+olmayan <code>key</code> için değer ataması yaptığımız gibi key-value ataması da
+yapabiliyoruz.</p>
+<h2 id="hash-class-methodlar">Hash Class Method’ları</h2>
+<p>Hash’den bir instance oluşturmadan kullandığımız methodlardır.</p>
+<p><strong>Hash[ key, value, ... ] -&gt; yeni_hash</strong>
+<strong>Hash[ [ [key, value], ... ] ] -&gt; yeni_hash</strong>
+<strong>Hash[ object ] -&gt; yeni_hash</strong></p>
+<div class="highlight"><pre><span></span><code><span class="no">Hash</span><span class="o">[</span><span class="s2">&quot;user_count&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>                            <span class="c1"># =&gt; {&quot;user_count&quot;=&gt;5}</span>
+<span class="no">Hash</span><span class="o">[</span> <span class="o">[[</span><span class="s2">&quot;user_count&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&quot;active_users&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">]]</span> <span class="o">]</span> <span class="c1"># =&gt; {&quot;user_count&quot;=&gt;5, &quot;active_users&quot;=&gt;2}</span>
+<span class="no">Hash</span><span class="o">[</span><span class="s2">&quot;user_count&quot;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;active_users&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="o">]</span>     <span class="c1"># =&gt; {&quot;user_count&quot;=&gt;5, &quot;active_users&quot;=&gt;2}</span>
+</code></pre></div>
+<p><strong>Hash.new</strong></p>
+<p>Zaten ilgili örnekleri başta vermiştik, tekrar edelim:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span>
+<span class="n">h</span> <span class="c1"># =&gt; {}</span>
+<span class="n">h</span><span class="o">[</span><span class="s2">&quot;user_count&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">h</span> <span class="c1"># =&gt; {&quot;user_count&quot;=&gt;5}</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">key</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;User ID: </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+<span class="n">h</span><span class="o">[</span><span class="s2">&quot;1&quot;</span><span class="o">]</span> <span class="c1"># =&gt; &quot;User ID: 1&quot;</span>
+<span class="n">h</span><span class="o">[</span><span class="s2">&quot;2&quot;</span><span class="o">]</span> <span class="c1"># =&gt; &quot;User ID: 2&quot;</span>
+<span class="n">h</span> <span class="c1"># =&gt; {&quot;1&quot;=&gt;&quot;User ID: 1&quot;, &quot;2&quot;=&gt;&quot;User ID: 2&quot;}</span>
+</code></pre></div>
+<p><strong>try_convert(obj) → hash ya da nil</strong></p>
+<p>Hash’e dönüşebilme ihtimali olan nesneyi Hash haline çevirir.</p>
+<div class="highlight"><pre><span></span><code><span class="no">Hash</span><span class="o">.</span><span class="n">try_convert</span><span class="p">({</span><span class="s2">&quot;user_count&quot;</span><span class="o">=&gt;</span><span class="mi">5</span><span class="p">})</span>   <span class="c1"># =&gt; {&quot;user_count&quot;=&gt;5}</span>
+<span class="no">Hash</span><span class="o">.</span><span class="n">try_convert</span><span class="p">(</span><span class="s2">&quot;user_count=&gt;5&quot;</span><span class="p">)</span>     <span class="c1"># =&gt; nil</span>
+</code></pre></div>
+<h2 id="hash-instance-methodlar">Hash Instance Method’ları</h2>
+<p>Hash instance’ı oluşturduktan sonra kullanacağımız method’lardır.</p>
+<p>Önce klasik değer okuma ve değer atama işlerine bakalım. Zaten bu noktaya
+kadar kabaca biliyoruz nasıl değer atarız geri okuruz. Ama biraz kafaları
+karıştırmak istiyorum:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">username</span><span class="p">:</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="s2">&quot;1234&quot;</span><span class="p">}</span> <span class="c1"># =&gt; {:username=&gt;&quot;vigo&quot;, :password=&gt;&quot;1234&quot;}</span>
+</code></pre></div>
+<p>Yukarıdaki gibi bir <strong>Hash</strong>’imiz var. Dikkat ettiyseniz, key,value olarak
+baktığımızda <code>:username</code> ve <code>:password</code> diye başlayan <code>key</code>ler var... Hatta:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">.</span><span class="n">keys</span> <span class="c1"># =&gt; [:username, :password]</span>
+</code></pre></div>
+<p>diye de sağlamasını yaparız. Peki, yeni bir <code>key</code> tanımlasak? <code>h["useremail"]
+= "vigo@example.com"</code>. Tekrar bakalım <code>key</code>lere:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">.</span><span class="n">keys</span> <span class="c1"># =&gt; [:username, :password, &quot;useremail&quot;]</span>
+</code></pre></div>
+<p>Bir sonraki bölümde karşımıza çıkacak olan <strong>Symbol</strong> tipi ile karşı
+karşıyayız. Sadece <strong>symbol</strong> mu? hayır, karışık keyler var elimizde. Hemen
+sağlamasını yapalım:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:class</span><span class="p">)</span> <span class="c1"># =&gt; [Symbol, Symbol, String]</span>
+</code></pre></div>
+<p>İlk iki key <strong>Symbol</strong> iken son key <strong>String</strong> oldu. Demek ki Hash içine key
+cinsi olarak karşık atama yapabiliniyor. Biraz sıkıntılı bir durum ama genel
+kültür mahiyetinde aklınızda tutun bunu!</p>
+<p>Şimdi genel olarak Hash hangi method’lara sahip hemen bakalım:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span>
+<span class="n">h</span><span class="o">.</span><span class="n">methods</span> <span class="c1"># =&gt; [:rehash, :to_hash, :to_h, :to_a, :inspect, :to_s, :==, :[], :hash, :eql?, :fetch, :[]=, :store, :default, :default=, :default_proc, :default_proc=, :key, :index, :size, :length, :empty?, :each_value, :each_key, :each_pair, :each, :keys, :values, :values_at, :shift, :delete, :delete_if, :keep_if, :select, :select!, :reject, :reject!, :clear, :invert, :update, :replace, :merge!, :merge, :assoc, :rassoc, :flatten, :include?, :member?, :has_key?, :has_value?, :key?, :value?, :compare_by_identity, :compare_by_identity?, :entries, :sort, :sort_by, :grep, :count, :find, :detect, :find_index, :find_all, :collect, :map, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :first, :all?, :any?, :one?, :none?, :min, :max, :minmax, :min_by, :max_by, :minmax_by, :each_with_index, :reverse_each, :each_entry, :each_slice, :each_cons, :each_with_object, :zip, :take, :take_while, :drop, :drop_while, :cycle, :chunk, :slice_before, :lazy, :nil?, :===, :=~, :!~, :&lt;=&gt;, :class, :singleton_class, :clone, :dup, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :extend, :display, :method, :public_method, :singleton_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]</span>
+</code></pre></div>
+<p>Dikkat ettiyseniz method’ların bir kısmı <strong>Array</strong> ile aynı çünki ikisi de
+<strong>Enumerable</strong> modülünü kullanıyor.</p>
+<p>Şimdi sıradan başlayalım! Önceki <strong>Array</strong> bölümünde anlattığım ortak
+method’ları pas geçeceğim!</p>
+<p><strong>rehash</strong></p>
+<p>Hash’e key olarak Array verebiliriz. Yani <code>h[key] = value</code> mantığında <code>key</code> olarak bildiğiniz Array geçebiliriz.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">[</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span> <span class="o">]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="n">c</span> <span class="o">=&gt;</span> <span class="mi">300</span> <span class="p">}</span> <span class="c1"># =&gt; {[&quot;a&quot;, &quot;b&quot;]=&gt;100, [&quot;c&quot;, &quot;d&quot;]=&gt;300}</span>
+</code></pre></div>
+<p><code>h</code> Hash’inin keyleri nedir?</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">.</span><span class="n">keys</span>                     <span class="c1"># =&gt; [[&quot;a&quot;, &quot;b&quot;], [&quot;c&quot;, &quot;d&quot;]]</span>
+</code></pre></div>
+<p>2 key’i var biri <code>["a", "b"]</code> ve diğeri <code>["c", "d"]</code> nasıl yani?</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">[</span><span class="n">a</span><span class="o">]</span>                       <span class="c1"># =&gt; 100</span>
+<span class="n">h</span><span class="o">[[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">]]</span>              <span class="c1"># =&gt; 100</span>
+<span class="n">h</span><span class="o">[</span><span class="n">c</span><span class="o">]</span>                       <span class="c1"># =&gt; 300</span>
+<span class="n">h</span><span class="o">[[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="o">]]</span>              <span class="c1"># =&gt; 300</span>
+</code></pre></div>
+<p>Şimdi işleri karıştıralım. <code>a</code> Array’inin ilk değerini değiştirelim. Bakalım
+<code>h</code> ne olacak?</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;v&quot;</span>                 <span class="c1"># =&gt; &quot;v&quot;</span>
+<span class="n">a</span>                          <span class="c1"># =&gt; [&quot;v&quot;, &quot;b&quot;]</span>
+<span class="n">h</span><span class="o">[</span><span class="n">a</span><span class="o">]</span>                       <span class="c1"># =&gt; nil ????????</span>
+</code></pre></div>
+<p><code>h[a]</code> patladı? <code>nil</code> döndü. İşte şimdi imdadımıza ne yetişecek?</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">.</span><span class="n">rehash</span>                   <span class="c1"># =&gt; {[&quot;v&quot;, &quot;b&quot;]=&gt;100, [&quot;c&quot;, &quot;d&quot;]=&gt;300}</span>
+<span class="n">h</span><span class="o">[</span><span class="n">a</span><span class="o">]</span>                       <span class="c1"># =&gt; 100</span>
+</code></pre></div>
+<p><strong>to_hash</strong>, <strong>to_h</strong>, <strong>to_a</strong>, <strong>to_s</strong></p>
+<p>Tip dönüştürmeleri için kullanılırlar. <code>to_h</code> ve <code>to_hash</code> eğer kendisi Hash
+ise sonuç yine kendisi olur. <code>to_a</code> ise Hash’den Array yapmak için kullanılır.
+Tahmin edeceğiniz gibi <code>to_s</code> de String’e çevirmek için kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="s2">&quot;bar&quot;</span><span class="p">}</span>
+<span class="n">h</span>                                 <span class="c1"># =&gt; {:foo=&gt;&quot;bar&quot;}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">to_hash</span>                         <span class="c1"># =&gt; {:foo=&gt;&quot;bar&quot;}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">to_h</span>                            <span class="c1"># =&gt; {:foo=&gt;&quot;bar&quot;}</span>
+<span class="o">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="o">].</span><span class="n">respond_to?</span><span class="p">(</span><span class="ss">:to_h</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="o">[[</span><span class="ss">:foo</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="o">]].</span><span class="n">to_h</span>              <span class="c1"># =&gt; {:foo=&gt;&quot;bar&quot;}</span>
+
+<span class="o">[[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">]].</span><span class="n">to_h</span>   <span class="c1"># =&gt; {&quot;a&quot;=&gt;1, &quot;b&quot;=&gt;2}</span>
+
+<span class="n">h</span><span class="o">.</span><span class="n">to_a</span>                            <span class="c1"># =&gt; [[:foo, &quot;bar&quot;]]</span>
+<span class="n">h</span><span class="o">.</span><span class="n">to_s</span>                            <span class="c1"># =&gt; &quot;{:foo=&gt;\&quot;bar\&quot;}&quot;</span>
+</code></pre></div>
+<p><strong>==</strong> ve <strong>eql?</strong> Eşitlik</p>
+<p>Hash içinde key’lerin sırası eşitlik kontrolünde önemli değildir. İçerik
+önemlidir. Eşitlik kontrolü için kullanılırlar.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h1</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span> <span class="p">}</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">70</span> <span class="o">=&gt;</span> <span class="mi">350</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span> <span class="o">=&gt;</span> <span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span> <span class="o">=&gt;</span> <span class="mi">11</span> <span class="p">}</span>
+<span class="n">h3</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;y&quot;</span> <span class="o">=&gt;</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span> <span class="o">=&gt;</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">70</span> <span class="o">=&gt;</span> <span class="mi">350</span> <span class="p">}</span>
+
+<span class="n">h1</span> <span class="o">==</span> <span class="n">h2</span> <span class="c1"># =&gt; false</span>
+<span class="n">h2</span> <span class="o">==</span> <span class="n">h3</span> <span class="c1"># =&gt; true</span>
+
+<span class="n">h1</span><span class="o">.</span><span class="n">eql?</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span>  <span class="c1"># =&gt; false</span>
+<span class="n">h2</span><span class="o">.</span><span class="n">eql?</span><span class="p">(</span><span class="n">h3</span><span class="p">)</span>  <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p><code>h2</code> ile <code>h3</code> key sıraları farklı olmasına rağmen içerik bazında eşittirler.</p>
+<p><strong>fetch</strong></p>
+<p>Hash içinden sorgu yaparken kullanılır. Eğer olmayan key çağırırsanız
+<strong>exception</strong> oluşur. Bu method güvenli bir yöntemdir. Aksi takdirde <code>nil</code>
+döner ve kompleks işlerde <strong>Silent Fail</strong> yani dipsiz kuyuya düşer bir türlü
+hatanın yerini bulamazsınız!</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">}</span>
+<span class="nb">puts</span> <span class="n">h</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span> <span class="c1"># &quot;vigo&quot;</span>
+<span class="nb">puts</span> <span class="n">h</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:email</span><span class="p">)</span>
+
+<span class="ss">KeyError</span><span class="p">:</span> <span class="n">key</span> <span class="ow">not</span> <span class="ss">found</span><span class="p">:</span> <span class="ss">:email</span>
+</code></pre></div>
+<p>Keza eğer key’e karşılık yoksa <strong>default</strong> değer ataması yapabilirsiniz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>               <span class="c1"># =&gt; &quot;vigo&quot;</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="s2">&quot;Not found&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Not found&quot;</span>
+</code></pre></div>
+<p><strong>Block</strong> kabul ettiği için artistlik hareketler yapmak da mümkün :)</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:email</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">element</span><span class="o">|</span> <span class="s2">&quot;key: </span><span class="si">#{</span><span class="n">element</span><span class="si">}</span><span class="s2"> is not defined!&quot;</span> <span class="p">}</span> <span class="c1"># =&gt; &quot;key: email is not defined!&quot;</span>
+</code></pre></div>
+<p><strong>store</strong></p>
+<p>Atama yapmanın farklı bir yöntemidir.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="s2">&quot;vigo@example.com&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;vigo@example.com&quot;</span>
+<span class="n">h</span>                                   <span class="c1"># =&gt; {:user=&gt;&quot;vigo&quot;, :password=&gt;&quot;secret&quot;, :email=&gt;&quot;vigo@example.com&quot;}</span>
+
+<span class="c1"># ya da</span>
+
+<span class="n">h</span><span class="o">[</span><span class="ss">:url</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;http://webbox.io&quot;</span>        <span class="c1"># =&gt; &quot;http://webbox.io&quot;</span>
+<span class="n">h</span>                                   <span class="c1"># =&gt; {:user=&gt;&quot;vigo&quot;, :password=&gt;&quot;secret&quot;, :email=&gt;&quot;vigo@example.com&quot;, :url=&gt;&quot;http://webbox.io&quot;}</span>
+</code></pre></div>
+<p><strong>default</strong>, <strong>default=</strong></p>
+<p>Karşılığı olmayan <code>key</code>ler için varsayılan değer ataması yapılmışsa bunu
+bulmak için ya da varsayılan değeri atamak için kullanılır. En başta benzer
+işler yaptık:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">h</span><span class="o">[</span><span class="ss">:user_age</span><span class="o">]</span>            <span class="c1"># =&gt; 10</span>
+<span class="n">h</span>                       <span class="c1"># =&gt; {}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">default</span>               <span class="c1"># =&gt; 10</span>
+<span class="n">h</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="ss">:user_weight</span><span class="p">)</span> <span class="c1"># =&gt; 10</span>
+</code></pre></div>
+<p>ya da</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span>
+<span class="n">h</span>                         <span class="c1"># =&gt; {}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="mi">100</span>           <span class="c1"># =&gt; 100</span>
+<span class="n">h</span><span class="o">[</span><span class="ss">:user_weight</span><span class="o">]</span>           <span class="c1"># =&gt; 100</span>
+<span class="n">h</span><span class="o">[</span><span class="ss">:foo</span><span class="o">]</span>                   <span class="c1"># =&gt; 100</span>
+</code></pre></div>
+<p><strong>key</strong></p>
+<p>Value’den key’i bulmak için kullanılır. Eğer key’i olmayan bir value
+kullanırsanız sonuç <code>nil</code> döner!</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="s2">&quot;vigo&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; :user</span>
+<span class="n">h</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="s2">&quot;foobar&quot;</span><span class="p">)</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div>
+<p><strong>size</strong>, <strong>length</strong>, <strong>count</strong></p>
+<p>Aynı işi yaparlar, Arrar gibi Hash’in boyunu / uzunluğunu verir.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">length</span> <span class="c1"># =&gt; 2</span>
+<span class="n">h</span><span class="o">.</span><span class="n">size</span>   <span class="c1"># =&gt; 2</span>
+<span class="n">h</span><span class="o">.</span><span class="n">count</span>  <span class="c1"># =&gt; 2</span>
+</code></pre></div>
+<h2 id="key-value-kontrolleri">Key, Value Kontrolleri</h2>
+<p><strong>keys</strong>, <strong>values</strong>, <strong>values_at</strong></p>
+<p>Tahmin edeceğiniz gibi <code>keys</code> ile Hash’e ait key’leri, <code>values</code> ile sadece
+key’lere karşılık gelen değerleri, <code>values_at</code> ile verdiğimiz key’lere ait
+değerleri alırız.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo@foo.com&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">keys</span>                        <span class="c1"># =&gt; [:user, :password, :email]</span>
+<span class="n">h</span><span class="o">.</span><span class="n">values</span>                      <span class="c1"># =&gt; [&quot;vigo&quot;, &quot;secret&quot;, &quot;vigo@foo.com&quot;]</span>
+<span class="n">h</span><span class="o">.</span><span class="n">values_at</span><span class="p">(</span><span class="ss">:user</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;vigo&quot;, &quot;secret&quot;]</span>
+</code></pre></div>
+<p><strong>key?</strong>, <strong>value?</strong>, <strong>has_key?</strong>, <strong>has_value?</strong></p>
+<p>Soru işareti ile biten method’lar bize her zaman <strong>Boolean</strong> yani <code>true</code> ya da
+<code>false</code> döner demiştik. Acaba Hash’in içinde ilgili key var mı? ya da value
+var mı?</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo@foo.com&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>          <span class="c1"># =&gt; true</span>
+<span class="n">h</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>      <span class="c1"># =&gt; true</span>
+
+<span class="n">h</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="ss">:full_name</span><span class="p">)</span>     <span class="c1"># =&gt; false</span>
+<span class="n">h</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="ss">:full_name</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+
+<span class="n">h</span><span class="o">.</span><span class="n">value?</span><span class="p">(</span><span class="s2">&quot;vigo&quot;</span><span class="p">)</span>       <span class="c1"># =&gt; true</span>
+<span class="n">h</span><span class="o">.</span><span class="n">has_value?</span><span class="p">(</span><span class="s2">&quot;vigo&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; true</span>
+
+<span class="n">h</span><span class="o">.</span><span class="n">value?</span><span class="p">(</span><span class="s2">&quot;lego&quot;</span><span class="p">)</span>       <span class="c1"># =&gt; false</span>
+<span class="n">h</span><span class="o">.</span><span class="n">has_value?</span><span class="p">(</span><span class="s2">&quot;lego&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p><strong>include?</strong>, <strong>member?</strong></p>
+<p><code>key?</code> ya da <code>has_key?</code> ile aynı işi yapar.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo@foo.com&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>        <span class="c1"># =&gt; true</span>
+<span class="n">h</span><span class="o">.</span><span class="n">member?</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>         <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p><strong>empty?</strong></p>
+<p>Hash’in içinde eleman var mı yok mu?</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo@foo.com&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">empty?</span> <span class="c1"># =&gt; false</span>
+<span class="p">{}</span><span class="o">.</span><span class="n">empty?</span> <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p><strong>all?</strong>, <strong>any?</strong>, <strong>one?</strong>, <strong>none?</strong></p>
+<p><strong>Array</strong> bölümünde görmüştük, <strong>Enumerable</strong> modülünden gelen bu özellik
+aynen Hash’de de kullanılıyor. <code>all?</code> da tüm elemanlar, verilen koşuldan <code>nil</code>
+ya da <code>false</code> dışında bir şey dönmek zorunda, aksi halde sonuç <code>false</code> oluyor:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># value’su boş olan var mı?</span>
+<span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo@foo.com&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">all?</span><span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span><span class="o">.</span><span class="n">empty?</span> <span class="p">}</span> <span class="c1"># =&gt; false</span>
+<span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">all?</span><span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span><span class="o">.</span><span class="n">empty?</span> <span class="p">}</span>                       <span class="c1"># =&gt; true</span>
+<span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">all?</span><span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span><span class="o">.</span><span class="n">empty?</span> <span class="p">}</span>                   <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p><code>any?</code> de içlerinden biri <code>false</code> ya da <code>nil</code> dönmezse sonuç <code>true</code>olur.
+<code>one?</code> da sadece bir tanesi <code>true</code> dönmelidir. <code>none</code> da ise block’daki işlem
+sonucu her eleman için <code>false</code> olmalıdır.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="ss">:is_admin</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:notifications_enabled</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">}</span><span class="o">.</span><span class="n">all?</span><span class="p">{</span> <span class="o">|</span><span class="n">option</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="p">}</span> <span class="c1"># =&gt; true</span>
+<span class="p">{</span><span class="ss">:is_admin</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:notifications_enabled</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">}</span><span class="o">.</span><span class="n">any?</span><span class="p">{</span> <span class="o">|</span><span class="n">option</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="p">}</span> <span class="c1"># =&gt; true</span>
+<span class="p">{</span><span class="ss">:is_admin</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:notifications_enabled</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">}</span><span class="o">.</span><span class="n">one?</span><span class="p">{</span> <span class="o">|</span><span class="n">option</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="p">}</span> <span class="c1"># =&gt; true</span>
+<span class="p">{</span><span class="ss">:is_admin</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">:notifications_enabled</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">}</span><span class="o">.</span><span class="n">one?</span><span class="p">{</span> <span class="o">|</span><span class="n">option</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="p">}</span> <span class="c1"># =&gt; false</span>
+<span class="p">{</span><span class="ss">:is_admin</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">:notifications_enabled</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">}</span><span class="o">.</span><span class="n">all?</span><span class="p">{</span> <span class="o">|</span><span class="n">option</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="p">}</span> <span class="c1"># =&gt; false</span>
+<span class="p">{</span><span class="ss">:is_admin</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">:notifications_enabled</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">}</span><span class="o">.</span><span class="n">none?</span><span class="p">{</span> <span class="o">|</span><span class="n">option</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="p">}</span> <span class="c1"># =&gt; true</span>
+<span class="p">{</span><span class="ss">:is_admin</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">:notifications_enabled</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">}</span><span class="o">.</span><span class="n">any?</span><span class="p">{</span> <span class="o">|</span><span class="n">option</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="p">}</span> <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p><strong>shift</strong></p>
+<p>Hash’den key-value çiftini silmek için kullanılır. Her seferinde ilk key-value
+çiftini siler.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo@foo.com&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">shift</span> <span class="c1"># =&gt; [:user, &quot;vigo&quot;]</span>
+<span class="n">h</span>       <span class="c1"># =&gt; {:password=&gt;&quot;secret&quot;, :email=&gt;&quot;vigo@foo.com&quot;}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">shift</span> <span class="c1"># =&gt; [:password, &quot;secret&quot;]</span>
+<span class="n">h</span>       <span class="c1"># =&gt; {:email=&gt;&quot;vigo@foo.com&quot;}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">shift</span> <span class="c1"># =&gt; [:email, &quot;vigo@foo.com&quot;]</span>
+<span class="n">h</span>       <span class="c1"># =&gt; {}</span>
+</code></pre></div>
+<p><strong>delete</strong>, <strong>delete_if</strong>, <strong>keep_if</strong></p>
+<p>Hash’den key kullanarak eleman silmek için <code>delete</code> method’u kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:user</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo&quot;</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">&quot;vigo@foo.com&quot;</span><span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span> <span class="c1"># =&gt; &quot;vigo&quot;</span>
+<span class="n">h</span>               <span class="c1"># =&gt; {:password=&gt;&quot;secret&quot;, :email=&gt;&quot;vigo@foo.com&quot;}</span>
+</code></pre></div>
+<p>Block kullanıldığında, eğer olmayan bir key kullanılmışsa, bununla ilgili
+işlem yapmamızı sağlar:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:phone</span><span class="p">){</span> <span class="o">|</span><span class="n">key</span><span class="o">|</span> <span class="s2">&quot;-</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">- bulunamadı?&quot;</span> <span class="p">}</span> <span class="c1"># =&gt; &quot;-phone- bulunamadı?&quot;</span>
+</code></pre></div>
+<p><code>delete_if</code> de ise direk block kullanarak koşullu silme işlemi yapabiliyoruz.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 40’dan büyükleri silelim</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">point_a</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="ss">point_b</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="ss">point_c</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span> <span class="c1"># =&gt; {:point_a=&gt;10, :point_b=&gt;20, :point_c=&gt;50}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">delete_if</span><span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">40</span> <span class="p">}</span>                   <span class="c1"># =&gt; {:point_a=&gt;10, :point_b=&gt;20}</span>
+<span class="n">h</span>                                             <span class="c1"># =&gt; {:point_a=&gt;10, :point_b=&gt;20}</span>
+</code></pre></div>
+<p><code>keep_if</code> ise <code>delete_if</code> in tam tersi gibidir. Eğer block’daki koşul <code>true</code>
+ise key-value çiftini tutar, aksi halde siler:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 20’dan küçükleri tutalım sadece</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">point_a</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="ss">point_b</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="ss">point_c</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
+                         <span class="c1"># =&gt; {:point_a=&gt;10, :point_b=&gt;20, :point_c=&gt;50}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">keep_if</span><span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">}</span> <span class="c1"># =&gt; {:point_a=&gt;10}</span>
+<span class="n">h</span>                        <span class="c1"># =&gt; {:point_a=&gt;10}</span>
+</code></pre></div>
+<p><strong>invert</strong></p>
+<p>Hash’in key’leri ile value’lerini yer değiştirmek için kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span> <span class="p">}</span> <span class="c1"># =&gt; {&quot;a&quot;=&gt;100, &quot;b&quot;=&gt;200}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">keys</span>                         <span class="c1"># =&gt; [&quot;a&quot;, &quot;b&quot;]</span>
+<span class="n">h</span><span class="o">.</span><span class="n">invert</span>                       <span class="c1"># =&gt; {100=&gt;&quot;a&quot;, 200=&gt;&quot;b&quot;}</span>
+</code></pre></div>
+<p><strong>merge</strong>, <strong>update</strong>, <strong>merge!</strong></p>
+<p>İki Hash’i birbiryle birleştirmek için <code>merge</code> kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h1</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span> <span class="p">}</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span> <span class="o">=&gt;</span> <span class="mi">3</span> <span class="p">}</span>
+<span class="n">h1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span> <span class="c1"># =&gt; {&quot;a&quot;=&gt;100, &quot;b&quot;=&gt;200, &quot;x&quot;=&gt;1, &quot;y&quot;=&gt;2, &quot;z&quot;=&gt;3}</span>
+<span class="n">h1</span>           <span class="c1"># =&gt; {&quot;a&quot;=&gt;100, &quot;b&quot;=&gt;200}</span>
+</code></pre></div>
+<p>Dikkat ettiyseniz <code>h1</code> ile <code>h2</code> yi birleştirdik ama <code>h1</code>in orijinal değerini
+bozmadık. Eğer bu birleşmenin kalıcı olmasını isteseydik ya <code>update</code> ya da
+<code>merge!</code> kullanmamız gerekecekti!</p>
+<div class="highlight"><pre><span></span><code><span class="n">h1</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span> <span class="p">}</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span> <span class="o">=&gt;</span> <span class="mi">3</span> <span class="p">}</span>
+<span class="n">h1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span> <span class="c1"># =&gt; {&quot;a&quot;=&gt;100, &quot;b&quot;=&gt;200, &quot;x&quot;=&gt;1, &quot;y&quot;=&gt;2, &quot;z&quot;=&gt;3}</span>
+<span class="n">h1</span>            <span class="c1"># =&gt; {&quot;a&quot;=&gt;100, &quot;b&quot;=&gt;200, &quot;x&quot;=&gt;1, &quot;y&quot;=&gt;2, &quot;z&quot;=&gt;3}</span>
+
+<span class="n">h1</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span> <span class="p">}</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span> <span class="o">=&gt;</span> <span class="mi">3</span> <span class="p">}</span>
+<span class="n">h1</span><span class="o">.</span><span class="n">merge!</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span> <span class="c1"># =&gt; {&quot;a&quot;=&gt;100, &quot;b&quot;=&gt;200, &quot;x&quot;=&gt;1, &quot;y&quot;=&gt;2, &quot;z&quot;=&gt;3}</span>
+<span class="n">h1</span>            <span class="c1"># =&gt; {&quot;a&quot;=&gt;100, &quot;b&quot;=&gt;200, &quot;x&quot;=&gt;1, &quot;y&quot;=&gt;2, &quot;z&quot;=&gt;3}</span>
+</code></pre></div>
+<p><strong>replace</strong></p>
+<p>Hash’in içeriğini başka bir Hash ile değiştirmek için kullanılır. Aslında
+varolan Hash’i başka bir Hash’e çevirmek gibidir. Neden <code>replace</code>
+kullanılıyor? Tamamen hafızadaki adresleme ile ilgili. <code>replace</code> kullanıldığı
+zaman, aynı Hash kullanılıyor, yeni bir Hash instance’ı yaratılmıyor.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h1</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="o">=&gt;</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="n">h1</span><span class="o">.</span><span class="n">__id__</span> <span class="c1"># =&gt; 70320602334320</span>
+</code></pre></div>
+<p>Hafızadaki <code>h1</code> Hash’nin nesne referansı : 70320602334320. Şimdir <code>replace</code>
+ile değerlerini değiştirelim:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h1</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span> <span class="s2">&quot;foo&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="p">})</span>
+<span class="n">h1</span>        <span class="c1"># =&gt; {&quot;foo&quot;=&gt;1, &quot;bar&quot;=&gt;2}</span>
+<span class="n">h1</span><span class="o">.</span><span class="n">__id__</span> <span class="c1"># =&gt; 70320602334320</span>
+</code></pre></div>
+<p>Referansları aynı : <strong>70320602334320</strong>. Eğer direkt olarak atama yapsakdık
+<code>h1</code> gibi görünen ama bambaşka yepyeni bir Hash’imiz olacaktı.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h1</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;foo&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="n">h1</span><span class="o">.</span><span class="n">__id__</span> <span class="c1"># =&gt; 70216424232360</span>
+</code></pre></div>
+<h2 id="iterasyon-ve-block-kullanm">İterasyon ve Block Kullanımı</h2>
+<p>Aynı Array’lerdeki gibi Hash’lerde de iterasyon ve block kullanmak mümkün.</p>
+<p><strong>each</strong>, <strong>each_pair</strong>, <strong>each_value</strong>, <strong>each_key</strong></p>
+<p><code>each</code> ve <code>each_pair</code> kardeş gibidirler:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="o">=&gt;</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;key: </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">, value: </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">each_pair</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;key: </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">, value: </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># key: a, value: 100</span>
+<span class="c1"># key: b, value: 200</span>
+<span class="c1"># key: c, value: 0</span>
+</code></pre></div>
+<p><code>each_value</code> sadece <strong>value</strong>, <code>each_key</code> de sadece <strong>key</strong> döner.</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="o">=&gt;</span> <span class="mi">0</span> <span class="p">}</span>
+
+<span class="n">h</span><span class="o">.</span><span class="n">each_value</span> <span class="p">{</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;value: </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># value: 100</span>
+<span class="c1"># value: 200</span>
+<span class="c1"># value: 0</span>
+
+<span class="n">h</span><span class="o">.</span><span class="n">each_key</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;key: </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># key: a</span>
+<span class="c1"># key: b</span>
+<span class="c1"># key: c</span>
+</code></pre></div>
+<p><strong>each_entry</strong>, <strong>each_slice</strong>, <strong>each_cons</strong></p>
+<p>Hash’deki key-value çifti Array şeklinde bir <strong>entry</strong> olur:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="o">=&gt;</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">each_entry</span><span class="p">{</span> <span class="o">|</span><span class="n">o</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;o: </span><span class="si">#{</span><span class="n">o</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># o: [&quot;a&quot;, 100]</span>
+<span class="c1"># o: [&quot;b&quot;, 200]</span>
+<span class="c1"># o: [&quot;c&quot;, 0]</span>
+</code></pre></div>
+<p><code>each_slice</code> ile <strong>entry</strong>’leri parçacıklara ayırırız:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="o">=&gt;</span> <span class="mi">0</span> <span class="p">}</span>
+
+<span class="c1"># 2’li dilimlere ayırdık</span>
+<span class="n">h</span><span class="o">.</span><span class="n">each_slice</span><span class="p">(</span><span class="mi">2</span><span class="p">){</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;slice: </span><span class="si">#{</span><span class="n">s</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># slice: [[&quot;a&quot;, 100], [&quot;b&quot;, 200]]</span>
+<span class="c1"># slice: [[&quot;c&quot;, 0]]</span>
+</code></pre></div>
+<p><code>each_cons</code> ise <code>each_slice</code> gibi çalışır ama farkı örnekteki gibidir:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="o">=&gt;</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">each_cons</span><span class="p">(</span><span class="mi">2</span><span class="p">){</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;grup: </span><span class="si">#{</span><span class="n">s</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># grup: [[&quot;a&quot;, 100], [&quot;b&quot;, 200]]</span>
+<span class="c1"># grup: [[&quot;b&quot;, 200], [&quot;c&quot;, 0]]</span>
+</code></pre></div>
+<p>Neticede, 3 key-value çifti vardı. <strong>2</strong>’li grupladık ama sonuç <code>each_slice</code>
+daki gibi dönmedi. <code>["b", 200]</code> tekrar etti, çıktı gruplaması mutlaka 2 eleman
+içerdi.</p>
+<p><strong>default_proc</strong>, <strong>default_proc=</strong></p>
+<p>Konunun başında varsayılan değer ataması yaparken şöyle bir örnek vermiştik:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">key</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;User: </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+</code></pre></div>
+<p>eğer;</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">.</span><span class="n">default_proc</span> <span class="c1"># =&gt; #&lt;Proc:0x007f85f2250fd8@-:7&gt;</span>
+</code></pre></div>
+<p>deseydik, bu Hash’e ait <strong>Proc</strong> u görmüş olurduk. Yani bu Hash için
+varsayılan işlem prosedürünü tanımlamış olduk aslında. Örneği biraz
+genişletelim:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span><span class="o">|</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span> <span class="n">obj</span><span class="o">[</span><span class="n">key</span><span class="o">]</span> <span class="o">=</span> <span class="n">key</span> <span class="o">*</span> <span class="mi">4</span> <span class="p">}</span> <span class="c1"># =&gt; {}</span>
+<span class="n">h</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="c1"># =&gt; 4</span>
+<span class="n">h</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="c1"># =&gt; 8</span>
+<span class="n">h</span>    <span class="c1"># =&gt; {1=&gt;4, 2=&gt;8}</span>
+</code></pre></div>
+<p>Key olarak sayı veriyoruz, gelen sayıdan da value üretiyoruz otomatik olarak.
+İşlemin çalışması için bir adet obje ve sayı geçmemiz gerekiyor parametre
+olarak. Aslında;</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">.</span><span class="n">default_proc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="c1"># =&gt; 36</span>
+<span class="n">h</span><span class="o">.</span><span class="n">default_proc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="o">[]</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="c1"># =&gt; 36</span>
+<span class="n">h</span><span class="o">.</span><span class="n">default_proc</span><span class="o">.</span><span class="n">call</span><span class="p">({},</span> <span class="mi">9</span><span class="p">)</span> <span class="c1"># =&gt; 36</span>
+</code></pre></div>
+<p>şeklinde de, Hash’i sanki bir fonksiyon gibi kullanıp işleyebiliyoruz.</p>
+<p>Daha sonra, önceden tanımladığımız bu prosedürü değiştirmek istersek
+<code>default_proc=</code> methodunu kullanıyoruz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">key</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;User: </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">default_proc</span> <span class="c1"># =&gt; #&lt;Proc:0x007feea39bbd80@-:7&gt;</span>
+<span class="n">h</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="c1"># =&gt; &quot;User: 1&quot;</span>
+
+<span class="c1"># Yeni prosedür veriyoruz</span>
+<span class="n">h</span><span class="o">.</span><span class="n">default_proc</span> <span class="o">=</span> <span class="nb">proc</span> <span class="k">do</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span>
+  <span class="nb">hash</span><span class="o">[</span><span class="n">key</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;hello </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+<span class="n">h</span> <span class="c1"># =&gt; {1=&gt;&quot;User: 1&quot;}</span>
+<span class="n">h</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="c1"># =&gt; &quot;hello 2&quot;</span>
+<span class="n">h</span> <span class="c1"># =&gt; {1=&gt;&quot;User: 1&quot;, 2=&gt;&quot;hello 2&quot;}</span>
+</code></pre></div>
+<p><strong>compare_by_identity</strong>, <strong>compare_by_identity?</strong></p>
+<p>Hash’in key ve value’leri birbirine benziyor mu?</p>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">:c</span> <span class="o">=&gt;</span> <span class="s2">&quot;c&quot;</span> <span class="p">}</span>
+<span class="n">h</span><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="o">]</span> <span class="c1"># =&gt; 1</span>
+<span class="n">h</span><span class="o">.</span><span class="n">compare_by_identity?</span> <span class="c1"># =&gt; false</span>
+<span class="n">h</span><span class="o">.</span><span class="n">compare_by_identity</span>  <span class="c1"># =&gt; {&quot;a&quot;=&gt;1, &quot;b&quot;=&gt;2, :c=&gt;&quot;c&quot;}</span>
+<span class="n">h</span><span class="o">.</span><span class="n">compare_by_identity?</span> <span class="c1"># =&gt; true</span>
+
+<span class="c1"># acaba key ile value benziyormu?</span>
+<span class="n">h</span><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="o">]</span>                 <span class="c1"># =&gt; nil</span>
+
+<span class="c1"># burada benzer :)</span>
+<span class="n">h</span><span class="o">[</span><span class="ss">:c</span><span class="o">]</span>                  <span class="c1"># =&gt; &quot;c&quot;</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../04-array/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Array" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Array
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../06-symbol/" class="md-footer__link md-footer__link--next" aria-label="Next: Symbol" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Symbol
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2189 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ruby öğrenmek isteyen herkesin işine yarayacak bir kitap!">
+      
+      
+      
+        <meta name="author" content="Uğur vigo Özyılmazel">
+      
+      
+        <link rel="canonical" href="https://vigo.github.io/ruby101-kitap/bolum-04/04-array/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Array - Ruby 101 Kitabı</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#array" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-header__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ruby 101 Kitabı
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Array
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ruby 101 Kitabı" class="md-nav__button md-logo" aria-label="Ruby 101 Kitabı" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Ruby 101 Kitabı
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/vigo/ruby101-kitap/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vigo/ruby101-kitap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cover/" class="md-nav__link">
+        Kapak
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preface/" class="md-nav__link">
+        Önsöz
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-review/" class="md-nav__link">
+        Teknik İncleme
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Bölüm İndeksi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Bölüm 1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/01-tarihce/" class="md-nav__link">
+        Ruby Hakkında
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/02-kurulum/" class="md-nav__link">
+        Kurulum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/03-interaktif-kullanim/" class="md-nav__link">
+        İnteraktif Kullanım
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-01/04-ruby-komutu-ve-parametreleri/" class="md-nav__link">
+        Ruby Komutu ve Parametreleri
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Bölüm 2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/01-syntax-soz-dizimi-ve-degiskenler/" class="md-nav__link">
+        Syntax, Comments, Rezerve Edilmiş Kelimeler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/02-degiskenler/" class="md-nav__link">
+        Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/03-on-tanimli-degiskenler/" class="md-nav__link">
+        Ön Tanımlı Değişkenler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/04-operatorler/" class="md-nav__link">
+        Operatörler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-02/05-global-constants-genel-sabitler/" class="md-nav__link">
+        Genel Sabitler
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Bölüm 3
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/01-methods-fonksiyonlar/" class="md-nav__link">
+        Methods (Fonksiyonlar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/02-blocks-bloklar/" class="md-nav__link">
+        Blocks (Bloklar)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/03-proc-ve-lambda/" class="md-nav__link">
+        Proc ve Lambda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-03/04-conditional-statements-kosullar/" class="md-nav__link">
+        Conditional Statements (Koşullar)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      <label class="md-nav__link" for="__nav_8">
+        Bölüm 4
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-number/" class="md-nav__link">
+        Number
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-string/" class="md-nav__link">
+        String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Array
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Array
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-methodlar" class="md-nav__link">
+    Class Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-methodlar" class="md-nav__link">
+    Instance Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-ceviricileri" class="md-nav__link">
+    Tip Çeviricileri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterasyon-ve-block-kullanm" class="md-nav__link">
+    İterasyon ve Block Kullanımı
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tehlikeli-islemler" class="md-nav__link">
+    Tehlikeli İşlemler
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-hash/" class="md-nav__link">
+        Hash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-symbol/" class="md-nav__link">
+        Symbol
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-class/" class="md-nav__link">
+        Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-module/" class="md-nav__link">
+        Module
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Bölüm 5
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 5" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/01-enumeration-ve-iteration/" class="md-nav__link">
+        Enumeration ve Iteration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/02-ranges/" class="md-nav__link">
+        Ranges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/03-file-system-ve-io-dosya-sistemi/" class="md-nav__link">
+        File System ve IO (Dosya Sistemi)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/04-exception-handling/" class="md-nav__link">
+        Exception Handling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-05/05-kernel-modulu/" class="md-nav__link">
+        Kernel Modülü
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Bölüm 6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/01-monkey-patching/" class="md-nav__link">
+        Monkey Patching
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/02-regular-expressions/" class="md-nav__link">
+        Regular Expressions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/03-time-ve-date-nesneleri/" class="md-nav__link">
+        Time ve Date Nesneleri
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/04-ruby-paketleri-ruby_gems/" class="md-nav__link">
+        Ruby Paketleri: RubyGems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/05-paket-yoneticisi-bundler/" class="md-nav__link">
+        Paket Yöneticisi: Bundler
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/06-komut-satiri-command-line-kullanimi/" class="md-nav__link">
+        Komut Satırı (Command-Line) Kullanımı
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-06/07-meta-programming/" class="md-nav__link">
+        Meta Programming
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        Bölüm 7
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 7" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-07/01-kod-yazma-tarzi-style-guide/" class="md-nav__link">
+        Kod Yazma Tarzı (Style Guide)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        Bölüm 8
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bölüm 8" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Bölüm 8
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/" class="md-nav__link">
+        İndeks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/01-neden-ruby/" class="md-nav__link">
+        Neden Ruby?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/02-ruby-ve-tddbddci/" class="md-nav__link">
+        Ruby ve TDD/BDD/CI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/03-kendi-rubygemimizi-yapalim/" class="md-nav__link">
+        Kendi Rubygem'imizi yapalım!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bolum-08/04-sinatra-ve-web/" class="md-nav__link">
+        Sinatra ve Web
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        Teşekkürler
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-methodlar" class="md-nav__link">
+    Class Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-methodlar" class="md-nav__link">
+    Instance Method’ları
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-ceviricileri" class="md-nav__link">
+    Tip Çeviricileri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterasyon-ve-block-kullanm" class="md-nav__link">
+    İterasyon ve Block Kullanımı
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tehlikeli-islemler" class="md-nav__link">
+    Tehlikeli İşlemler
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vigo/ruby101-kitap/edit/master/docs/bolum-04/04-array.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="array">Array</h1>
+<p>Kompakt, sıralı objeler içeren bir türü taşıcıyı nesnedir Array’ler. Neredeyse
+içinde her tür Ruby objesini taşıyabilir. (<em>String, Integer, Fixnum, Hash,
+Symbol hatta başka Array’ler vs...</em>)</p>
+<p>Arka arkaya sıralanmış kutucuklar düşünün, her kutucuğun bir <strong>index</strong>
+numarası olduğunu hayal edin. Bu indeksleme işi otomatik olarak oluyor. Diziye
+her eleman eklediğinizde (<em>Eğer kendiniz indeks numarası atamadıysanız</em>) yeni
+indeks bir artarak devam ediyor. <strong>Zero Indexed</strong> yani ilk eleman <strong>0</strong>.eleman
+oluyor.</p>
+<p>Aynı <strong>String</strong>’deki gibi negatif indeks değerleri ile tersten erişim
+sağlıyorsunuz. Yani ilk eleman <code>array[0]</code> ve son eleman <code>array[-1]</code> gibi...</p>
+<p>Array oluşturmak için;</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[]</span>  <span class="c1"># Ya bu şekilde</span>
+<span class="n">a</span><span class="o">.</span><span class="n">class</span> <span class="c1"># =&gt; Array</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span> <span class="c1"># =&gt; Ya da bu şekilde</span>
+<span class="n">b</span><span class="o">.</span><span class="n">class</span>       <span class="c1"># =&gt; Array</span>
+</code></pre></div>
+<p>kullanabilirsiniz. Keza <code>a = [1, 2, 3]</code> dediğinizde de Array’i hem tanımlamış
+hem de elemanlarını belirlemiş olursunuz.</p>
+<p>Array’i <strong>initialize</strong> ederken yani ilk kez oluştururken büyüklüğünü de
+verebilirsiniz.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># içinde 5 eleman taşıyacak Array oluştur</span>
+<span class="n">a</span> <span class="c1"># =&gt; [nil, nil, nil, nil, nil]</span>
+</code></pre></div>
+<p>Hatta, <strong>default</strong> değer bile atarsınız:</p>
+<div class="highlight"><pre><span></span><code><span class="n">aylar</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;ay&quot;</span><span class="p">)</span> <span class="c1"># 12 eleman olsun ve hepsi &quot;ay&quot; olsun</span>
+<span class="n">aylar</span> <span class="c1"># =&gt; [&quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;, &quot;ay&quot;]</span>
+</code></pre></div>
+<p>Ruby’de her nesnenin bir <strong>ID</strong>’si ve <strong>HASH</strong> değeri vardır.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">hash</span>   <span class="c1"># =&gt; 3384159031637530117</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">__id__</span> <span class="c1"># =&gt; 70147646473880</span>
+</code></pre></div>
+<p><strong>Block</strong> kabul ettiği için;</p>
+<div class="highlight"><pre><span></span><code><span class="n">dizi</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">eleman</span><span class="o">|</span> <span class="n">eleman</span> <span class="o">=</span> <span class="n">eleman</span> <span class="o">*</span> <span class="mi">4</span> <span class="p">}</span>
+<span class="n">dizi</span> <span class="c1"># =&gt; [0, 4, 8, 12, 16, 20, 24, 28, 32, 36]</span>
+
+<span class="c1"># ya da aynı kodu</span>
+
+<span class="n">dizi</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">eleman</span><span class="o">|</span>
+  <span class="n">eleman</span> <span class="o">=</span> <span class="n">eleman</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="k">end</span>
+<span class="n">dizi</span> <span class="c1"># =&gt; [0, 4, 8, 12, 16, 20, 24, 28, 32, 36]</span>
+</code></pre></div>
+<p>şeklinde de kullanabilirsiniz. Neticede Array’in <strong>initialize</strong> method’una
+parametre geçmiş oluyoruz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">aylar</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n n-Operator">[]</span><span class="p">(</span><span class="s2">&quot;oca&quot;</span><span class="p">,</span> <span class="s2">&quot;şub&quot;</span><span class="p">,</span> <span class="s2">&quot;mar&quot;</span><span class="p">,</span> <span class="s2">&quot;nis&quot;</span><span class="p">,</span> <span class="s2">&quot;may&quot;</span><span class="p">,</span> <span class="s2">&quot;haz&quot;</span><span class="p">,</span> <span class="s2">&quot;tem&quot;</span><span class="p">,</span> <span class="s2">&quot;ağu&quot;</span><span class="p">,</span> <span class="s2">&quot;eyl&quot;</span><span class="p">,</span> <span class="s2">&quot;eki&quot;</span><span class="p">,</span> <span class="s2">&quot;kas&quot;</span><span class="p">,</span> <span class="s2">&quot;ara&quot;</span><span class="p">)</span>
+<span class="n">aylar</span> <span class="c1"># =&gt; [&quot;oca&quot;, &quot;şub&quot;, &quot;mar&quot;, &quot;nis&quot;, &quot;may&quot;, &quot;haz&quot;, &quot;tem&quot;, &quot;ağu&quot;, &quot;eyl&quot;, &quot;eki&quot;, &quot;kas&quot;, &quot;ara&quot;]</span>
+</code></pre></div>
+<p>Yani: <code>aylar = Array.[](param, param, param)</code> gibi.</p>
+<p>Başka nasıl üretiriz? Sayılardan oluşan bir dizi lazım olsa; Örneğin <strong>1984</strong>
+ile <strong>2000</strong> arasındaki yıllar lazım olsa;</p>
+<div class="highlight"><pre><span></span><code><span class="n">years</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1984</span><span class="o">..</span><span class="mi">2000</span><span class="p">)</span>
+<span class="n">years</span> <span class="c1"># =&gt; [1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000]</span>
+</code></pre></div>
+<p>Bir Array içinde farklı türden elemanlar olabilir;</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="ss">:word</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="o">.</span><span class="mi">14</span><span class="o">]</span> <span class="c1"># içinde String, Symbol, Fixnum ve Float var!</span>
+<span class="n">a</span> <span class="c1"># =&gt; [&quot;Hello&quot;, :word, 2014, 3.14]</span>
+</code></pre></div>
+<p>Array içindeki elemanlar sıralı bir şekilde dururlar. Bu sıraya <strong>Index</strong>
+denir. <strong>0</strong>’dan başlar. Yani ilk eleman demek Array’in 0.elemanı demektir.
+İsteğimiz elemanı almak için ya <code>Array[index]</code> ya da <code>Array.fetch(index)</code>
+yöntemlerini kullanabiliriz.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>                       <span class="c1"># =&gt; &quot;Uğur&quot;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                 <span class="c1"># =&gt; &quot;Uğur&quot;</span>
+
+<span class="n">a</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>                       <span class="c1"># =&gt; nil</span>
+<span class="n">a</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Hatalı Index&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Hatalı Index&quot;</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>           <span class="c1"># İlk N elemanı al</span>
+<span class="n">a</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>                  <span class="c1"># =&gt; [1, 2]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; [3, 4]      # take’in tersi... İlk 2 haricini al</span>
+</code></pre></div>
+<p>Örnekte <code>a[4]</code> dediğimiz zaman, olmayan index’li elemanı almaya çalışıyor ve
+eleman olmadığı için <code>nil</code> geri alıyoruz. <code>fetch</code> kullanarak hata kontrolü de
+yapmış oluyoruz. <code>nil</code> yerine belirlediğimiz hata mesajını dönmüş oluyoruz.</p>
+<p><code>values_at</code> method’u ile ilgili index ya da index’lerdeki elemanları
+alabiliriz, keza <code>at</code> de benzer işe yarar.</p>
+<div class="highlight"><pre><span></span><code><span class="n">isimler</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Eren&quot;</span><span class="o">]</span>
+<span class="n">isimler</span><span class="o">.</span><span class="n">values_at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>         <span class="c1"># =&gt; [&quot;Uğur&quot;]</span>
+<span class="n">isimler</span><span class="o">.</span><span class="n">values_at</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>      <span class="c1"># =&gt; [&quot;Ömer&quot;, &quot;Yeşim&quot;]</span>
+
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">].</span><span class="n">at</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># =&gt; &quot;b&quot;</span>
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">].</span><span class="n">at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; &quot;e&quot;</span>
+</code></pre></div>
+<p><code>rindex</code> ile sağdan hizalı index’e göre elemana ulaşıyoruz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="o">]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 3 # 3 tane b var, en sağdaki son b’yi verdi!</span>
+<span class="n">a</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div>
+<p>Keza "acaba Array’in ne gibi method’ları var?" dersek; hemen <code>methods</code>
+özelliği ile bakabiliriz. Karıştırmamamız gereken önemli bir konu var.
+Detayını <strong>Class</strong> konusunda göreceğiz ama yeri gelmişken, Array’in <strong>Class
+Method</strong>’ları ve <strong>Instance Method</strong>’ları var.</p>
+<p><code>Array.methods</code> dediğimizde Kernel’dan gelen Array objesinin yani
+<strong>Class</strong>’ının method’larını görürüz. Eğer <code>Array.new.methods</code> dersek,
+Array’den türettiğimiz <strong>instance</strong>’a ait method’ları görürüz.</p>
+<p>Yani <code>a = []</code> dediğimizde, aslında <strong>Array</strong>’den bir <strong>instance</strong> çıkartmış
+oluyoruz. Az önce <code>Array.[](...)</code> olarak yaptığımız şey de aslında Class
+method’u çağırmak.</p>
+<h2 id="class-methodlar">Class Method’ları</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">Array</span><span class="o">.</span><span class="n">methods</span> <span class="c1"># =&gt; [:[], :try_convert, :allocate, :new, :superclass, :freeze, :===, :==, :&lt;=&gt;, :&lt;, :&lt;=, :&gt;, :&gt;=, :to_s, :inspect, :included_modules, :include?, :name, :ancestors, :instance_methods, :public_instance_methods, :protected_instance_methods, :private_instance_methods, :constants, :const_get, :const_set, :const_defined?, :const_missing, :class_variables, :remove_class_variable, :class_variable_get, :class_variable_set, :class_variable_defined?, :public_constant, :private_constant, :singleton_class?, :include, :prepend, :module_exec, :class_exec, :module_eval, :class_eval, :method_defined?, :public_method_defined?, :private_method_defined?, :protected_method_defined?, :public_class_method, :private_class_method, :autoload, :autoload?, :instance_method, :public_instance_method, :nil?, :=~, :!~, :eql?, :hash, :class, :singleton_class, :clone, :dup, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :frozen?, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :extend, :display, :method, :public_method, :singleton_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]</span>
+</code></pre></div>
+<p>Bu method’ların bir kısmı <strong>Enumerable</strong> sınıfından gelen method’lardır. Ruby,
+<strong>Module</strong> yapısı kullandığı için ortak kullanılan method’lar modül
+eklemelerinden gelmektedir. <strong>Class</strong> konusunda detayları göreceğiz.</p>
+<p>Bu kısımdan en fazla kullanacağımız <code>[]</code> ve <code>new</code> method’ları olacaktır.</p>
+<h2 id="instance-methodlar">Instance Method’ları</h2>
+<p>En çok kullanacağımız method’larsa;</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">methods</span> <span class="c1"># =&gt; [:inspect, :to_s, :to_a, :to_h, :to_ary, :frozen?, :==, :eql?, :hash, :[], :[]=, :at, :fetch, :first, :last, :concat, :&lt;&lt;, :push, :pop, :shift, :unshift, :insert, :each, :each_index, :reverse_each, :length, :size, :empty?, :find_index, :index, :rindex, :join, :reverse, :reverse!, :rotate, :rotate!, :sort, :sort!, :sort_by!, :collect, :collect!, :map, :map!, :select, :select!, :keep_if, :values_at, :delete, :delete_at, :delete_if, :reject, :reject!, :zip, :transpose, :replace, :clear, :fill, :include?, :&lt;=&gt;, :slice, :slice!, :assoc, :rassoc, :+, :*, :-, :&amp;, :|, :uniq, :uniq!, :compact, :compact!, :flatten, :flatten!, :count, :shuffle!, :shuffle, :sample, :cycle, :permutation, :combination, :repeated_permutation, :repeated_combination, :product, :take, :take_while, :drop, :drop_while, :bsearch, :pack, :entries, :sort_by, :grep, :find, :detect, :find_all, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :all?, :any?, :one?, :none?, :min, :max, :minmax, :min_by, :max_by, :minmax_by, :member?, :each_with_index, :each_entry, :each_slice, :each_cons, :each_with_object, :chunk, :slice_before, :lazy, :nil?, :===, :=~, :!~, :class, :singleton_class, :clone, :dup, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :extend, :display, :method, :public_method, :singleton_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]</span>
+</code></pre></div>
+<p>Aynı <strong>String</strong>’deki gibi, şu Array’in bir röntgenini çekelim:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Array</span><span class="o">.</span><span class="n">class</span> <span class="c1"># =&gt; Class</span>
+<span class="nb">Array</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; Module</span>
+<span class="nb">Array</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; Object</span>
+<span class="nb">Array</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; BasicObject</span>
+<span class="nb">Array</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div>
+<p>Array’in bir üst objesi ne? <strong>Module</strong> Yine <strong>Class</strong> konusunda göreceğiz
+diyeceğim ve siz bana kızacaksınız :) Ruby’de bir Class en fazla başka bir
+Class’dan türeyebilir. Örneğin Python’da bir Class N TANE Class’tan
+<strong>inherit</strong> olabilir (<em>Miras alabilir, türeyebilir</em>)</p>
+<p>Ruby, bu sorunu <strong>Module</strong> yapısıyla çözüyor. Bu mantıkla aslında ortaklaşa
+kullanılan Kernel modülleri yardımıyla, ortak kullanılacak method’lar bu
+modüllerin <strong>Include</strong> edilmesiyle ilgili yerlere dağıtılıyor.</p>
+<p>Acaba Array’de hangi modüller var?</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Array</span><span class="o">.</span><span class="n">included_modules</span> <span class="c1"># =&gt; [Enumerable, Kernel]</span>
+</code></pre></div>
+<p>Bu bakımdan Array, Hash gibi nesnelerde benzer ortak method’lar görmek mümkün.</p>
+<p><strong>length</strong> veya <strong>count</strong></p>
+<p>Array’in boyu / içinde kaç eleman olduğu ile ilgili bilgiyi almak için
+kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">].</span><span class="n">length</span> <span class="c1"># =&gt; 4</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">].</span><span class="n">count</span>  <span class="c1"># =&gt; 4</span>
+</code></pre></div>
+<p><strong>empty?</strong></p>
+<p>Array acaba boşmu? İçinde hiç eleman var mı?</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">].</span><span class="n">empty?</span> <span class="c1"># =&gt; false</span>
+<span class="o">[].</span><span class="n">empty?</span>           <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p><strong>eql?</strong>, <strong>==</strong>, <strong>===</strong></p>
+<p>Eşitlik kontrolü içindir. Eğer karşılığı aynı cinsse ve birebir aynı
+elemanlara sahipse <code>true</code> döner.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">eql?</span><span class="p">(</span><span class="o">[</span><span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="p">,</span> <span class="s2">&quot;Uğur&quot;</span><span class="o">]</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+<span class="n">a</span><span class="o">.</span><span class="n">eql?</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>                                <span class="c1"># =&gt; false</span>
+<span class="n">a</span><span class="o">.</span><span class="n">eql?</span><span class="p">(</span><span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p><code>==</code> <strong>Generic Equality</strong> yani genel eşitlik kontrolü yani hepimizin bildiği
+kontrol, <code>===</code> ise <strong>Case Equality</strong> yani <code>a === b</code> ifadesinde <strong>a</strong>,
+<strong>b</strong>’nin <strong>subseti</strong> mi? demek olur. Örnek verelim:</p>
+<div class="highlight"><pre><span></span><code><span class="mi">5</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; Integer</span>
+<span class="nb">Integer</span> <span class="o">===</span> <span class="mi">5</span>      <span class="c1"># =&gt; true</span>
+<span class="c1"># 5, Integer subsetinde...</span>
+
+<span class="nb">Integer</span><span class="o">.</span><span class="n">class</span> <span class="c1"># =&gt; Class</span>
+<span class="nb">Integer</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; Module</span>
+<span class="nb">Integer</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; Object</span>
+<span class="nb">Integer</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; BasicObject</span>
+<span class="nb">Integer</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">superclass</span> <span class="c1"># =&gt; nil</span>
+
+<span class="c1"># Integer, 5’in subsetinde değil.</span>
+<span class="mi">5</span> <span class="o">===</span> <span class="nb">Integer</span>      <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p><strong>include?</strong> ve <strong>member?</strong></p>
+<p>Acaba verdiğim eleman Array’in içinde mi? Verdiğim eleman bu dizinin üyesi mi?</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">].</span><span class="n">include?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>                   <span class="c1"># =&gt; true</span>
+
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">].</span><span class="n">member?</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">].</span><span class="n">member?</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+
+<span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="o">].</span><span class="n">include?</span><span class="p">(</span><span class="s2">&quot;Uğur&quot;</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="o">].</span><span class="n">include?</span><span class="p">(</span><span class="s2">&quot;Ömer&quot;</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p><strong>array &amp; başka_bir_array</strong></p>
+<p>İki dizide de kullanın ortak elemanları alır yeni Array döner:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">22</span><span class="o">]</span>
+<span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span> <span class="c1"># =&gt; [1, 3]</span>
+</code></pre></div>
+<p><strong>array * int [ya da] array * str</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">]</span>
+<span class="n">a</span> <span class="o">*</span> <span class="mi">5</span> <span class="c1"># =&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</span>
+
+<span class="n">a</span> <span class="o">*</span> <span class="s2">&quot;-vigo-&quot;</span> <span class="c1"># =&gt; &quot;a-vigo-b-vigo-c&quot;</span>
+</code></pre></div>
+<p><code>**\***</code> çaparak <strong>3</strong> elemanlı <code>a</code> Array’inden sanki birleştirilmiş <strong>15</strong>
+elemanlı yeni bir Array oluşturduk. <strong>String</strong> ile çarpınca da aslında <code>join</code>
+methodu ile Array’den String yaptık ve birleştirici olarak <strong>-vigo-</strong> metni
+kullandık!</p>
+<p><strong>array + başka_array</strong></p>
+<p>İki Array’i toplar ve yeni Array döner:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="o">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;]</span>
+</code></pre></div>
+<p><strong>array - başka_array</strong></p>
+<p>Array’ler arasındaki farkı Array olarak bulmak:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="o">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="o">]</span>
+
+<span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="c1"># =&gt; [&quot;Ezel&quot;] # a’da olab b elemanları kayboldu</span>
+</code></pre></div>
+<p><strong>array | başka_array</strong></p>
+<p>İki Array’i <strong>unique</strong> (<em>tekil</em>) elemanlar olarak birleştirdi. Aynı eleman
+varsa bunlardan birini aldı:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="o">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+
+<span class="n">a</span> <span class="o">|</span> <span class="n">b</span> <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;]</span>
+</code></pre></div>
+<p><strong>array &lt;&lt; nesne</strong> ya da <strong>push</strong></p>
+<p>Array’in sonuna eleman eklemek için kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="o">]</span>
+<span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Ömer&quot;</span>     <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;Eren&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;, &quot;Eren&quot;]</span>
+</code></pre></div>
+<p>Keza zincirleme çağrı da yapabilirsiniz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;Tunç&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;Suat&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;, &quot;Eren&quot;, &quot;Tunç&quot;, &quot;Suat&quot;]</span>
+</code></pre></div>
+<p><strong>concat</strong></p>
+<p>Array sonuna Array eklemek için kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="o">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">]</span><span class="p">)</span>
+<span class="n">a</span> <span class="c1"># =&gt; [1, 2, 3, 4, 5, 6]</span>
+</code></pre></div>
+<p><strong>join</strong></p>
+<p>Array elemanlarını birleştirip <strong>String</strong>’e çevirmeye yarar. Eğer parametre
+verirsek aradaki birleştiriciyi de belirlemiş oluruz.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;Commodore 64&quot;</span><span class="p">,</span> <span class="s2">&quot;Amiga&quot;</span><span class="p">,</span> <span class="s2">&quot;Sinclair&quot;</span><span class="p">,</span> <span class="s2">&quot;Amstrad&quot;</span><span class="o">].</span><span class="n">join</span>        <span class="c1"># =&gt; &quot;Commodore 64AmigaSinclairAmstrad&quot;</span>
+<span class="o">[</span><span class="s2">&quot;Commodore 64&quot;</span><span class="p">,</span> <span class="s2">&quot;Amiga&quot;</span><span class="p">,</span> <span class="s2">&quot;Sinclair&quot;</span><span class="p">,</span> <span class="s2">&quot;Amstrad&quot;</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot; , &quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Commodore 64 , Amiga , Sinclair , Amstrad&quot;</span>
+</code></pre></div>
+<p><strong>unshift</strong></p>
+<p>Array’in başına eleman eklemek için kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">unshift</span><span class="p">(</span><span class="s2">&quot;Ömer&quot;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;Ömer&quot;, &quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;]</span>
+</code></pre></div>
+<p><strong>insert</strong></p>
+<p>Array’de istediğiniz bir noktaya eleman eklemek için kullanılır. İlk parametre
+<strong>index</strong> diğer parametre/ler de eklenecek eleman/lar.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Ömer&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Ahmet&quot;</span><span class="p">,</span> <span class="s2">&quot;Ece&quot;</span><span class="p">,</span> <span class="s2">&quot;Eren&quot;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Ahmet&quot;, &quot;Ece&quot;, &quot;Eren&quot;, &quot;Ömer&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;]</span>
+</code></pre></div>
+<p><strong>replace</strong></p>
+<p>Array’in içini, diğer Array’le değiştirir. Aslında Array’i başka bir Array’e
+eşitlemek gibidir. Eleman sayısının eşit olup olmaması hiç önemli değildir.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">[</span><span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;Bar&quot;</span><span class="o">]</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;Foo&quot;, &quot;Bar&quot;]</span>
+<span class="n">a</span>                         <span class="c1"># =&gt; [&quot;Foo&quot;, &quot;Bar&quot;]</span>
+</code></pre></div>
+<p><strong>array &lt;=&gt; başka_array</strong></p>
+<p><strong>Spaceship</strong> operatöründen bahsetmiştik. Array’ler arasında karşılaştırma
+yapmayı sağlar.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">&lt;=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="c1"># =&gt; 0 # Eşit</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">&lt;=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>    <span class="c1"># =&gt; 1 # İlk değer büyük</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">&lt;=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>    <span class="c1"># =&gt; -1 # İlk değer küçük</span>
+</code></pre></div>
+<p><strong>pop</strong>, <strong>shift</strong>, <strong>delete</strong>, <strong>delete_at</strong>, <strong>delete_if</strong></p>
+<p>Son elemanı çıkartmak için <strong>pop</strong> ilk elemanı çıkartmak için <strong>shift</strong>
+kullanılır. Herhangi bir elemanı çıkartmak için <strong>delete</strong>, belirli bir
+index’deki elemanı çıkartmak için <strong>delete_at</strong> kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Eren&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">pop</span>              <span class="c1"># =&gt; &quot;Eren&quot;</span>
+<span class="n">a</span>                  <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Ömer&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">shift</span>            <span class="c1"># =&gt; &quot;Uğur&quot;</span>
+<span class="n">a</span>                  <span class="c1"># =&gt; [&quot;Ömer&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;Ömer&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; &quot;Ömer&quot;</span>
+<span class="n">a</span>                  <span class="c1"># =&gt; [&quot;Yeşim&quot;, &quot;Ezel&quot;]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># =&gt; &quot;Ezel&quot;</span>
+<span class="n">a</span>                  <span class="c1"># =&gt; [&quot;Yeşim&quot;]</span>
+
+<span class="c1"># not 50’den küçükse sil :)</span>
+<span class="n">notlar</span> <span class="o">=</span> <span class="o">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">65</span><span class="o">]</span>
+<span class="n">notlar</span><span class="o">.</span><span class="n">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">notu</span><span class="o">|</span> <span class="n">notu</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="p">}</span> <span class="c1"># =&gt; [53, 70, 99, 65]</span>
+</code></pre></div>
+<p><strong>pop</strong>’a parametre geçersek <strong>son n</strong> taneyi uçurmuş oluruz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Eren&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;Ezel&quot;, &quot;Eren&quot;]</span>
+<span class="n">a</span>        <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Ömer&quot;, &quot;Yeşim&quot;]</span>
+</code></pre></div>
+<p><strong>compact</strong> ve <strong>uniq</strong></p>
+<p><code>nil</code> elemanları uçurmak için <strong>compact</strong>, duplike elemanları tekil hale
+getirmek için <strong>uniq</strong> kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="o">].</span><span class="n">compact</span>         <span class="c1"># =&gt; [&quot;a&quot;, 1, 2, &quot;b&quot;, 1, &quot;a&quot;]</span>
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="o">].</span><span class="n">uniq</span>            <span class="c1"># =&gt; [&quot;a&quot;, 1, nil, 2, &quot;b&quot;]</span>
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="o">].</span><span class="n">compact</span><span class="o">.</span><span class="n">uniq</span>    <span class="c1"># =&gt; [&quot;a&quot;, 1, 2, &quot;b&quot;]</span>
+</code></pre></div>
+<p><strong>array == başka_array</strong></p>
+<p>İki Array nitelik ve nicelik olarak birbirine eşit mi?</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">==</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>   <span class="c1"># =&gt; true</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">==</span> <span class="o">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="c1"># =&gt; false</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">==</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>      <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p><strong>assoc</strong> ve <strong>rassoc</strong></p>
+<p>Elemanları Array olan bir Array içinde, ilk değere göre yakalama yapmaya yarar.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;renkler&quot;</span><span class="p">,</span> <span class="s2">&quot;kırmızı&quot;</span><span class="p">,</span> <span class="s2">&quot;sarı&quot;</span><span class="p">,</span> <span class="s2">&quot;mavi&quot;</span><span class="o">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;harfler&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+
+<span class="n">t</span>  <span class="o">=</span> <span class="o">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">]</span>
+<span class="n">t</span>                 <span class="c1"># =&gt; [[&quot;renkler&quot;, &quot;kırmızı&quot;, &quot;sarı&quot;, &quot;mavi&quot;], [&quot;harfler&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;], &quot;foo&quot;]</span>
+<span class="n">t</span><span class="o">.</span><span class="n">assoc</span><span class="p">(</span><span class="s2">&quot;renkler&quot;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;renkler&quot;, &quot;kırmızı&quot;, &quot;sarı&quot;, &quot;mavi&quot;]</span>
+<span class="n">t</span><span class="o">.</span><span class="n">assoc</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>     <span class="c1"># =&gt; nil</span>
+
+<span class="n">t</span><span class="o">.</span><span class="n">rassoc</span><span class="p">(</span><span class="s2">&quot;kırmızı&quot;</span><span class="p">)</span>   <span class="c1"># =&gt; [&quot;renkler&quot;, &quot;kırmızı&quot;, &quot;sarı&quot;, &quot;mavi&quot;]</span>
+</code></pre></div>
+<p><code>rassoc</code> ise ikinci elemanına bakar, yani "renkler" yerine "kırımızı"
+kullanabiliriz:</p>
+<p><strong>slice(başlangıç, boy) ya da slice(aralık)</strong></p>
+<p>Array içinden kesip başka bir Array oluşturmak için kullanılır. <strong>başlangiç</strong>
+indeks’indeki eleman dahil olmak üzere, boy ya da aralık kadarını kes.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">].</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; [1, 2] # 0.dan itibaren 2 tane</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">].</span><span class="n">slice</span><span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># =&gt; [3, 4] # 2.den itibaren 2 tane</span>
+</code></pre></div>
+<p><strong>first</strong> ve <strong>last</strong></p>
+<p>Adından da anlaşılacağı gibi, Array’in ilk ve son elemanları için kullanılır:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">first</span> <span class="c1"># =&gt; 1</span>
+<span class="n">a</span><span class="o">.</span><span class="n">last</span> <span class="c1"># =&gt; 5</span>
+</code></pre></div>
+<p>Eğer parametre geçersek, <strong>ilk n</strong> ya da <strong>son n</strong> elemanları alabiliriz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">first</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; [1, 2]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">last</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># =&gt; [4, 5]</span>
+</code></pre></div>
+<p><strong>find</strong> (<strong>detect</strong>), <strong>find_all</strong>, <strong>index</strong>, <strong>find_index</strong></p>
+<p><code>find</code> ile blok içinde koşula uyan ilk Array elemanını, <code>find_all</code> ile tümünü
+alırız:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">].</span><span class="n">find</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; &quot;Uğur&quot;</span>
+<span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">].</span><span class="n">find_all</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;]</span>
+</code></pre></div>
+<p><code>detect</code> ile <code>find</code> aynı işi yapar.</p>
+<p><code>index</code>, <code>find_index</code> ile elemanın index’ini buluruz:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">].</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>                 <span class="c1"># =&gt; 4</span>
+<span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">].</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Ezel&quot;</span><span class="p">)</span>      <span class="c1"># =&gt; 2</span>
+<span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">].</span><span class="n">find_index</span><span class="p">(</span><span class="s2">&quot;Ezel&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2</span>
+</code></pre></div>
+<p><strong>clear</strong></p>
+<p>Array’i temizlemek için kullanılır :)</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">clear</span> <span class="c1"># =&gt; []</span>
+<span class="n">a</span>       <span class="c1"># =&gt; []</span>
+</code></pre></div>
+<p><strong>reverse</strong></p>
+<p>Array’i terse çevir.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">reverse</span> <span class="c1"># =&gt; [5, 4, 3, 2, 1]</span>
+</code></pre></div>
+<p><strong>sample</strong></p>
+<p>Array’den <strong>random</strong> olarak eleman almaya yarar. Eğer parametre geçilirse
+geçilen adet kadar random eleman döner.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">sample</span>    <span class="c1"># =&gt; 3</span>
+<span class="n">a</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; [5, 1, 3]</span>
+</code></pre></div>
+<p><strong>shuffle</strong></p>
+<p>Array’in içindeki elemanların index’lerini karıştırır :)</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">shuffle</span> <span class="c1"># =&gt; [5, 4, 1, 3, 2]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">shuffle</span> <span class="c1"># =&gt; [1, 2, 3, 5, 4]</span>
+</code></pre></div>
+<p><strong>sort</strong></p>
+<p>Array içindeki elemanları <code>&lt;=&gt;</code> mantığıyla sıralar.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">sort</span> <span class="c1"># =&gt; [1, 2, 3, 4, 5, 11]</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="o">]</span>
+<span class="n">b</span><span class="o">.</span><span class="n">sort</span> <span class="c1"># =&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;z&quot;]</span>
+</code></pre></div>
+<p><strong>fill</strong></p>
+<p>Array’in içini ilgili değerle doldurmak için kullanılır. İşlem sonucunda
+orijinal Array’in değeri değişir. Yani ne ile <strong>fill</strong> ettiyseniz Array artık
+o değerlerdedir.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>       <span class="c1"># =&gt; [&quot;x&quot;, &quot;x&quot;, &quot;x&quot;, &quot;x&quot;] # tüm elemanları x yaptı</span>
+<span class="n">a</span>                 <span class="c1"># =&gt; [&quot;x&quot;, &quot;x&quot;, &quot;x&quot;, &quot;x&quot;] # artık a’nın yeni değeri bu</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>    <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;y&quot;, &quot;y&quot;] # 2.den itibaren y ile doldur</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span> <span class="c1"># 2.den itibaren 1 tane doldur</span>
+<span class="n">a</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;z&quot;, &quot;Ömer&quot;]</span>
+</code></pre></div>
+<p>Keza;</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">fill</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">5</span> <span class="p">}</span>     <span class="c1"># =&gt; [0, 5, 10, 15, 20]</span>
+<span class="n">a</span>                        <span class="c1"># =&gt; [0, 5, 10, 15, 20]</span>
+</code></pre></div>
+<p>şeklinde de kullanılır.</p>
+<p><strong>flatten</strong></p>
+<p>Array içinde Array elemanları varsa, tek harekette bunları düz tek bir Array
+haline getirebiliriz.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="ss">:c</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">66</span><span class="p">,</span> <span class="o">[</span><span class="mi">5</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="o">.</span><span class="mi">1</span><span class="o">]]].</span><span class="n">flatten</span> <span class="c1"># =&gt; [1, 2, &quot;a&quot;, &quot;b&quot;, :c, 66, 5.5, 3.1]</span>
+</code></pre></div>
+<p><strong>rotate</strong></p>
+<p>Array elemanları kendi içinde kaydırır.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">rotate</span>    <span class="c1"># =&gt; [2, 3, 4, 5, 1] # 1 kaydırdı</span>
+<span class="n">a</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; [3, 4, 5, 1, 2] # 2 kaydırdı, ilk 2 elemanı sona koydu!</span>
+</code></pre></div>
+<p>Varsayılan değer <strong>1</strong>’dir.</p>
+<p><strong>zip</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span> <span class="o">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="o">]</span>
+
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># =&gt; [[1, 4, 7], [2, 5, 8], [3, 6, 9]]</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">].</span><span class="n">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>      <span class="c1"># =&gt; [[1, 4, 7], [2, 5, 8]]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">8</span><span class="o">]</span><span class="p">)</span>    <span class="c1"># =&gt; [[4, 1, 8], [5, 2, nil], [6, nil, nil]]</span>
+</code></pre></div>
+<p><code>[1, 2, 3].zip(a, b)</code> işlemini yaparken, önce 0.elemanı yani <strong>1</strong>’i aldı,
+sonra <strong>a</strong>’nun 0.elemanını aldı, sonra da <strong>b</strong>’nin 0.elemanını aldı ve
+paketledi : <code>[1, 4, 7]</code> aynı işi 1. ve 2. elemanlar için yaptı.</p>
+<p><code>[1, 2].zip(a, b)</code> yaparken, Array boyları eşit olmadığı için <code>[1, 2]</code> sadece
+2 elemanlı olduğu için bu işlemi 0. ve 1. elemanlar için yaptı.</p>
+<p>Son örnekte index’e karşılık gelmediği için elemanlar <code>nil</code> geldi!</p>
+<p><strong>transpose</strong></p>
+<p>Array içindeki Array’leri satır gibi düşünüp bunları sütuna çeviriyor gibi
+algılayabilirsiniz.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">]]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">transpose</span>   <span class="c1"># =&gt; [[1, 3, 5], [2, 4, 6]]</span>
+
+<span class="c1"># [</span>
+<span class="c1">#   [1, 2],</span>
+<span class="c1">#   [3, 4],</span>
+<span class="c1">#   [5, 6]</span>
+<span class="c1"># ]</span>
+<span class="c1"># -&gt; [1, 3, 5], [2, 4, 5]</span>
+<span class="c1">#</span>
+</code></pre></div>
+<h2 id="tip-ceviricileri">Tip Çeviricileri</h2>
+<p><code>to_a</code> ve <code>to_ary</code> kendisini döner, asıl görevi eğer alt sınıftan çağrılmışsa,
+yani Array’den türeyen başka bir Class’da kullanıldığında direk Array’e
+dönüştürür.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">].</span><span class="n">to_a</span>       <span class="c1"># =&gt; [&quot;a&quot;, 1, &quot;b&quot;, 2]</span>
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">].</span><span class="n">to_ary</span>     <span class="c1"># =&gt; [&quot;a&quot;, 1, &quot;b&quot;, 2]</span>
+<span class="o">[[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">]].</span><span class="n">to_h</span>   <span class="c1"># =&gt; {&quot;a&quot;=&gt;1, &quot;b&quot;=&gt;2}</span>
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">].</span><span class="n">to_s</span>       <span class="c1"># =&gt; &quot;[\&quot;a\&quot;, 1, \&quot;b\&quot;, 2]&quot;</span>
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">].</span><span class="n">inspect</span>    <span class="c1"># =&gt; &quot;[\&quot;a\&quot;, 1, \&quot;b\&quot;, 2]&quot;</span>
+</code></pre></div>
+<p><code>entries</code> de aynen <code>to_a</code> gibi çalışır:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span>         <span class="c1"># =&gt; 1..3</span>
+<span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">entries</span> <span class="c1"># =&gt; [1, 2, 3]</span>
+<span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>    <span class="c1"># =&gt; [1, 2, 3]</span>
+</code></pre></div>
+<p><strong>grep</strong></p>
+<p>Aslında bu konuları <strong>Regular Expressions</strong>’da göreceğiz ama yeri gelmişken
+hızla değinelim. Array içinde elemanları <strong>Regex</strong> koşullarına göre
+filtreleyebiliyoruz:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>        <span class="c1"># =&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+
+<span class="c1"># 2’den 5’e kadar (5 dahil)</span>
+<span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">grep</span> <span class="mi">2</span><span class="o">..</span><span class="mi">5</span>   <span class="c1"># =&gt; [2, 3, 4, 5]</span>
+
+<span class="c1"># sadece .com olan elemanları al</span>
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;http://webbox.io&quot;</span><span class="o">].</span><span class="n">grep</span><span class="p">(</span><span class="sr">/^http.+\.com/</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;http://example.com&quot;]</span>
+</code></pre></div>
+<p><strong>pack</strong></p>
+<p>Array’in içeriğini verilen direktife göre <strong>Binary String</strong> haline getirir.
+Uzunca bir <a href="http://www.ruby-doc.org/core-2.1.2/Array.html#method-i-pack">direktif
+listesi</a> var.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># A: String olarak işle, space karakteri kullan</span>
+<span class="c1"># 5: Uzunluğu 5 karakter olsun</span>
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">].</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;A5A5A5&quot;</span><span class="p">)</span>            <span class="c1"># =&gt; &quot;a    b    c    &quot;</span>
+
+<span class="c1"># Uzunluğu 5’ten büyük olan kesintiye uğradı</span>
+<span class="o">[</span><span class="s2">&quot;ali&quot;</span><span class="p">,</span> <span class="s2">&quot;burak&quot;</span><span class="p">,</span> <span class="s2">&quot;cengiz&quot;</span><span class="o">].</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;A5A5A5&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &quot;ali  burakcengi&quot;</span>
+
+<span class="c1"># a: String olarak işle, null yani \x00 karakteri kullan</span>
+<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">].</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;a3a3a3&quot;</span><span class="p">)</span>            <span class="c1"># =&gt; &quot;a\x00\x00b\x00\x00c\x00\x00&quot;</span>
+</code></pre></div>
+<h2 id="iterasyon-ve-block-kullanm">İterasyon ve Block Kullanımı</h2>
+<p><strong>collect / map { |eleman| blok } → yeni_array</strong></p>
+<p>Blok içinde gelen kodu her elemana uygular, yeni Array döner:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">collect</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>       <span class="c1"># =&gt; [2, 4, 6, 8, 10]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">collect</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="s2">&quot;sayı </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span> <span class="c1"># =&gt; [&quot;sayı 1&quot;, &quot;sayı 2&quot;, &quot;sayı 3&quot;, &quot;sayı 4&quot;, &quot;sayı 5&quot;]</span>
+</code></pre></div>
+<p><code>map</code> de aynı işi yapar:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">].</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">isim</span><span class="o">|</span> <span class="s2">&quot;İsim: </span><span class="si">#{</span><span class="n">isim</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span> <span class="c1"># =&gt; [&quot;İsim: Uğur&quot;, &quot;İsim: Yeşim&quot;, &quot;İsim: Ezel&quot;, &quot;İsim: Ömer&quot;]</span>
+<span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">].</span><span class="n">collect</span> <span class="p">{</span> <span class="o">|</span><span class="n">isim</span><span class="o">|</span> <span class="s2">&quot;İsim: </span><span class="si">#{</span><span class="n">isim</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span> <span class="c1"># =&gt; [&quot;İsim: Uğur&quot;, &quot;İsim: Yeşim&quot;, &quot;İsim: Ezel&quot;, &quot;İsim: Ömer&quot;]</span>
+</code></pre></div>
+<p><strong>select</strong></p>
+<p>Blok içinden gelen ifadenin <strong>true</strong> / <strong>false</strong> olmasına göre filtre yapar ve
+yeni <strong>Array</strong> döner:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="o">].</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; [2, 10, 20] # 2’ye tam bölünenler</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;ali&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="o">].</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="no">Fixnum</span><span class="p">)</span> <span class="p">}</span> <span class="c1"># =&gt; [1, 2, 15, 20] # sadece sayılar</span>
+</code></pre></div>
+<p><strong>reject</strong></p>
+<p><code>select</code>in tersidir.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="o">].</span><span class="n">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; [1, 3, 15] # 2’ye tam bölülenleri at</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;ali&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="o">].</span><span class="n">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="no">Fixnum</span><span class="p">)</span> <span class="p">}</span> <span class="c1"># =&gt; [&quot;3&quot;, &quot;ali&quot;] # Sayı olanları at</span>
+</code></pre></div>
+<p><strong>keep_if</strong></p>
+<p>Blok içindeki ifade’den sadece <code>false</code> dönenleri atar ve Array’in orjinal
+değerini bozar, değiştirir.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">keep_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; [2, 10, 20] # 2’ye bölünemeyenler false geldiği için düştüler.</span>
+<span class="n">a</span> <span class="c1"># =&gt; [2, 10, 20] # a artık bu!</span>
+</code></pre></div>
+<p><strong>combination(n) { |c| blok } → array</strong></p>
+<p>Matematikteki kombinasyon işlemidir. 1, 2 ve 3 sayılarının 2’li kombinasyonu:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1], [2], [3]]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1, 2], [1, 3], [2, 3]]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;Olasıklar: </span><span class="si">#{</span><span class="n">c</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot; ve &quot;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># Olasıklar: 1 ve 2</span>
+<span class="c1"># Olasıklar: 1 ve 3</span>
+<span class="c1"># Olasıklar: 2 ve 3</span>
+</code></pre></div>
+<p><strong>permutation</strong></p>
+<p>Aynı kombinasyon gibi, matematikteki permütasyon işlemidir.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">permutation</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]</span>
+</code></pre></div>
+<p>Eğer parametre geçersek kaçlı permütasyon olduğunu belirtiriz:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1], [2], [3]]</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">permutation</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2]]</span>
+</code></pre></div>
+<p><strong>repeated_combination</strong>, <strong>repeated_permutation</strong></p>
+<p><code>combination</code> ile <code>repeated_combination</code> arasındaki farkı örnekle görelim:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">combination</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1], [2], [3]]</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">repeated_combination</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1], [2], [3]]</span>
+
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">combination</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1, 2], [1, 3], [2, 3]]</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">repeated_combination</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1, 1], [1, 2], [1, 3], [2, 2], [2, 3], [3, 3]]</span>
+</code></pre></div>
+<p><code>combination</code> olası tekil sonucu, <code>repeated_combination</code> pas edilen sayıya
+göre tekrar da edebilen sonucu döner. Aynısı <code>repeated_permutation</code> için de
+geçerlidir:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1], [2], [3]]</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">repeated_permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1], [2], [3]]</span>
+
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">permutation</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2]]</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">repeated_permutation</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]]</span>
+</code></pre></div>
+<p><strong>product</strong></p>
+<p>Array ve argüman olarak geçilecek diğer Array/lerin elemanlarıyla oluşabilecek
+tüm alternatifleri üretmenizi sağlar.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">product</span>            <span class="c1"># =&gt; [[1], [2], [3]]</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">product</span><span class="p">(</span><span class="o">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">)</span>    <span class="c1"># =&gt; [[1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]]</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">product</span><span class="p">(</span><span class="o">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="o">]</span><span class="p">)</span> <span class="c1"># =&gt; [[1, 7], [1, 8], [1, 9], [2, 7], [2, 8], [2, 9], [3, 7], [3, 8], [3, 9]]</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">product</span><span class="p">(</span><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">]</span><span class="p">)</span> <span class="c1"># =&gt; [[1, &quot;a&quot;, &quot;x&quot;], [1, &quot;a&quot;, &quot;y&quot;], [1, &quot;b&quot;, &quot;x&quot;], [1, &quot;b&quot;, &quot;y&quot;], [2, &quot;a&quot;, &quot;x&quot;], [2, &quot;a&quot;, &quot;y&quot;], [2, &quot;b&quot;, &quot;x&quot;], [2, &quot;b&quot;, &quot;y&quot;], [3, &quot;a&quot;, &quot;x&quot;], [3, &quot;a&quot;, &quot;y&quot;], [3, &quot;b&quot;, &quot;x&quot;], [3, &quot;b&quot;, &quot;y&quot;]]</span>
+</code></pre></div>
+<p><strong>count</strong></p>
+<p>Az önce method olarak işlediğimiz <code>count</code> ile başka ilginç işler de yapabiliyoruz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">count</span>                    <span class="c1"># =&gt; 5 # eleman sayısı</span>
+<span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>                 <span class="c1"># =&gt; 2 # kaç tane 2 var?</span>
+<span class="n">a</span><span class="o">.</span><span class="n">count</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; 3 # kaç tane 2’ye tam bölünen var?</span>
+</code></pre></div>
+<p><strong>cycle(n=nil) { |obje| blok } → nil</strong></p>
+<p>Pas edilen blok’u <strong>n</strong> defa tekrar eder.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [1, 2, 3, 1, 2, 3] # 2 defa</span>
+<span class="n">a</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3] # 3defa</span>
+<span class="n">a</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">o</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;Sayı </span><span class="si">#{</span><span class="n">o</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># Sayı 1</span>
+<span class="c1"># Sayı 2</span>
+<span class="c1"># Sayı 3</span>
+<span class="c1"># Sayı 1</span>
+<span class="c1"># Sayı 2</span>
+<span class="c1"># Sayı 3</span>
+</code></pre></div>
+<p>Eğer <code>[1, 2, 3].cycle { |i| puts i }</code> gibi bir işlem yaparsanız, default
+olarak <code>nil</code> geçmiş olursun ve bu sonsuz döngüle girer, sonsuza kadar 1, 2, 3,
+1, 2, 3 .... şeklinde devam eder!</p>
+<p><strong>drop_while { |array| blok } → yeni array</strong></p>
+<p><code>delete_if</code> ile aynı işi yapar.</p>
+<div class="highlight"><pre><span></span><code><span class="n">notlar</span> <span class="o">=</span> <span class="o">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">65</span><span class="o">]</span>
+<span class="n">notlar</span><span class="o">.</span><span class="n">drop_while</span> <span class="p">{</span><span class="o">|</span><span class="n">notu</span><span class="o">|</span> <span class="n">notu</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="p">}</span>   <span class="c1"># =&gt; [53, 70, 99, 65]</span>
+</code></pre></div>
+<p>Koşula göre Array’den atar gibi düşünebilirsiniz. Not 50’den küçükse bırak.</p>
+<p><strong>take_while</strong></p>
+<p>Aynı <code>drop_while</code> gibi çalışır ama tersini yapar:</p>
+<div class="highlight"><pre><span></span><code><span class="n">notlar</span> <span class="o">=</span> <span class="o">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">65</span><span class="o">]</span>
+<span class="n">notlar</span><span class="o">.</span><span class="n">take_while</span> <span class="p">{</span> <span class="o">|</span><span class="n">notu</span><span class="o">|</span> <span class="n">notu</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="p">}</span> <span class="c1"># =&gt; [40, 45]</span>
+</code></pre></div>
+<p>Koşula göre Array’e ekler gibi düşünebilirsiniz. Not 50’den küçükse sepete
+ekle! :)</p>
+<p><strong>each</strong>, <strong>each_index</strong>, <strong>each_with_index</strong>, <strong>each_slice</strong>, <strong>each_cons</strong>,
+<strong>each_with_object</strong>, <strong>reverse_each</strong></p>
+<p>Array ve hatta Enumator’lerin can damarıdır. Ruby yazarken siz de göreceksiniz
+<code>each</code> en sık kullandığınız iterasyon (<em>yineleme / tekrarlama</em>) yöntemi olacak.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">each</span> <span class="c1"># =&gt; #&lt;Enumerator: [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;]:each&gt;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">isim</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;İsim: </span><span class="si">#{</span><span class="n">isim</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># İsim: Uğur</span>
+<span class="c1"># İsim: Yeşim</span>
+<span class="c1"># İsim: Ezel</span>
+<span class="c1"># İsim: Ömer</span>
+</code></pre></div>
+<p>Array ve içinde dolaşılabilir her nesnede işe yarar. Birde bunun <strong>index</strong>’li
+hali var;</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">each_index</span> <span class="c1"># =&gt; #&lt;Enumerator: [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;]:each_index&gt;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">each_index</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [0, 1, 2, 3]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">each_index</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;Index: </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">, Değeri: </span><span class="si">#{</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># Index: 0, Değeri: Uğur</span>
+<span class="c1"># Index: 1, Değeri: Yeşim</span>
+<span class="c1"># Index: 2, Değeri: Ezel</span>
+<span class="c1"># Index: 3, Değeri: Ömer</span>
+</code></pre></div>
+<p>ya da bu işi;</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">each_with_index</span> <span class="p">{</span> <span class="o">|</span><span class="n">eleman</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;index: </span><span class="si">#{</span><span class="n">index</span><span class="si">}</span><span class="s2">, eleman: </span><span class="si">#{</span><span class="n">eleman</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># index: 0, eleman: Uğur</span>
+<span class="c1"># index: 1, eleman: Yeşim</span>
+<span class="c1"># index: 2, eleman: Ezel</span>
+<span class="c1"># index: 3, eleman: Ömer</span>
+</code></pre></div>
+<p><code>each_slice</code> da Array’i gruplamak, parçalara ayırmak içindir. Geçilen
+parametre bu işe yarar:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">each_slice</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; #&lt;Enumerator: [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;]:each_slice(2)&gt;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">each_slice</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[&quot;Uğur&quot;, &quot;Yeşim&quot;], [&quot;Ezel&quot;, &quot;Ömer&quot;]]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">each_slice</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">ikili_grup</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">ikili_grup</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># [&quot;Uğur&quot;, &quot;Yeşim&quot;]</span>
+<span class="c1"># [&quot;Ezel&quot;, &quot;Ömer&quot;]</span>
+</code></pre></div>
+<p><code>each_cons</code> ise slice gibi ama mutlaka belirtilen miktarda parça üretir.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 3’lü üret</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="o">].</span><span class="n">each_cons</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1, 2, 3], [2, 3, 4], [3, 4, 5], [4, 5, 6]]</span>
+
+<span class="c1"># 4’lü üret</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="o">].</span><span class="n">each_cons</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6]]</span>
+</code></pre></div>
+<p><code>each_with_object</code> de ise, iterasyona girerken bir nesne pas edip, o nesneyi
+doldurabilirsiniz.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">].</span><span class="n">each_with_object</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="p">,</span> <span class="n">given_object</span><span class="o">|</span>
+  <span class="n">given_object</span> <span class="o">&lt;&lt;</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="p">}</span> <span class="c1"># =&gt; [2, 4, 6, 8]</span>
+</code></pre></div>
+<p><code>number</code> Array’den gelen eleman (<em>1, 2, 3, 4 gibi</em>), <code>given_object</code> ise
+<code>each_with_object([])</code> method’da geçtiğimiz boş Array <code>[]</code>.</p>
+<p><code>reverse_each</code> aslında Array’i otomatik olarak ters çevirir yani <strong>reverse</strong>
+eder ve içinde dolaşmanızı sağlar:</p>
+<div class="highlight"><pre><span></span><code><span class="n">computers</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Commodore 64&quot;</span><span class="p">,</span> <span class="s2">&quot;Amiga&quot;</span><span class="p">,</span> <span class="s2">&quot;Sinclair&quot;</span><span class="p">,</span> <span class="s2">&quot;Amstrad&quot;</span><span class="o">]</span>
+<span class="n">computers</span><span class="o">.</span><span class="n">reverse_each</span> <span class="c1"># =&gt; #&lt;Enumerator: [&quot;Commodore 64&quot;, &quot;Amiga&quot;, &quot;Sinclair&quot;, &quot;Amstrad&quot;]:reverse_each&gt;</span>
+<span class="n">computers</span><span class="o">.</span><span class="n">reverse_each</span><span class="o">.</span><span class="n">to_a</span> <span class="c1"># =&gt; [&quot;Amstrad&quot;, &quot;Sinclair&quot;, &quot;Amiga&quot;, &quot;Commodore 64&quot;]</span>
+
+<span class="n">computers</span><span class="o">.</span><span class="n">reverse_each</span> <span class="p">{</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;Bilgisayar: </span><span class="si">#{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+
+<span class="c1"># Bilgisayar: Amstrad</span>
+<span class="c1"># Bilgisayar: Sinclair</span>
+<span class="c1"># Bilgisayar: Amiga</span>
+<span class="c1"># Bilgisayar: Commodore 64</span>
+</code></pre></div>
+<p><strong>find_index</strong></p>
+<p>İndeks’i ararken blok işleyebiliriz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">computers</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Commodore 64&quot;</span><span class="p">,</span> <span class="s2">&quot;Amiga&quot;</span><span class="p">,</span> <span class="s2">&quot;Sinclair&quot;</span><span class="p">,</span> <span class="s2">&quot;Amstrad&quot;</span><span class="o">]</span>
+<span class="n">computers</span><span class="o">.</span><span class="n">find_index</span> <span class="p">{</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;Amstrad&quot;</span> <span class="p">}</span> <span class="c1"># =&gt; 3</span>
+</code></pre></div>
+<p><strong>freeze</strong> ve <strong>frozen?</strong></p>
+<p>Array’i kitlemek için kullanılır. Yani <strong>freeze</strong> (<em>dondurulmuş</em>) bir Array’e
+yeni eleman eklenemez. Keza <code>Array#sort</code> esnasında da otomatik olarak
+<strong>freeze</strong> olur sort bitince buz çözülür!</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">freeze</span>
+<span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Fazilet&quot;</span>  <span class="c1"># Yeni isim eklemek mümkün değildir!</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">RuntimeError</span><span class="o">:</span> <span class="n">can</span><span class="err">’</span><span class="n">t</span> <span class="n">modify</span> <span class="n">frozen</span> <span class="n">Array</span>
+</code></pre></div>
+
+<p>Array’de buzlanma var mı yok mu anlamak için <strong>frozen?</strong> kullanırız:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Uğur&quot;</span><span class="p">,</span> <span class="s2">&quot;Yeşim&quot;</span><span class="p">,</span> <span class="s2">&quot;Ezel&quot;</span><span class="p">,</span> <span class="s2">&quot;Ömer&quot;</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">freeze</span>  <span class="c1"># =&gt; [&quot;Uğur&quot;, &quot;Yeşim&quot;, &quot;Ezel&quot;, &quot;Ömer&quot;]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">frozen?</span> <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p><strong>min</strong>, <strong>max</strong>, <strong>minmax</strong>, <strong>min_by</strong>, <strong>max_by</strong> ve <strong>minmax_by</strong></p>
+<p><code>min</code> ve <code>max</code> ile Array elemanlarından en küçük/büyük değeri alırız:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">min</span> <span class="c1"># =&gt; 1</span>
+<span class="n">a</span><span class="o">.</span><span class="n">max</span> <span class="c1"># =&gt; 11</span>
+</code></pre></div>
+<p>Peki sayı yerine metinler olsa ne olacaktı?</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;abcd&quot;</span><span class="o">]</span>
+<span class="n">m</span><span class="o">.</span><span class="n">min</span> <span class="c1"># =&gt; &quot;a&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">max</span> <span class="c1"># =&gt; &quot;abcd&quot;</span>
+</code></pre></div>
+<p>peki, <code>m</code> Array’i şöyle olsaydı: 
+<code>m = ["a", "ab", "abc", "abcd", "111111111"]</code> sonuç ne olurdu?</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;111111111&quot;</span><span class="o">]</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">min</span> <span class="c1"># =&gt; &quot;111111111&quot; # ?</span>
+<span class="n">m</span><span class="o">.</span><span class="n">max</span> <span class="c1"># =&gt; &quot;abcd&quot;</span>
+</code></pre></div>
+<p>Önce <strong>Comparable</strong> mı diyer bakılır, sayılar için çalışan bu yöntem,
+<strong>String</strong> de <code>a &lt;=&gt; b</code> karşılaştırmasına girer ve <strong>Lexicological</strong>
+karşılaştırma yapar. <code>"111111111"</code> karakter sayısı olarak diğerlerine göre çok
+olmasına rağmen, <code>min</code> değer olarak gelir. Eğer karakter sayına göre
+karşılaştırma yapmak gerekiyorsa;</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;111111111&quot;</span><span class="o">]</span>
+<span class="n">m</span><span class="o">.</span><span class="n">min</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span><span class="o">.</span><span class="n">length</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">length</span> <span class="p">}</span>  <span class="c1"># =&gt; &quot;a&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">max</span>                                   <span class="c1"># =&gt; &quot;abcd&quot;</span>
+</code></pre></div>
+<p>Şeklinde yapmak gerekir. Blok kullanabildiğimiz için aynı iş <code>max</code> için de
+geçerlidir. Ya da bu işleri yapabilmek için <code>min_by</code> ve <code>max_by</code>
+kullanabiliriz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;111111111&quot;</span><span class="o">]</span>
+<span class="n">m</span><span class="o">.</span><span class="n">min_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">length</span> <span class="p">}</span>   <span class="c1"># =&gt; &quot;a&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">max_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">length</span> <span class="p">}</span>   <span class="c1"># =&gt; &quot;111111111&quot;</span>
+</code></pre></div>
+<p><code>minmax</code> da Array’in minimum ve maximum’unu döner:</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;abcd&quot;</span><span class="o">]</span>
+<span class="n">m</span><span class="o">.</span><span class="n">min</span>    <span class="c1"># =&gt; &quot;a&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">max</span>    <span class="c1"># =&gt; &quot;abcd&quot;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">minmax</span> <span class="c1"># =&gt; [&quot;a&quot;, &quot;abcd&quot;]</span>
+</code></pre></div>
+<p>Aynı mantıkta <code>minmax_by</code> da gerekli şarta göre <strong>min</strong>, <strong>max</strong> döner:</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;abcd&quot;</span><span class="o">]</span>
+<span class="n">m</span><span class="o">.</span><span class="n">minmax_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">length</span> <span class="p">}</span> <span class="c1"># =&gt; [&quot;a&quot;, &quot;abcd&quot;]</span>
+</code></pre></div>
+<p><strong>all?</strong>, <strong>any?</strong>, <strong>one?</strong>, <strong>none?</strong></p>
+<p>Array içindeki elemanları belli bir koşula göre kontrol etmek için kullanılır.
+Sonuç <strong>Boolean</strong> yani <code>true</code> ya da <code>false</code> döner. Tüm elemanların kontrolü
+koşula uyuyorsa <code>true</code> uymuyorsa <code>false</code> döner.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># acaba hayvanlar dizisindeki isimlerin hepsinin uzunluğu</span>
+<span class="c1"># en az 2 karakter mi?</span>
+
+<span class="n">hayvanlar</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Kedi&quot;</span><span class="p">,</span> <span class="s2">&quot;Köpek&quot;</span><span class="p">,</span> <span class="s2">&quot;Kuş&quot;</span><span class="p">,</span> <span class="s2">&quot;Kurbağa&quot;</span><span class="p">,</span> <span class="s2">&quot;Kaplumbağa&quot;</span><span class="o">]</span>
+<span class="n">hayvanlar</span><span class="o">.</span><span class="n">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">hayvan_ismi</span><span class="o">|</span> <span class="n">hayvan_ismi</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="p">}</span> <span class="c1"># =&gt; true</span>
+
+<span class="c1"># Acaba ilk karfleri K harfimi?</span>
+
+<span class="n">hayvanlar</span><span class="o">.</span><span class="n">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">hayvan_ismi</span><span class="o">|</span> <span class="n">hayvan_ismi</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span> <span class="p">}</span> <span class="c1"># =&gt; true</span>
+
+<span class="c1"># Elemanların her biri true mu?</span>
+<span class="o">[</span><span class="kp">true</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">nil</span><span class="o">].</span><span class="n">all?</span> <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p><code>any?</code> de yanlızca bir tanesi <code>true</code> olsa yeterlidir:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># En azından bir hayvan ismi A ile başlıyor mu?</span>
+
+<span class="n">hayvanlar</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Kedi&quot;</span><span class="p">,</span> <span class="s2">&quot;Köpek&quot;</span><span class="p">,</span> <span class="s2">&quot;At&quot;</span><span class="p">,</span> <span class="s2">&quot;Yılan&quot;</span><span class="p">,</span> <span class="s2">&quot;Balık&quot;</span><span class="o">]</span>
+<span class="n">hayvanlar</span><span class="o">.</span><span class="n">any?</span><span class="p">{</span> <span class="o">|</span><span class="n">hayvan_ismi</span><span class="o">|</span> <span class="n">hayvan_ismi</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span> <span class="p">}</span> <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p><code>one?</code> da ise sadece bir eleman koşula uymalıdır. Yani bir tanesi
+<code>true</code>dönmelidir. Eğer birden fazla eleman koşula <code>true</code> dönerse sonuç <code>false</code>
+olur:</p>
+<div class="highlight"><pre><span></span><code><span class="n">hayvanlar</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Kedi&quot;</span><span class="p">,</span> <span class="s2">&quot;Köpek&quot;</span><span class="p">,</span> <span class="s2">&quot;At&quot;</span><span class="p">,</span> <span class="s2">&quot;Yılan&quot;</span><span class="p">,</span> <span class="s2">&quot;Balık&quot;</span><span class="p">,</span> <span class="s2">&quot;Kaplumbağa&quot;</span><span class="o">]</span>
+
+<span class="c1"># Sadece bir ismin uzunluğu 6 karaterten büyük olmalı!</span>
+<span class="n">hayvanlar</span><span class="o">.</span><span class="n">one?</span><span class="p">{</span> <span class="o">|</span><span class="n">hayvan_ismi</span><span class="o">|</span> <span class="n">hayvan_ismi</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">6</span> <span class="p">}</span> <span class="c1"># =&gt; true</span>
+
+<span class="c1"># Uzunluğu 3’ten büyük 5 isim olduğu için false döndü!</span>
+<span class="n">hayvanlar</span><span class="o">.</span><span class="n">one?</span><span class="p">{</span> <span class="o">|</span><span class="n">hayvan_ismi</span><span class="o">|</span> <span class="n">hayvan_ismi</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; false</span>
+</code></pre></div>
+<p><code>none?</code> da ise hepsi <code>false</code> olmalıdır ki sonuç <code>true</code> dönsün:</p>
+<div class="highlight"><pre><span></span><code><span class="n">hayvanlar</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Kedi&quot;</span><span class="p">,</span> <span class="s2">&quot;Köpek&quot;</span><span class="p">,</span> <span class="s2">&quot;At&quot;</span><span class="p">,</span> <span class="s2">&quot;Yılan&quot;</span><span class="p">,</span> <span class="s2">&quot;Balık&quot;</span><span class="p">,</span> <span class="s2">&quot;Kaplumbağa&quot;</span><span class="o">]</span>
+
+<span class="c1"># Hiçbir ismin uzunluğu 2 karakter olmamalı ? false. At’ın uzunluğu 2</span>
+<span class="n">hayvanlar</span><span class="o">.</span><span class="n">none?</span><span class="p">{</span> <span class="o">|</span><span class="n">hayvan_ismi</span><span class="o">|</span> <span class="n">hayvan_ismi</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">}</span> <span class="c1"># =&gt; false</span>
+
+<span class="c1"># C ile başlayan hayvan ismi olmasın! true. Hiçbir isim C ile başlamıyor</span>
+<span class="n">hayvanlar</span><span class="o">.</span><span class="n">none?</span><span class="p">{</span> <span class="o">|</span><span class="n">hayvan_ismi</span><span class="o">|</span> <span class="n">hayvan_ismi</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span> <span class="p">}</span> <span class="c1"># =&gt; true</span>
+</code></pre></div>
+<p><strong>inject</strong>, <strong>reduce</strong>*</p>
+<p><code>inject</code> ve <code>reduce</code> aynı işi yaparlar ve bir tür akümülator işlemi yapmaya
+yararlar. Blok içinde 2 paramtre kullanılır. Başlama parametresi de alabilir.
+Örneğin Array <code>[1, 2, 3, 4, 5]</code> ve tüm elemanları birbiriyle toplamak
+isitiyoruz.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">].</span><span class="n">inject</span><span class="p">{</span> <span class="o">|</span><span class="n">toplam</span><span class="p">,</span> <span class="n">eleman</span><span class="o">|</span> <span class="n">toplam</span> <span class="o">+</span> <span class="n">eleman</span> <span class="p">}</span> <span class="c1"># =&gt; 15</span>
+
+<span class="c1"># işlem şu şekilde ilerliyor</span>
+<span class="c1"># toplam: 0, eleman: 1</span>
+<span class="c1"># toplam: 1, eleman: 2</span>
+<span class="c1"># toplam: 3, eleman: 3</span>
+<span class="c1"># toplam: 6, eleman: 4</span>
+<span class="c1"># toplam: 10, eleman: 5</span>
+<span class="c1"># sona geldiğinde toplam 10, eleman 5 -&gt; 10 + 5 = 15</span>
+</code></pre></div>
+<p>Eğer başlangıç değeri için parametre geçseydik, örneğin <strong>10</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">].</span><span class="n">inject</span><span class="p">(</span><span class="mi">10</span><span class="p">){</span> <span class="o">|</span><span class="n">toplam</span><span class="p">,</span> <span class="n">eleman</span><span class="o">|</span> <span class="n">toplam</span> <span class="o">+</span> <span class="n">eleman</span> <span class="p">}</span> <span class="c1"># =&gt; 25</span>
+
+<span class="c1"># toplam: 10, eleman: 1</span>
+<span class="c1"># toplam: 11, eleman: 2</span>
+<span class="c1"># toplam: 13, eleman: 3</span>
+<span class="c1"># toplam: 16, eleman: 4</span>
+<span class="c1"># toplam: 20, eleman: 5</span>
+<span class="c1"># sona geldiğinde toplam 20, eleman 5 -&gt; 20 + 5 = 25</span>
+</code></pre></div>
+<p>Aynı işi <code>reduce</code> ile de yapabilirdik.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">].</span><span class="n">reduce</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span> <span class="c1"># =&gt; 15</span>
+</code></pre></div>
+<p>Örnekte her elemanın <code>+</code> methodu’nu çağırıyoruz ve sanki <code>x = x + 1</code>
+mantığında, kendisini ekleye ekleye sonuca varıyoruz.</p>
+<div class="highlight"><pre><span></span><code><span class="n">en_uzun_hayvan_ismi</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;kedi&quot;</span><span class="p">,</span> <span class="s2">&quot;köpek&quot;</span><span class="p">,</span> <span class="s2">&quot;kamplumbağa&quot;</span><span class="o">].</span><span class="n">inject</span> <span class="k">do</span> <span class="o">|</span><span class="n">buffer</span><span class="p">,</span> <span class="n">hayvan</span><span class="o">|</span>
+   <span class="n">buffer</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">hayvan</span><span class="o">.</span><span class="n">length</span> <span class="p">?</span> <span class="n">buffer</span> <span class="p">:</span> <span class="n">hayvan</span>
+<span class="k">end</span>
+
+<span class="n">en_uzun_hayvan_ismi</span> <span class="c1"># =&gt; &quot;kamplumbağa&quot;</span>
+</code></pre></div>
+<p><strong>partition</strong> ve <strong>group_by</strong></p>
+<p><code>partition</code> Array’i 2 parçaya ayırmaya yarar. Sonuç, blok’ta işlenen ifadeye
+bağlı olarak <code>[true_array, false_array]</code> olarak döner. Yani koşula <code>true</code>
+cevap verenlerle <code>false</code> cevap verenler ayrı parçalar halinde döner :)</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">].</span><span class="n">partition</span><span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">.</span><span class="n">even?</span> <span class="p">}</span> <span class="c1"># =&gt; [[2, 4, 6], [1, 3, 5]]</span>
+
+<span class="c1"># Çift sayılar, true_array yani ilk parça:    [2, 4, 6]</span>
+<span class="c1"># Tek sayılar, false_array yani ikinci parça: [1, 3, 5]</span>
+
+<span class="c1"># Sadece çift sayılar gelsin:</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">].</span><span class="n">partition</span><span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">.</span><span class="n">even?</span> <span class="p">}</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="c1"># =&gt; [2, 4, 6]</span>
+</code></pre></div>
+<p><code>group_by</code> gruplama yapmak için kullanılır. Sonuç <strong>Hash</strong> döner, ilk değer
+(<em>key</em>) blok içindeki ifadenin sonucu, ikinci değer (<em>value</em>) ise sonucu
+verenlerin oluşturdu gruptur. 1’den 6’ya kadar sayıları 3’e bölünce kaç
+kaldığını gruplayarak bulalım:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">].</span><span class="n">group_by</span><span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {1=&gt;[1, 4], 2=&gt;[2, 5], 0=&gt;[3, 6]}</span>
+
+<span class="c1"># 3’e bölünce kalanı;</span>
+<span class="c1"># 1 olanlar: [1, 4]</span>
+<span class="c1"># 2 olanlar: [2, 5]</span>
+<span class="c1"># 0 olanlar (tam bölünenler) : [3, 6]</span>
+</code></pre></div>
+<p>Notu 50’den büyük olanlar:</p>
+<div class="highlight"><pre><span></span><code><span class="n">notlar</span> <span class="o">=</span> <span class="o">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">notlar</span><span class="o">.</span><span class="n">group_by</span><span class="p">{</span> <span class="o">|</span><span class="n">notu</span><span class="o">|</span> <span class="n">notu</span> <span class="o">&gt;</span> <span class="mi">40</span> <span class="p">}</span><span class="o">[</span><span class="kp">true</span><span class="o">]</span> <span class="c1"># =&gt; [50, 44, 60, 80, 100, 99, 81]</span>
+</code></pre></div>
+<p><strong>chunk</strong></p>
+<p>Array elemanları koşula göre gruplar.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="o">].</span><span class="n">chunk</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">.</span><span class="n">even?</span> <span class="p">}</span><span class="o">.</span><span class="n">to_a</span>
+
+<span class="c1"># =&gt; [</span>
+<span class="c1">#  [false, [3, 1]],</span>
+<span class="c1">#  [true, [4]],</span>
+<span class="c1">#  [false, [1, 5, 9]],</span>
+<span class="c1">#  [true, [2, 6]],</span>
+<span class="c1">#  [false, [5, 3, 5]]</span>
+<span class="c1"># ]</span>
+</code></pre></div>
+<p><strong>slice_before</strong></p>
+<p>Array içinde belli bir elemana ya da kurala göre parçalara ayırmak için
+kullanılır.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="err">’</span><span class="n">a</span><span class="err">’</span> <span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="err">’</span><span class="n">a</span><span class="err">’</span> <span class="p">,</span> <span class="mi">7</span> <span class="p">,</span> <span class="mi">8</span> <span class="p">,</span> <span class="mi">9</span> <span class="p">,</span> <span class="err">’</span><span class="n">a</span><span class="err">’</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">3</span> <span class="p">,</span> <span class="mi">5</span><span class="o">].</span><span class="n">slice_before</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span> <span class="o">==</span> <span class="err">’</span><span class="n">a</span><span class="err">’</span><span class="p">}</span><span class="o">.</span><span class="n">to_a</span>
+<span class="c1"># =&gt; [[1, 2, 3], [&quot;a&quot;, 4, 5, 6], [&quot;a&quot;, 7, 8, 9], [&quot;a&quot;, 1, 3, 5]]</span>
+</code></pre></div>
+<p><strong>flat_map</strong>, <strong>collect_concat</strong></p>
+<p>İkisi de aynı işi yapar.</p>
+<p>Önce <code>map</code> eder sonra <code>flatten</code> yapar.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pos_neg</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">].</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="o">[</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="n">n</span><span class="o">]</span> <span class="p">}</span>
+<span class="n">pos_neg</span>         <span class="c1"># =&gt; [[1, -1], [2, -2], [3, -3], [4, -4], [5, -5], [6, -6]]</span>
+<span class="n">pos_neg</span><span class="o">.</span><span class="n">flatten</span> <span class="c1"># =&gt; [1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6]</span>
+
+<span class="c1"># yerine:</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">].</span><span class="n">flat_map</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="o">[</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="n">n</span><span class="o">]</span> <span class="p">}</span> <span class="c1"># =&gt; [1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6]</span>
+</code></pre></div>
+<p><strong>sort_by</strong></p>
+<p>Aynı <code>sort</code> gibi çalışır, Blok kullanır. İfadenin <code>true</code> olmasına göre çalışır:</p>
+<div class="highlight"><pre><span></span><code><span class="n">hayvanlar</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;kamplumbağa&quot;</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">,</span> <span class="s2">&quot;eşşek&quot;</span><span class="p">,</span> <span class="s2">&quot;kurbağa&quot;</span><span class="p">,</span> <span class="s2">&quot;ayı&quot;</span><span class="o">]</span>
+
+<span class="c1"># isimleri uzunluklarına göre küçükten büyüğe doğru sıralayalım</span>
+<span class="n">hayvanlar</span><span class="o">.</span><span class="n">sort_by</span><span class="p">{</span> <span class="o">|</span><span class="n">isim</span><span class="o">|</span> <span class="n">isim</span><span class="o">.</span><span class="n">length</span> <span class="p">}</span> <span class="c1"># =&gt; [&quot;at&quot;, &quot;ayı&quot;, &quot;eşşek&quot;, &quot;kurbağa&quot;, &quot;kamplumbağa&quot;]</span>
+
+<span class="c1"># isimleri uzunluklarına göre büyükten küçüğe doğru sıralayalım</span>
+<span class="n">hayvanlar</span><span class="o">.</span><span class="n">sort_by</span><span class="p">{</span> <span class="o">|</span><span class="n">isim</span><span class="o">|</span> <span class="o">-</span><span class="n">isim</span><span class="o">.</span><span class="n">length</span> <span class="p">}</span> <span class="c1"># =&gt; [&quot;at&quot;, &quot;ayı&quot;, &quot;eşşek&quot;, &quot;kurbağa&quot;, &quot;kamplumbağa&quot;]</span>
+</code></pre></div>
+<p><strong>bsearch</strong></p>
+<p><strong>Binary</strong> arama yapar, <code>O(log n)</code> formülünü uygular, buradaki <code>n</code> Array’in
+boyudur. <strong>Find minimum</strong> gibidir, yani koşula ilk uyanı bul gibi...</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 2’den büyük 3, 4 ve 5 olmasına rağmen tek sonuç</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">].</span><span class="n">bsearch</span><span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="p">}</span>  <span class="c1"># =&gt; 3</span>
+
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">].</span><span class="n">bsearch</span><span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">4</span> <span class="p">}</span> <span class="c1"># =&gt; 4</span>
+</code></pre></div>
+<h2 id="tehlikeli-islemler">Tehlikeli İşlemler</h2>
+<p>Başlarda da bahsettiğimiz gibi method ismi <code>!</code> ile bitiyorsa bu ilgili nesnede
+değişiklik yapıyor olduğumuz anlamına gelir. Array’lerde de bu tür method’lar
+var:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="ss">:reverse!</span><span class="p">,</span> <span class="ss">:rotate!</span><span class="p">,</span> <span class="ss">:sort!</span><span class="p">,</span> <span class="ss">:sort_by!</span><span class="p">,</span> <span class="ss">:collect!</span><span class="p">,</span> <span class="ss">:map!</span><span class="p">,</span> <span class="ss">:select!</span><span class="p">,</span> <span class="ss">:reject!</span><span class="p">,</span> <span class="ss">:slice!</span><span class="p">,</span> <span class="ss">:uniq!</span><span class="p">,</span> <span class="ss">:compact!</span><span class="p">,</span> <span class="ss">:flatten!</span><span class="p">,</span> <span class="ss">:shuffle!</span><span class="o">]</span>
+</code></pre></div>
+<p>Bu method’lar orijinal Array’i bozar. Yani;</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">reverse!</span> <span class="c1"># =&gt; [5, 4, 3, 2, 1]</span>
+
+<span class="c1"># a artık reverse edilmiş halde!</span>
+<span class="n">a</span>          <span class="c1"># =&gt; [5, 4, 3, 2, 1]</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../03-string/" class="md-footer__link md-footer__link--prev" aria-label="Previous: String" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              String
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../05-hash/" class="md-footer__link md-footer__link--next" aria-label="Next: Hash" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Hash
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>
