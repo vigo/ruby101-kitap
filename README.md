@@ -1,3 +1,5 @@
+[![Documentation Status](https://readthedocs.org/projects/ruby-101-kitab/badge/?version=latest)](https://ruby-101-kitab.readthedocs.io/tr/latest/?badge=latest)
+
 # Ruby 101 Kitabı
 
 https://github.com/vigo/ruby101-kitap
