@@ -11,6 +11,11 @@ Biliyorum biraz eskidi ama genel olarak hemen hemen her şey halen geçerli.
 
 `mkdocs` entegrasyonu yaptım, rahat rahat web üzerinden okunabiliyor artık!
 
+Kitabı web üzerinden okumak için;
+
+- https://ruby-101-kitab.readthedocs.io/tr/latest/ (pdf ve epub da var)
+- https://vigo.github.io/ruby101-kitap/
+
 ---
 
 ## Lisans
