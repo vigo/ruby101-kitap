@@ -1,4 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/ruby-101-kitab/badge/?version=latest)](https://ruby-101-kitab.readthedocs.io/tr/latest/?badge=latest)
+![Powered by Rake](https://img.shields.io/badge/powered_by-rake-blue?logo=ruby)
+
 
 # Ruby 101 Kitabı
 
